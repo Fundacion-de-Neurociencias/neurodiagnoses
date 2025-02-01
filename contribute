@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute to Neurodiagnoses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>Contribute to Neurodiagnoses</header>
+    <div class="container">
+        <h1>How to Get Involved</h1>
+        <p>We welcome contributions from AI researchers, neuroscientists, and clinicians.</p>
+        <p>Ways to contribute:</p>
+        <ul>
+            <li>💡 Help with AI model development.</li>
+            <li>🔬 Share clinical and neuroimaging datasets.</li>
+            <li>📖 Improve our research documentation.</li>
+        </ul>
+        <a href="index.html" class="button">Back to Home</a>
+    </div>
+</body>
+</html>
