@@ -10,8 +10,197 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Neurodiagnoses</h1>
+    <h1>Welcome to Neurodiagnoses Project</h1>
     <p>An AI-powered tridimensional diagnostic framework for CNS diseases.</p>
     <p>Explore our research and AI models.</p>
+    ==== **Overview** ====
+
+This project develops a **tridimensional diagnostic framework** for **CNS diseases**, incorporating **AI-powered annotation tools** to improve **interpretability, standardization, and clinical utility**. The methodology integrates **multi-modal data**, including **genetic, neuroimaging, neurophysiological, and biomarker datasets**, and applies **machine learning models** to generate **structured, explainable diagnostic outputs**.
+
+=== **Workflow** ===
+
+1. (((
+**We Use GitHub to [[Store and develop AI models, scripts, and annotation pipelines.>>https://github.com/users/manuelmenendezgonzalez/projects/1/views/1]]**
+
+* Create a **GitHub repository** for AI scripts and models.
+* Use **GitHub Projects** to manage research milestones.
+)))
+1. (((
+**We Use EBRAINS for Data & Collaboration**
+
+* Store **biomarker and neuroimaging data** in **EBRAINS Buckets**.
+* Run **Jupyter Notebooks** in **EBRAINS Lab** to test AI models.
+* Use **EBRAINS Wiki** for structured documentation and research discussion.
+)))
+
+----
+
+=== **1. Data Integration** ===
+
+==== **Data Sources** ====
+
+**Biomedical Ontologies & Databases:**
+
+* **Human Phenotype Ontology (HPO)** for symptom annotation.
+* **Gene Ontology (GO)** for molecular and cellular processes.
+
+**Dimensionality Reduction and Interpretability:**
+
+* **Evaluate interpretability** using metrics like the **Area Under the Interpretability Curve (AUIC)**.
+* **Leverage DEIBO (Data-driven Embedding Interpretation Based on Ontologies)** to connect model dimensions to ontology concepts.
+
+**Neuroimaging & EEG/MEG Data:**
+
+* **MRI volumetric measures** for brain atrophy tracking.
+* **EEG functional connectivity patterns** (AI-Mind).
+
+**Clinical & Biomarker Data:**
+
+* **CSF biomarkers** (Amyloid-beta, Tau, Neurofilament Light).
+* **Sleep monitoring and actigraphy data** (ADIS).
+
+**Federated Learning Integration:**
+
+* **Secure multi-center data harmonization** (PROMINENT).
+
+----
+
+==== **Annotation System for Multi-Modal Data** ====
+
+To ensure **structured integration of diverse datasets**, **Neurodiagnoses** will implement an **AI-driven annotation system**, which will:
+
+* **Assign standardized metadata tags** to diagnostic features.
+* **Provide contextual explanations** for AI-based classifications.
+* **Track temporal disease progression annotations** to identify long-term trends.
+
+----
+
+=== **2. AI-Based Analysis** ===
+
+==== **Machine Learning & Deep Learning Models** ====
+
+**Risk Prediction Models:**
+
+* **LETHE’s cognitive risk prediction model** integrated into the annotation framework.
+
+**Biomarker Classification & Probabilistic Imputation:**
+
+* **KNN Imputer** and **Bayesian models** used for handling **missing biomarker data**.
+
+**Neuroimaging Feature Extraction:**
+
+* **MRI & EEG data** annotated with **neuroanatomical feature labels**.
+
+==== **AI-Powered Annotation System** ====
+
+* Uses **SHAP-based interpretability tools** to explain model decisions.
+* Generates **automated clinical annotations** in structured reports.
+* Links findings to **standardized medical ontologies** (e.g., **SNOMED, HPO**).
+
+----
+
+=== **3. Diagnostic Framework & Clinical Decision Support** ===
+
+==== **Tridimensional Diagnostic Axes** ====
+
+**Axis 1: Etiology (Pathogenic Mechanisms)**
+
+* Classification based on **genetic markers, cellular pathways, and environmental risk factors**.
+* **AI-assisted annotation** provides **causal interpretations** for clinical use.
+
+**Axis 2: Molecular Markers & Biomarkers**
+
+* **Integration of CSF, blood, and neuroimaging biomarkers**.
+* **Structured annotation** highlights **biological pathways linked to diagnosis**.
+
+**Axis 3: Neuroanatomoclinical Correlations**
+
+* **MRI and EEG data** provide anatomical and functional insights.
+* **AI-generated progression maps** annotate **brain structure-function relationships**.
+
+----
+
+=== **4. Computational Workflow & Annotation Pipelines** ===
+
+==== **Data Processing Steps** ====
+
+**Data Ingestion:**
+
+* **Harmonized datasets** stored in **EBRAINS Bucket**.
+* **Preprocessing pipelines** clean and standardize data.
+
+**Feature Engineering:**
+
+* **AI models** extract **clinically relevant patterns** from **EEG, MRI, and biomarkers**.
+
+**AI-Generated Annotations:**
+
+* **Automated tagging** of diagnostic features in **structured reports**.
+* **Explainability modules (SHAP, LIME)** ensure transparency in predictions.
+
+**Clinical Decision Support Integration:**
+
+* **AI-annotated findings** fed into **interactive dashboards**.
+* **Clinicians can adjust, validate, and modify annotations**.
+
+----
+
+=== **5. Validation & Real-World Testing** ===
+
+==== **Prospective Clinical Study** ====
+
+* **Multi-center validation** of AI-based **annotations & risk stratifications**.
+* **Benchmarking against clinician-based diagnoses**.
+* **Real-world testing** of AI-powered **structured reporting**.
+
+==== **Quality Assurance & Explainability** ====
+
+* **Annotations linked to structured knowledge graphs** for improved transparency.
+* **Interactive annotation editor** allows clinicians to validate AI outputs.
+
+----
+
+=== **6. Collaborative Development** ===
+
+The project is **open to contributions** from **researchers, clinicians, and developers**.
+
+**Key tools include:**
+
+* **Jupyter Notebooks**: For data analysis and pipeline development.
+** Example: **probabilistic imputation**
+* **Wiki Pages**: For documenting methods and results.
+* **Drive and Bucket**: For sharing code, data, and outputs.
+* **Collaboration with related projects**:
+** Example: **Beyond the hype: AI in dementia – from early risk detection to disease treatment**
+
+----
+
+=== **7. Tools and Technologies** ===
+
+==== **Programming Languages:** ====
+
+* **Python** for AI and data processing.
+
+==== **Frameworks:** ====
+
+* **TensorFlow** and **PyTorch** for machine learning.
+* **Flask** or **FastAPI** for backend services.
+
+==== **Visualization:** ====
+
+* **Plotly** and **Matplotlib** for interactive and static visualizations.
+
+==== **EBRAINS Services:** ====
+
+* **Collaboratory Lab** for running Notebooks.
+* **Buckets** for storing large datasets.
+
+----
+
+=== **Why This Matters** ===
+
+* **The annotation system ensures that AI-generated insights are structured, interpretable, and clinically meaningful.**
+* **It enables real-time tracking of disease progression across the three diagnostic axes.**
+* **It facilitates integration with electronic health records and decision-support tools, improving AI adoption in clinical workflows.**
 </body>
 </html>
