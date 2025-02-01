@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>About Neurodiagnoses</header>
+    <header>About Neurodiagnoses Project</header>
     <div class="container">
         <h1>What is Neurodiagnoses?</h1>
         <p>Neurodiagnoses is an AI-powered diagnostic framework that integrates multi-modal data, including genetics, biomarkers, and neuroimaging, to improve the accuracy of CNS disease diagnosis.</p>
