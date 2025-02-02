@@ -34,6 +34,21 @@ a non-profit organization committed to **neuroscience research and innovation**.
 - **EBRAINS Collaboratory** - AI-powered neuroscience computing  
 - **Open-Source AI Community** - Contributors developing machine learning models  
 
+## 🤝 Contributing
+We welcome contributions from researchers, AI developers, and clinicians.  
+- Open an **issue** for bug reports or feature requests.  
+- Submit a **pull request** for new notebooks or improvements.  
+
+---
+🔗 **Project Resources:**  
+- **EBRAINS Wiki:** [Neurodiagnoses](https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/)  
+- **GitHub Repository:** [Neurodiagnoses on GitHub](https://github.com/manuelmenendezgonzalez/neurodiagnoses)  
+
+## 🚀 Get Started
+1. Clone the repository: git clone https://github.com/manuelmenendezgonzalez/neurodiagnoses.git
+2. Install dependencies: pip install -r requirements.txt
+3. Open Jupyter Notebooks:
+- [Biomarker Classifier](https://lab.jsc.ebrains.eu/hub/user-redirect/lab/tree/shared/Neurodiagnoses/biomarker_classifier.ipynb)
 
 ## 📖 License  
 **Neurodiagnoses is released under the [MIT License](LICENSE)**.  
