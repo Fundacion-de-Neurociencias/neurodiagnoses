@@ -6,19 +6,7 @@
     <title>About Neurodiagnoses</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 15px;
-            font-size: 24px;
-        }
+        /* Ensure content starts below the fixed navigation */
         .container {
             width: 80%;
             margin: auto;
@@ -26,50 +14,45 @@
             background: white;
             border-radius: 5px;
             text-align: center;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px;
-            font-size: 18px;
-        }
-        .button:hover {
-            background: #0056b3;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #333;
-            color: white;
-            margin-top: 20px;
+            margin-top: 120px; /* ✅ Prevents content from being hidden under the navigation */
         }
     </style>
 </head>
 <body>
+
+    <!-- Fixed Header -->
     <header>
-        About Neurodiagnoses
+        <a href="index.html" style="color: white; text-decoration: none;">
+            Neurodiagnoses: AI-Powered Diagnostic Framework
+        </a>
     </header>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contribute.html">Get Involved</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
+            <li><a href="https://github.com/manuelmenendezgonzalez/neurodiagnoses" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>What is Neurodiagnoses?</h1>
-        <p>Neurodiagnoses is an **AI-powered open-source diagnostic framework** designed to improve the accuracy of **complex central nervous system (CNS) disease diagnosis**.</p>
+        <p><strong>Neurodiagnoses</strong> is an <strong>AI-powered open-source diagnostic framework</strong> designed to improve the accuracy of <strong>complex central nervous system (CNS) disease diagnosis</strong>.</p>
         
-        <p>The project integrates **multi-modal data** (genetics, biomarkers, neuroimaging) with **machine learning models** to provide a **dual diagnostic system**:</p>
-        <ul>
-            <strong>Probabilistic Diagnosis</strong> – AI assigns multiple traditional possible diagnoses with probability percentages.
-              </ul>
-          <ul>   <strong>Tridimensional Diagnosis</strong> – AI structures diagnoses based on etiology, biomarkers, and neuroanatomical correlations.
+        <p>The project integrates <strong>multi-modal data</strong> (genetics, biomarkers, neuroimaging) with <strong>machine learning models</strong> to provide a <strong>dual diagnostic system</strong>:</p>
+
+        <ul style="text-align: left; display: inline-block;">
+            <li><strong>Probabilistic Diagnosis</strong> – AI assigns multiple traditional possible diagnoses with probability percentages.</li>
+            <li><strong>Tridimensional Diagnosis</strong> – AI structures diagnoses based on etiology, biomarkers, and neuroanatomical correlations.</li>
         </ul>
 
         <h2>Project Support & Collaboration</h2>
-        <p>Neurodiagnoses is an **open-source initiative** promoted by <a href="https://www.fneurociencias.org" target="_blank">Fundación de Neurociencias</a>.</p>
+        <p>Neurodiagnoses is an <strong>open-source initiative</strong> promoted by <a href="https://www.fneurociencias.org" target="_blank">Fundación de Neurociencias</a>.</p>
 
         <h2>Get Involved</h2>
         <a href="https://github.com/manuelmenendezgonzalez/neurodiagnoses" target="_blank" class="button">GitHub Repository</a>
@@ -77,8 +60,10 @@
         <a href="index.html" class="button">Back to Home</a>
     </div>
 
+    <!-- Footer -->
     <footer>
         © 2025 Neurodiagnoses | A project by Fundación de Neurociencias
     </footer>
+
 </body>
 </html>
