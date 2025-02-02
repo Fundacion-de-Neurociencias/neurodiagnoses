@@ -1,110 +1,176 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    padding-top: 120px; /* Prevents content from being hidden under the fixed header/nav */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurodiagnoses - AI Diagnosis Framework for Complex CNS Conditions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
 
-/* Header: Always Visible */
-header {
-    background: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 24px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
+        /* Fixed Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-/* Navigation Menu (Fixed Under Header) */
-nav {
-    background: #444;
-    padding: 10px 0;
-    text-align: center;
-    position: fixed;
-    top: 60px; /* Ensures it's below the main header */
-    left: 0;
-    width: 100%;
-    z-index: 999;
-}
+        /* Navigation Bar */
+        nav {
+            background: #444;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
 
-/* Remove Bullet Points in Navigation */
-nav ul {
-    padding: 0;
-    list-style: none; /* ✅ Removes bullet points */
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
+        /* Remove Bullet Points & Align Navigation */
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
 
-nav ul li {
-    margin: 0 15px;
-}
+        nav ul li {
+            margin: 0 15px;
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    display: inline-block;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
 
-nav ul li a:hover {
-    background: #007bff;
-    border-radius: 5px;
-}
+        nav ul li a:hover {
+            background: #007bff;
+            border-radius: 5px;
+        }
 
-/* Main Content: Start Below Header & Navigation */
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 5px;
-    margin-top: 100px; /* ✅ Ensures content starts BELOW the fixed header & nav */
-}
+        /* Ensure Content Starts Below Header & Navigation */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            margin-top: 120px; /* Prevents text from being covered by the nav */
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #333;
-    color: white;
-    margin-top: 20px;
-}
+        /* Image Container */
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
 
-/* Buttons */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-}
+        .image-container img {
+            width: 70%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
 
-.button:hover {
-    background: #0056b3;
-}
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        padding: 10px 0;
-    }
+        .button:hover {
+            background: #0056b3;
+        }
 
-    nav ul li {
-        margin-bottom: 10px;
-    }
-}
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Header -->
+    <header>
+        <a href="index.html" style="color: white; text-decoration: none;">
+            Neurodiagnoses: AI-Powered Diagnostic Framework
+        </a>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contribute.html">Get Involved</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
+            <li><a href="https://github.com/manuelmenendezgonzalez/neurodiagnoses" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to Neurodiagnoses</h1>
+        <p>An AI-powered tridimensional diagnostic framework for complex CNS diseases.</p>
+
+        <!-- ✅ Image properly positioned -->
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/manuelmenendezgonzalez/neurodiagnoses/main/tridimensional.png" 
+                 alt="Tridimensional Diagnostic Framework">
+        </div>
+
+        <a href="about.html" class="button">Learn More</a>
+        <a href="research.html" class="button">Our Research</a>
+        <a href="contribute.html" class="button">Get Involved</a>
+    </div>
+
+    <!-- Quick Access Section -->
+    <div class="container resources">
+        <h2>Quick Access</h2>
+        <p>Explore key project resources:</p>
+        <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank" class="button">EBRAINS Collaboratory</a>
+        <a href="https://github.com/manuelmenendezgonzalez/neurodiagnoses" target="_blank" class="button">GitHub Repository</a>
+
+        <!-- ✅ Updated Jupyter Notebook Link -->
+        <a href="https://lab.jsc.ebrains.eu/hub/user-redirect/lab/tree/shared/Neurodiagnoses/biomarker_classifier.ipynb" target="_blank" class="button">
+            Open Jupyter Notebook
+        </a>
+
+        <p>Note: The Jupyter Notebook opens in a new tab due to security restrictions.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Neurodiagnoses | A project by Fundación de Neurociencias powered by Open Source, AI & Neuroscientists  
+        <br>
+    </footer>
+
+</body>
+</html>
