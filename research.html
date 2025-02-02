@@ -6,30 +6,21 @@
     <title>Neurodiagnoses Research</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Ensure content starts below the fixed navigation */
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 120px; /* ✅ Prevents content from being hidden under the navigation */
-        }
-        ul {
-            text-align: left;
-            display: inline-block;
-            max-width: 700px;
-        }
-        /* ✅ Fix Navigation Menu Alignment */
+        /* ✅ Ensure navigation is centered and consistent */
         nav {
-            text-align: center; /* Ensures center alignment */
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: #333;
+            padding: 10px 0;
+            z-index: 1000;
         }
         nav ul {
             padding: 0;
             list-style: none;
             display: flex;
-            justify-content: center; /* ✅ Fixes alignment */
+            justify-content: center;
         }
         nav ul li {
             margin: 0 15px;
@@ -38,14 +29,29 @@
         nav ul li a {
             text-decoration: none;
             color: white;
-            background: #007bff;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 5px;
             font-size: 18px;
             display: inline-block;
+            background: none; /* ✅ Removed always-visible blue background */
         }
         nav ul li a:hover {
-            background: #0056b3;
+            background: #007bff; /* ✅ Background only on hover */
+        }
+        /* ✅ Adjust spacing so content starts below fixed menu */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 80px; /* ✅ Prevents content from being hidden under the navigation */
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            max-width: 700px;
         }
     </style>
 </head>
