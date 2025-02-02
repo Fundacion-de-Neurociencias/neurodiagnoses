@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses - AI Diagnosis Framework for complex CNS conditions</title>
+    <title>Neurodiagnoses - AI Diagnosis Framework for Complex CNS Conditions</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -70,6 +70,16 @@
             margin-top: 20px;
             border-radius: 5px;
         }
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .image-container img {
+            width: 70%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
         footer {
             text-align: center;
             padding: 15px;
@@ -97,14 +107,16 @@
     <div class="container">
         <h1>Welcome to Neurodiagnoses</h1>
         <p>An AI-powered tridimensional diagnostic framework for complex CNS diseases.</p>
-<ul>
-<img src="https://github.com/manuelmenendezgonzalez/neurodiagnoses/blob/main/tridimensional.png" 
-     alt="Tridimensional Diagnostic Framework" 
-     style="width: 70%; max-width: 600px; margin-top: 20px; border-radius: 10px;">
+
+        <!-- ✅ Image placed inside a dedicated div to prevent overlap -->
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/manuelmenendezgonzalez/neurodiagnoses/main/tridimensional.png" 
+                 alt="Tridimensional Diagnostic Framework">
+        </div>
+
         <a href="about.html" class="button">Learn More</a>
         <a href="research.html" class="button">Our Research</a>
         <a href="contribute.html" class="button">Get Involved</a>
-</ul>
     </div>
 
     <div class="container resources">
@@ -124,7 +136,6 @@
     <footer>
         © 2025 Neurodiagnoses | A project by Fundación de Neurociencias powered by Open Source, AI & Neuroscientists  
         <br>
-        <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank" style="color: #ccc;">EBRAINS Collaboratory</a>
     </footer>
 </body>
 </html>
