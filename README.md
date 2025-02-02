@@ -34,8 +34,6 @@ a non-profit organization committed to **neuroscience research and innovation**.
 - **EBRAINS Collaboratory** - AI-powered neuroscience computing  
 - **Open-Source AI Community** - Contributors developing machine learning models  
 
-## 🚀 Get Started
-1. Clone the repository:
 
 ## 📖 License  
 **Neurodiagnoses is released under the [MIT License](LICENSE)**.  
