@@ -5,22 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurodiagnoses Research</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure content starts below the fixed navigation */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 120px; /* ✅ Prevents content from being hidden under the navigation */
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            max-width: 700px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Fixed Header -->
     <header>
-        Neurodiagnoses Research
+        <a href="index.html" style="color: white; text-decoration: none;">
+            Neurodiagnoses: AI-Powered Diagnostic Framework
+        </a>
     </header>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contribute.html">Get Involved</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
+            <li><a href="https://github.com/manuelmenendezgonzalez/neurodiagnoses" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>Our Research</h1>
         <p>Our work focuses on the integration of artificial intelligence with neuroscience to enhance diagnostics.</p>
 
         <h2>Key Research Areas</h2>
         <ul>
-            <li>📌 **AI-Based Annotation System** – Automates structured diagnosis reporting using machine learning.</li>
-            <li>📌 **Probabilistic Diagnosis Modeling** – Predicts disease progression and patient stratification.</li>
-            <li>📌 **Neuroimaging and EEG Data Analysis** – Extracts biomarkers from MRI and EEG for AI training.</li>
-            <li>📌 **Federated Learning & Secure Data Sharing** – Enables multi-center AI training without data exposure.</li>
+            <li>📌 <strong>AI-Based Annotation System</strong> – Automates structured diagnosis reporting using machine learning.</li>
+            <li>📌 <strong>Probabilistic Diagnosis Modeling</strong> – Predicts disease progression and patient stratification.</li>
+            <li>📌 <strong>Neuroimaging and EEG Data Analysis</strong> – Extracts biomarkers from MRI and EEG for AI training.</li>
+            <li>📌 <strong>Federated Learning & Secure Data Sharing</strong> – Enables multi-center AI training without data exposure.</li>
         </ul>
 
         <h2>Related Publications</h2>
@@ -39,5 +73,11 @@
 
         <a href="index.html" class="button">Back to Home</a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Neurodiagnoses | A project by <a href="https://www.fneurociencias.org" target="_blank" style="color: #ccc;">Fundación de Neurociencias</a></p>
+    </footer>
+
 </body>
 </html>
