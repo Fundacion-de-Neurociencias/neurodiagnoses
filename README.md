@@ -25,6 +25,17 @@ Neurodiagnoses offers two complementary AI-assisted diagnosis systems:
 🔹 **For every patient case, both systems will be provided, allowing AI-assisted comparison of probability-based vs. structured classification.**  
 
 ---
+## 🔹 Project Partners
+This project is **promoted and supported by** **[Fundación de Neurociencias](https://www.fneurociencias.org)**,  
+a non-profit organization committed to **neuroscience research and innovation**.
+
+**Collaborating Institutions & Contributors:**
+- **Fundación de Neurociencias** - Research, clinical validation, and funding  
+- **EBRAINS Collaboratory** - AI-powered neuroscience computing  
+- **Open-Source AI Community** - Contributors developing machine learning models  
+
+## 🚀 Get Started
+1. Clone the repository:
 
 ## 📖 License  
 **Neurodiagnoses is released under the [MIT License](LICENSE)**.  
