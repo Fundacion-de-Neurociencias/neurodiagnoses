@@ -6,7 +6,13 @@
     <title>Neurodiagnoses Research</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* ✅ Ensure navigation is centered and consistent */
+        /* ✅ Fix Global Navigation Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
         nav {
             text-align: center;
             position: fixed;
@@ -21,6 +27,7 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            margin: 0;
         }
         nav ul li {
             margin: 0 15px;
@@ -33,12 +40,12 @@
             border-radius: 5px;
             font-size: 18px;
             display: inline-block;
-            background: none; /* ✅ Removed always-visible blue background */
+            background: none; /* ✅ Fixed: No background unless hovered */
         }
         nav ul li a:hover {
-            background: #007bff; /* ✅ Background only on hover */
+            background: #007bff; /* ✅ Fixed: Blue background only on hover */
         }
-        /* ✅ Adjust spacing so content starts below fixed menu */
+        /* ✅ Fix Content Placement Below Navigation */
         .container {
             width: 80%;
             margin: auto;
@@ -46,12 +53,22 @@
             background: white;
             border-radius: 5px;
             text-align: center;
-            margin-top: 80px; /* ✅ Prevents content from being hidden under the navigation */
+            margin-top: 100px; /* ✅ Prevents text from being covered by menu */
         }
         ul {
             text-align: left;
             display: inline-block;
             max-width: 700px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
         }
     </style>
 </head>
