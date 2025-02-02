@@ -4,10 +4,10 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    padding-top: 120px; /* Prevents content from being hidden under the fixed header/nav */
+    padding-top: 110px; /* ✅ Ensures content starts below header & nav */
 }
 
-/* Header: Always Visible */
+/* Fixed Header */
 header {
     background: #333;
     color: white;
@@ -21,25 +21,25 @@ header {
     z-index: 1000;
 }
 
-/* Navigation Menu (Fixed Under Header) */
+/* Navigation Menu */
 nav {
     background: #444;
     padding: 10px 0;
     text-align: center;
     position: fixed;
-    top: 60px; /* Ensures it's below the main header */
+    top: 60px; /* ✅ Ensures navigation follows the header */
     left: 0;
     width: 100%;
     z-index: 999;
 }
 
-/* Remove Bullet Points in Navigation */
+/* Remove Bullet Points & Align Navigation */
 nav ul {
     padding: 0;
-    list-style: none; /* ✅ Removes bullet points */
+    margin: 0;
+    list-style: none;
     display: flex;
     justify-content: center;
-    margin: 0;
 }
 
 nav ul li {
@@ -59,23 +59,27 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Main Content: Start Below Header & Navigation */
+/* Ensures Content Starts Below Header & Navigation */
 .container {
     width: 80%;
     margin: auto;
     padding: 20px;
     background: white;
     border-radius: 5px;
-    margin-top: 100px; /* ✅ Ensures content starts BELOW the fixed header & nav */
+    margin-top: 120px; /* ✅ Prevents text from being covered */
 }
 
-/* Footer */
-footer {
+/* Image Container */
+.image-container {
     text-align: center;
-    padding: 15px;
-    background: #333;
-    color: white;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image-container img {
+    width: 70%;
+    max-width: 600px;
+    border-radius: 10px;
 }
 
 /* Buttons */
@@ -91,6 +95,15 @@ footer {
 
 .button:hover {
     background: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
