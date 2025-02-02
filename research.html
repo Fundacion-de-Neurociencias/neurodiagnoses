@@ -21,6 +21,32 @@
             display: inline-block;
             max-width: 700px;
         }
+        /* ✅ Fix Navigation Menu Alignment */
+        nav {
+            text-align: center; /* Ensures center alignment */
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center; /* ✅ Fixes alignment */
+        }
+        nav ul li {
+            margin: 0 15px;
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            background: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +58,7 @@
         </a>
     </header>
 
-    <!-- Navigation Bar -->
+    <!-- ✅ Fixed Navigation Menu -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
