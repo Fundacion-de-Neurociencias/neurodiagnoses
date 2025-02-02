@@ -26,12 +26,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
+            margin-bottom: 0; /* ✅ Removes extra space */
         }
 
         /* Navigation Bar */
         nav {
             background: #444;
-            padding: 10px 0;
+            padding: 0; /* ✅ Standardized padding */
             text-align: center;
             position: fixed;
             top: 60px;
@@ -43,20 +44,21 @@
         /* Remove Bullet Points & Align Navigation */
         nav ul {
             padding: 0;
+            margin: 0; /* ✅ Removes any extra spacing */
             list-style: none;
             display: flex;
             justify-content: center;
-            margin: 0;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0;
+            padding: 0;
         }
 
         nav ul li a {
             text-decoration: none;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 20px; /* ✅ Increased padding for uniform size */
             font-size: 18px;
             display: inline-block;
         }
@@ -112,15 +114,6 @@
             color: white;
             margin-top: 20px;
         }
-        /* ✅ Ensure no space between header and navigation menu */
-header {
-    margin-bottom: 0;  /* Removes any bottom margin */
-    padding-bottom: 10px; /* Adjust padding if necessary */
-}
-nav {
-    margin-top: 0; /* Removes space above the navigation bar */
-    padding-top: 0;
-}
 
     </style>
 </head>
