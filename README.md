@@ -38,7 +38,7 @@ a non-profit organization committed to **neuroscience research and innovation**.
 We welcome contributions from researchers, AI developers, and clinicians.  
 - Open an **issue** for bug reports or feature requests.  
 - Submit a **pull request** for new notebooks or improvements.  
-graph TD;
+- Workflow
     A[Data Acquisition & Integration] -->|Download & Upload| B(EBRAINS Data Bucket & GitHub Storage)
     B --> |Preprocessing & Feature Engineering| C[AI Model Training]
     C --> |Train & Evaluate| D[Diagnostic Annotation System]
