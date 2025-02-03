@@ -1,0 +1,58 @@
+Neurodiagnoses Workflow: From Data to Diagnosis
+1️⃣ Data Acquisition & Integration
+🔹 Where? EBRAINS Bucket & GitHub Repository
+🔹 What Happens?
+
+Users (researchers/clinicians) access and download raw data from external sources (ADNI, GP2, PPMI, etc.).
+Data is uploaded to EBRAINS Buckets or stored in GitHub (datasets/ directory).
+Data is harmonized (genetics, neuroimaging, biomarkers) to ensure consistency.
+🔹 Key Resources
+
+🔗 EBRAINS Bucket
+🔗 GitHub Datasets
+📝 Instructions on Using External Databases (To be documented in docs/databases.md)
+2️⃣ AI Model Training & Development
+🔹 Where? EBRAINS Jupyter Lab & GitHub (models/ directory)
+🔹 What Happens?
+
+AI models are trained using machine learning & deep learning (Random Forest, Neural Networks, etc.).
+Feature extraction from MRI, EEG, and biomarkers.
+Federated learning integration ensures privacy in multi-center collaborations.
+🔹 Key Resources
+
+🔗 EBRAINS Jupyter Notebooks
+🔗 GitHub AI Models
+📝 Model Documentation (To be added in docs/models.md)
+3️⃣ Diagnostic Annotation System
+🔹 Where? EBRAINS Lab & Neurodiagnoses Web Platform
+🔹 What Happens?
+
+AI generates two diagnostic reports per case:
+1️⃣ Probabilistic Diagnosis (traditional classification with probabilities).
+2️⃣ Tridimensional Diagnosis (classification based on etiology, biomarkers, and neuroanatomical correlation).
+Results are annotated with SHAP interpretability tools.
+🔹 Key Resources
+
+📝 How AI Diagnosis Works (To be documented in docs/diagnosis.md)
+4️⃣ Clinical Validation & User Interaction
+🔹 Where? EBRAINS & Neurodiagnoses Collaborators
+🔹 What Happens?
+
+Clinicians & researchers test AI-generated diagnoses with real case studies.
+Feedback loop refines model accuracy.
+Collaboration with hospitals & AI research centers.
+🔹 Key Resources
+
+🔗 EBRAINS Collaboratory
+📝 How to Contribute (Detailed in docs/contributing.md)
+5️⃣ Continuous Improvement & Open Collaboration
+🔹 Where? GitHub Repository & EBRAINS Discussion Pages
+🔹 What Happens?
+
+New data sources are integrated to improve models.
+Contributors add new features, refine diagnostics, and publish findings.
+Open-source community ensures transparency and long-term sustainability.
+🔹 Key Resources
+
+🔗 GitHub Repository
+🔗 EBRAINS Neurodiagnoses Forum
