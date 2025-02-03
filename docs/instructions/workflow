@@ -15,6 +15,17 @@ Data is harmonized (genetics, neuroimaging, biomarkers) to ensure consistency.
 🔹 Where? EBRAINS Jupyter Lab & GitHub (models/ directory)
 🔹 What Happens?
 
+graph TD;
+    A[Data Acquisition & Integration] -->|Download & Upload| B(EBRAINS Data Bucket & GitHub Storage)
+    B --> |Preprocessing & Feature Engineering| C[AI Model Training]
+    C --> |Train & Evaluate| D[Diagnostic Annotation System]
+    D --> |Generate Tridimensional & Probabilistic Diagnosis| E[Structured Reports & Annotations]
+    E --> |Clinician Review & Validation| F[Clinical Feedback & AI Evaluation]
+    F --> |Model Refinement| C
+    F --> |Continuous Collaboration| G[Open-Source Contributions]
+    G --> |New Data & Algorithm Updates| C
+    G --> |Slack/Discord & GitHub Community| H[Neuroscientists, AI Developers, Clinicians]
+
 AI models are trained using machine learning & deep learning (Random Forest, Neural Networks, etc.).
 Feature extraction from MRI, EEG, and biomarkers.
 Federated learning integration ensures privacy in multi-center collaborations.
