@@ -1,0 +1,53 @@
+ How to Use External Databases in Neurodiagnoses
+To enhance the accuracy of our diagnostic models, Neurodiagnoses integrates data from multiple biomedical and neurological research databases. If you are a researcher, follow these steps to access, prepare, and integrate data into the Neurodiagnoses framework.
+
+1️⃣ Register for Access
+Each database requires a separate registration and access approval. Follow the official access guidelines for each platform.
+
+2️⃣ Download & Prepare Data
+Once granted access, download datasets following the specific data usage terms. Ensure the files meet Neurodiagnoses' format requirements for integration.
+
+Supported File Formats: .csv, .tsv, .nii (neuroimaging), .fasta (genetics)
+Mandatory Fields for Integration: Subject ID, Diagnosis, Biomarkers, Genetic Data, Neuroimaging Metadata
+3️⃣ Upload Data to Neurodiagnoses
+Option 1: Manually upload to EBRAINS Bucket → [Collabs/neurodiagnoses/Bucket]
+Option 2: Contribute via GitHub Repository → [GitHub: /data]
+📌 Note: For large datasets, contact the project administrators before uploading.
+
+4️⃣ Integrate with AI Models
+Use Jupyter Notebooks on EBRAINS to preprocess and analyze data.
+Run data harmonization scripts to standardize formats.
+Train AI models with newly integrated patient cohorts.
+2️⃣ Database Sources Table (GitHub & EBRAINS Wiki)
+Where to Insert This:
+📂 GitHub: docs/data_sources.md
+📂 EBRAINS: Collabs/neurodiagnoses/Data Sources
+
+🧠 Key Databases for Neurodiagnoses
+Database	Focus Area	Data Type	Access Link
+ADNI	Alzheimer's Disease	MRI, PET, CSF, cognitive tests	ADNI
+PPMI	Parkinson’s Disease	Imaging, biospecimens	PPMI
+GP2	Genetic Data for PD	Whole-genome sequencing	GP2
+Enroll-HD	Huntington’s Disease	Clinical, genetic, imaging	Enroll-HD
+GAAIN	Alzheimer's & Cognitive Decline	Multi-source database	GAAIN
+UK Biobank	Population-wide studies	Genetic, imaging, health records	UK Biobank
+DPUK	Dementia & Aging	Imaging, genetics, lifestyle	DPUK
+PRION Registry	Prion Diseases	Clinical and genetic data	PRION
+DECIPHER	Rare Genetic Disorders	Genomic variants	DECIPHER
+📌 More Data Sources? If you know a relevant dataset, submit a proposal in [GitHub: /issues].
+
+3️⃣ Collaboration & Partnerships (GitHub & EBRAINS Wiki)
+Where to Insert This:
+📂 GitHub: docs/collaboration.md
+📂 EBRAINS: Collabs/neurodiagnoses/Collaborations
+
+🤝 Partnering with Data Providers
+Beyond using existing datasets, Neurodiagnoses seeks partnerships with data repositories to:
+
+✅ Enable direct API data integration into our platform.
+✅ Co-develop harmonized AI-ready datasets.
+✅ Secure funding opportunities through joint grants.
+
+📬 Contact Us for Collaboration
+If you represent a research consortium, reach out to explore data-sharing agreements.
+📧 Email: info@neurodiagnoses.com
