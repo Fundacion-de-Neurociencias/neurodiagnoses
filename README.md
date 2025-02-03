@@ -38,6 +38,16 @@ a non-profit organization committed to **neuroscience research and innovation**.
 We welcome contributions from researchers, AI developers, and clinicians.  
 - Open an **issue** for bug reports or feature requests.  
 - Submit a **pull request** for new notebooks or improvements.  
+graph TD;
+    A[Data Acquisition & Integration] -->|Download & Upload| B(EBRAINS Data Bucket & GitHub Storage)
+    B --> |Preprocessing & Feature Engineering| C[AI Model Training]
+    C --> |Train & Evaluate| D[Diagnostic Annotation System]
+    D --> |Generate Tridimensional & Probabilistic Diagnosis| E[Structured Reports & Annotations]
+    E --> |Clinician Review & Validation| F[Clinical Feedback & AI Evaluation]
+    F --> |Model Refinement| C
+    F --> |Continuous Collaboration| G[Open-Source Contributions]
+    G --> |New Data & Algorithm Updates| C
+    G --> |Slack/Discord & GitHub Community| H[Neuroscientists, AI Developers, Clinicians]
 
 ---
 🔗 **Project Resources:**  
