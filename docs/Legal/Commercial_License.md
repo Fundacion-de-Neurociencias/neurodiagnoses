@@ -1,10 +1,13 @@
-# Neurodiagnoses Contributor License Agreement (CLA)
+# Neurodiagnoses Commercial License
 
-This Contributor License Agreement (CLA) is made between **Fundación de Neurociencias** and contributors.
+## 🔹 Who Needs This License?
+- Companies integrating Neurodiagnoses into **commercial products**.
+- Organizations requiring **certified clinical validation**.
+- Enterprises needing **dedicated support and regulatory compliance**.
 
-## ✅ What You Agree To:
-1. You **grant Fundación de Neurociencias** the right to use, modify, and distribute your contributions.
-2. Your code will remain **open-source (MIT)**, but may also be integrated into commercial offerings.
-3. You retain ownership but provide Fundación de Neurociencias a **perpetual, worldwide license**.
+## 🔹 License Benefits
+✔️ Commercial-use authorization  
+✔️ Access to advanced features and API integrations  
+✔️ Support for regulatory validation (CE, FDA)  
 
-For questions, contact: [legal@neurodiagnoses.com](mailto:legal@neurodiagnoses.com).
+📌 **Contact for Licensing:** [business@neurodiagnoses.com](mailto:business@neurodiagnoses.com)
