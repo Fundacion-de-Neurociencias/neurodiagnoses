@@ -61,7 +61,7 @@ The Neurodiagnoses process consists of the following phases:
 ## Project Resources
 
 - **EBRAINS Wiki:** [Neurodiagnoses on EBRAINS](https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/)
-- **GitHub Repository:** [Neurodiagnoses on GitHub](https://github.com/manuelmenendezgonzalez/neurodiagnoses)
+- **GitHub Repository:** [Neurodiagnoses on GitHub](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses)
 
 ---
 
