@@ -1,149 +1,191 @@
-Neurodiagnoses Workflow: From Data to Diagnosis
+# Neurodiagnoses Workflow: From Data to Diagnosis
+
 Neurodiagnoses integrates artificial intelligence with neuroscience to enhance diagnostics through structured workflows. Below is a step-by-step breakdown of the entire pipeline, from data acquisition to continuous improvement.
 
-1️⃣ Data Acquisition & Integration
-Where?
-EBRAINS Bucket & GitHub Repository
+## 1️⃣ Data Acquisition & Integration
 
-What Happens?
-Researchers and clinicians obtain datasets from external sources (ADNI, GP2, PPMI, Enroll-HD, etc.).
-Users download and upload data into EBRAINS Buckets or store it in GitHub datasets/ directory.
-Data is harmonized, ensuring consistency across genetics, neuroimaging, and biomarkers.
-Key Resources
-EBRAINS Bucket for structured storage.
-GitHub Datasets for dataset tracking and version control.
-Instructions for Using External Databases (to be documented in docs/databases.md).
-2️⃣ Data Preprocessing and Feature Engineering
-Where?
-EBRAINS Jupyter Lab & GitHub (models/ directory)
+### Where?
+- **EBRAINS Bucket** & **GitHub Repository**
 
-What Happens?
-Raw data is cleaned, normalized, and formatted for AI model training.
-Standardization of neuroimaging scans, biomarkers, and genetic data.
-Missing values are addressed via imputation techniques.
-Feature extraction from MRI, EEG, and biomarker datasets.
-Federated learning integration ensures privacy in multi-center collaborations.
-Key Resources
-EBRAINS Jupyter Notebooks for model training.
-GitHub AI Models for structured pipeline development.
-Model Documentation (to be added in docs/models.md).
-3️⃣ AI Model Training & Development
-Where?
-EBRAINS Jupyter Notebooks & GitHub-hosted AI scripts
+### What Happens?
+- Researchers and clinicians obtain datasets from external sources (ADNI, GP2, PPMI, Enroll-HD, etc.).
+- Users download and upload data into **EBRAINS Buckets** or store it in GitHub `datasets/` directory.
+- Data is harmonized, ensuring consistency across genetics, neuroimaging, and biomarkers.
 
-What Happens?
-Machine learning models process structured data to detect patterns and classify CNS diseases.
-Training is conducted using historical patient data, followed by evaluation on real-world cases.
-Performance metrics such as accuracy, sensitivity, and specificity are assessed.
-Key Resources
-GitHub AI Model Repository for storing trained models.
-EBRAINS Collaboratory for computing power.
-Evaluation Metrics Documentation (to be included in docs/training.md).
-4️⃣ Diagnostic Annotation System
-Where?
-EBRAINS Lab & Neurodiagnoses Web Platform
+### Key Resources
+- **EBRAINS Bucket** for structured storage.
+- **GitHub Datasets** for dataset tracking and version control.
+- Instructions for Using External Databases (to be documented in `docs/databases.md`).
 
-What Happens?
-AI generates two diagnostic reports per case: 1️⃣ Probabilistic Diagnosis: Traditional classification with probability scores.
-2️⃣ Tridimensional Diagnosis: Classification based on etiology, biomarkers, and neuroanatomical correlation.
-Results are annotated using SHAP interpretability tools.
-AI models provide explanations for diagnoses to improve transparency.
-Key Resources
-How AI Diagnosis Works (to be documented in docs/diagnosis.md).
-Guidelines for Tridimensional Classification in docs/classification.md.
-5️⃣ Structured Reports and Annotations
-Where?
-EBRAINS Collaboratory
+---
+## 2️⃣ Data Preprocessing and Feature Engineering
 
-What Happens?
-AI-generated reports are structured according to clinical guidelines.
-Each report includes:
-Probabilistic diagnosis with confidence percentages.
-Tridimensional classification integrating etiology, biomarkers, and neuroanatomical correlations.
-Suggested clinical recommendations.
-Reports are stored in EBRAINS Collaboratory for real-time access.
-Key Resources
-EBRAINS Report Storage for accessing structured diagnostics.
-Report Format Documentation (to be created in docs/reports.md).
-6️⃣ Clinical Validation & User Interaction
-Where?
-EBRAINS & Neurodiagnoses Collaborators
+### Where?
+- **EBRAINS Jupyter Lab** & **GitHub (`models/` directory)**
 
-What Happens?
-Medical professionals review AI-generated reports for validation.
-Clinicians provide feedback on diagnostic accuracy.
-If inconsistencies arise, cases are flagged for re-evaluation.
-Key Resources
-EBRAINS Clinical Review Board for expert validation.
-How to Provide Feedback (documented in docs/validation.md).
-7️⃣ Clinical Feedback and AI Refinement
-Where?
-EBRAINS & GitHub (Model Refinement Process)
+### What Happens?
+- Raw data is cleaned, normalized, and formatted for AI model training.
+- Standardization of neuroimaging scans, biomarkers, and genetic data.
+- Missing values are addressed via imputation techniques.
+- Feature extraction from MRI, EEG, and biomarker datasets.
+- Federated learning integration ensures privacy in multi-center collaborations.
 
-What Happens?
-AI models are refined based on real-world clinical feedback.
-Continuous improvement includes:
-Adjusting model weights to improve prediction accuracy.
-Expanding training datasets with new clinical cases.
-Enhancing model interpretability for clinicians.
-Key Resources
-Retraining Models Documentation in docs/model_refinement.md.
-EBRAINS AI Update Logs.
-8️⃣ Continuous Collaboration & Open-Source Contributions
-Where?
-GitHub & EBRAINS Discussion Pages
+### Key Resources
+- **EBRAINS Jupyter Notebooks** for model training.
+- **GitHub AI Models** for structured pipeline development.
+- Model Documentation (to be added in `docs/models.md`).
 
-What Happens?
-Researchers and developers contribute via:
-GitHub repositories (new AI models, code enhancements, bug fixes).
-EBRAINS discussions (scientific collaboration, dataset sharing, algorithm testing).
-Community platforms include:
-GitHub for technical development.
-Slack and Discord for real-time discussions.
-EBRAINS for large-scale computation and dataset management.
-Key Resources
-GitHub Contributions Guide in docs/contributing.md.
-EBRAINS Community Page.
-9️⃣ New Data and Algorithm Updates
-Where?
-EBRAINS & GitHub Model Repository
+---
+## 3️⃣ AI Model Training & Development
 
-What Happens?
-Continuous integration of new datasets into the AI framework.
-Research teams contribute to:
-Refinement of biomarker-based algorithms.
-Integration of novel neuroimaging techniques.
-Expansion into additional disease categories.
-Key Resources
-Dataset Integration Guide in docs/datasets.md.
-EBRAINS & GitHub Model Update Logs.
-🔟 Long-Term Vision & Sustainability
-Where?
-Global Research Collaborations
+### Where?
+- **EBRAINS Jupyter Notebooks** & **GitHub-hosted AI scripts**
 
-What Happens?
-The system evolves through:
-Federated learning approaches that respect privacy.
-Integration into hospital electronic health record systems.
-Collaborations with research institutions and industry partners.
-Sustainable funding strategies ensure long-term development.
-Key Resources
-EBRAINS Institutional Partnerships.
-Funding Strategy Documentation in docs/funding.md.
+### What Happens?
+- Machine learning models process structured data to detect patterns and classify CNS diseases.
+- Training is conducted using historical patient data, followed by evaluation on real-world cases.
+- Performance metrics such as accuracy, sensitivity, and specificity are assessed.
 
-📌 Summary of the Workflow
-1️⃣ Data Acquisition & Integration: External data sources, harmonization, and storage.
-2️⃣ Data Preprocessing & Feature Engineering: Cleaning, structuring, and preparing datasets.
-3️⃣ AI Model Training & Evaluation: Machine learning-based classification and performance optimization.
-4️⃣ Diagnostic Annotation System: Probabilistic and tridimensional diagnostic outputs.
-5️⃣ Structured Reports & Annotations: Clinician-friendly AI-generated reports.
-6️⃣ Clinical Validation & User Interaction: Review and validation by medical professionals.
-7️⃣ AI Refinement: Continuous learning and model retraining.
-8️⃣ Collaboration & Contributions: Open-source development and knowledge sharing.
-9️⃣ New Data & Algorithm Updates: Expanding and improving diagnostic capabilities.
-🔟 Long-Term Sustainability: Funding, institutional partnerships, and scalability.
+### Key Resources
+- **GitHub AI Model Repository** for storing trained models.
+- **EBRAINS Collaboratory** for computing power.
+- Evaluation Metrics Documentation (to be included in `docs/training.md`).
 
-🔹 Key Resources
-GitHub Repository: Neurodiagnoses AI models and dataset scripts.
-EBRAINS Collaboratory: Cloud computing, data storage, and community collaboration.
-Discussion Channels: Slack, Discord, GitHub Issues for real-time contributions.
+---
+## 4️⃣ Diagnostic Annotation System
+
+### Where?
+- **EBRAINS Lab** & **Neurodiagnoses Web Platform**
+
+### What Happens?
+- AI generates two diagnostic reports per case:
+  1️⃣ **Probabilistic Diagnosis:** Traditional classification with probability scores.
+  2️⃣ **Tridimensional Diagnosis:** Classification based on etiology, biomarkers, and neuroanatomical correlation.
+- Results are annotated using SHAP interpretability tools.
+- AI models provide explanations for diagnoses to improve transparency.
+
+### Key Resources
+- How AI Diagnosis Works (to be documented in `docs/diagnosis.md`).
+- Guidelines for Tridimensional Classification in `docs/classification.md`.
+
+---
+## 5️⃣ Structured Reports and Annotations
+
+### Where?
+- **EBRAINS Collaboratory**
+
+### What Happens?
+- AI-generated reports are structured according to clinical guidelines.
+- Each report includes:
+  - Probabilistic diagnosis with confidence percentages.
+  - Tridimensional classification integrating etiology, biomarkers, and neuroanatomical correlations.
+  - Suggested clinical recommendations.
+- Reports are stored in **EBRAINS Collaboratory** for real-time access.
+
+### Key Resources
+- **EBRAINS Report Storage** for accessing structured diagnostics.
+- Report Format Documentation (to be created in `docs/reports.md`).
+
+---
+## 6️⃣ Clinical Validation & User Interaction
+
+### Where?
+- **EBRAINS & Neurodiagnoses Collaborators**
+
+### What Happens?
+- Medical professionals review AI-generated reports for validation.
+- Clinicians provide feedback on diagnostic accuracy.
+- If inconsistencies arise, cases are flagged for re-evaluation.
+
+### Key Resources
+- **EBRAINS Clinical Review Board** for expert validation.
+- How to Provide Feedback (documented in `docs/validation.md`).
+
+---
+## 7️⃣ Clinical Feedback and AI Refinement
+
+### Where?
+- **EBRAINS & GitHub (Model Refinement Process)**
+
+### What Happens?
+- AI models are refined based on real-world clinical feedback.
+- Continuous improvement includes:
+  - Adjusting model weights to improve prediction accuracy.
+  - Expanding training datasets with new clinical cases.
+  - Enhancing model interpretability for clinicians.
+
+### Key Resources
+- **Retraining Models Documentation** in `docs/model_refinement.md`.
+- **EBRAINS AI Update Logs**.
+
+---
+## 8️⃣ Continuous Collaboration & Open-Source Contributions
+
+### Where?
+- **GitHub & EBRAINS Discussion Pages**
+
+### What Happens?
+- Researchers and developers contribute via:
+  - **GitHub repositories** (new AI models, code enhancements, bug fixes).
+  - **EBRAINS discussions** (scientific collaboration, dataset sharing, algorithm testing).
+- Community platforms include:
+  - **GitHub** for technical development.
+  - **Slack and Discord** for real-time discussions.
+  - **EBRAINS** for large-scale computation and dataset management.
+
+### Key Resources
+- **GitHub Contributions Guide** in `docs/contributing.md`.
+- **EBRAINS Community Page**.
+
+---
+## 9️⃣ New Data and Algorithm Updates
+
+### Where?
+- **EBRAINS & GitHub Model Repository**
+
+### What Happens?
+- Continuous integration of new datasets into the AI framework.
+- Research teams contribute to:
+  - Refinement of biomarker-based algorithms.
+  - Integration of novel neuroimaging techniques.
+  - Expansion into additional disease categories.
+
+### Key Resources
+- **Dataset Integration Guide** in `docs/datasets.md`.
+- **EBRAINS & GitHub Model Update Logs**.
+
+---
+## 🔟 Long-Term Vision & Sustainability
+
+### Where?
+- **Global Research Collaborations**
+
+### What Happens?
+- The system evolves through:
+  - **Federated learning approaches** that respect privacy.
+  - **Integration into hospital electronic health record systems**.
+  - **Collaborations with research institutions and industry partners**.
+- Sustainable funding strategies ensure long-term development.
+
+### Key Resources
+- **EBRAINS Institutional Partnerships**.
+- **Funding Strategy Documentation** in `docs/funding.md`.
+
+---
+## 📌 Summary of the Workflow
+
+1️⃣ **Data Acquisition & Integration**: External data sources, harmonization, and storage.
+2️⃣ **Data Preprocessing & Feature Engineering**: Cleaning, structuring, and preparing datasets.
+3️⃣ **AI Model Training & Evaluation**: Machine learning-based classification and performance optimization.
+4️⃣ **Diagnostic Annotation System**: Probabilistic and tridimensional diagnostic outputs.
+5️⃣ **Structured Reports & Annotations**: Clinician-friendly AI-generated reports.
+6️⃣ **Clinical Validation & User Interaction**: Review and validation by medical professionals.
+7️⃣ **AI Refinement**: Continuous learning and model retraining.
+8️⃣ **Collaboration & Contributions**: Open-source development and knowledge sharing.
+9️⃣ **New Data & Algorithm Updates**: Expanding and improving diagnostic capabilities.
+🔟 **Long-Term Sustainability**: Funding, institutional partnerships, and scalability.
+
+### 🔹 Key Resources
+- **GitHub Repository**: Neurodiagnoses AI models and dataset scripts.
+- **EBRAINS Collaboratory**: Cloud computing, data storage, and community collaboration.
+- **Discussion Channels**: Slack, Discord, GitHub Issues for real-time contributions.
