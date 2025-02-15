@@ -6,74 +6,170 @@
     <title>Neurodiagnoses Research</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Ensure content starts below header & navigation */
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Fixed Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #444;
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: #007bff;
+            border-radius: 5px;
+        }
+
+        /* Container */
         .container {
             width: 80%;
             margin: auto;
             padding: 20px;
             background: white;
             border-radius: 5px;
+            margin-top: 120px;
             text-align: center;
-            margin-top: 120px; /* Prevents content from being covered by the nav */
+        }
+
+        /* List Styles */
+        .list-container {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .list-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-container ul li {
+            padding: 8px 0;
+        }
+
+        .list-container ol {
+            list-style-position: inside;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed Header -->
     <header>
         <a href="index.html" style="color: white; text-decoration: none;">
             Neurodiagnoses: AI-Powered Diagnostic Framework
         </a>
     </header>
 
-    <!-- Fixed Navigation Menu -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="contribute.html">Get Involved</a></li>
-            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">eBrains</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
             <li><a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a></li>
         </ul>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
         <h1>Our Research</h1>
-        <p>Our work focuses on the integration of artificial intelligence with neuroscience to enhance diagnostics.</p>
+        <p>At Neurodiagnoses, we are dedicated to integrating artificial intelligence with neuroscience to revolutionize diagnostics and treatment strategies for central nervous system (CNS) disorders.</p>
 
         <h2>Key Research Areas</h2>
-        <ul style="text-align: left; display: inline-block;">
-            <li>📌 <strong>AI-Based Annotation System</strong> – Automates structured diagnosis reporting using machine learning.</li>
-            <li>📌 <strong>Probabilistic Diagnosis Modeling</strong> – Predicts disease progression and patient stratification.</li>
-            <li>📌 <strong>Neuroimaging and EEG Data Analysis</strong> – Extracts biomarkers from MRI and EEG for AI training.</li>
-            <li>📌 <strong>Federated Learning & Secure Data Sharing</strong> – Enables multi-center AI training without data exposure.</li>
-        </ul>
+        <div class="list-container">
+            <ul>
+                <li>📌 <strong>AI-Based Annotation System</strong> – Automating structured diagnostic reporting through advanced machine learning techniques.</li>
+                <li>📌 <strong>Probabilistic Diagnosis Modeling</strong> – Utilizing AI to predict disease progression and assist in patient stratification.</li>
+                <li>📌 <strong>Neuroimaging and EEG Data Analysis</strong> – Extracting critical biomarkers from MRI and EEG data to enhance AI training models.</li>
+                <li>📌 <strong>Federated Learning & Secure Data Sharing</strong> – Enabling multi-center AI training while ensuring data privacy and security.</li>
+                <li>📌 <strong>Integration of Neuromarker Ontology</strong> – Standardizing biomarker classification across neurodegenerative diseases to improve diagnostic accuracy.</li>
+            </ul>
+        </div>
+
+        <h2>Recent Developments</h2>
+        <div class="list-container">
+            <ul>
+                <li>🆕 <strong>Collaboration with Mayo Clinic's Neurology AI Program</strong> – Implementing AI-driven platforms to enhance diagnostic precision for neurodegenerative diseases. <a href="https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-neurology-ai-program-tests-platform-to-detect-brain-diseases/" target="_blank">Learn more</a></li>
+                <li>🆕 <strong>Advancements in AI-Assisted Neurological Diagnostics</strong> – Exploring the potential of AI in improving the diagnosis and treatment of neurological emergencies. <a href="https://www.frontiersin.org/articles/10.3389/fneur.2024.1485799/full" target="_blank">Read the study</a></li>
+                <li>🆕 <strong>Integration of AI in Neuroimaging Analysis</strong> – Utilizing AI to detect abnormalities in high-volume neuroimaging, enhancing diagnostic workflows. <a href="https://arxiv.org/abs/2405.05658" target="_blank">Access the research</a></li>
+            </ul>
+        </div>
 
         <h2>Related Publications</h2>
-        <p>Explore our latest research papers:</p>
-        <ul style="text-align: left; display: inline-block;">
-            <li>📝 <a href="https://doi.org/10.1002/alz.13041" target="_blank">Toward a new nosology of neurodegenerative diseases</a></li>
-            <li>📝 <a href="https://doi.org/10.1002/alz.14591" target="_blank">Implementing a tridimensional diagnostic framework for personalized medicine in neurodegenerative diseases</a></li>
-            <li>📝 <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/Results/" target="_blank">Neurodiagnoses Research Results</a></li>
-        </ul>
-
-        <h2>eBrains Data & AI Models</h2>
-        <p>Our AI models and datasets are available through eBrains:</p>
-        <ul style="text-align: left; display: inline-block;">
-            <li>🔗 <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/notebooks" target="_blank">Jupyter Notebooks</a></li>
-            <li>📂 <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/Bucket" target="_blank">eBrains Data Storage</a></li>
-        </ul>
-
-        <a href="index.html" class="button">Back to Home</a>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Neurodiagnoses | A project by <a href="https://www.fneurociencias.org" target="_blank" style="color: #ccc;">Fundación de Neurociencias</a></p>
-    </footer>
-
-</body>
-</html>
+        <div class="list-container">
+            <ul>
+                <li>📝 <a href="https://doi.org/10.1002/alz.13041" target="_blank">Toward a New Nosology of Neurodegenerative Diseases</a></li>
+                <li>📝 <a href="https://doi.org/10.1002/alz.14591" target="_blank">Implementing a Tridimensional Diagnostic Framework for Personalized Medicine in Neurodegenerative Diseases</a></li>
+                <li>📝 <a href="https://wiki.ebrains.eu/bin/view
+::contentReference[oaicite:0]{index=0}
+ 
