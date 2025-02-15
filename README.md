@@ -124,4 +124,4 @@ Continuous Model Optimization: Feedback loops enable the refinement of models ba
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License + Commercial
