@@ -125,14 +125,3 @@ Continuous Model Optimization: Feedback loops enable the refinement of models ba
 ## License
 
 This project is licensed under the MIT License.
-
-## Next Steps
-
-Commit & Push Changes  
-
-git add README.md  
-git commit -m "Updated README with Hugging Face integration"  
-git push  
-
-Update the Hugging Face Model Card.  
-Update the EBRAINS Wiki with Hugging Face Documentation.  
