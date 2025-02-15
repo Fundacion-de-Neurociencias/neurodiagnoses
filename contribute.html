@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="neurodiagnoses favicon-32x32.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Involved - Neurodiagnoses</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Fixed Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #444;
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: #007bff;
+            border-radius: 5px;
+        }
+
         .container {
             width: 80%;
             margin: auto;
             padding: 20px;
             background: white;
             border-radius: 5px;
-            text-align: center;
             margin-top: 120px;
-        }
-
-        .list-container {
             text-align: left;
-            display: inline-block;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .list-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .list-container ul li {
-            padding: 8px 0;
-        }
-
-        .list-container ol {
-            list-style-position: inside;
         }
 
         .button {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #007BFF;
+            background: #007bff;
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            margin-top: 10px;
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <a href="index.html" style="color: white; text-decoration: none;">
+            Neurodiagnoses: AI-Powered Diagnostic Framework
+        </a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contribute.html">Get Involved</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">eBrains</a></li>
+            <li><a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <h1>Get Involved with Neurodiagnoses</h1>
         <p>We welcome contributions from AI researchers, neuroscientists, clinicians, and developers. Your involvement can help advance our mission to improve diagnostics and research in neurological diseases.</p>
-        
-        <div class="list-container">
-            <h2>Ways to Contribute:</h2>
-            <ul>
-                <li><strong>Report Issues or Feature Requests:</strong> Submit these via our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues">GitHub Issues page</a>.</li>
-                <li><strong>Submit Pull Requests:</strong> Contribute new functionalities or bug fixes by following our contribution guidelines in the repository.</li>
-                <li><strong>Engage in Discussions:</strong> Participate in conversations about methodologies and technical improvements on our <a href="https://ebrains.eu/collabs/neurodiagnoses">EBRAINS Collaboration Page</a>.</li>
-                <li><strong>Data Contribution:</strong> Share datasets by uploading them to our EBRAINS Neurodiagnoses Bucket or the GitHub Data Repository. Ensure all data complies with ethical standards and includes proper documentation.</li>
-                <li><strong>Join Our Community:</strong> Connect with us on our <a href="https://ebrains.eu/collabs/neurodiagnoses/forum">EBRAINS Forum</a> to collaborate and share insights.</li>
-            </ul>
-        </div>
 
-        <a href="mailto:info@neurodiagnoses.com" class="button">Contact Us</a>
+        <h2>Ways to Contribute:</h2>
+        <ul>
+            <li><strong>Report Issues or Feature Requests:</strong> Submit these via our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues" target="_blank">GitHub Issues page</a>.</li>
+            <li><strong>Submit Pull Requests:</strong> Contribute new functionalities or bug fixes by following our contribution guidelines in the repository.</li>
+            <li><strong>Engage in Discussions:</strong> Participate in conversations about methodologies and technical improvements on our <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS Collaboration Page</a>.</li>
+            <li><strong>Data Contribution:</strong> Share datasets by uploading them to our EBRAINS Neurodiagnoses Bucket or the GitHub Data Repository. Ensure all data complies with ethical standards and includes proper documentation.</li>
+            <li><strong>Join Our Community:</strong> Connect with us on our <a href="https://www.ebrains.eu/community/forums/" target="_blank">EBRAINS Forum</a> to collaborate and share insights.</li>
+        </ul>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us at <a href="mailto:info@neurodiagnoses.com">info@neurodiagnoses.com</a>.</p>
     </div>
+
+    <footer>
+        &copy; 2025 Neurodiagnoses | An open-source project promoted by Fundación de Neurociencias powered by EBRAINS, GitHub, HuggingFace & The Community
+    </footer>
+
 </body>
 </html>
