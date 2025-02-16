@@ -1,0 +1,29 @@
+Neurodiagnoses aligns with the highest standards of data management and interoperability, we have adopted the principles and guidelines set forth by the International Neuroinformatics Coordinating Facility (INCF). This commitment underscores our dedication to open, FAIR (Findable, Accessible, Interoperable, Reusable), and citable neuroscience.
+
+Adherence to FAIR Principles
+We are committed to the FAIR data principles, which serve as guidelines for enhancing the reusability of digital assets. These principles emphasize the importance of making data:
+
+Findable: Assigning unique identifiers to datasets and ensuring they are indexed in searchable repositories.
+Accessible: Storing data in repositories with clear usage licenses and access protocols.
+Interoperable: Utilizing standardized data formats and ontologies to facilitate integration with other datasets.
+Reusable: Providing detailed metadata and documentation to support data reuse in future research.
+By adhering to these principles, we aim to enhance the discoverability and usability of our data, fostering collaboration and innovation within the neuroscience community.
+
+Implementation of INCF-Endorsed Standards and Best Practices
+In alignment with INCF's mission to promote open and FAIR neuroscience, we have integrated the following standards and best practices into our project:
+
+Data Formats: Adopting standardized formats for neuroimaging, electrophysiology, and other relevant data types to ensure consistency and compatibility.
+Metadata Schemas: Employing established schemas to provide comprehensive descriptions of our datasets, enhancing clarity and facilitating data integration.
+Data Sharing Protocols: Implementing protocols that enable secure and efficient data sharing among researchers and institutions, thereby promoting transparency and reproducibility.
+These practices are in accordance with the INCF Standards and Best Practices portfolio, which provides a curated list of community-endorsed standards supporting FAIR principles. 
+INCF.ORG
+
+Engagement with the INCF Community
+To stay abreast of evolving standards and contribute to the global discourse on neuroinformatics, we actively engage with the INCF community through:
+
+Participation in Working Groups: Collaborating with experts to develop and refine community standards and best practices.
+Attendance at Training and Workshops: Enhancing our understanding of FAIR data management and the implementation of endorsed standards.
+Providing Feedback: Sharing our experiences and insights to inform the continuous improvement of standards and practices.
+Our involvement with INCF ensures that Neurodiagnoses AI remains aligned with international efforts to advance open and reproducible neuroscience.
+
+By integrating these principles and standards, Neurodiagnoses is positioned to contribute meaningfully to the neuroscience community, facilitating data sharing, collaboration, and scientific discovery.
