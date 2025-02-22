@@ -1,0 +1,117 @@
+# **ONNX Integration in Neurodiagnoses Open-Source**
+
+## **Introduction**
+ONNX (**Open Neural Network Exchange**) is an open standard format for machine learning models, enabling interoperability between different AI frameworks such as TensorFlow, PyTorch, and Scikit-learn. Integrating ONNX into **Neurodiagnoses Open-Source** ensures that trained models can be exported and deployed across multiple platforms efficiently.
+
+---
+
+## **1. Why ONNX for Neurodiagnoses?**
+
+✅ **Interoperability:** Enables seamless transition between AI frameworks.  
+✅ **Optimization:** Allows model acceleration using ONNX Runtime.  
+✅ **Deployment Flexibility:** Models can be used in edge devices, cloud, or different operating systems.  
+✅ **Standardization:** Provides a unified format for trained models.
+
+---
+
+## **2. Installation and Setup**
+
+### **Step 1: Install ONNX and ONNX Runtime**
+```bash
+pip install onnx onnxruntime
+```
+
+### **Step 2: Verify Installation**
+```python
+import onnx
+import onnxruntime as ort
+
+print("ONNX Version:", onnx.__version__)
+print("ONNX Runtime Version:", ort.__version__)
+```
+
+---
+
+## **3. Exporting Models to ONNX Format**
+ONNX supports exporting models from frameworks like PyTorch and Scikit-learn.
+
+### **Exporting a PyTorch Model**
+```python
+import torch
+import torch.nn as nn
+
+# Define a simple model
+class SimpleModel(nn.Module):
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.fc = nn.Linear(10, 2)
+    
+    def forward(self, x):
+        return self.fc(x)
+
+model = SimpleModel()
+dummy_input = torch.randn(1, 10)
+
+# Export to ONNX
+torch.onnx.export(model, dummy_input, "model.onnx", 
+                  input_names=["input"], output_names=["output"])
+
+print("Model successfully exported to ONNX format.")
+```
+
+### **Exporting a Scikit-learn Model**
+```python
+from sklearn.ensemble import RandomForestClassifier
+import skl2onnx
+from skl2onnx import convert_sklearn
+from skl2onnx.common.data_types import FloatTensorType
+import numpy as np
+
+# Train a simple model
+X = np.random.rand(100, 5)
+y = np.random.randint(0, 2, 100)
+model = RandomForestClassifier(n_estimators=10)
+model.fit(X, y)
+
+# Convert model to ONNX
+initial_type = [('float_input', FloatTensorType([None, 5]))]
+onnx_model = convert_sklearn(model, initial_types=initial_type)
+
+# Save the model
+with open("random_forest.onnx", "wb") as f:
+    f.write(onnx_model.SerializeToString())
+
+print("Scikit-learn model successfully exported to ONNX format.")
+```
+
+---
+
+## **4. Running Inference with ONNX Runtime**
+ONNX Runtime allows efficient inference execution on CPUs and GPUs.
+
+```python
+import onnxruntime as ort
+import numpy as np
+
+# Load ONNX model
+session = ort.InferenceSession("model.onnx")
+
+# Prepare input data
+input_data = np.random.randn(1, 10).astype(np.float32)
+input_name = session.get_inputs()[0].name
+output_name = session.get_outputs()[0].name
+
+# Run inference
+output = session.run([output_name], {input_name: input_data})
+print("ONNX Model Output:", output)
+```
+
+---
+
+## **5. Future Enhancements**
+- **Optimize ONNX Models:** Use ONNX Runtime to optimize inference speed.
+- **Deploy on Cloud & Edge Devices:** Extend model compatibility to different environments.
+- **Support More AI Frameworks:** Extend Neurodiagnoses to support models trained in different AI libraries.
+
+This documentation provides the foundation for integrating ONNX into **Neurodiagnoses Open-Source**, ensuring model interoperability and scalability. 🚀
+
