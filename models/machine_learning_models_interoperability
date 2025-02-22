@@ -1,4 +1,4 @@
-# **ONNX Integration in Neurodiagnoses Open-Source**
+# **ONNX Integration in Neurodiagnoses**
 
 ## **Introduction**
 ONNX (**Open Neural Network Exchange**) is an open standard format for machine learning models, enabling interoperability between different AI frameworks such as TensorFlow, PyTorch, and Scikit-learn. Integrating ONNX into **Neurodiagnoses Open-Source** ensures that trained models can be exported and deployed across multiple platforms efficiently.
