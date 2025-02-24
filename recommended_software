@@ -4,6 +4,35 @@
 Neurodiagnoses is a modular artificial intelligence ecosystem applied to neuroscientific diagnostics. To ensure an efficient and accessible infrastructure, the following development, data analysis, machine learning, and visualization tools are recommended.
 
 ---
+## **0. Preprocessing**
+
+FSL (FMRIB Software Library)
+
+Purpose: Used for skull stripping and spatial normalization.
+Tools Used:
+BET (Brain Extraction Tool): Removes non-brain tissue.
+FLIRT (FMRIB's Linear Image Registration Tool): Aligns images to standard templates (e.g., MNI152).
+Command Examples:
+Skull Stripping: bet input_image.nii output_image_brain.nii -f 0.5 -g 0
+Spatial Normalization: flirt -in input_image.nii -ref MNI152_T1_2mm.nii.gz -out normalized_image.nii
+ANTs (Advanced Normalization Tools)
+
+Purpose: Used for resampling and more advanced registration tasks.
+Capability: Provides state-of-the-art image registration and segmentation techniques.
+SPM (Statistical Parametric Mapping)
+
+Purpose: Used for resampling and preprocessing neuroimaging data.
+Specialty: Widely used for fMRI and other neuroimaging analyses.
+Python (with NumPy)
+
+Purpose: Used for intensity normalization using z-score normalization.
+Method Example:
+python
+Copiar
+Editar
+import numpy as np
+image = (image - np.mean(image)) / np.std(image)
+These tools ensure consistent, standardized preprocessing across neuroimaging datasets, improving accuracy and reproducibility in neurodiagnostic models.
 
 ## **1. Development Environments and Programming Platforms**
 
