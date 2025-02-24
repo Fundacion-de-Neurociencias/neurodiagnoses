@@ -6,33 +6,107 @@
   <title>About Neurodiagnoses</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    nav {
+      background-color: #34495e;
+      overflow: hidden;
+    }
+
+    nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #1abc9c;
+    }
+
     .container {
-      width: 80%;
-      margin: auto;
+      max-width: 800px;
+      margin: 50px auto;
       padding: 20px;
       background: white;
       border-radius: 5px;
-      text-align: center;
-      margin-top: 120px;
+      text-align: left;
     }
+
     .image-container {
       text-align: center;
       margin: 30px 0;
     }
+
     .image-container img {
-      width: 70%;
+      width: 100%;
       max-width: 800px;
       border-radius: 10px;
       display: block;
       margin: auto;
     }
+
+    .button {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" style="color: white; text-decoration: none;">
-      Neurodiagnoses: AI-Powered Diagnostic Framework
-    </a>
+    Neurodiagnoses: AI-Powered Diagnostic Framework
   </header>
   <nav>
     <ul>
@@ -47,37 +121,37 @@
   <div class="container">
     <h1>About Neurodiagnoses</h1>
     <p>
-      <strong>Neurodiagnoses</strong> is an AI-powered open-source framework for diagnosing and predicting central nervous system (CNS) disorders. It integrates multi-modal data—including genetic, neuroimaging, neurophysiological, and biomarker datasets—with machine learning models to generate structured, explainable diagnostic outputs.
+      <strong>Neurodiagnoses</strong> is an AI-powered open-source framework designed to advance the diagnosis and prediction of central nervous system (CNS) disorders. The platform leverages cutting-edge machine learning techniques and integrates multi-modal data—including genetic, neuroimaging, neurophysiological, and biomarker datasets—to generate structured, explainable diagnostic outputs.
     </p>
-    <p>
-      Neurodiagnoses employs a **tridimensional diagnostic model**, structuring its outputs across three axes:
-    </p>
-    <ul style="text-align: left; display: inline-block;">
-      <li><strong>Etiology:</strong> Genetic, environmental, and molecular contributors to disease.</li>
-      <li><strong>Pathophysiology:</strong> Molecular markers, biomarker pathways, and disease mechanisms.</li>
-      <li><strong>Neuroanatomoclinical Presentation:</strong> Neuroimaging, clinical symptoms, and physiological markers.</li>
+    <h2>Three-Dimensional Diagnostic Model</h2>
+    <ul>
+      <li><strong>Etiology:</strong> Identifying genetic, environmental, and molecular contributors to disease.</li>
+      <li><strong>Pathophysiology:</strong> Analyzing molecular markers, pathways, and disease mechanisms.</li>
+      <li><strong>Neuroanatomoclinical Presentation:</strong> Utilizing neuroimaging, clinical symptoms, and physiological markers.</li>
     </ul>
     <div class="image-container">
-      <img src="multimodal data.webp" 
-      alt="Neuroinformatics Visualization">
+      <img src="multimodal data.webp" alt="Neuroinformatics Visualization">
     </div>
-    <p>
-      The project also extends into **neurodiagnostic AI research**, focusing on:
-    </p>
-    <ul style="text-align: left; display: inline-block;">
-      <li>**CNS Digital Twins**: Integrating omics (genomics, proteomics, lipidomics) with neuroimaging and digital health records.</li>
-      <li>**AI-Driven Risk Stratification**: Personalized prediction models for disease progression and therapeutic response.</li>
-      <li>**Real-Time Clinical Decision Support**: Deploying AI-based diagnostic aids within electronic health record (EHR) systems.</li>
+    <h2>Technologies and Platforms</h2>
+    <p>Neurodiagnoses integrates with:</p>
+    <ul>
+      <li><strong>EBRAINS:</strong> High-performance computing and neuroimaging data repository.</li>
+      <li><strong>Clínica.run:</strong> Advanced neuroimaging processing.</li>
+      <li><strong>The Virtual Brain:</strong> Simulations for modeling brain dynamics.</li>
     </ul>
+    <h2>Research Focus Areas</h2>
+    <ul>
+      <li><strong>CNS Digital Twins:</strong> Combining omics with neuroimaging and digital health records.</li>
+      <li><strong>AI-Driven Risk Stratification:</strong> Predicting disease progression and therapeutic response.</li>
+      <li><strong>Real-Time Clinical Decision Support:</strong> AI-based diagnostic aids for EHR systems.</li>
+    </ul>
+    <h2>Future Directions</h2>
     <p>
-      Neurodiagnoses is an open-source initiative with a **dual licensing model (MIT + commercial license)**. While the core framework remains open for research collaboration, an advanced version is planned for clinical, research, and industry applications.
-    </p>
-    <p>
-      The project is promoted by <a href="https://www.fneurociencias.org" target="_blank">Fundación de Neurociencias</a>, supporting AI-driven neuroscience research and diagnostics.
+      Neurodiagnoses aims to extend into real-time clinical decision support systems, personalized medicine approaches, and automated analysis for continuous discovery in neuroscience research.
     </p>
     <h2>Get Involved</h2>
     <p>
-      We welcome contributions from researchers, clinicians, AI developers, and data scientists. Explore the project and contribute via:
+      We welcome contributions from researchers, clinicians, AI developers, and data scientists. You can explore the project and contribute via:
     </p>
     <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" class="button">GitHub Repository</a>
     <a href="https://wiki.eBrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank" class="button">eBrains Collaboratory</a>
