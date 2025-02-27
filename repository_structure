@@ -1,0 +1,24 @@
+Repository structure:
+Neurodiagnoses/
+│── README.md                # High-level introduction
+│── CONTRIBUTING.md          # Guidelines for contributors
+│── docs/                    # Detailed documentation (matches web & eBrains)
+│── models/                  # AI models for different functions
+│   ├── probabilistic_annotation/
+│   ├── tridimensional_annotation/
+│   ├── biomarker_prediction/
+│   ├── disease_progression/
+│── data/                    # Standardized datasets for training
+│   ├── neuroimaging/
+│   ├── biomarkers/
+│── workflows/               # Automated workflows for each function
+│   ├── preprocessing_pipeline/
+│   ├── AI_training_pipeline/
+│   ├── validation_pipeline/
+│── api/                     # APIs for real-time inference
+│── frontend/                # UI elements for web-based visualization
+│── backend/                 # Backend logic for data processing
+│── tests/                   # Validation scripts
+│── eBrains_integration/     # Code & documentation for eBrains compatibility
+│── LICENSE
+└── .github/                 # Issue templates, workflows, CI/CD
