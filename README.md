@@ -58,6 +58,38 @@ Codebase & Pipelines (GitHub):
 
 All scripts and training workflows are hosted on GitHub.  
 Continuous integration (CI/CD) automates model updates and deployment.  
+flowchart TD
+    %% Data Acquisition & Integration
+    A[Data Acquisition & Recolección de Datos]
+    A -->|Datasets multimodales: EEG, MRI, biomarcadores| B[Preprocesamiento & Feature Engineering]
+    
+    %% AI Model Training & Evaluation
+    B -->|Limpieza, normalización y transformación de datos| C[Entrenamiento & Evaluación de Modelos AI]
+    C -->|Uso de HPC (EBRAINS) y Notebooks (Hugging Face)| D[Generación de Modelos AI]
+
+    %% AI-Powered Diagnostic Annotation
+    D --> E[Diagnóstico Asistido por AI]
+    E --> F[Modelo Probabilístico]
+    E --> G[Modelo Tridimensional]
+    
+    %% Clinical Reports & Feedback Loop
+    F --> H[Reporte Clínico Interactivo]
+    G --> H
+    H --> I[Optimización Continua (CI/CD, feedback clínico y de investigación)]
+
+    %% Ecosistema y plataformas
+    subgraph Ecosistema y Soporte
+      J[GitHub<br/>(Código, pipelines, CI/CD)]
+      K[EBRAINS<br/>(Recursos HPC, datos neuroimagen, federated learning)]
+      L[Hugging Face<br/>(Model Hub, notebooks de fine-tuning, API de modelos)]
+    end
+
+    %% Integración de plataformas
+    J --- C
+    K --- A
+    K --- C
+    L --- C
+
 
 ## Getting Started
 
