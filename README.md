@@ -58,33 +58,35 @@ Codebase & Pipelines (GitHub):
 
 All scripts and training workflows are hosted on GitHub.  
 Continuous integration (CI/CD) automates model updates and deployment.  
+
+
 flowchart TD
     %% Data Acquisition & Integration
-    A[Data Acquisition & Recolección de Datos]
-    A -->|Datasets multimodales: EEG, MRI, biomarcadores| B[Preprocesamiento & Feature Engineering]
+    A[Data Acquisition & Integration]
+    A -->|Multi-modal datasets: EEG, MRI, Biomarkers| B[Data Preprocessing & Feature Engineering]
     
     %% AI Model Training & Evaluation
-    B -->|Limpieza, normalización y transformación de datos| C[Entrenamiento & Evaluación de Modelos AI]
-    C -->|Uso de HPC (EBRAINS) y Notebooks (Hugging Face)| D[Generación de Modelos AI]
+    B -->|Cleaning, normalization, transformation| C[AI Model Training & Evaluation]
+    C -->|Utilizing HPC (EBRAINS) & Notebooks (Hugging Face)| D[AI Model Generation]
 
     %% AI-Powered Diagnostic Annotation
-    D --> E[Diagnóstico Asistido por AI]
-    E --> F[Modelo Probabilístico]
-    E --> G[Modelo Tridimensional]
+    D --> E[AI-Assisted Diagnosis]
+    E --> F[Probabilistic Diagnosis]
+    E --> G[Tridimensional Diagnosis]
     
     %% Clinical Reports & Feedback Loop
-    F --> H[Reporte Clínico Interactivo]
+    F --> H[Interactive Clinical Reports]
     G --> H
-    H --> I[Optimización Continua (CI/CD, feedback clínico y de investigación)]
+    H --> I[Continuous Optimization (CI/CD & Expert Feedback)]
 
-    %% Ecosistema y plataformas
-    subgraph Ecosistema y Soporte
-      J[GitHub<br/>(Código, pipelines, CI/CD)]
-      K[EBRAINS<br/>(Recursos HPC, datos neuroimagen, federated learning)]
-      L[Hugging Face<br/>(Model Hub, notebooks de fine-tuning, API de modelos)]
+    %% Ecosystem and Support Platforms
+    subgraph Ecosystem & Platforms
+      J[GitHub<br/>(Code, pipelines, CI/CD)]
+      K[EBRAINS<br/>(HPC resources, neuroimaging, federated learning)]
+      L[Hugging Face<br/>(Model Hub, fine-tuning notebooks, model API)]
     end
 
-    %% Integración de plataformas
+    %% Integration with Platforms
     J --- C
     K --- A
     K --- C
