@@ -1,84 +1,85 @@
-# **Recommended Software for Neurodiagnoses**
+# Recommended Software for Neurodiagnoses
 
-## **Introduction**
-Neurodiagnoses is a modular artificial intelligence ecosystem applied to neuroscientific diagnostics. To ensure an efficient and accessible infrastructure, the following development, data analysis, machine learning, and visualization tools are recommended.
+## Introduction
+
+Neurodiagnoses is a modular artificial intelligence ecosystem designed for neuroscientific diagnostics. To create an efficient and accessible infrastructure, we recommend the following tools for development, data analysis, machine learning, and visualization.
 
 ---
-## **0. Preprocessing**
 
-FSL (FMRIB Software Library)
+## 0. Preprocessing
 
-Purpose: Used for skull stripping and spatial normalization.
-Tools Used:
-BET (Brain Extraction Tool): Removes non-brain tissue.
-FLIRT (FMRIB's Linear Image Registration Tool): Aligns images to standard templates (e.g., MNI152).
-Command Examples:
-Skull Stripping: bet input_image.nii output_image_brain.nii -f 0.5 -g 0
-Spatial Normalization: flirt -in input_image.nii -ref MNI152_T1_2mm.nii.gz -out normalized_image.nii
-ANTs (Advanced Normalization Tools)
+**FSL (FMRIB Software Library)**  
+- **Purpose:** Skull stripping and spatial normalization.
+- **Key Tools:**
+  - **BET (Brain Extraction Tool):** Removes non-brain tissue.
+  - **FLIRT (FMRIB's Linear Image Registration Tool):** Aligns images to standard templates (e.g., MNI152).
+- **Example Commands:**
+  - Skull Stripping:  
+    `bet input_image.nii output_image_brain.nii -f 0.5 -g 0`
+  - Spatial Normalization:  
+    `flirt -in input_image.nii -ref MNI152_T1_2mm.nii.gz -out normalized_image.nii`
 
-Purpose: Used for resampling and more advanced registration tasks.
-Capability: Provides state-of-the-art image registration and segmentation techniques.
-SPM (Statistical Parametric Mapping)
+**ANTs (Advanced Normalization Tools)**  
+- **Purpose:** Provides state-of-the-art image registration and segmentation techniques for resampling and advanced registration tasks.
 
-Purpose: Used for resampling and preprocessing neuroimaging data.
-Specialty: Widely used for fMRI and other neuroimaging analyses.
-Python (with NumPy)
+**SPM (Statistical Parametric Mapping)**  
+- **Purpose:** Preprocessing neuroimaging data, widely used for fMRI and other neuroimaging analyses.
 
-Purpose: Used for intensity normalization using z-score normalization.
-Method Example:
-python
-Copiar
-Editar
-import numpy as np
-image = (image - np.mean(image)) / np.std(image)
-These tools ensure consistent, standardized preprocessing across neuroimaging datasets, improving accuracy and reproducibility in neurodiagnostic models.
+**Python (with NumPy)**  
+- **Purpose:** Intensity normalization using z-score normalization.
+- **Example Method:**
+  ```python
+  import numpy as np
+  image = (image - np.mean(image)) / np.std(image)
+  ```
 
-## **1. Development Environments and Programming Platforms**
+These preprocessing tools ensure consistent, standardized processing across neuroimaging datasets, thereby improving accuracy and reproducibility in neurodiagnostic models.
 
-For developing models and analyzing data in Neurodiagnoses, the following tools are recommended:
+---
 
-### 🔹 **Jupyter Notebook / JupyterLab**  
-✅ Interactive environment for developing AI models and analyzing biomedical data.  
-✅ Compatible with **Python, R, and Julia**.  
-✅ Integration with **TensorFlow, PyTorch, Scikit-learn, and Pandas**.  
-✅ Supports **collaborative notebooks and execution on remote servers**.
+## 1. Development Environments and Programming Platforms
 
-### 🔹 **Google Colab**  
-✅ Cloud-based alternative to Jupyter Notebook.  
-✅ Enables training deep learning models with **free GPUs**.  
-✅ Excellent for quick experimentation and access to pre-installed libraries.  
-✅ Ideal for users without access to high-performance local computing infrastructure.
+For developing models and analyzing data in Neurodiagnoses, consider these environments:
 
+**Jupyter Notebook / JupyterLab**  
+- An interactive environment ideal for developing AI models and analyzing biomedical data.
+- Supports Python, R, and Julia.
+- Seamlessly integrates with frameworks such as TensorFlow, PyTorch, Scikit-learn, and Pandas.
+- Allows collaborative work and remote execution.
+
+**Google Colab**  
+- A cloud-based alternative to Jupyter Notebook.
+- Provides free GPU support for training deep learning models.
+- Well-suited for quick experimentation and projects without local high-performance computing resources.
+
+Example using TensorFlow in Google Colab:
 ```python
-# Example: Running TensorFlow in Google Colab
 import tensorflow as tf
 print("TensorFlow version:", tf.__version__)
 ```
 
 ---
 
-## **2. Machine Learning and Artificial Intelligence**
+## 2. Machine Learning and Artificial Intelligence
 
-Neurodiagnoses implements advanced models for analyzing biomarkers, neuroimaging, and clinical data. The recommended AI tools are:
+Neurodiagnoses employs advanced AI models to analyze biomarkers, neuroimaging, and clinical data. Recommended tools include:
 
-### 🔹 **TensorFlow**  
-✅ Deep learning framework for processing neuroimaging models.  
-✅ Applied in **MRI, PET analysis, and brain segmentation**.  
-✅ Compatible with **Convolutional Neural Networks (CNNs)** for medical image classification.
+**TensorFlow**  
+- A deep learning framework for processing neuroimaging data.
+- Used in MRI and PET analysis as well as brain segmentation.
+- Suitable for building convolutional neural networks (CNNs) for medical image classification.
 
-### 🔹 **PyTorch**  
-✅ Flexible framework for **research in deep learning models**.  
-✅ Ideal for custom models in neuroscience analysis.  
-✅ Compatible with supervised and unsupervised learning techniques.
+**PyTorch**  
+- A flexible deep learning framework, ideal for research and development of custom neuroscience models.
+- Supports both supervised and unsupervised learning techniques.
 
-### 🔹 **Scikit-learn**  
-✅ Machine learning library for classic biomedical analysis models.  
-✅ Used in **classification, regression, and pattern detection in biomarkers**.  
-✅ Useful for **probabilistic models and clustering analysis in neuroscientific data**.
+**Scikit-learn**  
+- A machine learning library for traditional biomedical analysis.
+- Applied in classification, regression, and pattern detection in biomarkers.
+- Useful for developing probabilistic models and clustering analysis.
 
+Example using Scikit-learn for biomarker classification:
 ```python
-# Example: Using Scikit-learn for biomarker classification
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_breast_cancer
@@ -95,22 +96,21 @@ print("Model accuracy:", clf.score(X_test, y_test))
 
 ---
 
-## **3. Data Visualization**
+## 3. Data Visualization
 
-The graphical representation of data is key in Neurodiagnoses. The recommended tools are:
+Effective data visualization is crucial in Neurodiagnoses. The following tools are recommended:
 
-### 🔹 **Seaborn / Matplotlib**  
-✅ Python libraries for advanced visualization.  
-✅ Applied in **biomarker graphs, disease progression curves, and comparative analysis**.  
-✅ Integration with **Jupyter Notebooks and Pandas**.
+**Seaborn / Matplotlib**  
+- Python libraries for creating advanced visualizations.
+- Suitable for displaying biomarker graphs, disease progression curves, and comparative analyses.
+- Integrates well with Jupyter Notebooks and Pandas.
 
-### 🔹 **Tableau**  
-✅ Interactive data visualization platform.  
-✅ Enables exploration of patterns in large biomedical datasets.  
-✅ Ideal for creating **clinical dashboards and scientific reports**.
+**Tableau**  
+- An interactive data visualization platform that enables exploration of large biomedical datasets.
+- Ideal for developing clinical dashboards and comprehensive scientific reports.
 
+Example using Seaborn to visualize biomarker distribution:
 ```python
-# Example: Visualizing biomarker distribution with Seaborn
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -126,27 +126,26 @@ plt.show()
 
 ---
 
-## **4. Data Management and Biomedical Data Analysis**
+## 4. Data Management and Biomedical Data Analysis
 
-For managing patient databases, biomarkers, and neuroimaging data, the following tools are recommended:
+For managing patient databases, biomarkers, and neuroimaging data, consider these tools:
 
-### 🔹 **Pandas**  
-✅ Python library for handling and analyzing structured data.  
-✅ Applied in **clinical data preprocessing and biomarker analysis**.  
-✅ Compatible with **CSV, JSON, SQL, and standard clinical formats**.
+**Pandas**  
+- A Python library for handling and analyzing structured data.
+- Ideal for clinical data preprocessing and biomarker analysis.
+- Supports CSV, JSON, SQL, and standard clinical formats.
 
-### 🔹 **Dask**  
-✅ Scalable alternative to Pandas for large datasets.  
-✅ Supports distributed processing in cloud infrastructures.  
-✅ Recommended for massive neuroimaging and longitudinal data analysis.
+**Dask**  
+- A scalable alternative to Pandas for handling large datasets.
+- Supports distributed processing, making it suitable for massive neuroimaging and longitudinal data analysis.
 
-### 🔹 **SQL / PostgreSQL**  
-✅ Database management for storing and handling clinical information.  
-✅ Ideal for integration with **EHRs (Electronic Health Records) and scientific platforms**.  
-✅ Supports advanced queries and performance optimization for large-scale databases.
+**SQL / PostgreSQL**  
+- Robust database management systems for storing and handling clinical information.
+- Integrates with Electronic Health Records (EHRs) and scientific platforms.
+- Offers advanced querying and optimization for large-scale data.
 
+Example using Pandas to handle a biomarker dataset:
 ```python
-# Example: Handling large biomarker datasets with Pandas
 import pandas as pd
 
 # Load dataset
@@ -156,30 +155,44 @@ print(data.head())
 
 ---
 
-## **5. Bioinformatics and Genomic Data Analysis**
+## 5. Bioinformatics and Genomic Data Analysis
 
-If genetic data analysis is part of the study, the following tools are recommended:
+When genetic data analysis is necessary, the following tools are recommended:
 
-### 🔹 **Bioconductor (R)**  
-✅ R-based platform for genomic and transcriptomic data analysis.  
-✅ Applied in identifying **genetic biomarkers associated with neurodegenerative diseases**.  
-✅ Compatible with **GWAS studies and gene expression analysis**.
+**Bioconductor (R)**  
+- An R-based platform for genomic and transcriptomic data analysis.
+- Used for identifying genetic biomarkers associated with neurodegenerative diseases.
+- Suitable for GWAS studies and gene expression analysis.
 
-### 🔹 **GATK (Genomic Analysis Toolkit)**  
-✅ Tool for analyzing genetic variants in clinical data.  
-✅ Applied in **identifying mutations associated with neurological disorders**.  
-✅ Compatible with next-generation sequencing (NGS) data.
+**GATK (Genomic Analysis Toolkit)**  
+- A toolkit for analyzing genetic variants in clinical data.
+- Useful for identifying mutations related to neurological disorders.
+- Compatible with next-generation sequencing (NGS) data.
 
 ---
 
-## **Conclusion**
-Neurodiagnoses leverages an open-source ecosystem optimized for biomedical data analysis. 
+## Integration with Open Source Software from Fedora Docs
 
-📌 **For development:** Jupyter Notebook / Google Colab  
-📌 **For AI:** TensorFlow / PyTorch / Scikit-learn  
-📌 **For visualization:** Seaborn / Matplotlib / Tableau  
-📌 **For data management:** Pandas / SQL / Dask  
-📌 **For bioinformatics:** Bioconductor / GATK  
+Open source tools available via Fedora Docs can further complement this ecosystem:
 
-This infrastructure enables flexible, scalable, and reproducible neuroscience research. For more details on setting up these tools, consult the documentation in the Neurodiagnoses GitHub repository.
+**NeuroFedora**  
+- A Fedora spin preloaded with over 200 neuroscience tools, including NEST, Brian2, and NEURON.
+- Can serve as a development and simulation platform for validating neurocomputational models alongside existing pipelines.
 
+**Fedora Comp-Neuro Lab**  
+- An integrated environment designed for computational neuroscience modeling.
+- Provides a sandbox for experimental development and testing, interfacing smoothly with GitHub-hosted scripts and workflows.
+
+---
+
+## Conclusion
+
+The Neurodiagnoses ecosystem leverages an open-source infrastructure optimized for biomedical data analysis. Recommended components include:
+
+- **Development Environments:** Jupyter Notebook / Google Colab  
+- **AI Frameworks:** TensorFlow, PyTorch, Scikit-learn  
+- **Visualization Tools:** Seaborn, Matplotlib, Tableau  
+- **Data Management:** Pandas, SQL/PostgreSQL, Dask  
+- **Bioinformatics Tools:** Bioconductor, GATK
+
+This integrated infrastructure supports flexible, scalable, and reproducible neuroscience research, enabling precise diagnostic insights and facilitating continuous innovation. For further details on setting up and utilizing these tools, please refer to the documentation available in the Neurodiagnoses GitHub repository.
