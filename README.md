@@ -62,7 +62,7 @@ Continuous integration (CI/CD) automates model updates and deployment.
 
 flowchart TD
     %% Data Acquisition & Integration
-    A[Data Acquisition & Integration]
+    A [Data Acquisition & Integration]
     A -->|Multi-modal datasets: EEG, MRI, Biomarkers| B[Data Preprocessing & Feature Engineering]
     
     %% AI Model Training & Evaluation
