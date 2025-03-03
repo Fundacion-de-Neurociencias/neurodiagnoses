@@ -123,7 +123,7 @@ sns.barplot(x="Biomarker", y="Value", data=data)
 plt.title("Biomarker Distribution")
 plt.show()
 ```
-
+graphs: https://grantmcdermott.com/tinyplot/
 ---
 
 ## 4. Data Management and Biomedical Data Analysis
@@ -191,7 +191,7 @@ The Neurodiagnoses ecosystem leverages an open-source infrastructure optimized f
 
 - **Development Environments:** Jupyter Notebook / Google Colab  
 - **AI Frameworks:** TensorFlow, PyTorch, Scikit-learn  
-- **Visualization Tools:** Seaborn, Matplotlib, Tableau  
+- **Visualization Tools:** Seaborn, Matplotlib, Tableau, Tinyplot  
 - **Data Management:** Pandas, SQL/PostgreSQL, Dask  
 - **Bioinformatics Tools:** Bioconductor, GATK
 
