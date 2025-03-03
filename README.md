@@ -1,44 +1,46 @@
-# Neurodiagnostics
+# Neurodiagnoses  
 
-Neurodiagnostics is an open-source project developing a 3D diagnostic framework for complex central nervous system (CNS) diseases using artificial intelligence (AI). This project is driven by the Fundación de Neurociencias, and is powered by EBRAINS, GitHub, Hugging Face, and the community.
+## 📌 What is Neurodiagnoses?  
+Neurodiagnoses is an **AI-powered diagnostic framework** designed for **probabilistic modeling, multimodal data integration, and disease progression prediction** in **complex central nervous system (CNS) conditions**.  
 
-## Goals
+The project combines **machine learning, probabilistic reasoning, neuroimaging, biomarkers, and clinical assessments** to enhance diagnostic precision and enable **early-stage disease detection**.  
 
-* Develop a precise and scalable diagnostic system for CNS diseases.
-* Integrate multimodal data (neuroimaging, biomarkers, ontologies).
-* Utilize digital twins of the CNS to simulate disease progression.
-* Provide structured and explainable diagnoses.
+## 🚀 Key Functionalities  
+- **Probabilistic Annotation** – AI-based diagnostic modeling using probabilistic networks.  
+- **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.  
+- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.  
+- **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.  
+- **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.  
 
-## Key Features
+## 📖 Documentation and Resources  
+- 🌐 **Website:** [neurodiagnoses.com](https://neurodiagnoses.com/)  
+- 📂 **GitHub Repository:** [Neurodiagnoses on GitHub](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses)  
+- 🧠 **eBrains Collaboration:** [Neurodiagnoses on eBrains](https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/)  
 
-* **Tridimensional Diagnostic Annotation:** Structures diagnoses based on etiology (mainly genetics), molecular biomarkers, and neuroanatomical correlations.
-* **Probabilistic Diagnostics:** Provides multiple possible diagnoses with associated probability percentages.
-* **CNS Digital Twin Integration:** Incorporates personalized digital replicas of a patient's CNS.
-* **AI-powered Annotation:** Enhances standardization and interpretability of diagnostic features.
-* **Open-source platform:** Encourages collaboration and community contributions.
+## 🎯 How to Contribute  
+Neurodiagnoses is an **open-source project**, and we welcome contributors from various fields, including **AI, neuroscience, biomedical research, and software development**.  
 
-## Technologies Used
+### **Ways to Contribute:**  
+1. **Review the documentation** in GitHub and eBrains.  
+2. **Choose an area of interest** (machine learning, neuroimaging, biomarker analysis, software development).  
+3. **Follow open issues** in GitHub and collaborate on development, research, or testing.  
 
-* Python
-* TensorFlow/PyTorch
-* NiBabel, Nilearn (Neuroimaging libraries)
-* EBRAINS
-* Hugging Face
-* GitHub
+### **Contribution Areas:**  
+- **📖 Documentation and Organization** – Improving guides, standardizing procedures.  
+- **🧠 AI Model Development** – Implementing probabilistic models, biomarker predictors.  
+- **📊 Data Integration** – Processing neuroimaging, biomarkers, and clinical data.  
+- **🖥️ Platform Development** – APIs, backend, and visualization tools.  
+- **🔬 Research and Validation** – Benchmarking models, cross-validating with external datasets.  
 
-## Installation and Setup
+## 📌 Getting Started  
+To start contributing:  
+1. **Fork the repository** and explore the issues section.  
+2. **Join discussions** on eBrains and GitHub.  
+3. **Clone the project** and start working on tasks aligned with your expertise.  
 
-1.  Clone the repository: `git clone https://github.com/Fundacion-de-Neurociencias/neurodiagnoses.git`
-2.  Create a virtual environment: `python3 -m venv venv`
-3.  Activate the virtual environment: `source venv/bin/activate` (Linux/macOS) or `venv\Scripts\activate` (Windows)
-4.  Install dependencies: `pip install -r requirements.txt` (Provide the content of requirements.txt below)
-5.  Configure EBRAINS credentials as required.
 
-## Usage and Examples
+If you have any questions, feel free to reach out through the discussion platform at https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions
 
-To run the main diagnostic script:
+---
 
-```bash
-python neurodiagnostics/main.py --input_data path/to/data --model_type 3d
-
-Replace path/to/data with the actual path to your input data, and --model_type with either 3d or probabilistic.
+🛠 **Neurodiagnoses is an open-source project promoted by Fundación de Neurociencias, powered by EBRAINS, GitHub, and the open science community.**  
