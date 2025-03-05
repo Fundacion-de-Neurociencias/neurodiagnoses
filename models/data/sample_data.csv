@@ -1,0 +1,6 @@
+patient_id,age,sex,MMSE,plasma_biomarker_1,plasma_biomarker_2,MRI_region_1,MRI_region_2,clinical_score
+1,68,M,27,0.45,0.30,1200,1300,5
+2,73,F,25,0.50,0.35,1150,1280,7
+3,70,M,28,0.40,0.28,1220,1350,4
+4,65,F,30,0.38,0.25,1300,1400,3
+5,72,M,26,0.55,0.40,1180,1320,6
