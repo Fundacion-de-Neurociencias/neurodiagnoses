@@ -1,0 +1,3 @@
+[submodule "models/neurodiagnoses-agnostic-ml"]
+	path = models/neurodiagnoses-agnostic-ml
+	url = https://huggingface.co/fneurociencias/neurodiagnoses-agnostic-ml
