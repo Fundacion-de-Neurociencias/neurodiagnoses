@@ -64,6 +64,6 @@ image = (image - np.mean(image)) / np.std(image)
 1. **Consistency:** Ensure consistent preprocessing across all datasets to avoid introducing biases.
 2. **Documentation:** Document every preprocessing step to ensure reproducibility.
 3. **Automation:** Use scripts and pipelines to automate preprocessing for large datasets.
-
+4. **Software: ** We recommend using DeepPrep https://deepprep.readthedocs.io/en/latest/ https://github.com/pBFSLab/DeepPrep
 By following these preprocessing techniques, neurodiagnostic models can achieve better accuracy, robustness, and reproducibility when applied to real-world clinical and research data.
 
