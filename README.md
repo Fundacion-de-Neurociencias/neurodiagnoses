@@ -12,6 +12,19 @@ The project combines **machine learning, probabilistic reasoning, neuroimaging, 
 - **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.  
 - **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.  
 
+# Neurodiagnoses: Biomarker-Agnostic Machine Learning Model
+
+🚀 **Current Achievements:**
+- ✅ Developed a biomarker-agnostic machine learning model using `RandomForestClassifier`.
+- ✅ Trained the model on simulated data and saved it as `model.pkl`.
+- ✅ Uploaded the trained model to Hugging Face:  
+  [Neurodiagnoses Hugging Face Repo](https://huggingface.co/fneurociencias/neurodiagnoses-agnostic-ml)
+- ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
+- ✅ Successfully tested the API locally at `http://127.0.0.1:8000/docs`.
+
+
+
+
 ## 📖 Documentation and Resources  
 - 🌐 **Website:** [neurodiagnoses.com](https://neurodiagnoses.com/)  
 - 📂 **GitHub Repository:** [Neurodiagnoses on GitHub](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses)  
@@ -38,7 +51,11 @@ To start contributing:
 2. **Join discussions** on eBrains and GitHub.  
 3. **Clone the project** and start working on tasks aligned with your expertise.  
 
+🔹 **Next Steps:**
+- Deploy API on a cloud service for public access.
+- Implement authentication for security.
 
+📢 *Contributions are welcome!*
 If you have any questions, feel free to reach out through the discussion platform at https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions
 
 ---
