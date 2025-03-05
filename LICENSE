@@ -20,6 +20,19 @@ By contributing to Neurodiagnoses, you agree that your contributions fall under 
 1. Public use under MIT.
 2. Optional integration into commercial versions managed by Fundación de Neurociencias.
 
+DeepPrep Component License Notice
+Neurodiagnoses integrates the DeepPrep software component to facilitate advanced data preprocessing. DeepPrep is provided under the Apache License, Version 2.0 (the "License"). You may obtain a copy of the License at:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Attribution: All distributions of DeepPrep, including any modifications, must retain the original copyright and license notices as well as the accompanying NOTICE file (if present).
+"AS IS" Basis: DeepPrep is distributed on an "AS IS" BASIS, without warranties or conditions of any kind, either express or implied.
+Modifications: Any modifications made to DeepPrep must include prominent notices stating that changes have been made to the original files.
+Patent Rights: The license grants you a patent license to make, use, and distribute DeepPrep, subject to the conditions specified in the Apache License.
+Integration Statement:
+By integrating DeepPrep into Neurodiagnoses, the Neurodiagnoses project incorporates DeepPrep's functionality under the terms of the Apache License 2.0. This integration ensures that all users and developers of Neurodiagnoses are aware of, and agree to, the terms governing the use of DeepPrep.
+For further details on your rights and obligations under the Apache License 2.0, please refer to the full license text linked above.
+
 For full terms, refer to [Contributor Agreement](docs/Legal/Contributor_Agreement.md).
 Copyright (c) 2025 Fundación de Neurociencias
 
