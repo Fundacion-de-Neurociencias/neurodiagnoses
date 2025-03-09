@@ -28,6 +28,12 @@ AMP-AD Knowledge Portal (Accelerating Medicines Partnership for Alzheimer’s Di
 Focus: Multi-omic data for AD from multiple cohorts.
 Access: www.synapse.org/ampad
 
+Title:
+ADRCSC (Alzheimer’s Disease Research Center Single-Cell Database)
+Focus: ADRCSC provides single-cell RNA sequencing (scRNA-Seq) data from blood samples of individuals with Alzheimer’s disease (AD), Parkinson’s disease (PD), mild cognitive impairment (MCI), and healthy controls (HC). The database enables the analysis of gene expression differences across cell types, sexes, and disease states, offering insights into immune system alterations and potential biomarkers for neurodegenerative disorders.
+Access: ADRCSC Database
+Tools: Interactive visualizations for gene expression across different cell types and conditions.
+
 Neurodegenerative Disease Knowledge Portal (NDKP)
 Focus: The NDKP allows you to download various datasets, including phenotypes, credible sets, and epigenomic datasets. 
 Access: https://ndkp.hugeamp.org/
