@@ -1,0 +1,85 @@
+# Federated Learning Integration for Neurodiagnoses
+
+This document outlines how to integrate a federated learning methodology into Neurodiagnoses to enhance the robustness of our diagnostic models while preserving data privacy.
+
+## Overview
+
+Neurodiagnoses is an AI-powered platform for probabilistic diagnosis and annotation of neurodegenerative diseases. By implementing federated learning, we can collaboratively train models on diverse, locally stored data (e.g., neuroimaging, clinical records, biomarkers) from multiple institutions without centralizing sensitive patient information.
+
+## Motivation
+
+- **Enhanced Data Privacy:** Data remains on-site at each institution, ensuring compliance with privacy regulations.
+- **Robust Model Training:** Aggregating learnings from heterogeneous datasets across different centers increases the generalizability and accuracy of the diagnostic models.
+- **Collaborative Improvements:** Federated learning allows continuous updates and improvements to the global model as new data become available.
+- **Scalable Infrastructure:** Supports the incorporation of larger datasets from multiple sources without the need for data centralization.
+
+## Federated Learning Workflow
+
+1. **Local Data Preprocessing:**  
+   Each institution pre-processes its local datasets (e.g., normalization, transformation to Z-scores, feature extraction) from neuroimaging, clinical records, and biomarker analyses.
+
+2. **Local Model Training:**  
+   - A common model architecture is defined centrally and deployed locally at each participating institution.
+   - Each site trains the model on its own data using standard machine learning frameworks (e.g., PyTorch, TensorFlow) combined with a federated learning library (such as TensorFlow Federated or PySyft).
+
+3. **Model Aggregation:**  
+   - Local models send only their weight updates (or gradients) to a central aggregation server.
+   - The aggregator combines these updates (using techniques like Federated Averaging) to produce a refined global model without accessing raw data.
+
+4. **Global Model Distribution:**  
+   - The updated global model is sent back to the participating sites, where further local training can continue.
+   - This iterative process repeats until convergence or until performance metrics are satisfactorily met.
+
+5. **Validation and Deployment:**  
+   - The final global model is rigorously validated using independent datasets.
+   - Once validated, the model is integrated into the Neurodiagnoses pipeline to provide enhanced, privacy-preserving diagnostic predictions.
+
+## System Architecture Diagram
+
+```
+[Local Institution 1] --|
+                        |--> [Federated Aggregator] --> [Global Model]
+[Local Institution 2] --|
+                        |--> [Federated Aggregator] --> [Global Model]
+        ...           --|
+[Local Institution N] --|
+```
+
+## Implementation Steps
+
+1. **Define a Common Model Architecture:**  
+   - Develop a model suitable for integrating multimodal data. Ensure the architecture can accommodate inputs from neuroimaging, clinical, and biomarker datasets.
+
+2. **Select and Set Up a Federated Learning Framework:**  
+   - Evaluate frameworks such as TensorFlow Federated or PySyft.
+   - Create training scripts that run locally at each institution, performing data preprocessing and model training.
+
+3. **Develop Local Data Handling Pipelines:**  
+   - Write scripts to preprocess and securely store data on-site.
+   - Ensure consistency in feature extraction and normalization across all sites.
+
+4. **Implement the Aggregation Mechanism:**  
+   - Set up a secure central server that receives model updates.
+   - Use Federated Averaging or a similar method to aggregate weights/gradients and produce an updated global model.
+
+5. **Testing and Validation:**  
+   - Simulate the federated learning process in a controlled environment to test the pipeline.
+   - Validate the aggregated global model with independent test data before full-scale deployment.
+
+6. **Integration into Neurodiagnoses:**  
+   - Once validated, integrate the federated learning module into the main Neurodiagnoses pipeline.
+   - Continuously update the global model as new data are collected across institutions.
+
+## Benefits for Neurodiagnoses
+
+- **Improved Diagnostic Accuracy:** Enhanced model training using data from multiple sources increases overall predictive performance.
+- **Stronger Privacy Guarantees:** Local data never leaves the institution, significantly reducing privacy risks.
+- **Continuous Learning:** The model continuously evolves as additional data are incorporated through the federated process.
+- **Interdisciplinary Collaboration:** Enables collaboration between institutions without the logistical burden of data centralization.
+
+## References
+
+- [Nature Medicine – Harnessing Artificial Intelligence to Transform Alzheimer’s Disease Research](https://www.nature.com/articles/s41591-025-03632-8)
+- [TensorFlow Federated Documentation](https://www.tensorflow.org/federated)
+- [PySyft GitHub Repository](https://github.com/OpenMined/PySyft)
+
