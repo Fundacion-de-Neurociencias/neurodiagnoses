@@ -1,0 +1,5 @@
+touch _config.yml
+echo "theme: minima" > _config.yml
+git add _config.yml
+git commit -m "Fix Jekyll issue"
+git push origin main

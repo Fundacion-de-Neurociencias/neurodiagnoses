@@ -1,0 +1,88 @@
+Integrating the Neurodegenerative Disease Knowledge Portal (NDKP) into Neurodiagnoses
+Phase 1: Infrastructure & Data Pipeline Setup
+(1.1) Establish API/Data Access for NDKP
+
+Identify NDKP’s available data access methods (e.g., API endpoints, bulk downloads, database integration).
+If NDKP has an API, implement API-based queries for:
+Variant-based queries (check PheWAS & association statistics for patient variants).
+Gene-based queries (retrieve gene-level associations and pathway enrichment).
+Phenotype-based queries (list all significant genetic hits for a specific disease or trait).
+If using bulk downloads:
+Automate periodic data ingestion scripts to fetch and preprocess new association statistics.
+Store this in a structured database that Neurodiagnoses can access in real-time.
+(1.2) Data Storage & Standardization
+
+Convert NDKP association datasets into a structured database that aligns with Neurodiagnoses.
+Ensure harmonization of genomic coordinates (GRCh37 vs GRCh38).
+Store top genes, credible variant sets, pathways, and polygenic risk scores for major neurodegenerative diseases.
+(1.3) Implement Query Processing System
+
+Develop a variant-to-disease lookup table: Given a patient's variant list, return relevant diseases & evidence scores.
+Implement cross-phenotype mapping: If a patient has a gene mutation linked to multiple diseases, list all relevant conditions.
+Set up an internal scoring system to weight genetic variants based on NDKP evidence.
+Phase 2: Feature Integration into Neurodiagnoses
+(2.1) Probabilistic Annotation with NDKP Data
+
+Modify Neurodiagnoses’ probabilistic engine to factor in:
+NDKP HuGE scores (gene-disease evidence levels).
+PheWAS results (associations between a variant and multiple diseases).
+Pathway enrichment (if a patient has mutations in multiple genes from a pathway, adjust disease probability).
+(2.2) Tridimensional Analysis & Imaging Integration
+
+Develop an internal module that links MRI-based findings to genetic risk.
+If a brain region shows atrophy, automatically check for NDKP-listed genetic variants associated with that region.
+Implement genetic correlation filtering: If a patient has a neurodegenerative diagnosis but genetic evidence suggests another disease, recommend additional testing.
+(2.3) Biomarker Prediction Model
+
+Extend Neurodiagnoses’ ML models to include:
+NDKP’s top biomarker genes per disease.
+Rare variant burden analysis (NDKP already performs this for sequencing datasets).
+Pathway-level biomarker analysis (group patients by pathway involvement rather than single mutations).
+Create biomarker prioritization models: Weight predicted biomarkers based on:
+Number of times they appear in NDKP datasets.
+Genetic correlation strength with known disease markers.
+(2.4) Disease Progression Modeling
+
+Utilize NDKP’s polygenic risk score data for disease progression estimation.
+Apply NDKP cross-disease data to suggest alternative disease trajectories (e.g., some ALS patients develop FTD-like symptoms).
+Implement genetic subtyping: Use clustering methods to group patients based on genetic profiles.
+Phase 3: Web & GitHub Integration
+(3.1) GitHub Project Structure
+
+Create a GitHub repository module named neurodiagnoses-genomics.
+Add sections for:
+API Integration: Scripts for querying NDKP.
+Data Processing Pipelines: Scripts to clean, normalize, and store NDKP data.
+ML Models: Scripts using NDKP data for probabilistic annotation, biomarker prediction, and disease progression.
+(3.2) Web Platform Implementation
+
+Update Neurodiagnoses’ UI to include:
+A genetic report page that fetches NDKP-based associations.
+A "Related Conditions" feature (if the patient has a genetic risk for multiple diseases, suggest differential diagnoses).
+A “Polygenic Risk Score Calculator” (if the user provides their genome, compute their PRS using NDKP data).
+Interactive visualizations for biomarker-pathway links.
+(3.3) eBrains Collaboration & Data Federation
+
+Implement data exchange workflows:
+Store Neurodiagnoses’ patient variant data in eBrains-compatible formats.
+Allow researchers to pull NDKP-based insights into Neurodiagnoses for personalized disease modeling.
+Enable cross-referencing between Neurodiagnoses’ biomarker models and eBrains’ clinical datasets.
+Phase 4: Validation & Deployment
+(4.1) Benchmarking & Model Evaluation
+
+Compare Neurodiagnoses’ predictions vs. NDKP-based risk predictions.
+Validate new biomarkers discovered using Neurodiagnoses + NDKP against external datasets (UK Biobank, ADNI, etc.).
+Run clinical feasibility studies: Test if NDKP-enhanced Neurodiagnoses models improve diagnosis accuracy.
+(4.2) Long-Term Automation & Data Updates
+
+Automate NDKP data refresh cycles (weekly/monthly updates).
+Establish continuous model training pipelines to adjust probabilistic models as new genetic discoveries emerge.
+Develop an audit system to track which NDKP variants have changed status (e.g., newly discovered ALS-linked SNPs).
+Expected Impact
+✅ More accurate genetic-based probabilistic diagnoses
+✅ Improved biomarker prediction models with cross-validated genetic markers
+✅ Integration of imaging and genetic risk factors for holistic neurodiagnostic modeling
+✅ Better disease progression tracking using genetic risk scores
+✅ Enhanced research capabilities by linking Neurodiagnoses with a global genetics database
+
+This plan ensures that Neurodiagnoses fully leverages NDKP to advance AI-powered neurodiagnostics, providing a robust, research-backed, and clinically relevant platform. 

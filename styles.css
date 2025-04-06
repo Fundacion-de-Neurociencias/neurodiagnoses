@@ -1,0 +1,113 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Fixed Header */
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    margin-bottom: 0; /* Removes any spacing issue */
+}
+
+/* Navigation Bar */
+nav {
+    background: #444;
+    padding: 0;  /* ✅ Ensures all pages have uniform padding */
+    text-align: center;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+/* ✅ Fix for Consistent Menu Spacing Across All Pages */
+nav ul {
+    padding: 0;
+    margin: 0;  /* ✅ Ensures no jumping when switching pages */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* ✅ Aligns items properly */
+    height: 50px;  /* ✅ Ensures consistent height across pages */
+}
+
+/* ✅ Fix for Consistent Menu Item Spacing */
+nav ul li {
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ Ensures Equal Button Spacing */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;  /* ✅ Same padding across all pages */
+    font-size: 18px;
+    display: inline-block;
+}
+
+/* ✅ Ensures Hover Effect is Uniform */
+nav ul li a:hover {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+/* Ensure Content Starts Below Header & Navigation */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    margin-top: 120px; /* Prevents text from being covered by the nav */
+}
+
+/* Image Container */
+.image-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image-container img {
+    width: 70%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+    margin-top: 20px;
+}

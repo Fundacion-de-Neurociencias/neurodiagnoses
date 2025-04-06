@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Neurodiagnoses Interactive Contribution Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Fixed Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #444;
+            text-align: center;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: #007bff;
+            border-radius: 5px;
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            margin-top: 120px;
+            text-align: left;
+        }
+
+        /* List Container */
+        .list-container {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .list-container ul, .list-container ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .list-container li {
+            padding: 8px 0;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Interactive Sections */
+        section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section h2 {
+            cursor: pointer;
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        section p,
+        section ul,
+        section ol {
+            margin: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" style="color: white; text-decoration: none;">
+            Neurodiagnoses: AI-Powered Diagnostic Framework
+        </a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="contribute.html">Get Involved</a></li>
+            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
+            <li><a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Get Involved with Neurodiagnoses</h1>
+        <p>Join our collaborative effort to advance AI-powered diagnostics for complex CNS diseases through our interactive contribution guide below.</p>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>
+                Neurodiagnoses is an AI-powered diagnostic framework that integrates probabilistic models, neuroimaging, biomarkers, and clinical data to improve diagnostic precision for CNS conditions. This guide provides an overview of our project and helps you get started.
+            </p>
+        </section>
+
+        <section id="how-to-contribute">
+            <h2>How to Contribute</h2>
+            <p>
+                Get involved by engaging in discussions, contributing code, sharing data and resources, or running your own AI training. Our community thrives on collaboration and innovative contributions.
+            </p>
+            <ul>
+                <li><strong>Participate in Discussions:</strong> Join our <a href="https://chat.ebrains.eu/channel/Neurodiagnoses" target="_blank">EBRAINS Forum</a> and <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">GitHub Discussions</a>.</li>
+                <li><strong>Contribute to Code Development:</strong> Visit our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> to report issues, suggest features, or submit pull requests.</li>
+                <li><strong>Share Data and Resources:</strong> Enhance our diagnostic models by providing datasets, tools, or other valuable resources.</li>
+                <li><strong>Run Your Own AI Training:</strong>
+                    <ol>
+                        <li>Clone the repository from <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a>.</li>
+                        <li>Install the required dependencies as documented on our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/wiki" target="_blank">Wiki</a>.</li>
+                        <li>Access our Jupyter Notebooks for model training and analysis.</li>
+                    </ol>
+                </li>
+                <li><strong>Stay Updated:</strong> Follow us on social media and subscribe to our newsletter for the latest updates.</li>
+            </ul>
+        </section>
+
+        <section id="workflow-best-practices">
+            <h2>Workflow &amp; Best Practices</h2>
+            <p>
+                Our workflow is built on a set of well-documented modules and protocols. Explore our resources below:
+            </p>
+            <ul>
+                <li>
+                    <strong>Data Preprocessing:</strong> Leverage our automated scripts and protocols to preprocess neuroimaging and biomarker data. 
+                    Check out our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data/preprocessing" target="_blank">Data Preprocessing module</a> and related documentation under our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/tree/main/docs" target="_blank">Docs</a>.
+                </li>
+                <li>
+                    <strong>Model Integration:</strong> For model development and integration, review our integration modules:
+                    <ul>
+                        <li>
+                            <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data_integration/NDKP_integration" target="_blank">NDKP Integration</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data_integration/mip_integration.py" target="_blank">MIP Integration</a>
+                        </li>
+                    </ul>
+                    Also, consult our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/docs" target="_blank">Documentation</a> for best practices.
+                </li>
+                <li>
+                    <strong>Biomarker Ontology:</strong> Understand our standardized approach to biomarkers by reviewing our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data/biomarker_ontology" target="_blank">Biomarker Ontology</a> repository.
+                </li>
+                <li>
+                    <strong>General Documentation:</strong> For further details on project guidelines, data integration, and model development, visit our complete <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/docs" target="_blank">Documentation</a> section.
+                </li>
+            </ul>
+        </section>
+
+        <section id="getting-started">
+            <h2>Getting Started</h2>
+            <ol>
+                <li>Read the project overview and familiarize yourself with our mission.</li>
+                <li>Join our community channels on <a href="https://chat.ebrains.eu/channel/Neurodiagnoses" target="_blank">EBRAINS</a> and <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">GitHub Discussions</a>.</li>
+                <li>Explore our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> for open issues and tasks.</li>
+                <li>Begin contributing and share your expertise!</li>
+            </ol>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" class="button" target="_blank">Visit Our GitHub</a>
+            <a href="https://chat.ebrains.eu/channel/Neurodiagnoses" class="button" target="_blank">Join EBRAINS Forum</a>
+            <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" class="button" target="_blank">Join GitHub Discussions</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Neurodiagnoses | An open-source project promoted by Fundación de Neurociencias, powered by EBRAINS, GitHub, HuggingFace &amp; The Community
+    </footer>
+
+    <script>
+        // Interactive section: Toggle visibility on header click.
+        document.querySelectorAll("section h2").forEach(header => {
+            header.addEventListener("click", () => {
+                let nextElem = header.nextElementSibling;
+                while (nextElem && nextElem.tagName.toLowerCase() !== "h2") {
+                    nextElem.style.display = nextElem.style.display === "none" ? "block" : "none";
+                    nextElem = nextElem.nextElementSibling;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
