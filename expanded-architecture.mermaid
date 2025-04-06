@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph Inputs["Dynamic Input Layer"]
+        A1[Clinical Data] 
+        A2[Imaging Data]
+        A3[Biomarker Data]
+        A4[Genetic Data]
+        A5[Other Modalities]
+    end
+    
+    subgraph Processing["Modality-Agnostic Processing"]
+        B1[Feature Extraction Module]
+        B2[Biomarker Encoding Layer]
+        B3[Missing Data Handler]
+        B4[Self-Supervised Learning]
+    end
+    
+    subgraph Core["Core Architecture"]
+        C1[Transformer Encoder]
+        C2[Disease-Agnostic Representation]
+        C3[Uncertainty Quantification]
+    end
+    
+    subgraph Outputs["Flexible Output Layer"]
+        D1[Disease Classification]
+        D2[Biomarker Status Prediction]
+        D3[Progression Modeling]
+        D4[Risk Stratification]
+    end
+    
+    Inputs --> Processing
+    Processing --> Core
+    Core --> Outputs
+    
+    classDef blue fill:#3498db,color:white;
+    classDef green fill:#2ecc71,color:white;
+    classDef orange fill:#e67e22,color:white;
+    classDef purple fill:#9b59b6,color:white;
+    
+    class Inputs orange;
+    class Processing blue;
+    class Core purple;
+    class Outputs green;

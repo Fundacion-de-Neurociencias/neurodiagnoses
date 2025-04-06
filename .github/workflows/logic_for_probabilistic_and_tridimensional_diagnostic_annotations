@@ -1,0 +1,70 @@
+# **Documentation: Probabilistic Logic and Tridimensional Annotation Implications from AD Co-Pathology Research**
+
+## **Purpose**
+This document clarifies how findings from recent Alzheimer’s disease neuropathology studies, particularly those focusing on **co-pathologies** and **regional tau burden heterogeneity**, align with and inform the logic behind **Neurodiagnoses’ probabilistic engine** and **tridimensional diagnostic annotation system**.
+
+---
+
+## **1. Tridimensional Diagnostic Annotation — Compatibility**
+
+### **Key Principle**
+The tridimensional system in Neurodiagnoses is **agnostic to inference logic** and functions strictly as a **final outcome annotation framework**.
+
+### **Implication**
+- Findings from the 2024 Nature Aging preprint (*Pathologic subtyping of AD brain tissue reveals disease heterogeneity*) are **directly compatible**.
+- New dimensions such as:
+  - **Regional tau gradients (hippocampal-sparing vs. predominant)**
+  - **Presence of Lewy body or small vessel co-pathology**
+  - **Anatomical asymmetry**
+  - **Ethnicity-linked burden differences**
+  can be **added as features in annotation**, without modifying the logic of the axes:
+
+| Axis              | Enhanced By                                        |
+|------------------|----------------------------------------------------|
+| Etiology          | Genetic/demographic background (e.g. APOE4, ancestry) |
+| Pathophysiology   | Tau gradient, LBD presence, vascular burden       |
+| Anatomoclinical   | Asymmetry, regional atrophy, metabolic topology   |
+
+---
+
+## **2. Probabilistic Engine — Modeling Co-Pathologies**
+
+### **Key Insight**
+Co-pathologies are **not mutually exclusive** and may contribute to the observed clinical phenotype simultaneously. This implies that the **total sum of diagnostic probabilities** may:
+
+#### Option A: **Exceed 100% (Independent Multi-Label Probabilities)**
+- Each pathology (e.g. AD, LBD, TDP-43, SVD) is modeled **independently**.
+- Suitable when goal is to **detect presence or absence** of multiple mechanisms:
+  ```
+  AD: 70%
+  LBD: 50%
+  SVD: 25%
+  TDP-43: 10%
+  ```
+- Interpretation: Co-pathologies may coexist; total may exceed 100%.
+
+#### Option B: **Sum to 100% (Composite or Exclusive Modeling)**
+- Define **composite diagnostic classes** (e.g. “AD+LBD”, “Pure AD”, “AD+SVD”).
+- Suitable for **primary diagnosis assignment** or ranking:
+  ```
+  AD+LBD: 45%
+  Pure AD: 30%
+  AD+SVD: 20%
+  Other: 5%
+  ```
+
+### **Implementation Recommendation**
+- Neurodiagnoses will support **both logic modes**:
+  - Independent multi-label outputs (summation >100%).
+  - Composite class output (sum = 100%).
+- Selection will depend on use case (research, differential diagnosis, trial screening).
+
+---
+
+## **3. Summary**
+- The recent pathology-based AD subtype models are **aligned with Neurodiagnoses’ existing logic**.
+- Tridimensional annotation is unaffected and can incorporate new layers.
+- Probabilistic outputs can either reflect **independent contributions** or **composite class estimates**.
+
+This flexibility will support more accurate representation of **mixed, atypical, and ethnically diverse presentations** of neurodegeneration in the platform.
+
