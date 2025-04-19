@@ -1,0 +1,108 @@
+# Plexe Integration Flow in Neurodiagnoses
+
+**Date:** 2025-04-18
+
+## Purpose
+
+This document outlines the proposed workflow for integrating **Plexe** as an auxiliary tool to automatically generate clinical prediction models in the context of the **Neurodiagnoses** project, orchestrated by **ArqSysAI**.
+
+---
+
+## Use Case
+
+> Predict Mild Cognitive Impairment (MCI) based on:
+> `age`, `MMSE`, `p-Tau`, `hippocampal volume`
+
+---
+
+## Workflow Overview
+
+### 1. Model Request (Supervisor Agent)
+
+The supervisor agent within ArqSysAI identifies a need for a new model:
+
+```bash
+TASK: Generate a predictive model for MCI based on clinical and imaging variables.
+INPUT: age, MMSE, p-Tau, hippocampal volume
+OUTPUT: Exploratory model + basic performance evaluation
+```
+
+---
+
+### 2. Automated Generation (MCP Agent via Plexe)
+
+The MCP agent calls Plexe with a natural language specification:
+
+```bash
+plexe generate-model \
+  --task "Classify Mild Cognitive Impairment" \
+  --features "age, MMSE, p-Tau, hippocampal volume" \
+  --target "clinical diagnosis (MCI)" \
+  --type "binary classification" \
+  --output "./prototypes/model_mci_plexe_v1/"
+```
+
+**Expected Output:**
+- Python code for model training
+- Cross-validation metrics
+- Performance metrics (AUC, F1-score, precision, recall)
+- Annotated notebook with charts and insights
+
+---
+
+### 3. Technical Validation and Documentation
+
+- Model code is reviewed by an MCP agent or a human contributor
+- Key information is documented in `prototypes/model_mci_plexe_v1/README.md`:
+  - Rationale
+  - Input features
+  - Results
+  - Limitations
+
+---
+
+### 4. Registry and Version Control
+
+- Model is saved and flagged as **experimental**
+- Registered in `models_registry.json`
+- Optionally compared to other models for performance benchmarking
+
+---
+
+## Strategic Advantages
+
+- Accelerates hypothesis testing with no need for extensive coding
+- Enables collaboration with non-technical stakeholders (clinicians, psychologists, partners)
+- Encourages agile prototyping and iterative refinement of auxiliary models
+
+---
+
+## Compliance and Risk Considerations
+
+- Plexe is **not a regulated tool**: models must not be used in clinical decision-making without validation
+- All generated code must be **audited and reviewed** prior to integration in production pipelines
+- Suitable for **sandbox, R&D, or MVP generation workflows**
+
+---
+
+## Recommendation
+
+Integrate Plexe as a callable module by MCP agents under the ArqSysAI architecture.
+
+Use it to:
+- Generate exploratory models when new data becomes available
+- Test clinical hypotheses from collaborators
+- Create candidate pipelines for downstream evaluation and approval
+
+---
+
+### Next Steps
+
+- Implement script: `scripts/integrations/plexe_autogen.py`
+- Create reference doc: `docs/flows/plexe_integration.md`
+- Validate first model generation cycle using Plexe CLI or API
+
+---
+
+*This document is part of the strategic integration plan for AI-powered clinical research and neuroinformatics within the Neurodiagnoses framework.*
+
