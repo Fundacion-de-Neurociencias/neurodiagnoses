@@ -28,9 +28,13 @@ AMP-AD Knowledge Portal (Accelerating Medicines Partnership for Alzheimer’s Di
 Focus: Multi-omic data for AD from multiple cohorts.
 Access: www.synapse.org/ampad
 
+**GAAIN**
+The Global Alzheimer’s Association Interactive Network (GAAIN) unites a diverse and geographically distributed network of data partners within a federated data platform designed to foster cohort discovery, collaboration and sharing. GAAIN represents the first open access, federated Alzheimer’s disease data discovery platform of its kind
 Alzheimer's Disease Variant Portal
 Focus: comprehensive resource that curates genetic association findings related to AD from over 200 genome-wide association studies (GWAS). It encompasses data from more than 80 cohorts across eight populations, offering insights into over 900 loci and 1,800 genetic variants associated with AD. 
 Access: https://advp.niagads.org/
+
+https://www.gaain.org/
 
 ADRCSC (Alzheimer’s Disease Research Center Single-Cell Database)
 Focus: ADRCSC provides single-cell RNA sequencing (scRNA-Seq) data from blood samples of individuals with Alzheimer’s disease (AD), Parkinson’s disease (PD), mild cognitive impairment (MCI), and healthy controls (HC). The database enables the analysis of gene expression differences across cell types, sexes, and disease states, offering insights into immune system alterations and potential biomarkers for neurodegenerative disorders.
