@@ -61,3 +61,36 @@ If you have any questions, feel free to reach out through the discussion platfor
 ---
 
 🛠 **Neurodiagnoses is an open-source project promoted by Fundación de Neurociencias, powered by EBRAINS, GitHub, and the open science community.**  
+
+## ?? CLI Annotation Tool (`annotator`)
+
+A command-line tool that automatically generates a **tridimensional diagnostic annotation** based on structured clinical data (etiology, molecular pathology, and neuroanatomical-clinical correlation).
+
+### ?? Location
+```
+tools/annotator/annotate.py
+tools/annotator/caso.json
+```
+
+### ?? How to Use
+
+1. Make sure Python is installed and accessible via Terminal.
+2. Navigate to the project folder:
+```bash
+cd tools/annotator
+```
+3. Run the tool with your input file:
+```bash
+python annotate.py --input caso.json --timestamp 2025-06 --output anotacion.txt
+```
+
+- `--input`: Path to a `.json` file with clinical features.
+- `--timestamp`: Label for the annotation (e.g., month/year).
+- `--output`: File to write the output annotation string.
+
+### ? Output Example
+```text
+[2025-06]: Sporadic (APOE4 carrier, hypertension, hypercholesterolemia) / amyloid beta, tau; NfL, GFAP, vascular dysfunction markers / right hippocampus: visual memory deficits; parietal lobe: visuospatial impairment; prefrontal cortex: executive dysfunction
+```
+
+This tool is part of the probabilistic diagnostic pipeline of **Neurodiagnoses**, helping researchers simulate, annotate, and benchmark real or synthetic cases.
