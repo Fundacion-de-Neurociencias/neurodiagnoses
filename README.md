@@ -8,9 +8,10 @@ The project combines **machine learning, probabilistic reasoning, neuroimaging, 
 ## 🚀 Key Functionalities  
 - **Probabilistic Diagnoses** – AI-based diagnostic modeling using probabilistic approaches.  
 - **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.  
-- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.  
-- **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.  
-- **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.  
+- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.
+- **Genetic (Axe 1) Prediction** – Modeling the risk of genetic aetiology.
+- **Biomarker (Axe 2) Prediction** – AI-driven estimation of biomarker status and progression.  
+- **Phenotypic (Axe 3) Prediction** – Modeling the phenotype, neuroanatomical basis, age of onset, and progression.
 
 # Neurodiagnoses: Biomarker-Agnostic Machine Learning Model
 
