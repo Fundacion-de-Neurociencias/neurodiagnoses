@@ -6,7 +6,7 @@ Neurodiagnoses is an **AI-powered diagnostic framework** designed for **probabil
 The project combines **machine learning, probabilistic reasoning, neuroimaging, biomarkers, and clinical assessments** to enhance diagnostic precision and enable **early-stage disease detection**.  
 
 ## 🚀 Key Functionalities  
-- **Probabilistic Annotation** – AI-based diagnostic modeling using probabilistic networks.  
+- **Probabilistic Diagnoses** – AI-based diagnostic modeling using probabilistic approaches.  
 - **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.  
 - **Interactive Visualization** – User-friendly interfaces for research and clinical applications.  
 - **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.  
