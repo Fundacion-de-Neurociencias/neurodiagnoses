@@ -22,9 +22,35 @@ The project combines **machine learning, probabilistic reasoning, neuroimaging, 
   [Neurodiagnoses Hugging Face Repo](https://huggingface.co/fneurociencias/neurodiagnoses-agnostic-ml)
 - ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
 - ✅ Successfully tested the API locally at `http://127.0.0.1:8000/docs`.
+### 🧠 ML Pipelines for Axis 3 (Phenotypic Annotation)
 
+This module implements machine learning pipelines for phenotypic annotation, integrating neuroimaging, clinical, and cognitive data.
 
+📂 **Location:**  
+`tools/ml_pipelines/pipelines_axis3.py`
 
+#### 🚀 Features:
+- Preprocessing of features such as hippocampal volume, cortical thickness, MMSE scores.  
+- RandomForestClassifier-based phenotypic annotation.  
+- Ready to integrate with Neurodiagnoses API for interactive usage.
+
+#### 🛠 How to Use:
+1. Import the pipeline:
+    ```python
+    from tools.ml_pipelines.pipelines_axis3 import Axis3Pipeline
+
+    pipeline = Axis3Pipeline()
+    input_data = {
+        "hippocampal_volume": 3.2,
+        "cortical_thickness": 1.8,
+        "ventricular_volume": 42.5,
+        "age": 68,
+        "MMSE": 24
+    }
+    prediction = pipeline.predict(input_data)
+    print("Predicted Phenotypic Annotation:", prediction)
+    ```
+2. Future updates will include ADNI and PPMI pipelines for advanced phenotypic progression modeling.
 
 ## 📖 Documentation and Resources  
 - 🌐 **Website:** [neurodiagnoses.com](https://neurodiagnoses.com/)  
