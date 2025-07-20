@@ -1,0 +1,30 @@
+
+# Data
+data/*/raw/
+data/*/interim/
+
+# Models
+*.pkl
+*.pth
+*.h5
+
+# Notebook outputs
+*.csv
+*.parquet
+
+# Environments
+.venv/
+venv/
+.env
+
+# System
+.DS_Store
+__pycache__/
+
+# Allow placeholder files
+# Allow placeholder files in data directories
+!data/**/raw/README.md
+!data/**/interim/README.md
+!data/**/raw/.gitkeep
+!data/**/interim/.gitkeep
+
