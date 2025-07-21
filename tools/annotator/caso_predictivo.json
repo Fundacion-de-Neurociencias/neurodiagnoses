@@ -1,0 +1,17 @@
+{
+  "etiology": "Sporadic (APOE4 carrier, hypertension)",
+  "axis2_features": {
+    "ADAS13_bl": 18.5,
+    "APOE4": 1,
+    "AGE": 76.0,
+    "Hippocampus": 3.1,
+    "Ventricles": 48.5
+  },
+  "axis3_features": {
+    "hippocampal_volume": 3.1,
+    "cortical_thickness": 1.8,
+    "ventricular_volume": 48.5,
+    "age": 76,
+    "MMSE": 24
+  }
+}

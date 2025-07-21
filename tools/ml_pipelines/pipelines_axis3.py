@@ -1,51 +1,34 @@
 # tools/ml_pipelines/pipelines_axis3.py
-
-"""
-ML Pipelines for Axis 3 (Phenotypic Annotation)
-This module implements pipelines to process neuroimaging and clinical data
-for predicting phenotypic annotations within the Neurodiagnoses framework.
-"""
-
-import json
-import numpy as np
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler
+import pandas as pd
+import joblib
+import os
 
 class Axis3Pipeline:
+    """
+    Machine Learning pipeline for Axis 3 (Phenotypic) prediction.
+    Loads a pre-trained model to perform predictions.
+    """
     def __init__(self):
-        self.scaler = StandardScaler()
-        self.model = RandomForestClassifier(n_estimators=100, random_state=42)
+        # 1. Load the pre-trained model
+        model_path = 'models/axis3_model.joblib'
+        if not os.path.exists(model_path):
+            raise FileNotFoundError(f"Model file not found at '{model_path}'. Please run the data generator and training script first.")
+        
+        self.model = joblib.load(model_path)
+        
+        # Define the feature order based on how the model was trained
+        self.feature_order = ['age', 'MMSE', 'hippocampal_volume', 'cortical_thickness', 'ventricular_volume']
+        
+        print(f"INFO: Axis 3 pipeline initialized and pre-trained model loaded from '{model_path}'.")
 
-    def preprocess_data(self, data):
+    def predict(self, input_data: dict) -> str:
         """
-        Preprocess input data for the model.
-        :param data: dict with neuroimaging and clinical features
-        :return: np.array of processed features
+        Performs a phenotypic prediction based on input data.
         """
-        features = [
-            data.get("hippocampal_volume", 0),
-            data.get("cortical_thickness", 0),
-            data.get("ventricular_volume", 0),
-            data.get("age", 0),
-            data.get("MMSE", 0)
-        ]
-        return self.scaler.fit_transform([features])
-
-    def train(self, X, y):
-        """
-        Train the model on provided dataset
-        :param X: Feature matrix
-        :param y: Labels
-        """
-        X_scaled = self.scaler.fit_transform(X)
-        self.model.fit(X_scaled, y)
-
-    def predict(self, input_data):
-        """
-        Predict phenotypic annotation from input data
-        :param input_data: dict with patient features
-        :return: predicted class
-        """
-        processed = self.preprocess_data(input_data)
-        prediction = self.model.predict(processed)
+        input_df = pd.DataFrame([input_data])
+        # Reorder columns to match model's training order
+        input_df = input_df[self.feature_order]
+        
+        prediction = self.model.predict(input_df)
+        
         return prediction[0]
