@@ -4,110 +4,162 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    text-align: center;
+    color: #333;
 }
 
 /* Fixed Header */
 header {
-    background: #333;
+    background: #2c3e50;
     color: white;
     padding: 15px;
     font-size: 24px;
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    margin-bottom: 0; /* Removes any spacing issue */
+}
+
+header a {
+    color: white;
+    text-decoration: none;
 }
 
 /* Navigation Bar */
 nav {
-    background: #444;
-    padding: 0;  /* ✅ Ensures all pages have uniform padding */
+    background: #34495e;
     text-align: center;
     position: fixed;
-    top: 60px;
+    top: 60px; /* Header height */
     left: 0;
     width: 100%;
     z-index: 999;
 }
 
-/* ✅ Fix for Consistent Menu Spacing Across All Pages */
 nav ul {
     padding: 0;
-    margin: 0;  /* ✅ Ensures no jumping when switching pages */
+    margin: 0;
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;  /* ✅ Aligns items properly */
-    height: 50px;  /* ✅ Ensures consistent height across pages */
 }
 
-/* ✅ Fix for Consistent Menu Item Spacing */
-nav ul li {
-    margin: 0;
-    padding: 0;
-}
-
-/* ✅ Ensures Equal Button Spacing */
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 15px 20px;  /* ✅ Same padding across all pages */
+    padding: 14px 20px;
     font-size: 18px;
-    display: inline-block;
+    display: block;
+    transition: background-color 0.3s;
 }
 
-/* ✅ Ensures Hover Effect is Uniform */
 nav ul li a:hover {
-    background: #007bff;
+    background: #1abc9c;
     border-radius: 5px;
 }
 
-/* Ensure Content Starts Below Header & Navigation */
+/* Main Content Container */
 .container {
     width: 80%;
-    margin: auto;
+    max-width: 900px;
+    margin: 140px auto 40px auto; /* top margin accounts for header+nav */
     padding: 20px;
     background: white;
-    border-radius: 5px;
-    margin-top: 120px; /* Prevents text from being covered by the nav */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
-/* Image Container */
+.container h1, .container h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
 .image-container {
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 
 .image-container img {
-    width: 70%;
-    max-width: 600px;
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
-/* Buttons */
-.button {
+.centered-list {
     display: inline-block;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.button:hover {
-    background: #0056b3;
+    text-align: left;
+    margin: auto;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 15px;
-    background: #333;
+    padding: 20px;
+    background: #2c3e50;
     color: white;
     margin-top: 20px;
+}
+
+/* === STYLES FOR ANNOTATOR TOOL === */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-section-title {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+    color: #0056b3;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.tool-button {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1.5rem;
+}
+
+.tool-button:hover {
+    background: #0056b3;
+}
+
+#result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #333;
+    color: #f4f4f4;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    font-family: "Courier New", monospace;
+    word-wrap: break-word;
 }

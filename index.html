@@ -1,188 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="neurodiagnoses favicon-32x32.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses - AI Diagnosis Framework for Complex CNS Conditions</title>
+    <title>Neurodiagnoses - AI Diagnosis Framework</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-
-        /* Fixed Header */
-        header {
-            background: #333;
-            color: white;
-            padding: 15px;
-            font-size: 24px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        /* Navigation Bar */
-        nav {
-            background: #444;
-            text-align: center;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-        }
-
-        nav ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 15px 20px;
-            font-size: 18px;
-            display: inline-block;
-        }
-
-        nav ul li a:hover {
-            background: #007bff;
-            border-radius: 5px;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            margin-top: 120px;
-        }
-
-        .image-container {
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .image-container img {
-            width: 70%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background: #0056b3;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #333;
-            color: white;
-            margin-top: 20px;
-        }
-
-        /* Fix for Centering Lists */
-        .centered-list {
-            display: inline-block;
-            text-align: left;
-            margin: auto;
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="neurodiagnoses favicon-32x32.png">
 </head>
 <body>
-
     <header>
-        <a href="index.html" style="color: white; text-decoration: none;">
-            Neurodiagnoses: AI-Powered Diagnostic Framework
-        </a>
+        <a href="index.html">Neurodiagnoses: AI-Powered Diagnostic Framework</a>
     </header>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="annotator.html">Interactive Tool</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="contribute.html">Get Involved</a></li>
-            <li><a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/" target="_blank">EBRAINS</a></li>
-            <li><a href="https://huggingface.co/ManMenGon/neurodiagnoses-ai" target="_blank">Hugging Face</a></li>
             <li><a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a></li>
         </ul>
     </nav>
-
     <div class="container">
         <h1>Welcome to Neurodiagnoses</h1>
         <p>An AI-powered tridimensional diagnostic framework for complex CNS diseases.</p>
-
         <div class="image-container">
-            <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/main/tridimensional.png"
-                 alt="Tridimensional Diagnostic Framework">
+            <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/main/tridimensional.png" alt="Tridimensional Diagnostic Framework">
         </div>
-
         <h2>What is Neurodiagnoses?</h2>
-        <p>
-            Neurodiagnoses is an <strong>AI-powered framework</strong> that integrates <strong>probabilistic modeling, machine learning, and multimodal data</strong>
-            (neuroimaging, biomarkers, and clinical data) to enhance diagnostic precision and disease progression tracking.
-        </p>
+        <p>Neurodiagnoses is an <strong>AI-powered framework</strong> that integrates <strong>probabilistic modeling, machine learning, and multimodal data</strong> (neuroimaging, biomarkers, and clinical data) to enhance diagnostic precision and disease progression tracking.</p>
         <p>The project focuses on five core functionalities:</p>
-        <ul class="centered-list">
-            <li><strong>Probabilistic Annotation</strong> – AI-based diagnostic modeling using probabilistic networks.</li>
-            <li><strong>Tridimensional Annotation</strong> – Integration of neuroimaging, genetic, and clinical data.</li>
-            <li><strong>Interactive Visualization</strong> – User-friendly interfaces for research and clinical applications.</li>
-            <li><strong>Biomarker Prediction</strong> – AI-driven estimation of biomarker status and progression.</li>
-            <li><strong>Disease Prediction</strong> – Modeling of disease onset, conversion, and progression using ML.</li>
+        <ul style="text-align:center; list-style-position: inside;">
+            <li>Probabilistic Annotation</li>
+            <li>Tridimensional Annotation</li>
+            <li>Interactive Visualization</li>
+            <li>Biomarker Prediction</li>
+            <li>Disease Prediction</li>
         </ul>
-
-        <h2>How You Can Contribute</h2>
-        <p>We are currently in the early phases of development, focusing on documentation, planning, and initial model implementation.
-            Based on your background and interests, you can contribute in various areas:</p>
-        <ul class="centered-list">
-            <li><strong>Documentation and Organization</strong> – Review and improve documentation on <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses">GitHub</a> and <a href="https://wiki.ebrains.eu/bin/view/Collabs/neurodiagnoses/">eBrains</a>.</li>
-            <li><strong>Development and Modeling</strong> – Implement probabilistic models, develop AI-based prediction algorithms, and integrate MRI/PET models with clinical data.</li>
-            <li><strong>Platform Development</strong> – Build APIs and web services, and develop an interactive visualization interface.</li>
-            <li><strong>Analysis and Validation</strong> – Benchmark diagnostic models with open datasets and perform validation with ADNI, UK Biobank, and other repositories.</li>
-        </ul>
-
-        <h2>How to Get Started</h2>
-        <ol class="centered-list">
-            <li><strong>Join the repository on GitHub</strong> – <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses">Join GitHub</a></li>
-            <li><strong>Access the community at EBRAINS</strong> – <a href="https://community.ebrains.eu/_ideas/-OJHTZrpKrrrkx-u0djj/about">Access EBRAINS</a></li>
-            <li><strong>Introduce Yourself on GitHub Discussions</strong> – Share your area of interest and availability. <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions">GitHub Discussions</a></li>
-            <li><strong>Select a Task and Start Contributing</strong> – Browse open GitHub issues <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues">GitHub Issues</a> and the project board for active tasks. Ask for guidance if needed.</li>
-        </ol>
-
     </div>
-
     <footer>
-        &copy; 2025 Neurodiagnoses | An open-source project promoted by Fundación de Neurociencias powered by EBRAINS, GitHub, Hugging Face & The Community 
+        &copy; 2025 Neurodiagnoses | An open-source project
     </footer>
-
 </body>
 </html>
