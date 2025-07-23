@@ -22,8 +22,18 @@ The project combines **machine learning, probabilistic reasoning, neuroimaging, 
 - ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
 - ✅ Successfully tested the API locally at `http://127.0.0.1:8000/docs`.
 
+## Advanced Multi-Modal Annotator (In Development)
 
+This new module represents the next generation of the Neurodiagnoses framework, designed to process high-dimensional, multi-modal patient data.
 
+* **Location:** 	ools/advanced_annotator/
+* **Functionality:**
+    * **Data Ingestion:** A flexible data ingestion engine (	ools/data_ingestion/) parses and assembles rich patient profiles from clinical, imaging, and genetic sources into a standardized JSON format.
+    * **Feature Extraction:** The pipeline (
+un_advanced_annotation.py) loads a patient's full JSON profile and flattens it into a comprehensive feature vector.
+    * **Advanced Modeling:** A training script (	rain_model.py) uses the generated feature vectors to train powerful, multi-modal models like XGBoost, capable of handling complex data interactions.
+
+This module is the core of our effort to build a tool that can handle thousands of data points per patient, moving beyond the simpler proof-of-concept pipelines.
 
 ## 📖 Documentation and Resources  
 - 🌐 **Website:** [neurodiagnoses.com](https://neurodiagnoses.com/)  
@@ -61,18 +71,3 @@ If you have any questions, feel free to reach out through the discussion platfor
 ---
 
 🛠 **Neurodiagnoses is an open-source project promoted by Fundación de Neurociencias, powered by EBRAINS, GitHub, and the open science community.**  
-
----
-
-## Advanced Multi-Modal Annotator (In Development)
-
-This new module represents the next generation of the Neurodiagnoses framework, designed to process high-dimensional, multi-modal patient data.
-
-* **Location:** 	ools/advanced_annotator/
-* **Functionality:**
-    * **Data Ingestion:** A flexible data ingestion engine (	ools/data_ingestion/) parses and assembles rich patient profiles from clinical, imaging, and genetic sources into a standardized JSON format.
-    * **Feature Extraction:** The pipeline (
-un_advanced_annotation.py) loads a patient's full JSON profile and flattens it into a comprehensive feature vector.
-    * **Advanced Modeling:** A training script (	rain_model.py) uses the generated feature vectors to train powerful, multi-modal models like XGBoost, capable of handling complex data interactions.
-
-This module is the core of our effort to build a tool that can handle thousands of data points per patient, moving beyond the simpler proof-of-concept pipelines.
