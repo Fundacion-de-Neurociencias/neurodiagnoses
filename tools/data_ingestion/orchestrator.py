@@ -1,48 +1,89 @@
-# tools/data_ingestion/orchestrator.py
+# tools/advanced_annotator/run_advanced_annotation.py
 import json
 import os
-from datetime import datetime
+import pandas as pd
+import joblib
 
-from tools.data_ingestion.parsers.clinical_parser import parse_clinical_data
-from tools.data_ingestion.parsers.imaging_parser import parse_imaging_data
-from tools.data_ingestion.parsers.genomics_parser import parse_genomics_data
+def flatten_patient_json(patient_data):
+    """
+    Extracts and flattens all available features from a patient JSON object
+    into a single dictionary (a feature vector).
+    """
+    features = {}
+    if patient_data.get("clinical_data"):
+        clinical = patient_data["clinical_data"]
+        if clinical.get("demographics"):
+            features.update(clinical["demographics"])
+        if clinical.get("cognitive_tests"):
+            for test in clinical["cognitive_tests"]:
+                if "test_name" in test and "score" in test:
+                    features[test["test_name"]] = test["score"]
+    if patient_data.get("genetic_data"):
+        genetic = patient_data["genetic_data"]
+        if genetic.get("key_markers"):
+            features.update(genetic["key_markers"])
+        if genetic.get("variant_summary"):
+            features["variant_summary_count"] = len(genetic["variant_summary"])
+    if patient_data.get("imaging_data"):
+        imaging = patient_data["imaging_data"]
+        if imaging.get("derived_metrics"):
+            features.update(imaging["derived_metrics"])
+    return features
 
-def run_ingestion(patient_id, clinical_csv_path=None, imaging_csv_path=None, genomics_csv_path=None, output_dir="."):
-    """Orchestrates the data ingestion process for a single patient."""
-    print(f"--- Starting ingestion for patient: {patient_id} ---")
+def run_pipeline(patient_json_path):
+    """
+    Main function to run the advanced annotation pipeline.
+    It now loads a model, predicts, and formats a full annotation.
+    """
+    print(f"--- Running Advanced Annotation Pipeline for {patient_json_path} ---")
 
-    patient_json = {
-        "patient_id": patient_id,
-        "metadata": { "schema_version": "1.1", "ingestion_timestamp": datetime.now().isoformat() },
-        "clinical_data": None, "genetic_data": None, "imaging_data": None, "omics_data": None
-    }
+    # 1. Load patient JSON
+    try:
+        with open(patient_json_path, 'r') as f:
+            patient_data = json.load(f)
+        print("✅ Patient JSON loaded successfully.")
+    except FileNotFoundError:
+        print(f"Error: Patient file not found at {patient_json_path}")
+        return
 
-    if clinical_csv_path:
-        patient_json["clinical_data"] = parse_clinical_data(patient_id, clinical_csv_path)
-    if imaging_csv_path:
-        patient_json["imaging_data"] = parse_imaging_data(patient_id, imaging_csv_path)
-    if genomics_csv_path:
-        patient_json["genetic_data"] = parse_genomics_data(patient_id, genomics_csv_path)
+    # 2. Extract and flatten features
+    feature_vector = flatten_patient_json(patient_data)
+    print("✅ Features extracted and flattened.")
 
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, f"{patient_id}.json")
-    with open(output_path, 'w') as f:
-        json.dump(patient_json, f, indent=2)
-        
-    print(f"✅ Ingestion complete for {patient_id}. Saved to: {output_path}")
-    return output_path
+    # 3. Load the pre-trained advanced model
+    model_path = 'models/advanced_annotator_model.joblib'
+    try:
+        model = joblib.load(model_path)
+        print(f"✅ Advanced model loaded from '{model_path}'.")
+    except FileNotFoundError:
+        print(f"Error: Model not found at '{model_path}'. Please run the training script.")
+        return
+
+    # 4. Prepare data for prediction
+    # The model expects a DataFrame with columns in a specific order.
+    df_for_prediction = pd.DataFrame([feature_vector])
+
+    # We must align the columns with the training data (sorted alphabetically)
+    # First, get the feature names the model was trained on
+    model_features = model.get_booster().feature_names
+    df_for_prediction = df_for_prediction.reindex(columns=model_features).fillna(0)
+
+    # 5. Make a prediction
+    prediction = model.predict(df_for_prediction)[0]
+    prediction_label = "High_Risk_Profile" if prediction == 1 else "Low_Risk_Profile"
+    print(f"✅ Prediction complete: {prediction_label}")
+
+    # 6. Format the final 3-axis annotation
+    axis1 = f"Etiology based on clinical data (APOE4: {feature_vector.get('APOE4_alleles', 'N/A')})"
+    axis2_and_3 = f"Multi-modal AI prediction: {prediction_label} (based on {len(feature_vector)} features)"
+
+    timestamp = datetime.now().strftime('%Y-%m-%d')
+    full_annotation = f"[{timestamp}]: {axis1} / {axis2_and_3}"
+
+    print("\n--- FINAL ADVANCED ANNOTATION ---")
+    print(full_annotation)
+    print("-----------------------------------")
 
 if __name__ == '__main__':
-    # --- MODIFICATION ---
-    # Process all patients from our sample data to create a full dataset
-    patients_to_process = ['ND_001', 'ND_002', 'ND_003']
-    print(f"Starting batch ingestion for {len(patients_to_process)} patients...")
-    
-    for patient in patients_to_process:
-        run_ingestion(patient_id=patient, 
-                      clinical_csv_path='clinical_data.csv', 
-                      imaging_csv_path='imaging_metrics.csv',
-                      genomics_csv_path='genomics_summary.csv',
-                      output_dir='patient_database')
-    
-    print("\nBatch ingestion finished.")
+    patient_file = 'patient_database/ND_001.json'
+    run_pipeline(patient_json_path=patient_file)
