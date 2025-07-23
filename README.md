@@ -64,14 +64,15 @@ If you have any questions, feel free to reach out through the discussion platfor
 
 ---
 
-## ?? Advanced Multi-Modal Annotator (In Development)
+## Advanced Multi-Modal Annotator (In Development)
 
 This new module represents the next generation of the Neurodiagnoses framework, designed to process high-dimensional, multi-modal patient data.
 
 * **Location:** 	ools/advanced_annotator/
 * **Functionality:**
     * **Data Ingestion:** A flexible data ingestion engine (	ools/data_ingestion/) parses and assembles rich patient profiles from clinical, imaging, and genetic sources into a standardized JSON format.
-    * **Feature Extraction:** The pipeline (un_advanced_annotation.py) loads a patient's full JSON profile and flattens it into a comprehensive feature vector.
+    * **Feature Extraction:** The pipeline (
+un_advanced_annotation.py) loads a patient's full JSON profile and flattens it into a comprehensive feature vector.
     * **Advanced Modeling:** A training script (	rain_model.py) uses the generated feature vectors to train powerful, multi-modal models like XGBoost, capable of handling complex data interactions.
 
 This module is the core of our effort to build a tool that can handle thousands of data points per patient, moving beyond the simpler proof-of-concept pipelines.
