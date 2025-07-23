@@ -1,0 +1,48 @@
+{
+  "patient_id": "ND_003",
+  "metadata": {
+    "schema_version": "1.1",
+    "ingestion_timestamp": "2025-07-22T21:27:51.591567"
+  },
+  "clinical_data": {
+    "demographics": {
+      "age": 81.0,
+      "sex": "Male",
+      "years_of_education": 14
+    },
+    "cognitive_tests": [
+      {
+        "test_name": "MMSE",
+        "score": 21
+      },
+      {
+        "test_name": "ADAS13_bl",
+        "score": 22.0
+      }
+    ]
+  },
+  "genetic_data": {
+    "key_markers": {
+      "APOE4_alleles": 2
+    },
+    "variant_summary": [
+      {
+        "gene": "MAPT",
+        "variant": "P301L"
+      }
+    ],
+    "raw_data_paths": {
+      "exome_vcf": "/data/ND_003/exome.vcf.gz"
+    }
+  },
+  "imaging_data": {
+    "raw_data_paths": {
+      "t1_mri_nifti": "/data/patient_003/mri_t1.nii.gz"
+    },
+    "derived_metrics": {
+      "hippocampal_volume_norm": 0.71,
+      "cortical_thickness_avg": 1.9
+    }
+  },
+  "omics_data": null
+}

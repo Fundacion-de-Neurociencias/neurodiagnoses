@@ -1,0 +1,4 @@
+patient_id,age,sex,years_of_education,MMSE,ADAS13_bl
+ND_001,76.0,Female,16,24,18.5
+ND_002,68.0,Male,18,28,11.0
+ND_003,81.0,Male,14,21,22.0
