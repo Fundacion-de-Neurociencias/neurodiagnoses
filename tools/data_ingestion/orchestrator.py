@@ -1,89 +1,56 @@
-# tools/advanced_annotator/run_advanced_annotation.py
+# tools/data_ingestion/orchestrator.py
 import json
 import os
-import pandas as pd
-import joblib
+from datetime import datetime
 
-def flatten_patient_json(patient_data):
-    """
-    Extracts and flattens all available features from a patient JSON object
-    into a single dictionary (a feature vector).
-    """
-    features = {}
-    if patient_data.get("clinical_data"):
-        clinical = patient_data["clinical_data"]
-        if clinical.get("demographics"):
-            features.update(clinical["demographics"])
-        if clinical.get("cognitive_tests"):
-            for test in clinical["cognitive_tests"]:
-                if "test_name" in test and "score" in test:
-                    features[test["test_name"]] = test["score"]
-    if patient_data.get("genetic_data"):
-        genetic = patient_data["genetic_data"]
-        if genetic.get("key_markers"):
-            features.update(genetic["key_markers"])
-        if genetic.get("variant_summary"):
-            features["variant_summary_count"] = len(genetic["variant_summary"])
-    if patient_data.get("imaging_data"):
-        imaging = patient_data["imaging_data"]
-        if imaging.get("derived_metrics"):
-            features.update(imaging["derived_metrics"])
-    return features
+# Import parsers
+from tools.data_ingestion.parsers.clinical_parser import parse_clinical_data
+from tools.data_ingestion.parsers.imaging_parser import parse_imaging_data
+from tools.data_ingestion.parsers.genomics_parser import parse_genomics_data
+from tools.data_ingestion.parsers.cornblath_adapter import parse_cornblath_patient
 
-def run_pipeline(patient_json_path):
+def ingest_cornblath_patient(patient_id, data_dir, output_dir='patient_database/cornblath'):
     """
-    Main function to run the advanced annotation pipeline.
-    It now loads a model, predicts, and formats a full annotation.
+    Orchestrates the ingestion of a single patient from the Cornblath dataset.
     """
-    print(f"--- Running Advanced Annotation Pipeline for {patient_json_path} ---")
+    print(f"--- Starting Cornblath ingestion for patient: {patient_id} ---")
+    print(f"Searching for data in: {data_dir}")
 
-    # 1. Load patient JSON
-    try:
-        with open(patient_json_path, 'r') as f:
-            patient_data = json.load(f)
-        print("✅ Patient JSON loaded successfully.")
-    except FileNotFoundError:
-        print(f"Error: Patient file not found at {patient_json_path}")
+    # Call the specialized parser for the Cornblath dataset
+    parsed_data = parse_cornblath_patient(patient_id, data_dir)
+
+    if not parsed_data:
+        print(f"!!! Ingestion failed for patient {patient_id}.")
         return
 
-    # 2. Extract and flatten features
-    feature_vector = flatten_patient_json(patient_data)
-    print("✅ Features extracted and flattened.")
+    # Assemble the final JSON with metadata
+    final_json = {
+        "patient_id": str(patient_id),
+        "metadata": {
+            "schema_version": "1.1",
+            "ingestion_timestamp": datetime.now().isoformat(),
+            "source_dataset": "Cornblath2020"
+        }
+    }
+    final_json.update(parsed_data)
 
-    # 3. Load the pre-trained advanced model
-    model_path = 'models/advanced_annotator_model.joblib'
-    try:
-        model = joblib.load(model_path)
-        print(f"✅ Advanced model loaded from '{model_path}'.")
-    except FileNotFoundError:
-        print(f"Error: Model not found at '{model_path}'. Please run the training script.")
-        return
+    # Save the final JSON file
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, f"{patient_id}.json")
+    with open(output_path, 'w') as f:
+        json.dump(final_json, f, indent=2)
 
-    # 4. Prepare data for prediction
-    # The model expects a DataFrame with columns in a specific order.
-    df_for_prediction = pd.DataFrame([feature_vector])
-
-    # We must align the columns with the training data (sorted alphabetically)
-    # First, get the feature names the model was trained on
-    model_features = model.get_booster().feature_names
-    df_for_prediction = df_for_prediction.reindex(columns=model_features).fillna(0)
-
-    # 5. Make a prediction
-    prediction = model.predict(df_for_prediction)[0]
-    prediction_label = "High_Risk_Profile" if prediction == 1 else "Low_Risk_Profile"
-    print(f"✅ Prediction complete: {prediction_label}")
-
-    # 6. Format the final 3-axis annotation
-    axis1 = f"Etiology based on clinical data (APOE4: {feature_vector.get('APOE4_alleles', 'N/A')})"
-    axis2_and_3 = f"Multi-modal AI prediction: {prediction_label} (based on {len(feature_vector)} features)"
-
-    timestamp = datetime.now().strftime('%Y-%m-%d')
-    full_annotation = f"[{timestamp}]: {axis1} / {axis2_and_3}"
-
-    print("\n--- FINAL ADVANCED ANNOTATION ---")
-    print(full_annotation)
-    print("-----------------------------------")
+    print(f"✅ Ingestion complete. Patient data saved to: {output_path}")
+    return output_path
 
 if __name__ == '__main__':
-    patient_file = 'patient_database/ND_001.json'
-    run_pipeline(patient_json_path=patient_file)
+    # --- MODIFICATION ---
+    # Use the user-provided local path for the Cornblath dataset
+    cornblath_source_path = r'C:\Users\usuario\Downloads\SourceData'
+
+    sample_patient_id_cornblath = 4101131 
+
+    ingest_cornblath_patient(
+        patient_id=sample_patient_id_cornblath,
+        data_dir=cornblath_source_path
+    )
