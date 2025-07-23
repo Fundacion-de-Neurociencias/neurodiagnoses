@@ -1,0 +1,4 @@
+patient_id,t1_mri_nifti_path,hippocampal_volume_norm,cortical_thickness_avg
+ND_001,/data/patient_001/mri_t1.nii.gz,0.78,2.1
+ND_002,/data/patient_002/mri_t1.nii.gz,0.85,2.4
+ND_003,/data/patient_003/mri_t1.nii.gz,0.71,1.9

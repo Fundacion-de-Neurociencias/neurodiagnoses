@@ -1,0 +1,52 @@
+{
+  "patient_id": "ND_001",
+  "metadata": {
+    "schema_version": "1.1",
+    "ingestion_timestamp": "2025-07-22T21:27:51.471112"
+  },
+  "clinical_data": {
+    "demographics": {
+      "age": 76.0,
+      "sex": "Female",
+      "years_of_education": 16
+    },
+    "cognitive_tests": [
+      {
+        "test_name": "MMSE",
+        "score": 24
+      },
+      {
+        "test_name": "ADAS13_bl",
+        "score": 18.5
+      }
+    ]
+  },
+  "genetic_data": {
+    "key_markers": {
+      "APOE4_alleles": 1
+    },
+    "variant_summary": [
+      {
+        "gene": "PSEN1",
+        "variant": "A431E"
+      },
+      {
+        "gene": "TREM2",
+        "variant": "R47H"
+      }
+    ],
+    "raw_data_paths": {
+      "exome_vcf": "/data/ND_001/exome.vcf.gz"
+    }
+  },
+  "imaging_data": {
+    "raw_data_paths": {
+      "t1_mri_nifti": "/data/patient_001/mri_t1.nii.gz"
+    },
+    "derived_metrics": {
+      "hippocampal_volume_norm": 0.78,
+      "cortical_thickness_avg": 2.1
+    }
+  },
+  "omics_data": null
+}
