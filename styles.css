@@ -19,19 +19,29 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
+<<<<<<< HEAD
 }
 
 header a {
     color: white;
     text-decoration: none;
+=======
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 }
 
 /* Navigation Bar */
 nav {
+<<<<<<< HEAD
     background: #34495e;
     text-align: center;
     position: fixed;
     top: 60px; /* Header height */
+=======
+    background: #444;
+    text-align: center;
+    position: fixed;
+    top: 60px; /* Adjust based on header height */
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
     left: 0;
     width: 100%;
     z-index: 999;
@@ -48,7 +58,11 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     color: white;
+<<<<<<< HEAD
     padding: 14px 20px;
+=======
+    padding: 15px 20px;
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
     font-size: 18px;
     display: block;
     transition: background-color 0.3s;
@@ -66,6 +80,7 @@ nav ul li a:hover {
     margin: 140px auto 40px auto; /* top margin accounts for header+nav */
     padding: 20px;
     background: white;
+<<<<<<< HEAD
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: left;
@@ -76,6 +91,19 @@ nav ul li a:hover {
     color: #2c3e50;
 }
 
+=======
+    border-radius: 5px;
+    margin-top: 140px; /* Space for fixed header and nav */
+    text-align: left;
+}
+
+/* === FIX: Center align h1 and p inside the container === */
+.container h1, .container > p {
+    text-align: center;
+}
+
+
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 .image-container {
     text-align: center;
     margin: 30px 0;
@@ -102,7 +130,11 @@ footer {
     margin-top: 20px;
 }
 
+<<<<<<< HEAD
 /* === STYLES FOR ANNOTATOR TOOL === */
+=======
+/* === NEW STYLES FOR ANNOTATOR TOOL === */
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -113,11 +145,19 @@ footer {
 .form-group {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
+=======
+    text-align: left;
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 }
 
 label {
     font-weight: 600;
     margin-bottom: 0.5rem;
+<<<<<<< HEAD
+=======
+    color: #333;
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 }
 
 input {
@@ -157,9 +197,17 @@ input {
     margin-top: 2rem;
     padding: 1.5rem;
     background-color: #333;
+<<<<<<< HEAD
     color: #f4f4f4;
+=======
+    color: white;
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
     border-radius: 4px;
     white-space: pre-wrap;
     font-family: "Courier New", monospace;
     word-wrap: break-word;
+<<<<<<< HEAD
+=======
+    text-align: left;
+>>>>>>> fdf75cc (📦 Add example patient JSONs, annotations, updated UI and Axis 3 pipeline fixes)
 }
