@@ -6,6 +6,7 @@ from datetime import datetime
 
 # Import the refactored model class
 from tools.phenotype_to_genotype.model import PhenotypeEmbedder
+from tools.ml_pipelines.pipelines_axis3_pathology import Axis3PathologyPipeline
 
 def run_full_pipeline(patient_json_path):
     """
@@ -21,6 +22,10 @@ def run_full_pipeline(patient_json_path):
     except FileNotFoundError:
         print(f"Error: Patient file not found at {patient_json_path}")
         return
+
+    # Simulate HPO phenotypes for Axis 1 prediction
+    simulated_hpo_phenotypes = ['HP:0001250', 'HP:0002069', 'HP:0000726']
+    print(f"Using simulated HPO phenotypes for Axis 1: {simulated_hpo_phenotypes}")
 
     # --- 2. Load Model and Vocabularies ---
     model_dir = 'models'
@@ -42,7 +47,7 @@ def run_full_pipeline(patient_json_path):
         return
 
     # For now, we simulate the phenotype list as it's not in the JSON yet
-    phenotypes = ['HP:0001250', 'HP:0002069', 'HP:0000717', 'HP:0001300', 'HP:0000726'] # Replaced HP:0002376 with HP:0000717
+    phenotypes = simulated_hpo_phenotypes # Use the simulated HPO phenotypes
     # Filter out phenotypes not in the vocabulary
     phenotypes = [p for p in phenotypes if p in phenotype_vocab]
     print(f"Using simulated and filtered phenotypes: {phenotypes}")
@@ -75,17 +80,35 @@ def run_full_pipeline(patient_json_path):
     axis1 += f" | Driven by: {', '.join(top_features)}"
     print("✅ XAI explanation generated.")
 
-    # --- 5. Format Final Annotation ---
-    # For now, other axes are placeholders
-    axis2 = "Molecular Profile (Placeholder)"
-    axis3 = "Phenotype (Placeholder)"
+    # --- 5. Predict Axis 3 (Phenotype from Neuropathology) ---
+    axis3_pipeline = Axis3PathologyPipeline()
+    # Assuming patient_data contains a 'patient_id' field
+    # Extract patient_id from the filename (e.g., ND_001 from ND_001.json)
+    patient_filename = os.path.basename(patient_json_path)
+    patient_id_str = os.path.splitext(patient_filename)[0]
+    # Remove "ND_" prefix and convert to integer
+    try:
+        patient_id = int(patient_id_str.replace("ND_", ""))
+    except ValueError:
+        print(f"Error: Could not extract integer patient_id from filename {patient_filename}")
+        patient_id = None
+
+    if patient_id is None:
+        print("Error: 'patient_id' not found in patient JSON. Cannot predict Axis 3.")
+        axis3 = "Neuropathology Profile (t-Tau): Not available (patient_id missing)"
+    else:
+        axis3 = axis3_pipeline.predict(patient_id)
+        print("✅ Axis 3 (Neuropathology) prediction generated.")
+
+    # --- 6. Define Axis 2 (Molecular) ---
+    axis2 = "Molecular Profile (Requires Full Omics Data)"
+
+    # --- 7. Format Final Annotation ---
 
     timestamp = datetime.now().strftime('%Y-%m-%d')
-    full_annotation = f"[{timestamp}]: {axis1} / {axis2} / {axis3}"
+    full_annotation = f"--- FINAL MULTI-MODEL ANNOTATION ---\n[{timestamp}]: {axis1} / {axis2} / {axis3}\n------------------------------------"
 
-    print("\n--- FINAL ANNOTATION WITH XAI ---")
     print(full_annotation)
-    print("-----------------------------------")
 
 if __name__ == '__main__':
     patient_file = 'patient_database/ND_001.json'
