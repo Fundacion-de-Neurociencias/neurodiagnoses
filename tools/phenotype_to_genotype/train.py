@@ -1,11 +1,12 @@
-# tools/embedding_model/train_embedding_model.py
 import json
 import os
 import torch
-import torch.nn as nn
 import torch.optim as optim
 from sklearn.model_selection import train_test_split
 import numpy as np
+import torch.nn as nn
+
+from tools.phenotype_to_genotype.model import PhenotypeEmbedder, EMBEDDING_DIM, HIDDEN_DIM # Import PhenotypeEmbedder and constants
 
 # --- Configuration ---
 DATASET_PATH = 'data/simulated_patient_dataset.jsonl'
@@ -15,8 +16,6 @@ VOCAB_PHENOTYPE_PATH = os.path.join(MODEL_DIR, 'phenotype_vocab.json')
 VOCAB_GENE_PATH = os.path.join(MODEL_DIR, 'gene_vocab.json')
 
 # --- Model Hyperparameters ---
-EMBEDDING_DIM = 64
-HIDDEN_DIM = 128
 EPOCHS = 10
 LEARNING_RATE = 0.001
 
@@ -27,25 +26,6 @@ def load_data(path):
         for line in f:
             data.append(json.loads(line))
     return data
-
-# --- Neural Network Model Definition ---
-class PhenotypeEmbedder(nn.Module):
-    def __init__(self, vocab_size, embedding_dim, hidden_dim, output_size):
-        super(PhenotypeEmbedder, self).__init__()
-        self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=0)
-        self.fc1 = nn.Linear(embedding_dim, hidden_dim)
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(hidden_dim, output_size)
-
-    def forward(self, x):
-        # x is a batch of patient phenotypes
-        embedded = self.embedding(x)
-        # Average the embeddings for all phenotypes of a patient
-        pooled = embedded.mean(dim=1)
-        out = self.fc1(pooled)
-        out = self.relu(out)
-        out = self.fc2(out)
-        return out
 
 # --- Main Training Function ---
 def train_model():
