@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 # Use the feature list from our classifier
-from classifier import CSF_FEATURES
+from .classifier import CSF_FEATURES
 
 # --- CONFIGURATION ---
 NUM_PATIENTS = 500
@@ -102,7 +102,7 @@ mkdir -p neurodiagnoses_code/axis_3
 cat <<EOF > neurodiagnoses_code/axis_3/generate_axis3_dataset.py
 import pandas as pd
 import numpy as np
-from classifier import NEURO_FEATURES
+from .classifier import NEURO_FEATURES
 
 NUM_PATIENTS = 500
 OUTPUT_FILE = "neurodiagnoses_code/axis_3/axis_3_neuroimaging_data.csv"
@@ -227,96 +227,11 @@ def predict_etiology(patient_genetics: dict) -> dict:
     return probabilities
 EOF
 
-# === STEP 4: Create Final Orchestrator Script ===
-echo "--> Creating the final 3-axis run_neurodiagnosis.py script..."
-cat <<EOF > run_neurodiagnosis.py
-import random
-from neurodiagnoses_code.axis_1.classifier import predict_etiology
-from neurodiagnoses_code.axis_2.classifier import predict_probabilities as predict_axis2, CSF_FEATURES
-from neurodiagnoses_code.axis_3.classifier import predict_probabilities as predict_axis3, NEURO_FEATURES
-
-def main():
-    """Main function to orchestrate the FULL 3-AXIS neurodiagnostic process."""
-    print("=====================================================")
-    print("===   STARTING 3-AXIS DIAGNOSTIC SIMULATION       ===")
-    print("=====================================================")
-    print("\n[INFO] Simulating a new patient's multi-modal data...")
-    patient_axis1_data = {
-        "genetics": {
-            "pathogenic_variants": [],
-            "disease_specific_risk": ["APOE_e4"],
-            "non_specific_risk": ["APOE_e4_shared_signature"]
-        }
-    }
-    patient_axis2_data = {protein: random.uniform(0.0, 2.5) for protein in CSF_FEATURES}
-    patient_axis3_data = {feature: random.uniform(0.0, 1.5) for feature in NEURO_FEATURES}
-    print("  > Patient data simulation complete.")
-    print("\n[INFO] Sending data to Axis 1 (Etiology) Classifier...")
-    axis1_result = predict_etiology(patient_axis1_data)
-    print("\n[INFO] Sending data to Axis 2 (Molecular) Classifier...")
-    axis2_result = predict_axis2(patient_axis2_data)
-    print("\n[INFO] Sending data to Axis 3 (Phenotype) Classifier...")
-    axis3_result = predict_axis3(patient_axis3_data)
-    print("\n\n----------------- FINAL 3-AXIS REPORT -----------------")
-    if axis1_result:
-        print("\n  [-- AXIS 1: ETIOLOGICAL PROFILE (Genetic Probability) --]")
-        for disease, probability in sorted(axis1_result.items(), key=lambda item: item[1], reverse=True):
-            if probability > 0.02:
-                print(f"    - {disease:<25}: {probability:.2%}")
-    if axis2_result:
-        print("\n  [-- AXIS 2: MOLECULAR PROFILE (Disease Probability) --]")
-        class_names = {0: 'Control (CO)', 1: 'Alzheimer (AD)', 2: 'Parkinson (PD)', 3: 'Frontotemporal (FTD)', 4: 'Cuerpos de Lewy (DLB)'}
-        for class_index, probability in sorted(axis2_result.items(), key=lambda item: item[1], reverse=True):
-            class_name = class_names.get(class_index, f"Unknown Class {class_index}")
-            print(f"    - {class_name:<25}: {probability:.2%}")
-    if axis3_result:
-        print("\n  [-- AXIS 3: NEUROANATOMICAL-CLINICAL PROFILE --]")
-        phenotype_names = {0: 'Tau-positive Phenotype', 1: 'TDP-43 Phenotype'}
-        for class_index, probability in sorted(axis3_result.items(), key=lambda item: item[1], reverse=True):
-            phenotype_name = phenotype_names.get(class_index, f"Unknown Phenotype {class_index}")
-            print(f"    - {phenotype_name:<25}: {probability:.2%}")
-    print("---------------------------------------------------------")
-
-if __name__ == '__main__':
-    main()
-EOF
-
-# === STEP 5: Install Dependencies ===
+# === STEP 4: Install Dependencies and Run Orchestrator ===
 echo "--> Installing Python dependencies..."
 pip install -r requirements.txt
 
-# === STEP 6: Generate Datasets and Train Models ===
-echo "--> Generating datasets and training all models..."
-python3 neurodiagnoses_code/axis_2/generate_dataset.py
-python3 neurodiagnoses_code/axis_2/classifier.py
-python3 neurodiagnoses_code/axis_3/generate_axis3_dataset.py
-python3 neurodiagnoses_code/axis_3/classifier.py
-
-# === STEP 7: Run Final 3-Axis Simulation ===
-echo "--> Running the final 3-axis simulation..."
-python3 run_neurodiagnosis.py
-
-# === STEP 8: Add Documentation and Commit ===
-echo "--> Documenting and committing all work to Git..."
-cat <<EOF >> README.md
-
-### Multi-Axis Diagnostic System Implemented
-- **Axis 1 (Etiology):** A rules-based classifier for genetic variants.
-- **Axis 2 (Molecular):** An ML model for proteomic data.
-- **Axis 3 (Phenotype):** An ML model for neuroimaging data.
-- The main `run_neurodiagnosis.py` script orchestrates all three axes to produce a unified report.
-EOF
-
-git add .
-git commit -m "feat(system): Implement and integrate full 3-axis diagnostic system" -m "
-- Implements a rules-based classifier for Axis 1 (Etiology).
-- Implements ML classifiers and data generators for Axis 2 (Molecular) and Axis 3 (Phenotype).
-- Integrates all three axes into a single, comprehensive diagnostic report in the main execution script.
-- All necessary data generation, training, and execution steps are functional.
-"
-
-# === FINAL STEP: Push to Remote ===
-# echo "--> Pushing to GitHub..."
-# git push
+echo "--> Running the Python orchestrator script..."
+python3 orchestrator.py
 
 echo "--- MASTER SCRIPT: BUILD AND EXECUTION COMPLETE ---"
