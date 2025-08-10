@@ -287,14 +287,14 @@ pip install -r requirements.txt
 
 # === STEP 6: Generate Datasets and Train Models ===
 echo "--> Generating datasets and training all models..."
-python neurodiagnoses_code/axis_2/generate_dataset.py
-python neurodiagnoses_code/axis_2/classifier.py
-python neurodiagnoses_code/axis_3/generate_axis3_dataset.py
-python neurodiagnoses_code/axis_3/classifier.py
+python3 neurodiagnoses_code/axis_2/generate_dataset.py
+python3 neurodiagnoses_code/axis_2/classifier.py
+python3 neurodiagnoses_code/axis_3/generate_axis3_dataset.py
+python3 neurodiagnoses_code/axis_3/classifier.py
 
 # === STEP 7: Run Final 3-Axis Simulation ===
 echo "--> Running the final 3-axis simulation..."
-python run_neurodiagnosis.py
+python3 run_neurodiagnosis.py
 
 # === STEP 8: Add Documentation and Commit ===
 echo "--> Documenting and committing all work to Git..."

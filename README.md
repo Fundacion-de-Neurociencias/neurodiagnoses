@@ -165,3 +165,9 @@ If you have any questions, feel free to reach out through the discussion platfor
 - **Axis 2 (Molecular):** An ML model for proteomic data.
 - **Axis 3 (Phenotype):** An ML model for neuroimaging data.
 - The main  script orchestrates all three axes to produce a unified report.
+
+### Multi-Axis Diagnostic System Implemented
+- **Axis 1 (Etiology):** A rules-based classifier for genetic variants.
+- **Axis 2 (Molecular):** An ML model for proteomic data.
+- **Axis 3 (Phenotype):** An ML model for neuroimaging data.
+- The main  script orchestrates all three axes to produce a unified report.
