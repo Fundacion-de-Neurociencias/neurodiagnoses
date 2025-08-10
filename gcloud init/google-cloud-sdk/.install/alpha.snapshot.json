@@ -1,0 +1,36 @@
+{
+  "components": [
+    {
+      "data": {
+        "contents_checksum": "038c999c7a7d70d5133eab7dc5868c4c3d0358431dad250f9833306af63016c8",
+        "source": "",
+        "type": "tar"
+      },
+      "dependencies": [
+        "core"
+      ],
+      "details": {
+        "description": "Alpha version of gcloud commands.",
+        "display_name": "gcloud Alpha Commands"
+      },
+      "gdu_only": false,
+      "id": "alpha",
+      "is_configuration": false,
+      "is_hidden": false,
+      "is_required": false,
+      "platform": {},
+      "platform_required": false,
+      "version": {
+        "build_number": 20250801150402,
+        "version_string": "2025.08.01"
+      }
+    }
+  ],
+  "revision": 20250801150402,
+  "schema_version": {
+    "no_update": false,
+    "url": "https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz",
+    "version": 3
+  },
+  "version": "533.0.0"
+}
