@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neurodiagnoses</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="neurodiagnoses favicon-32x32.png">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/png" href="./neurodiagnoses favicon-32x32.png">
 </head>
 <body>
 
@@ -17,8 +17,8 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#functionalities">Functionalities</a></li>
                     <li><a href="#prototype">Prototype</a></li>
-                    <li><a href="#research">Research</a></li>
                     <li><a href="#get-involved">Get Involved</a></li>
                 </ul>
             </nav>
@@ -31,34 +31,41 @@
                     Neurodiagnoses is an AI-powered open-source framework designed to advance the diagnosis and prediction of central nervous system (CNS) disorders. The platform leverages cutting-edge machine learning techniques and integrates multi-modal data to generate structured, explainable diagnostic outputs.
                 </p>
                 <div class="main-image-container">
-                    <img src="tridimensional.png" alt="Tridimensional Diagnostic Approach">
+                    <img src="./tridimensional.png" alt="Tridimensional Diagnostic Approach">
                 </div>
+            </section>
+            
+            <section id="functionalities">
+                <h2>Key Functionalities</h2>
+                <ul>
+                    <li><b>Probabilistic Annotation</b> – AI-based diagnostic modeling using probabilistic networks.</li>
+                    <li><b>Tridimensional Annotation</b> – Integration of neuroimaging, genetic, and clinical data.</li>
+                    <li><b>Multi-Model Advanced Annotation</b> – Unified pipeline for comprehensive 3-axis annotation using multiple AI models.</li>
+                    <li><b>Interactive Visualization</b> – User-friendly interfaces for research and clinical applications.</li>
+                    <li><b>Biomarker Prediction</b> – AI-driven estimation of biomarker status and progression.</li>
+                    <li><b>Disease Prediction</b> – Modeling of disease onset, conversion, and progression using ML.</li>
+                </ul>
             </section>
         
             <section id="prototype">
                 <h2>Current Prototype: 3-Axis Command-Line Simulator</h2>
                 <p>
-                    The latest development is a complete 3-axis diagnostic prototype that runs from the command line. It integrates three independent classifiers to generate a comprehensive, multi-modal report:
+                    The latest development is a complete 3-axis diagnostic prototype that runs from the command line, reflecting the project's core tridimensional philosophy:
                 </p>
                 <ul>
                     <li><b>Axis 1 (Etiology):</b> A rules-based engine that assesses genetic risk factors.</li>
-                    <li><b>Axis 2 (Molecular Profile):</b> A machine learning model trained on simulated proteomics data to predict disease probability.</li>
-                    <li><b>Axis 3 (Phenotypic Profile):</b> A machine learning model trained on simulated neuroimaging data to predict clinical phenotypes.</li>
+                    <li><b>Axis 2 (Molecular Profile):</b> A machine learning model trained on simulated proteomics data.</li>
+                    <li><b>Axis 3 (Phenotypic Profile):</b> A machine learning model trained on simulated neuroimaging data.</li>
                 </ul>
                 
                 <h3>How to Run the Simulation</h3>
                 <p>After setting up the environment, you can run the full simulation with this single command from the repository root:</p>
                 <pre><code>python run_neurodiagnosis.py</code></pre>
             </section>
-            
-            <section id="research">
-                <h2>Our Research</h2>
-                <p>We are dedicated to integrating AI with neuroscience to revolutionize diagnostics for CNS disorders.</p>
-            </section>
 
             <section id="get-involved">
                 <h2>Get Involved</h2>
-                <p>Join our collaborative effort by visiting our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> and joining the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">Discussions</a>.</p>
+                <p>This is an open-source project and we welcome contributors. Join our collaborative effort by visiting our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> and joining the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">Discussions</a>.</p>
             </section>
         </main>
 
