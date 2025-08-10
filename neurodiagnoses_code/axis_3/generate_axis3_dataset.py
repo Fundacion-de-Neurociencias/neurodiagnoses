@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from classifier import NEURO_FEATURES
+from .classifier import NEURO_FEATURES
 
 NUM_PATIENTS = 500
 OUTPUT_FILE = "neurodiagnoses_code/axis_3/axis_3_neuroimaging_data.csv"

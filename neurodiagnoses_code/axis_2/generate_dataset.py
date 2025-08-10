@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Use the feature list from our classifier
-from classifier import CSF_FEATURES
+from .classifier import CSF_FEATURES
 
 # --- CONFIGURATION ---
 NUM_PATIENTS = 500
