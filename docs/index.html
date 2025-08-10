@@ -8,69 +8,85 @@
     <link rel="icon" type="image/png" href="neurodiagnoses favicon-32x32.png">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Neurodiagnoses</h1>
-        <p>An AI-powered 3-axis diagnostic framework for complex CNS diseases.</p>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="contribute.html">Contribute</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="prototype">
-            <h2>Current Prototype: 3-Axis Command-Line Simulator</h2>
-            <p>
-                The latest development is a complete 3-axis diagnostic prototype that runs from the command line. It integrates three independent classifiers to generate a comprehensive, multi-modal report:
-            </p>
-            <ul>
-                <li><b>Axis 1 (Etiology):</b> A rules-based engine that assesses genetic risk factors.</li>
-                <li><b>Axis 2 (Molecular Profile):</b> A machine learning model trained on simulated proteomics data to predict disease probability.</li>
-                <li><b>Axis 3 (Phenotypic Profile):</b> A machine learning model trained on simulated neuroimaging data to predict clinical phenotypes.</li>
-            </ul>
-            
-            <h3>How to Run the Simulation</h3>
-            <p>After setting up the environment, you can run the full simulation with this single command from the repository root:</p>
-            <pre><code>python run_neurodiagnosis.py</code></pre>
+    <div class="container">
+        <header>
+            <h1>Welcome to Neurodiagnoses</h1>
+            <p>An AI-powered 3-axis diagnostic framework for complex CNS diseases.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#prototype">Prototype</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <h3>Example Output</h3>
-            <p>The script will generate a report like the following:</p>
-            <pre><code>
------------------ FINAL 3-AXIS REPORT -----------------
+        <main>
+            <section id="about">
+                <h2>About Neurodiagnoses</h2>
+                <p>
+                    Neurodiagnoses is an AI-powered open-source framework designed to advance the diagnosis and prediction of central nervous system (CNS) disorders. The platform leverages cutting-edge machine learning techniques and integrates multi-modal data to generate structured, explainable diagnostic outputs.
+                </p>
+            </section>
+        
+            <section id="prototype">
+                <h2>Current Prototype: 3-Axis Command-Line Simulator</h2>
+                <p>
+                    The latest development is a complete 3-axis diagnostic prototype that runs from the command line. It integrates three independent classifiers to generate a comprehensive, multi-modal report:
+                </p>
+                <ul>
+                    <li><b>Axis 1 (Etiology):</b> A rules-based engine that assesses genetic risk factors.</li>
+                    <li><b>Axis 2 (Molecular Profile):</b> A machine learning model trained on simulated proteomics data to predict disease probability.</li>
+                    <li><b>Axis 3 (Phenotypic Profile):</b> A machine learning model trained on simulated neuroimaging data to predict clinical phenotypes.</li>
+                </ul>
+                
+                <h3>How to Run the Simulation</h3>
+                <p>After setting up the environment, you can run the full simulation with this single command from the repository root:</p>
+                <pre><code>python run_neurodiagnosis.py</code></pre>
+
+                <h3>Example Output</h3>
+                <p>The script will generate a report like the following:</p>
+                <pre><code>----------------- FINAL 3-AXIS REPORT -----------------
 
   [-- AXIS 1: ETIOLOGICAL PROFILE (Genetic Probability) --]
     - AD                         : 75.81%
-    - PD                         : 8.42%
     ...
 
   [-- AXIS 2: MOLECULAR PROFILE (Disease Probability) --]
     - Alzheimer (AD)             : 48.15%
-    - Control (CO)               : 25.30%
     ...
 
   [-- AXIS 3: NEUROANATOMICAL-CLINICAL PROFILE --]
     - Tau-positive Phenotype     : 88.91%
-    - TDP-43 Phenotype           : 11.09%
----------------------------------------------------------
-            </code></pre>
-        </section>
+    ...
+---------------------------------------------------------</code></pre>
+            </section>
+            
+            <section id="research">
+                <h2>Our Research</h2>
+                <p>We are dedicated to integrating AI with neuroscience to revolutionize diagnostics for CNS disorders.</p>
+                <h4>Key Research Areas</h4>
+                <ul>
+                    <li>AI-Based Annotation System</li>
+                    <li>Probabilistic Diagnosis Modeling</li>
+                    <li>Neuroimaging and EEG Data Analysis</li>
+                    <li>Federated Learning & Secure Data Sharing</li>
+                </ul>
+            </section>
 
-        <section id="get-involved">
-            <h2>Get Involved</h2>
-            <p>Join our collaborative effort to advance AI-powered diagnostics for complex CNS diseases.</p>
-            <ul>
-                <li><b>Participate in Discussions:</b> Join our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">GitHub Discussions</a>.</li>
-                <li><b>Contribute to Code Development:</b> Visit our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a>.</li>
-            </ul>
-        </section>
-    </main>
+            <section id="get-involved">
+                <h2>Get Involved</h2>
+                <p>Join our collaborative effort by visiting our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> and joining the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">Discussions</a>.</p>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
