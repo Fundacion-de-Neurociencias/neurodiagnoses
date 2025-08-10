@@ -26,6 +26,39 @@ semantic_retriever/
 3. Embedder fine-tuning
 4. Interface deployment
 
+---
+
+## Módulo de Diagnóstico Probabilístico (Prueba de Concepto)
+
+Se ha añadido un nuevo módulo de IA para el diagnóstico probabilístico basado en el **Eje 2 (Perfil Molecular)**. Este módulo es una implementación inspirada en el paper "Protein-based Diagnosis and Analysis of Co-pathologies".
+
+### Cómo Ejecutar la Simulación
+
+Para ejecutar la prueba de concepto y obtener un diagnóstico simulado, sigue estos pasos:
+
+1.  **Configurar el Entorno Virtual (si se trabaja localmente):**
+    ```bash
+    # Si no lo has hecho ya, crea el entorno
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+2.  **Instalar Dependencias:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Entrenar el Modelo de Ejemplo (si no existe):**
+    ```bash
+    # El script principal requiere un modelo entrenado. Para crear uno de ejemplo:
+    python -c "from neurodiagnoses_code.axis_2.classifier import train_model; train_model()"
+    ```
+
+4.  **Ejecutar el Diagnóstico:**
+    ```bash
+    python run_neurodiagnosis.py
+    ```
+
 ## 🔗 Dependencies
 
 - sentence-transformers
