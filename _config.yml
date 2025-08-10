@@ -1,14 +1,2 @@
-touch _config.yml
-echo "theme: minima" > _config.yml
-git add _config.yml
-git commit -m "Fix Jekyll issue"
-git push origin main
-
-# Exclude application code and data from the Jekyll site build
-exclude:
-  - neurodiagnoses_code/
-  - venv/
-  - run_neurodiagnosis.py
-  - "*.csv"
-  - "*.jsonl"
-  - "*.patch"
+theme: minima
+baseurl: /neurodiagnoses/
