@@ -3,94 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses | AI-Powered CNS Annotation Framework</title>
-    <link rel="icon" type="image/x-icon" href="neurodiagnoses favicon-32x32.png">
-    <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background: #2c3e50; color: white; padding: 15px; font-size: 24px; text-align: center; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
-        header a { color: white; text-decoration: none; }
-        nav { background: #34495e; text-align: center; position: fixed; top: 60px; left: 0; width: 100%; z-index: 999; }
-        nav ul { padding: 0; margin: 0; list-style: none; display: flex; justify-content: center; }
-        nav ul li a { text-decoration: none; color: white; padding: 14px 20px; font-size: 18px; display: block; transition: background-color 0.3s; }
-        nav ul li a:hover { background: #1abc9c; border-radius: 5px; }
-        .container { width: 80%; max-width: 900px; margin: 0 auto; padding: 4rem 2rem; border-bottom: 1px solid #e0e0e0; }
-        section:first-of-type { padding-top: 140px; }
-        .container:last-of-type { border-bottom: none; }
-        .container h1, .container h2 { text-align: center; color: #2c3e50; }
-        .container > p { text-align: center; }
-        .image-container { text-align: center; margin: 30px 0; }
-        .image-container img { max-width: 100%; height: auto; border-radius: 10px; }
-        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .form-group { display: flex; flex-direction: column; text-align: left;}
-        label { font-weight: 600; margin-bottom: 0.5rem; }
-        input { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        .form-section-title { grid-column: 1 / -1; font-size: 1.5rem; color: #0056b3; border-bottom: 2px solid #007bff; padding-bottom: 0.5rem; margin: 1.5rem 0 0.5rem; }
-        .tool-button { grid-column: 1 / -1; padding: 1rem; font-size: 1.2rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s; margin-top: 1.5rem; }
-        .tool-button:hover { background: #0056b3; }
-        #result { margin-top: 2rem; padding: 1.5rem; background-color: #333; color: #f4f4f4; border-radius: 4px; white-space: pre-wrap; font-family: "Courier New", monospace; word-wrap: break-word; text-align: left; }
-    </style>
+    <title>Neurodiagnoses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="neurodiagnoses favicon-32x32.png">
 </head>
 <body>
-
-    <header><a href="#home">Neurodiagnoses: AI-Powered Diagnostic Framework</a></header>
-
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#tool">Interactive Tool</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#contribute">Get Involved</a></li>
-            <li><a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>Welcome to Neurodiagnoses</h1>
+        <p>An AI-powered 3-axis diagnostic framework for complex CNS diseases.</p>
+    </header>
 
     <main>
-        <section id="home" class="container">
-            <h1>Welcome to Neurodiagnoses</h1>
-            <p>An AI-powered tridimensional diagnostic framework for complex CNS diseases.</p>
-            <div class="image-container">
-                <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/main/tridimensional.png" alt="Tridimensional Diagnostic Framework">
-            </div>
-        </section>
-
-        <section id="about" class="container">
+        <section id="about">
             <h2>About Neurodiagnoses</h2>
-            <p style="text-align:left;"><strong>Neurodiagnoses</strong> is an AI-powered open-source framework designed to advance the diagnosis and prediction of central nervous system (CNS) disorders. The platform leverages cutting-edge machine learning techniques and integrates multi-modal data to generate structured, explainable diagnostic outputs.</p>
+            <p>
+                Neurodiagnoses is an AI-powered open-source framework designed to advance the diagnosis and prediction of central nervous system (CNS) disorders. The platform leverages cutting-edge machine learning techniques and integrates multi-modal data to generate structured, explainable diagnostic outputs.
+            </p>
         </section>
 
-        <section id="tool" class="container">
-            <h2>Interactive Annotation Tool</h2>
-            <p>Enter patient data below to generate a real-time, AI-driven 3-axis annotation using our live API.</p>
-            <form id="annotation-form">
-                <div class="form-grid">
-                    <h3 class="form-section-title">Axis 1: Etiology / Risk Factors</h3>
-                    <div class="form-group" style="grid-column: 1 / -1;"><label for="etiology">Etiology Description</label><input id="etiology" type="text" value="Sporadic (APOE4 carrier, hypertension)" required></div>
-                    <h3 class="form-section-title">Axis 2: Molecular Profile Features</h3>
-                    <div class="form-group"><label for="age2">Age</label><input id="age2" type="number" step="0.1" value="76.0" required></div>
-                    <div class="form-group"><label for="apoe4">APOE4 Alleles</label><input id="apoe4" type="number" value="1" required></div>
-                    <div class="form-group"><label for="adas13">ADAS-Cog 13</label><input id="adas13" type="number" step="0.1" value="18.5" required></div>
-                    <div class="form-group"><label for="hippocampus">Hippocampus Vol.</label><input id="hippocampus" type="number" step="0.1" value="3.1" required></div>
-                    <div class="form-group"><label for="ventricles">Ventricles Vol.</label><input id="ventricles" type="number" step="0.1" value="48.5" required></div>
-                    <h3 class="form-section-title">Axis 3: Phenotypic Profile Features</h3>
-                    <div class="form-group"><label for="age3">Age</label><input id="age3" type="number" value="76" required></div>
-                    <div class="form-group"><label for="mmse">MMSE Score</label><input id="mmse" type="number" value="24" required></div>
-                    <div class="form-group"><label for="hc_vol">Hippocampal Vol.</label><input id="hc_vol" type="number" step="0.1" value="3.1" required></div>
-                    <div class="form-group"><label for="cort_thick">Cortical Thickness</label><input id="cort_thick" type="number" step="0.1" value="1.8" required></div>
-                    <div class="form-group"><label for="vent_vol">Ventricular Vol.</label><input id="vent_vol" type="number" step="0.1" value="48.5" required></div>
-                    <button type="submit" class="tool-button">Generate Annotation</button>
-                </div>
-            </form>
-            <div id="result">Annotation will appear here...</div>
+        <section id="prototype">
+            <h2>Current Prototype: 3-Axis Command-Line Simulator</h2>
+            <p>
+                The latest development is a complete 3-axis diagnostic prototype that runs from the command line. It integrates three independent classifiers to generate a comprehensive, multi-modal report:
+            </p>
+            <ul>
+                <li><b>Axis 1 (Etiology):</b> A rules-based engine that assesses genetic risk factors.</li>
+                <li><b>Axis 2 (Molecular Profile):</b> A machine learning model trained on simulated proteomics data to predict disease probability.</li>
+                <li><b>Axis 3 (Phenotypic Profile):</b> A machine learning model trained on simulated neuroimaging data to predict clinical phenotypes.</li>
+            </ul>
+            
+            <h3>How to Run the Simulation</h3>
+            <p>After setting up the environment, you can run the full simulation with this single command from the repository root:</p>
+            <pre><code>python run_neurodiagnosis.py</code></pre>
+
+            <h3>Example Output</h3>
+            <p>The script will generate a report like the following:</p>
+            <pre><code>
+----------------- FINAL 3-AXIS REPORT -----------------
+
+  [-- AXIS 1: ETIOLOGICAL PROFILE (Genetic Probability) --]
+    - AD                         : 75.81%
+    - PD                         : 8.42%
+    - FTD                        : 8.42%
+    ...
+
+  [-- AXIS 2: MOLECULAR PROFILE (Disease Probability) --]
+    - Alzheimer (AD)             : 48.15%
+    - Control (CO)               : 25.30%
+    ...
+
+  [-- AXIS 3: NEUROANATOMICAL-CLINICAL PROFILE --]
+    - Tau-positive Phenotype     : 88.91%
+    - TDP-43 Phenotype           : 11.09%
+---------------------------------------------------------
+            </code></pre>
         </section>
 
-        <section id="research" class="container">
+        <section id="research">
             <h2>Our Research</h2>
             <p>We are dedicated to integrating AI with neuroscience to revolutionize diagnostics for CNS disorders.</p>
-            <h3>Key Research Areas</h3>
-            <ul style="text-align:left;">
+            <h4>Key Research Areas</h4>
+            <ul>
                 <li>AI-Based Annotation System</li>
                 <li>Probabilistic Diagnosis Modeling</li>
                 <li>Neuroimaging and EEG Data Analysis</li>
@@ -98,45 +71,19 @@
             </ul>
         </section>
 
-        <section id="contribute" class="container">
+        <section id="get-involved">
             <h2>Get Involved</h2>
             <p>Join our collaborative effort to advance AI-powered diagnostics for complex CNS diseases.</p>
-            <ul style="text-align:left;">
-                <li><strong>Participate in Discussions:</strong> Join our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">GitHub Discussions</a>.</li>
-                <li><strong>Contribute to Code Development:</strong> Visit our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a>.</li>
-                <li><strong>Share Data and Resources:</strong> Enhance our models by providing datasets or tools.</li>
+            <ul>
+                <li><b>Participate in Discussions:</b> Join our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">GitHub Discussions</a>.</li>
+                <li><b>Contribute to Code Development:</b> Visit our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a>.</li>
+                <li><b>Share Data and Resources:</b> Enhance our models by providing datasets or tools.</li>
             </ul>
         </section>
     </main>
-    
-    <footer>
-        &copy; 2025 Neurodiagnoses | An open-source project
-    </footer>
 
-    <script>
-        document.getElementById('annotation-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const resultDiv = document.getElementById('result');
-            const button = event.target.querySelector('button');
-            resultDiv.textContent = 'Generating...';
-            button.disabled = true;
-            const payload = {
-                etiology: document.getElementById('etiology').value,
-                axis2_features: { ADAS13_bl: parseFloat(document.getElementById('adas13').value), APOE4: parseInt(document.getElementById('apoe4').value), AGE: parseFloat(document.getElementById('age2').value), Hippocampus: parseFloat(document.getElementById('hippocampus').value), Ventricles: parseFloat(document.getElementById('ventricles').value) },
-                axis3_features: { hippocampal_volume: parseFloat(document.getElementById('hc_vol').value), cortical_thickness: parseFloat(document.getElementById('cort_thick').value), ventricular_volume: parseFloat(document.getElementById('vent_vol').value), age: parseInt(document.getElementById('age3').value), MMSE: parseInt(document.getElementById('mmse').value) }
-            };
-            try {
-                const response = await fetch('http://127.0.0.1:8000/annotate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                const data = await response.json();
-                resultDiv.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                resultDiv.textContent = `Error: ${error.message}. Is the API server running?`;
-            } finally {
-                button.disabled = false;
-            }
-        });
-    </script>
+    <footer>
+        <p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
