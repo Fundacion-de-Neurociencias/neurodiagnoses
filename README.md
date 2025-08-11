@@ -24,4 +24,40 @@ The project is being refactored into a professional Python package structure und
 - **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.
 - **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.
 
-(and the rest of the README content...)
+ **Axis Annotation Pipelines**
+
+Neurodiagnoses implements a 3-axis annotation system to classify patients across:
+- **Axis 1** – Etiology / Causative factors
+- **Axis 2** – Molecular features: Aβ, pTau, tTau
+- **Axis 3** – Neuroanatomical-clinical (phenotypic) presentation
+
+You can run automatic annotation on sample patients using: `python -m tools.annotator.annotate --input data/sample_patient.json --output data/example_annotation.json`
+
+️ **Annotator UI**
+
+Use the interactive interface to explore annotation results:
+-  **annotator.html**: Web-based local viewer for patient JSON files and annotations.
+
+✨ **Multi-Model Advanced Annotation**
+
+This new, unified pipeline integrates multiple AI models to generate a comprehensive 3-axis annotation for patient data. It combines genetic etiology prediction (Axis 1) with neuropathological phenotyping (Axis 3) to provide a coherent diagnostic output.
+
+---
+
+ **Current Achievements:**
+- ✅ Developed a biomarker-agnostic machine learning model using `RandomForestClassifier`.
+- ✅ Trained the model on simulated data and saved it as `model.pkl`.
+- ✅ Uploaded the trained model to Hugging Face: Neurodiagnoses Hugging Face Repo
+- ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
+- ✅ Successfully tested the API locally at `http://12.0.0.1:8000/docs`.
+
+ **Documentation and Resources**
+-  **Website**: neurodiagnoses.com
+-  **GitHub Repository**: Neurodiagnoses on GitHub
+-  **eBrains Collaboration**: Neurodiagnoses on eBrains
+
+ **How to Contribute**
+
+Neurodiagnoses is an open-source project, and we welcome contributors. Contribution Areas include: Documentation, AI Model Development, Data Integration, Platform Development, and Research.
+
+ **Getting
