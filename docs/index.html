@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses - A New Paradigm in CNS Disease Diagnosis</title>
+    <title>Neurodiagnoses - A New Paradigm in CNS Disease Diagnostics</title>
     <style>
         :root {
             --primary-color: #005f73;
@@ -109,6 +109,24 @@
         .button-secondary:hover {
             background-color: #087a7d;
         }
+        .functionalities-list {
+            list-style: none;
+            padding: 0;
+        }
+        .functionalities-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .functionalities-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
         .tridimensional-container {
             text-align: center;
             padding: 20px;
@@ -142,49 +160,48 @@
     <header class="header">
         <div class="container">
             <h1>Neurodiagnoses</h1>
-            <p>An open-source AI-powered diagnostic framework for complex Central Nervous System diseases.</p>
+            <p>An open-source, AI-powered diagnostic framework for complex CNS diseases.</p>
         </div>
     </header>
 
     <nav class="nav">
         <a href="#about">The Project</a>
-        <a href="#framework">The 3D Framework</a>
-        <a href="#functionalities">Key Functionalities</a>
-        <a href="#participate">Participate</a>
-        <a href="#github">Code</a>
+        <a href="#functionalities">Features</a>
+        <a href="#framework">3D Framework</a>
+        <a href="#participate">Get Involved</a>
     </nav>
 
     <main class="container">
 
         <section id="about" class="section">
             <div class="card">
-                <h2 class="section-title">Reimagining Neurological Diagnosis</h2>
-                <p>Central Nervous System (CNS) diseases like Alzheimer's, Parkinson's, or Multiple Sclerosis are incredibly complex. Diagnoses rely on dispersed and heterogeneous data, from MRIs and blood tests to cognitive and genetic evaluations.</p>
-                <p><strong>Neurodiagnoses was born to unify this chaos.</strong> We are an open-source project building an AI-assisted diagnostic framework. Our goal is to standardize and process multimodal data to offer clinicians a holistic and probabilistic view, improving accuracy and accelerating the path to personalized treatments.</p>
+                <h2 class="section-title">Reimagining Neurological Diagnostics</h2>
+                <p>Diseases of the Central Nervous System (CNS) like Alzheimer's, Parkinson's, or Multiple Sclerosis are incredibly complex. Diagnoses rely on scattered, heterogeneous data—from MRI scans and blood tests to cognitive assessments and genetic profiles.</p>
+                <p><strong>Neurodiagnoses aims to unify this chaos.</strong> We are an open-source project building an AI-assisted diagnostic framework. Our goal is to standardize and process multimodal data to offer clinicians a holistic, probabilistic view, improving accuracy and accelerating the path to personalized treatment.</p>
             </div>
         </section>
 
         <section id="functionalities" class="section">
+            <h2 class="section-title">Key Functionalities</h2>
             <div class="card">
-                <h2 class="section-title">Key Functionalities</h2>
-                <ul>
-                    <li><b>Probabilistic Annotation</b> – AI-based diagnostic modeling using probabilistic networks.</li>
-                    <li><b>Tridimensional Annotation</b> – Integration of neuroimaging, genetic, and clinical data.</li>
-                    <li><b>Multi-Model Advanced Annotation</b> – Unified pipeline for comprehensive 3-axis annotation using multiple AI models.</li>
-                    <li><b>Interactive Visualization</b> – User-friendly interfaces for research and clinical applications.</li>
-                    <li><b>Biomarker Prediction</b> – AI-driven estimation of biomarker status and progression.</li>
-                    <li><b>Disease Prediction</b> – Modeling of disease onset, conversion, and progression using ML.</li>
+                <ul class="functionalities-list">
+                    <li><strong>Probabilistic Annotation</strong> – AI-based diagnostic modeling using probabilistic networks.</li>
+                    <li><strong>Tridimensional Annotation</strong> – Integration of neuroimaging, genetic, and clinical data.</li>
+                    <li><strong>Multi-Model Advanced Annotation</strong> – Unified pipeline for comprehensive 3-axis annotation using multiple AI models.</li>
+                    <li><strong>Interactive Visualization</strong> – User-friendly interfaces for research and clinical applications.</li>
+                    <li><strong>Biomarker Prediction</strong> – AI-driven estimation of biomarker status and progression.</li>
+                    <li><strong>Disease Prediction</strong> – Modeling of disease onset, conversion, and progression using ML.</li>
                 </ul>
             </div>
         </section>
 
         <section id="framework" class="section">
+            <h2 class="section-title">Our 3-Axis Approach</h2>
             <div class="card">
-                <h2 class="section-title">Our Tridimensional Approach</h2>
-                <p>The core of Neurodiagnoses is a 3-axis model that structures diagnostic information in a coherent and clinically relevant way. Each axis represents a crucial facet of the patient's profile, allowing AI to contextualize data and find hidden patterns.</p>
+                <p>The core of Neurodiagnoses is a 3-axis model that structures diagnostic information in a coherent and clinically relevant way. Each axis represents a crucial facet of the patient's profile, allowing the AI to contextualize data and find hidden patterns.</p>
                 <div class="tridimensional-container">
-                    <p>This visualization illustrates how different data types (axis 1), biomarkers (axis 2), and clinical hypotheses (axis 3) interrelate to form a complete diagnosis.</p>
-                    <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/0d57212ea0fd7b59e8d74a7b9cdc535afc61b649/tridimensional.png" alt="Illustration of Neurodiagnoses tridimensional framework">
+                    <p>This visualization illustrates how different data types (axis 1), biomarkers (axis 2), and clinical hypotheses (axis 3) interrelate to form a comprehensive diagnosis.</p>
+                    <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/0d57212ea0fd7b59e8d74a7b9cdc535afc61b649/tridimensional.png" alt="Illustration of the Neurodiagnoses 3-axis framework">
                 </div>
             </div>
         </section>
@@ -192,9 +209,9 @@
         <section id="participate" class="section">
             <div class="card cta-container">
                 <h2 class="section-title">Join Our Mission</h2>
-                <p>This is a project built by the community, for the community. We believe that open collaboration is the only way to solve the greatest challenges in neuroscience. If you are a developer, clinician, researcher, or simply passionate about technology and health, your help is fundamental.</p>
+                <p>This is a project built by the community, for the community. We believe open collaboration is the only way to solve the greatest challenges in neuroscience. Whether you are a developer, clinician, researcher, or simply passionate about technology and health, your help is essential.</p>
                 <p><strong>How can you contribute?</strong></p>
-                <p>Participate in our discussions, suggest new features, help debug the code, or contribute your clinical expertise. Every contribution counts!</p>
+                <p>Join our discussions, suggest new features, help debug code, or contribute your clinical expertise. Every contribution matters!</p>
                 <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank" class="button">Go to Discussions</a>
                 <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" class="button button-secondary">Explore the Code</a>
             </div>
@@ -202,9 +219,9 @@
 
     </main>
 
-    <footer id="github" class="footer">
+    <footer class="footer">
         <p>&copy; 2025 Neuroscience Foundation for the Development of Science and Technology. All rights reserved.</p>
-        <p>Neurodiagnoses is an open-source project. Check out the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" style="color: var(--accent-color);">GitHub repository</a>.</p>
+        <p>Neurodiagnoses is an open source project. Check out the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" style="color: var(--accent-color);">repository on GitHub</a>.</p>
     </footer>
 
 </body>
