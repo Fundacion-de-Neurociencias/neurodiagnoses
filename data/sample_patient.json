@@ -1,0 +1,16 @@
+{
+  "axis2_features": {
+    "AGE": 72,
+    "APOE4": 1,
+    "ADAS13_bl": 31.5,
+    "Ventricles": 7200,
+    "Hippocampus": 3400
+  },
+  "axis3_features": {
+    "age": 72,
+    "cortical_thickness": 2.3,
+    "ventricular_volume": 7200,
+    "hippocampal_volume": 3400,
+    "MMSE": 18
+  }
+}
