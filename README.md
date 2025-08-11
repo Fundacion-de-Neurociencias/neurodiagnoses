@@ -64,3 +64,15 @@ Neurodiagnoses is an open-source project, and we welcome contributors. Contribut
 - Fork the repository and explore the issues section.
 - Join discussions on eBrains and GitHub.
 - Clone the project and start working on tasks aligned with your expertise.
+
+---
+
+### Future Development Inspired by Recent Research
+
+Based on recent systematic reviews and high-impact studies in the field, the future development of Neurodiagnoses will focus on two key areas:
+
+1.  **Incorporation of Vascular Neuroimaging (CSVD):** Inspired by Lohner et al. (2025), a dedicated pipeline will be developed to quantify Cerebral Small Vessel Disease (CSVD) markers as a core component of the Axis 3 (Phenotypic) assessment, including a "Vascular Burden Score" as a prognostic output.
+
+2.  **Advanced Multi-Pathology Classification:** Inspired by Cruchaga et al. (2025), the Axis 2 (Molecular) classifier will be upgraded to produce a co-pathology probability vector, allowing for the nuanced diagnosis of mixed pathologies. A new "at-risk" flag will be implemented for cognitively normal individuals with high-risk molecular profiles.
+
+Methodological rigor, including mandatory external validation and transparent reporting, will be a core principle of all future model development.
