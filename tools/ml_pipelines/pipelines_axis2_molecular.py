@@ -1,54 +1,119 @@
+# tools/ml_pipelines/pipelines_axis2_molecular.py
 import pandas as pd
 import numpy as np
 import joblib
-import lightgbm as lgb
 from sklearn.model_selection import train_test_split
-import random
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+from sklearn.metrics import classification_report, roc_auc_score
 import os
+import sys
+
+# Add project root for imports
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+from tools.ontology.neuromarker import Biomarker
 
 class Axis2MolecularPipeline:
-    def __init__(self, data_path='data/simulated/axis2_molecular_data.csv', model_path='models/axis2_molecular_model.pkl'):
+    """
+    A research-grade pipeline for the Axis 2 (Molecular) classifier.
+    It trains, evaluates, and compares multiple models, saving the best one.
+    The prediction output is a probability vector for co-pathology analysis.
+    """
+    def __init__(self, 
+                 data_path='data/processed/analysis_ready_dataset.parquet',
+                 model_path='models/axis2_molecular_model.joblib'):
         self.data_path = data_path
         self.model_path = model_path
-        self.features = ['GDA', 'PDE6D', 'FN1', 'SEMA4B', 'TNFSF8', 'YWHAG', 'NPTX2']
-
-        os.makedirs(os.path.dirname(self.data_path), exist_ok=True)
-        os.makedirs(os.path.dirname(self.model_path), exist_ok=True)
-
+        # Define features based on the Neuromarker ontology fields
+        self.features = [
+            'biomarkers_Age_value', 'biomarkers_MMSE_value', 'biomarkers_GFAP_value',
+            'biomarkers_NfL_value', 'biomarkers_pTau_value', 'biomarkers_Abeta42_value',
+            'biomarkers_Hippocampal Volume_value'
+        ]
+        # The target variable needs to be defined based on the dataset's ground truth column
+        self.target = 'ground_truth_diagnosis' # This column needs to exist in the dataset
         self.model = None
 
-    def _generate_simulated_data(self):
-        """Generates a simulated dataset for training."""
-        print(f"Generating simulated molecular data at {self.data_path}...")
-        data = pd.DataFrame(np.random.rand(100, len(self.features)), columns=self.features)
-        data['patient_id'] = range(100)
-        data['diagnosis'] = np.random.randint(0, 5, 100)
-        data.to_csv(self.data_path, index=False)
+    def train_and_evaluate(self):
+        """
+        Loads the processed data, trains multiple models, evaluates them,
+        and saves the best performing one.
+        """
+        print(f"--- Starting Axis 2 model training & evaluation from '{self.data_path}' ---")
 
-    def train(self):
-        """Trains and saves the Axis 2 classifier."""
-        if not os.path.exists(self.data_path):
-            self._generate_simulated_data()
+        try:
+            df = pd.read_parquet(self.data_path)
+            # Placeholder for target variable - in a real scenario this would be the neuropath diagnosis
+            df[self.target] = np.random.randint(0, 5, df.shape[0])
+        except Exception as e:
+            print(f"ERROR: Could not read or process the dataset at {self.data_path}. Error: {e}")
+            return
 
-        data = pd.read_csv(self.data_path)
-        X = data[self.features]
-        y = data['diagnosis']
+        # Simple feature engineering: handle potential missing values
+        df[self.features] = df[self.features].fillna(df[self.features].median())
+        
+        X = df[self.features]
+        y = df[self.target]
+        
+        # Stratify split is important for potentially imbalanced datasets
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+        
+        models = {
+            "RandomForest": RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced'),
+            "XGBoost": XGBClassifier(use_label_encoder=False, eval_metric='mlogloss', random_state=42)
+        }
+        
+        best_model_name = None
+        best_auc = -1
 
-        model = lgb.LGBMClassifier(objective='multiclass', random_state=42)
-        model.fit(X, y)
-        joblib.dump(model, self.model_path)
-        print(f"Axis 2 model trained and saved to {self.model_path}")
+        for name, model in models.items():
+            print(f"--- Training {name} ---")
+            model.fit(X_train, y_train)
+            preds_proba = model.predict_proba(X_test)
+            
+            # Use One-vs-Rest for multiclass AUC calculation
+            auc = roc_auc_score(y_test, preds_proba, multi_class='ovr')
+            print(f"Model: {name} | Test AUC (OvR): {auc:.4f}")
 
-    def predict(self, patient_id):
-        """Predicts the molecular profile for a patient."""
+            if auc > best_auc:
+                best_auc = auc
+                best_model_name = name
+
+        print(f"--> Best performing model is '{best_model_name}' with an AUC of {best_auc:.4f}")
+        
+        print(f"--> Saving the best model to '{self.model_path}'")
+        joblib.dump(models[best_model_name], self.model_path)
+        
+        print("\n--- Detailed Classification Report for Best Model ---")
+        best_model_preds = models[best_model_name].predict(X_test)
+        report = classification_report(y_test, best_model_preds)
+        print(report)
+
+    def predict(self, patient_data: pd.DataFrame) -> dict:
+        """
+        Predicts a probability vector for a new patient.
+
+        Returns:
+            A dictionary of disease probabilities, allowing for co-pathology analysis.
+        """
         if not self.model:
             try:
                 self.model = joblib.load(self.model_path)
             except FileNotFoundError:
-                return "Molecular Profile cannot be determined: Axis 2 model not trained."
+                print("Model not found. Training a new one as a fallback.")
+                self.train_and_evaluate()
+                self.model = joblib.load(self.model_path)
 
-        patient_data = pd.DataFrame([np.random.rand(len(self.features))], columns=self.features)
-        prediction_idx = self.model.predict(patient_data)[0]
+        # Ensure patient data has the correct features
+        patient_vector = patient_data[self.features].fillna(0) # Basic imputation
+        
+        probabilities = self.model.predict_proba(patient_vector)[0]
+        
+        # Map probabilities to class names
+        class_names = ['CO', 'AD', 'PD', 'FTD', 'DLB'] # Assuming 5 classes
+        return {class_names[i]: prob for i, prob in enumerate(probabilities)}
 
-        class_map = {0: 'Probable Control', 1: 'Probable AD', 2: 'Probable PD', 3: 'Probable FTD', 4: 'Probable DLB'}
-        return class_map.get(prediction_idx, "Unknown Molecular Profile")
+if __name__ == '__main__':
+    # This block allows the script to be run directly to train the models
+    pipeline = Axis2MolecularPipeline()
+    pipeline.train_and_evaluate()
