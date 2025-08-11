@@ -49,7 +49,7 @@ This new, unified pipeline integrates multiple AI models to generate a comprehen
 - ✅ Trained the model on simulated data and saved it as `model.pkl`.
 - ✅ Uploaded the trained model to Hugging Face: Neurodiagnoses Hugging Face Repo
 - ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
-- ✅ Successfully tested the API locally at `http://12.0.0.1:8000/docs`.
+- ✅ Successfully tested the API locally at `http://127.0.0.1:8000/docs`.
 
  **Documentation and Resources**
 -  **Website**: neurodiagnoses.com
@@ -60,4 +60,7 @@ This new, unified pipeline integrates multiple AI models to generate a comprehen
 
 Neurodiagnoses is an open-source project, and we welcome contributors. Contribution Areas include: Documentation, AI Model Development, Data Integration, Platform Development, and Research.
 
- **Getting
+ **Getting Started**
+- Fork the repository and explore the issues section.
+- Join discussions on eBrains and GitHub.
+- Clone the project and start working on tasks aligned with your expertise.
