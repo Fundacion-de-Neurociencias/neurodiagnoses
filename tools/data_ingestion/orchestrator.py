@@ -2,6 +2,7 @@
 import json
 import os
 from datetime import datetime
+from dataclasses import asdict
 
 # Import parsers
 from tools.data_ingestion.parsers.clinical_parser import parse_clinical_data
@@ -17,7 +18,7 @@ def ingest_cornblath_patient(patient_id, data_dir, output_dir='patient_database/
     print(f"Searching for data in: {data_dir}")
 
     # Call the specialized parser for the Cornblath dataset
-    parsed_data = parse_cornblath_patient(patient_id, data_dir)
+    parsed_data = parse_cornblath_patient(patient_id, final_json['metadata'], data_dir)
 
     if not parsed_data:
         print(f"!!! Ingestion failed for patient {patient_id}.")
@@ -32,13 +33,12 @@ def ingest_cornblath_patient(patient_id, data_dir, output_dir='patient_database/
             "source_dataset": "Cornblath2020"
         }
     }
-    final_json.update(parsed_data)
 
     # Save the final JSON file
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, f"{patient_id}.json")
     with open(output_path, 'w') as f:
-        json.dump(final_json, f, indent=2)
+        json.dump(asdict(parsed_data), f, indent=2)
 
     print(f"✅ Ingestion complete. Patient data saved to: {output_path}")
     return output_path
