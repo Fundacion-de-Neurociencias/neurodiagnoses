@@ -1,34 +1,27 @@
 # tools/data_ingestion/parsers/imaging_parser.py
 import pandas as pd
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../..'))
+from tools.ontology.neuromarker import PatientRecord, Biomarker, BiomarkerCategory
 
-def parse_imaging_data(patient_id, csv_path):
+def parse_imaging_data(patient_id, csv_path) -> PatientRecord:
     """
-    Parses an imaging metrics CSV and extracts data for a specific patient.
+    Parses an imaging metrics CSV and returns a standardized PatientRecord object.
     """
+    record = PatientRecord(patient_id=patient_id, metadata={})
     try:
         df = pd.read_csv(csv_path)
         patient_data = df[df['patient_id'] == patient_id]
-
         if patient_data.empty:
-            return None
+            return record
 
-        # Build the 'imaging_data' block of the schema
-        output = {
-            "raw_data_paths": {},
-            "derived_metrics": {}
-        }
-
-        # Dynamically populate paths and metrics if columns exist
-        if 't1_mri_nifti_path' in patient_data.columns:
-            output["raw_data_paths"]["t1_mri_nifti"] = str(patient_data['t1_mri_nifti_path'].iloc[0])
-        
         if 'hippocampal_volume_norm' in patient_data.columns:
-            output["derived_metrics"]["hippocampal_volume_norm"] = float(patient_data['hippocampal_volume_norm'].iloc[0])
+            record.add_biomarker("Hippocampal Volume (Norm)", float(patient_data['hippocampal_volume_norm'].iloc[0]), "mm^3", BiomarkerCategory.NEUROIMAGING)
         if 'cortical_thickness_avg' in patient_data.columns:
-            output["derived_metrics"]["cortical_thickness_avg"] = float(patient_data['cortical_thickness_avg'].iloc[0])
+            record.add_biomarker("Cortical Thickness (Avg)", float(patient_data['cortical_thickness_avg'].iloc[0]), "mm", BiomarkerCategory.NEUROIMAGING)
             
-        return output
-
+        return record
     except Exception as e:
-        print(f"An error occurred in imaging_parser: {e}")
-        return None
+        print(f"Warning in imaging_parser for patient {patient_id}: {e}")
+        return record
