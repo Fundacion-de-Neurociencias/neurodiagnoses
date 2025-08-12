@@ -28,7 +28,7 @@ The core vision of Neurodiagnoses is to create a unified, modality-agnostic syst
 ```mermaid
 graph TD
     subgraph Inputs["A. Dynamic Input Layer"]
-        A1[Clinical Data] 
+        A1[Clinical Data]
         A2[Imaging Data]
         A3[Biomarker Data]
         A4[Genetic Data]
