@@ -13,6 +13,15 @@ This project moves beyond traditional, static disease labels towards a **probabi
 
 ---
 
+## Licensing
+
+Neurodiagnoses operates under a dual-licensing model to support both open-source collaboration and commercial applications.
+
+*   **Open-Source License:** The core project is licensed under the **MIT License**, allowing for broad use, modification, and distribution for open-source and research purposes. See the [LICENSE](LICENSE) file for details.
+*   **Commercial License:** For commercial use cases, dedicated support, or advanced features, a commercial license is required. This model enables sustainable development and specialized enterprise solutions. For more information on commercial terms and contributor agreements, please refer to the [Dual License Information](DUAL_LICENSE.md) file.
+
+---
+
 ## Project Overview & Vision
 
 The core vision of Neurodiagnoses is to create a unified, modality-agnostic system capable of learning a deep, disease-agnostic representation of a patient's neurological state. This is achieved by processing diverse inputs through a sophisticated pipeline to generate flexible, clinically relevant outputs.
