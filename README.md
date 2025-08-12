@@ -58,6 +58,16 @@ graph TD
     Inputs --> Processing
     Processing --> Core
     Core --> Outputs
+
+    classDef orange fill:#e67e22,color:white,stroke:#333;
+    classDef blue fill:#3498db,color:white,stroke:#333;
+    classDef purple fill:#9b59b6,color:white,stroke:#333;
+    classDef green fill:#2ecc71,color:white,stroke:#333;
+
+    class Inputs orange;
+    class Processing blue;
+    class Core purple;
+    class Outputs green;
 ```
 
 ## Current State: A Functional 3-Axis Prototype
