@@ -92,6 +92,22 @@ Inspiration: Inspired by Colautti et al. (2025) and Milà Alomà et al. (2025), 
 
 - `/tools/data_ingestion/`: The main pipeline for ETL (Extract, Transform, Load), containing parsers and adapters for real-world datasets like NACC and ADNI.
 
+---
+
+## Probabilistic Approach & Co-Pathology Modeling
+
+A core principle of Neurodiagnoses is moving away from single, categorical diagnoses towards a more realistic probabilistic framework. This is crucial for handling the clinical heterogeneity and frequent co-pathologies found in NDDs.
+
+### Key Concepts:
+
+1.  **Probabilistic Outputs:** Instead of a single diagnostic label, the models (especially for Axis 2) are designed to output a **probability vector** across multiple diseases (e.g., AD, PD, FTD, DLB). This is directly inspired by the methodology of **Cruchaga et al. (2025)**.
+
+2.  **Handling Co-Pathologies:** The framework is designed to support two logic modes for interpreting probabilities, as defined in our project documentation:
+    * **Independent Multi-Label Probabilities (Sum > 100%):** Each pathology is modeled independently to detect the presence or absence of multiple mechanisms simultaneously (e.g., `AD: 70%`, `LBD: 50%`). This is useful for research and understanding complex cases.
+    * **Composite or Exclusive Modeling (Sum = 100%):** The probabilities are normalized to represent the most likely primary diagnosis, which is useful for clinical decision support.
+
+3.  **Uncertainty Quantification:** The "Core AI Architecture" envisions a dedicated module for quantifying the model's confidence in its own predictions, a key step towards clinical translation.
+
 ## ⚙️ Getting Started for Developers
 This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
 
