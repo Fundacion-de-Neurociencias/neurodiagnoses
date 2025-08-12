@@ -1,4 +1,4 @@
-#  Neurodiagnoses: An AI-Powered Framework for Neurodegenerative Disorders
+# Neurodiagnoses: An AI-Powered Framework for Neurodegenerative Disorders
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues)
@@ -13,7 +13,7 @@ This project moves beyond traditional, static disease labels towards a **probabi
 
 ---
 
-## ️ Project Overview & Vision
+## Project Overview & Vision
 
 The core vision of Neurodiagnoses is to create a unified, modality-agnostic system capable of learning a deep, disease-agnostic representation of a patient's neurological state. This is achieved by processing diverse inputs through a sophisticated pipeline to generate flexible, clinically relevant outputs.
 
@@ -49,62 +49,67 @@ graph TD
     Inputs --> Processing
     Processing --> Core
     Core --> Outputs
- Current State: A Functional 3-Axis Prototype
-While the final vision is a single Transformer model, the current implementation is a functional end-to-end prototype that validates the 3-axis diagnostic philosophy. This system is orchestrated by the unified_orchestrator.py script.
+```
 
-✅ Axis 1 (Etiology): Implemented via a rules-based engine in /models/probabilistic_annotation/axis_1_classifier.py, which is enhanced by a state-of-the-art genomics imputation pipeline in /workflows/genomic_pipeline/.
+## Current State: A Functional 3-Axis Prototype
+While the final vision is a single Transformer model, the current implementation is a functional end-to-end prototype that validates the 3-axis diagnostic philosophy. This system is orchestrated by the `unified_orchestrator.py` script.
 
-✅ Axis 2 (Molecular): Implemented as a research-grade ML pipeline in /tools/ml_pipelines/pipelines_axis2_molecular.py. It trains models like XGBoost and provides co-pathology probability vectors, inspired by Cruchaga et al. (2025).
+*   **✅ Axis 1 (Etiology):** Implemented via a rules-based engine in `/models/probabilistic_annotation/axis_1_classifier.py`, which is enhanced by a state-of-the-art genomics imputation pipeline in `/workflows/genomic_pipeline/`.
 
-✅ Axis 3 (Phenotype): Implemented as an advanced "Severity Mapper" in /tools/ml_pipelines/pipelines_axis3_severity_mapping.py. Inspired by Murad et al. (2025), it uses XGBoost and SHAP to predict clinical severity from regional neuroimaging data.
+*   **✅ Axis 2 (Molecular):** Implemented as a research-grade ML pipeline in `/tools/ml_pipelines/pipelines_axis2_molecular.py`. It trains models like XGBoost and provides co-pathology probability vectors, inspired by Cruchaga et al. (2025).
 
-️ Repository Structure & Key Modules
+*   **✅ Axis 3 (Phenotype):** Implemented as an advanced "Severity Mapper" in `/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`. Inspired by Murad et al. (2025), it uses XGBoost and SHAP to predict clinical severity from regional neuroimaging data.
+
+---
+
+## Repository Structure & Key Modules
 This repository is a complex ecosystem. For a complete map, please consult the Project Overview Document. Below is a summary of the most critical components.
 
- Data & Ontology
-/tools/ontology/neuromarker.py: The heart of the project. Defines the standardized PatientRecord and Biomarker classes based on the Neuromarker Ontology, a cross-disease framework that expands on CADRO.
+### Data & Ontology
+*   `/tools/ontology/neuromarker.py`: The heart of the project. Defines the standardized `PatientRecord` and `Biomarker` classes based on the Neuromarker Ontology, a cross-disease framework that expands on CADRO.
 
-/tools/data_ingestion/: The main pipeline for ETL (Extract, Transform, Load). Contains parsers and adapters (e.g., nacc_adapter.py, cornblath_adapter.py) to convert raw data from sources like NACC and ADNI into standardized PatientRecord objects.
+*   `/tools/data_ingestion/`: The main pipeline for ETL (Extract, Transform, Load). Contains parsers and adapters (e.g., `nacc_adapter.py`, `cornblath_adapter.py`) to convert raw data from sources like NACC and ADNI into standardized `PatientRecord` objects.
 
-/data/: Contains simulated datasets, ontologies (e.g., hp.obo), and will host processed, analysis-ready datasets.
+*   `/data/`: Contains simulated datasets, ontologies (e.g., `hp.obo`), and will host processed, analysis-ready datasets.
 
-⚙️ Workflows & Models
-/workflows/: Contains high-level, multi-step pipelines.
+### Workflows & Models
+*   `/workflows/`: Contains high-level, multi-step pipelines.
+    *   `preprocessing_pipeline/`: Unifies data from all ingestion adapters into a single, analysis-ready dataset (e.g., a Parquet file).
+    *   `genomic_pipeline/`: The state-of-the-art workflow for genetic data enrichment via genotype imputation using a custom reference panel.
+    *   `validation_pipeline/`: Scripts for rigorous, scientific cross-validation of models against neuropathological ground truth.
 
-preprocessing_pipeline/: Unifies data from all ingestion adapters into a single, analysis-ready dataset (e.g., a Parquet file).
+*   `/tools/ml_pipelines/`: Contains the Python classes for the individual AI models of the 3-axis prototype.
 
-genomic_pipeline/: The state-of-the-art workflow for genetic data enrichment via genotype imputation using a custom reference panel.
+*   `/models/`: Contains a mix of legacy and current components, including the FastAPI application (`api.py`) for serving models and the final `meta_classifier` module.
 
-validation_pipeline/: Scripts for rigorous, scientific cross-validation of models against neuropathological ground truth.
+### Frontend & API
+*   `/docs/`: Contains all files for the static website hosted at neurodiagnoses.com.
 
-/tools/ml_pipelines/: Contains the Python classes for the individual AI models of the 3-axis prototype.
+*   `app.py`: A professional, interactive Gradio web application that serves as a user-friendly frontend for the entire project. It has separate tabs for clinical (single-patient) and research (cohort analysis) use cases. It is deployed and publicly accessible via Hugging Face Spaces.
 
-/models/: Contains a mix of legacy and current components, including the FastAPI application (api.py) for serving models and the final meta_classifier module.
+*   `/models/api.py`: A FastAPI application that exposes the 3-axis diagnostic system as a real-time web service.
 
- Frontend & API
-/docs/: Contains all files for the static website hosted at neurodiagnoses.com.
+---
 
-app.py: A professional, interactive Gradio web application that serves as a user-friendly frontend for the entire project. It has separate tabs for clinical (single-patient) and research (cohort analysis) use cases. It is deployed and publicly accessible via Hugging Face Spaces.
+## Releases & Getting Started
 
-/models/api.py: A FastAPI application that exposes the 3-axis diagnostic system as a real-time web service.
-
- Releases & Getting Started
-Latest Release
+### Latest Release
 The latest official release is v0.4.0: Integrated 3-Axis Diagnostic Prototype. This release marks the successful integration of all three diagnostic axes into a single, functional proof-of-concept.
 
-How to Use the Prototype
+### How to Use the Prototype
 The easiest way to interact with Neurodiagnoses is through the live Gradio web application:
 
-➡️ Launch Interactive Neurodiagnoses App on Hugging Face Spaces
+➡️ [Launch Interactive Neurodiagnoses App on Hugging Face Spaces](https://huggingface.co/spaces/fneurociencias/Neurodiagnoses)
 
 For developers, after cloning the repository, the main entry point to run a full simulation is:
 
-Bash
-
+```bash
 # First, ensure all models are trained
-python workflows/AI_training_pipeline/train_all_models.py
+python workflows/AI_training_training_pipeline/train_all_models.py
 
 # Then, run the full 3-axis simulation
 python examples/run_full_simulation.py
- How to Contribute
-This is an open-source project and we welcome contributors. Please see our CONTRIBUTING.md file for details. Key contribution areas include data integration, model development, and validation studies.
+```
+
+## How to Contribute
+This is an open-source project and we welcome contributors. Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for details. Key contribution areas include data integration, model development, and validation studies.
