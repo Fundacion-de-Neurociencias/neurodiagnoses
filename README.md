@@ -90,7 +90,20 @@ A core principle of Neurodiagnoses is moving away from single, categorical diagn
     * **Independent Multi-Label Probabilities (Sum > 100%):** Each pathology is modeled independently to detect the presence or absence of multiple mechanisms simultaneously (e.g., `AD: 70%`, `LBD: 50%`). This is useful for research and understanding complex cases.
     * **Composite or Exclusive Modeling (Sum = 100%):** The probabilities are normalized to represent the most likely primary diagnosis, which is useful for clinical decision support.
 
-3.  **Uncertainty Quantification:** The "Core AI Architecture" envisions a dedicated module for quantifying the model's confidence in its own predictions, a key step towards clinical translation.
+3.  **Uncertainty Quantification:** The "Core --> Outputs
+```
+
+This architecture processes four key types of data, each providing a unique perspective on the patient's condition:
+
+* **A1 (Clinical Data):** Represents the **observable phenotype** — the symptoms and functional state of the patient (e.g., cognitive scores like MMSE, motor assessments). It answers the question: *"What is the patient experiencing?"*
+
+* **A2 (Imaging Data):** Represents the **structural and functional manifestation** of the disease in the brain (e.g., regional atrophy from MRI, metabolic activity from PET). It answers the question: *"Where is the pathology manifesting?"*
+
+* **A4 (Genetic Data):** Represents the **etiological predisposition** or fundamental cause (e.g., risk alleles like APOE, pathogenic mutations). It answers the question: *"Why might the disease be occurring?"*
+
+* **A3 (Biomarker Data):** This is the bridge between cause and effect. It provides a **direct, real-time measurement of the underlying molecular pathology** (e.g., p-Tau, Aβ42, NfL in CSF or plasma). It answers the question: *"What is the biological process driving the disease right now?"*
+
+The power of Neurodiagnoses lies in its ability to integrate these four distinct but interconnected dimensions into a single, coherent diagnostic and prognostic model." envisions a dedicated module for quantifying the model's confidence in its own predictions, a key step towards clinical translation.
 
 ## ⚙️ Getting Started for Developers
 This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
