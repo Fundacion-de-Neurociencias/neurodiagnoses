@@ -17,11 +17,13 @@ This project moves beyond traditional, static disease labels towards a **probabi
 
 The easiest way to interact with the Neurodiagnoses prototype is through our live Gradio application, hosted on Hugging Face Spaces. This interface allows for both single-patient analysis and batch processing of research cohorts.
 
-**➡️ [Launch Interactive Neurodiagnoses App](https://huggingface.co/spaces/fneurociencias/Neurodiagnoses)**
+**➡️ [Launch Interactive Neurodiagnoses App](https://hugging face.co/spaces/fneurociencias/Neurodiagnoses)**
 
 ---
 
 ## ️ High-Level Architecture
+
+The project's vision is a unified, modality-agnostic system that processes diverse inputs through a sophisticated pipeline to generate flexible, clinically relevant outputs.
 
 ```mermaid
 graph TD
@@ -56,62 +58,42 @@ graph TD
     Core --> Outputs
 ```
 
----
+## Scientific Foundation & Future Development
+The development of Neurodiagnoses is guided by state-of-the-art research. Our next phase focuses on implementing two advanced capabilities: Risk Prediction and Prognosis Modeling.
 
-##  Current State: A Functional 3-Axis Prototype
-The current implementation is a functional end-to-end prototype that validates the 3-axis diagnostic philosophy, orchestrated by the `unified_orchestrator.py` script.
+1. Risk Prediction Module (workflows/risk_prediction/)
+Goal: To predict the age-associated risk of disease onset in asymptomatic individuals.
 
-- ✅ **Axis 1 (Etiology):** A rules-based engine enhanced by a state-of-the-art genomics imputation pipeline in [`/workflows/genomic_pipeline/`](workflows/genomic_pipeline/).
-- ✅ **Axis 2 (Molecular):** A research-grade ML pipeline in [`/tools/ml_pipelines/pipelines_axis2_molecular.py`](tools/ml_pipelines/pipelines_axis2_molecular.py) that provides co-pathology probability vectors.
-- ✅ **Axis 3 (Phenotype):** An advanced "Severity Mapper" in [`/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`](tools/ml_pipelines/pipelines_axis3_severity_mapping.py) that uses XGBoost and SHAP.
+Inspiration: Inspired by Akdeniz et al. (2025) and Bellou et al. (2025), this module will implement a Polygenic Hazard Score (PHS).
 
----
+2. Prognosis Module (tools/ml_pipelines/prognosis/)
+Goal: To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
 
-##  Key Functionalities
-- **Probabilistic Annotation** – AI-based diagnostic modeling using probabilistic networks.
-- **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.
-- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.
-- **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.
-- **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.
-
----
-
----
-
-##  Current State: A Functional 3-Axis Prototype
-
-The current implementation is a **functional end-to-end prototype** that validates the 3-axis diagnostic philosophy, orchestrated by the `unified_orchestrator.py` script.
-
-- ✅ **Axis 1 (Etiology):** A rules-based engine enhanced by a state-of-the-art genomics imputation pipeline in [`/workflows/genomic_pipeline/`](workflows/genomic_pipeline/).
-- ✅ **Axis 2 (Molecular):** A research-grade ML pipeline in [`/tools/ml_pipelines/pipelines_axis2_molecular.py`](tools/ml_pipelines/pipelines_axis2_molecular.py) that provides co-pathology probability vectors.
-- ✅ **Axis 3 (Phenotype):** An advanced "Severity Mapper" in [`/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`](tools/ml_pipelines/pipelines_axis3_severity_mapping.py) that uses XGBoost and SHAP.
-
----
+Inspiration: Inspired by Colautti et al. (2025) and Milà Alomà et al. (2025), this module will incorporate temporal features like the "amyloid-tau interval" and use Explainable AI (SHAP).
 
 ## ⚙️ Getting Started for Developers
+This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
 
-This project is developed within **GitHub Codespaces** to ensure a consistent and reproducible environment.
+1. Launch the Environment
+Create a new codespace from the repository's main page on GitHub.
 
-1.  **Launch the Environment:**
-    Create a new codespace from the repository's main page.
+2. Install Dependencies
+In the Codespace terminal, install the required Python packages:
 
-2.  **Install Dependencies:**
-    The environment may prompt you to install the recommended extensions. In the terminal, install the required Python packages:
-    ```bash
+```bash
 pip install -r requirements.txt
-    ```
+```
+3. Run the Full Prototype
+To run the complete, end-to-end 3-axis simulation, which includes pre-flight checks and model training:
 
-3.  **Run the Full Prototype:**
-    To run the complete, end-to-end 3-axis simulation, which includes pre-flight checks and model training:
-    ```bash
+```bash
 python unified_orchestrator.py
-    ```
+```
+4. Launch the Interactive UI
+To start the Gradio web application for interactive use:
 
-4.  **Launch the Interactive UI:**
-    To start the Gradio web application for interactive use:
-    ```bash
+```bash
 python app.py
-    ```
-
-##  How to Contribute
-This is an open-source project. Please see our `CONTRIBUTING.md` file for details.
+```
+## How to Contribute
+This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
