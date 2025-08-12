@@ -51,8 +51,8 @@ graph TD
     subgraph Outputs["D. Flexible Output Layer"]
         D1[Disease Classification]
         D2[Biomarker Status Prediction]
-        D3[Progression Modeling]
-        D4[Risk Stratification]
+        D3[Prognosis & Progression Modeling]
+        D4[Risk Prediction (asymptomatic)]
     end
     
     Inputs --> Processing
@@ -70,6 +70,22 @@ While the final vision is a single Transformer model, the current implementation
 *   **✅ Axis 3 (Phenotype):** Implemented as an advanced "Severity Mapper" in `/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`. Inspired by Murad et al. (2025), it uses XGBoost and SHAP to predict clinical severity from regional neuroimaging data.
 
 ---
+
+---
+
+
+## Future Development Inspired by Recent Research
+
+Based on state-of-the-art research, the future development of Neurodiagnoses will focus on:
+
+1.  **Implementation of a Polygenic Hazard Score (PHS) Module for Risk Prediction:**
+    * Inspired by Akdeniz et al. (2025), a dedicated module will be developed to predict the age-associated risk of disease onset in asymptomatic individuals. This will involve implementing a PHS model (e.g., Elastic Net-regularized Cox regression) that leverages the high-density genetic data from our imputation pipeline.
+
+2.  **Advanced Progression Modeling for Prognosis:**
+    * The "Prognosis & Progression Modeling" output layer will be a core focus, using longitudinal data (data collected over time) to predict the trajectory of the disease in diagnosed patients.
+
+3.  **Incorporation of Vascular Neuroimaging (CSVD):**
+    * Inspired by Lohner et al. (2025), a dedicated pipeline will continue to be developed to quantify Cerebral Small Vessel Disease (CSVD) markers as a core component of the Axis 3 (Phenotypic) assessment.
 
 ## Repository Structure & Key Modules
 This repository is a complex ecosystem. For a complete map, please consult the Project Overview Document. Below is a summary of the most critical components.
