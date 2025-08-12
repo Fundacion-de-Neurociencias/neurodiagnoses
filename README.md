@@ -76,5 +76,42 @@ The current implementation is a functional end-to-end prototype that validates t
 
 ---
 
+---
+
+##  Current State: A Functional 3-Axis Prototype
+
+The current implementation is a **functional end-to-end prototype** that validates the 3-axis diagnostic philosophy, orchestrated by the `unified_orchestrator.py` script.
+
+- ✅ **Axis 1 (Etiology):** A rules-based engine enhanced by a state-of-the-art genomics imputation pipeline in [`/workflows/genomic_pipeline/`](workflows/genomic_pipeline/).
+- ✅ **Axis 2 (Molecular):** A research-grade ML pipeline in [`/tools/ml_pipelines/pipelines_axis2_molecular.py`](tools/ml_pipelines/pipelines_axis2_molecular.py) that provides co-pathology probability vectors.
+- ✅ **Axis 3 (Phenotype):** An advanced "Severity Mapper" in [`/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`](tools/ml_pipelines/pipelines_axis3_severity_mapping.py) that uses XGBoost and SHAP.
+
+---
+
+## ⚙️ Getting Started for Developers
+
+This project is developed within **GitHub Codespaces** to ensure a consistent and reproducible environment.
+
+1.  **Launch the Environment:**
+    Create a new codespace from the repository's main page.
+
+2.  **Install Dependencies:**
+    The environment may prompt you to install the recommended extensions. In the terminal, install the required Python packages:
+    ```bash
+pip install -r requirements.txt
+    ```
+
+3.  **Run the Full Prototype:**
+    To run the complete, end-to-end 3-axis simulation, which includes pre-flight checks and model training:
+    ```bash
+python unified_orchestrator.py
+    ```
+
+4.  **Launch the Interactive UI:**
+    To start the Gradio web application for interactive use:
+    ```bash
+python app.py
+    ```
+
 ##  How to Contribute
 This is an open-source project. Please see our `CONTRIBUTING.md` file for details.
