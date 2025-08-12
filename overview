@@ -3,16 +3,16 @@
 ## **1. What is Neurodiagnoses?**
 **Neurodiagnoses** is an AI-powered framework designed to integrate multi-modal data (neuroimaging, biomarkers, genetics, clinical) to enhance the diagnosis and prognosis of neurodegenerative diseases (NDDs). It moves beyond traditional single-disease labels towards a **probabilistic, tridimensional diagnostic system** based on three core axes: **Etiology (Axis 1)**, **Molecular Profile (Axis 2)**, and **Clinical Phenotype (Axis 3)**.
 
-The project's vision is to build a unified, modality-agnostic core model (e.g., a Transformer) that learns a deep representation of a patient's state, enabling a flexible set of outputs like disease classification, biomarker prediction, and progression modeling.
+The project's ultimate vision is to build a unified, modality-agnostic core model (e.g., a Transformer) that learns a deep representation of a patient's state, enabling a flexible set of outputs like disease classification, risk prediction, and progression modeling.
 
 ---
 
 ## **2. Current State: A Functional 3-Axis Prototype**
 Through recent development, the project now has a **functional, end-to-end prototype** that integrates the three diagnostic axes. This system is orchestrated by the central script `unified_orchestrator.py`, which serves as the "brain" of the current implementation.
 
-- ✅ **Axis 1 (Etiology):** A placeholder for an advanced phenotype-to-genotype model is integrated, demonstrating the architectural connection.
-- ✅ **Axis 2 (Molecular):** A research-grade ML pipeline (`Axis2MolecularPipeline`) trains and evaluates models (RandomForest, XGBoost) on simulated proteomics data to produce a co-pathology probability vector.
-- ✅ **Axis 3 (Phenotype):** An advanced "Severity Mapper" inspired by recent research (Murad et al., 2025) uses XGBoost and SHAP to predict clinical severity from regional neuroimaging data and identify the key contributing brain regions.
+- ✅ **Axis 1 (Etiology):** Enhanced by a state-of-the-art **genomics imputation pipeline** located in [`/workflows/genomic_pipeline/`](workflows/genomic_pipeline/). This workflow, inspired by Cheng et al. (2025), allows for the enrichment of low-density genotype data.
+- ✅ **Axis 2 (Molecular):** Implemented as a research-grade ML pipeline in [`/tools/ml_pipelines/pipelines_axis2_molecular.py`](/tools/ml_pipelines/pipelines_axis2_molecular.py). Inspired by Cruchaga et al. (2025), it provides **co-pathology probability vectors**.
+- ✅ **Axis 3 (Phenotype):** Implemented as an advanced **"Severity Mapper"** in [`/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`](/tools/ml_pipelines/pipelines_axis3_severity_mapping.py). Inspired by Murad et al. (2025), it uses XGBoost and SHAP to map regional neuroimaging data to clinical severity.
 
 ---
 
@@ -20,29 +20,31 @@ Through recent development, the project now has a **functional, end-to-end proto
 
 This section serves as a map to the key components of the repository.
 
-### ** Data Ingestion & Ontology (`tools/`)**
-This is the entry point for all patient data.
-- **`tools/ontology/neuromarker.py`**: **The heart of our data structure.** Defines the standardized `PatientRecord` and `Biomarker` classes, ensuring all data across the project speaks the same language.
-- **`tools/data_ingestion/parsers/`**: Contains specialized modules (`clinical_parser.py`, `imaging_parser.py`, etc.) responsible for reading raw data from different sources and converting it into the standardized `PatientRecord` format.
-- **`tools/data_ingestion/orchestrator.py`**: The main script for the ingestion pipeline, which calls the parsers and assembles the final patient JSON files.
+### ** Data & Ontology (`tools/` & `data/`)**
+This is the entry point for all patient data, built around a standardized ontology.
+- **`tools/ontology/neuromarker.py`**: **The heart of our data structure.** Defines the standardized `PatientRecord`, `Biomarker`, and `GeneticData` classes, ensuring all data across the project speaks the same language.
+- **`tools/data_ingestion/`**: The main pipeline for ETL (Extract, Transform, Load).
+  - **`orchestrator.py`**: The main script that calls the parsers.
+  - **`parsers/`**: Contains specialized modules (`nacc_adapter.py`, `cornblath_adapter.py`, `clinical_parser.py`, etc.) to convert raw data from various sources into standardized `PatientRecord` objects.
+- **`data/`**: Contains simulated datasets (`/data/simulated/`) for testing, processed datasets (`/data/processed/`), and source data for specific cohorts (e.g., `/data/cornblath/`).
 
-### ** Workflows & Pipelines (`workflows/`)**
-This directory contains end-to-end scripts for complex, multi-step processes.
-- **`workflows/preprocessing_pipeline/`**: Takes the standardized data from the ingestion phase and prepares a final, analysis-ready dataset (e.g., `analysis_ready_dataset.parquet`) for the AI models.
-- **`workflows/validation_pipeline/`**: Contains the scientific validation script (`run_validation.py`) to rigorously test our models against ground-truth data, including cross-validation and stratified analysis.
-- **`workflows/genomic_pipeline/`**: A new, advanced pipeline inspired by Cheng et al. (2025) for genetic data enrichment. It builds a reference panel (`1_build_panel.py`), imputes missing genotypes (`2_impute_genotypes.py`), and analyzes variants (`3_analyze_variants.py`).
+### **⚙️ Workflows & Pipelines (`workflows/`)**
+This directory contains high-level, multi-step scripts for complex processes.
+- **`workflows/preprocessing_pipeline/`**: Takes the standardized data from the ingestion phase and prepares a final, analysis-ready dataset (e.g., `analysis_ready_dataset.parquet`).
+- **`workflows/genomic_pipeline/`**: The state-of-the-art workflow for genetic data enrichment, containing scripts for building a reference panel, imputing genotypes, and analyzing variants.
+- **`workflows/risk_prediction/`**: The module for predicting disease risk in asymptomatic individuals, inspired by Akdeniz et al. (2025) and focused on building a **Polygenic Hazard Score (PHS)**.
+- **`workflows/validation_pipeline/`**: Contains scripts for the rigorous, scientific cross-validation of our models against neuropathological ground truth.
 
-### ** AI Models & Pipelines (`tools/ml_pipelines/` and `models/`)**
+### ** AI Models & Pipelines (`tools/ml_pipelines/` & `models/`)**
 This is where the core intelligence of the project resides.
-- **`tools/ml_pipelines/pipelines_axis2_molecular.py`**: The mature, research-grade pipeline for our proteomics-based classifier.
-- **`tools/ml_pipelines/pipelines_axis3_severity_mapping.py`**: The advanced neuroimaging-based "Severity Mapper" with SHAP integration.
-- **`models/api.py`**: A functional FastAPI application that serves the entire 3-axis diagnostic system through a real-time web API.
+- **`tools/ml_pipelines/`**: Contains the Python classes for the individual AI models of the 3-axis prototype and the new **Prognosis Module**.
 - **`models/meta_classifier/`**: Contains the final logic for combining the outputs of the three axes into a unified report.
+- **`models/api.py`**: A functional FastAPI application that serves the entire 3-axis diagnostic system through a real-time web API.
 
-### ** Legacy & Deprecated Modules**
-These components contain valuable logic from previous iterations of the project but are not part of the current, unified workflow. They are candidates for future integration or pruning.
+### **️ Legacy & "Via Muerta" Modules**
+These components contain valuable logic from previous iterations but are not part of the current, unified workflow. They are candidates for future integration or pruning.
 - **`tools/advanced_annotator/`**: An earlier, deprecated version of a multi-modal annotator.
-- **`tools/annotator/`**: The original probabilistic annotator mentioned in early documentation.
+- **`tools/annotator/`**: The original probabilistic annotator mentioned in early documentation (currently empty).
 - **`semantic_retriever/`**: A powerful module for semantic data discovery based on "NeuroEmbed". It is currently disconnected from the main diagnostic pipeline but represents a high-value feature to be integrated in the future.
 
 ---
@@ -53,6 +55,4 @@ These components contain valuable logic from previous iterations of the project 
 2.  **Preprocessing:** The `workflows/preprocessing_pipeline/run_preprocessing.py` takes these records and creates a single, clean dataset.
 3.  **Diagnosis:** The `unified_orchestrator.py` takes a patient ID, simulates data loading, and calls the individual pipelines for **Axis 1, 2, and 3**.
 4.  **Unification:** The results are passed to the **Meta-Classifier**, which generates the final probabilistic diagnosis and tridimensional summary.
-5.  **Serving:** The `models/api.py` wraps this entire process in a web endpoint, making it accessible to external applications.
-
-This overview provides a clear and accurate map of the Neurodiagnoses project as it stands today, ready for the next phase of scientific validation and development.
+5.  **Serving:** The `models/api.py` wraps this entire process in a web endpoint, and the `app.py` provides a user-friendly Gradio interface for interactive use, hosted on **[Hugging Face Spaces](https://huggingface.co/spaces/fneurociencias/Neurodiagnoses)**.
