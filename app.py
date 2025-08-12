@@ -66,6 +66,11 @@ def process_single_patient(*args):
 # --- GRADIO INTERFACE DEFINITION ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as demo:
     gr.Markdown("#  Neurodiagnoses: The AI-Powered Diagnostic Hub")
+    gr.Markdown("""
+    <div style="background-color: #FFEBEE; border-left: 5px solid #D32F2F; padding: 10px; margin-bottom: 20px;">
+    <h3 style="color: #B71C1C; margin-top: 0;">⚠️ Research Use Only Disclaimer</h3>
+    <p>This is a developmental tool intended for research purposes only. It is not a medical device and has not been validated or approved by the FDA, EMA, or any other regulatory body. <strong>Do not use for clinical diagnosis or patient management.</strong> The user assumes all responsibility for data confidentiality and usage.</p>
+    </div>""")
     
     with gr.Tabs():
         # --- TAB 1: SINGLE-PATIENT CLINICAL REPORT (NEW ADVANCED GENETICS) ---
