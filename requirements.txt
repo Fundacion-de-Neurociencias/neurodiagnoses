@@ -7,4 +7,5 @@ numpy<2.3
 xgboost
 fastapi
 uvicorn[standard]
-gradio
+matplotlib
+matplotlib
