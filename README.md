@@ -27,35 +27,19 @@ The core vision of Neurodiagnoses is to create a unified, modality-agnostic syst
 
 ```mermaid
 graph TD
-    subgraph Inputs["A. Dynamic Input Layer"]
-        A1[Clinical Data]
-        A2[Imaging Data]
-        A3[Biomarker Data]
-        A4[Genetic Data]
-    end
-    
-    subgraph Processing["B. Modality-Agnostic Processing"]
-        B1[Feature Extraction]
-        B2[Biomarker Encoding]
-        B3[Missing Data Handler]
-    end
-    
-    subgraph Core["C. Core AI Architecture"]
-        C1[Transformer Encoder]
-        C2[Disease-Agnostic Representation]
-        C3[Uncertainty Quantification]
-    end
-    
-    subgraph Outputs["D. Flexible Output Layer"]
-        D1[Disease Classification]
-        D2[Biomarker Status Prediction]
-        D3[Prognosis & Progression Modeling]
-        D4[Risk Prediction (asymptomatic)]
-    end
-    
-    Inputs --> Processing
-    Processing --> Core
-    Core --> Outputs
+    A1[Clinical Data] --> B1[Feature Extraction]
+    A2[Imaging Data] --> B1
+    A3[Biomarker Data] --> B2[Biomarker Encoding]
+    A4[Genetic Data] --> B1
+
+    B1 --> C1[Transformer Encoder]
+    B2 --> C1
+    B3[Missing Data Handler] --> C1
+
+    C1 --> D1[Disease Classification]
+    C1 --> D2[Biomarker Status Prediction]
+    C1 --> D3[Prognosis & Progression Modeling]
+    C1 --> D4[Risk Prediction (asymptomatic)]
 ```
 
 ## Scientific Foundation & Key Modules
@@ -85,7 +69,7 @@ Inspiration: Inspired by Akdeniz et al. (2025) and Bellou et al. (2025), this mo
 
 Goal: To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
 
-Inspiration: Inspired by Colautti et al. (2025) and Milà Alomà et al. (2025), this module incorporates crucial temporal features like the "amyloid-tau interval" and uses Explainable AI (SHAP).
+Inspiration: Inspired by Colautti et al. (2025) and Milà Alomà et al. (25), this module incorporates crucial temporal features like the "amyloid-tau interval" and uses Explainable AI (SHAP).
 
 ### 3. Data Ingestion & Ontology
 - `/tools/ontology/neuromarker.py`: The heart of the project. Defines the standardized `PatientRecord` and `Biomarker` classes, ensuring all data across the project speaks the same language.
