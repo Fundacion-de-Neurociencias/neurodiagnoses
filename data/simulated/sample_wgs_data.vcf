@@ -1,0 +1,8 @@
+##fileformat=VCFv4.2
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+#CHROMPOSIDREFALTQUALFILTERINFOFORMATHG001HG002HG003
+chr110177rs367896724AAC100PASSAC=1;AF=0.5GT0|00|10|0
+chr110235rs540431307TTA100PASSAC=1;AF=0.5GT0|10|00|0
+chr1944908684rs429358TC100PASSAC=2;AF=0.8GT0|11|10|0
