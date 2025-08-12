@@ -44,30 +44,24 @@ graph TD
     Core --> Outputs
 ```
 
- Current State: A Functional 3-Axis Prototype
+ ## Current State: A Functional 3-Axis Prototype
 The current implementation is a functional end-to-end prototype that validates the 3-axis diagnostic philosophy, orchestrated by the unified_orchestrator.py script.
 
-✅ Axis 1 (Etiology): A rules-based engine enhanced by a state-of-the-art genomics imputation pipeline in /workflows/genomic_pipeline/.
+- ✅ Axis 1 (Etiology): A rules-based engine enhanced by a state-of-the-art genomics imputation pipeline in `/workflows/genomic_pipeline/`.
+- ✅ Axis 2 (Molecular): A research-grade ML pipeline in `/tools/ml_pipelines/pipelines_axis2_molecular.py` that provides co-pathology probability vectors.
+- ✅ Axis 3 (Phenotype): An advanced "Severity Mapper" in `/tools/ml_pipelines/pipelines_axis3_severity_mapping.py` that uses XGBoost and SHAP.
 
-✅ Axis 2 (Molecular): A research-grade ML pipeline in /tools/ml_pipelines/pipelines_axis2_molecular.py that provides co-pathology probability vectors.
+## Key Functionalities
+- Probabilistic Annotation – AI-based diagnostic modeling using probabilistic networks.
+- Tridimensional Annotation – Integration of neuroimaging, genetic, and clinical data.
+- Interactive Visualization – User-friendly interfaces for research and clinical applications.
+- Biomarker Prediction – AI-driven estimation of biomarker status and progression.
+- Disease Prediction – Modeling of disease onset, conversion, and progression using ML.
 
-✅ Axis 3 (Phenotype): An advanced "Severity Mapper" in /tools/ml_pipelines/pipelines_axis3_severity_mapping.py that uses XGBoost and SHAP.
-
- Key Functionalities
-Probabilistic Annotation – AI-based diagnostic modeling using probabilistic networks.
-
-Tridimensional Annotation – Integration of neuroimaging, genetic, and clinical data.
-
-Interactive Visualization – User-friendly interfaces for research and clinical applications.
-
-Biomarker Prediction – AI-driven estimation of biomarker status and progression.
-
-Disease Prediction – Modeling of disease onset, conversion, and progression using ML.
-
-️ Repository Structure & Key Modules
+## ️ Repository Structure & Key Modules
 For a complete map, please consult the Project Overview Document.
 
- How to Contribute
-This is an open-source project. Please see our CONTRIBUTING.md file for details.
+## How to Contribute
+This is an open-source project. Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
 
-➡️ Launch Interactive Neurodiagnoses App on Hugging Face Spaces
+## ➡️ Launch Interactive Neurodiagnoses App on Hugging Face Spaces
