@@ -1,116 +1,58 @@
-# **🔹 Overview of Neurodiagnoses: Data Integration, Models, and Diagnosis**
+# ** Overview of Neurodiagnoses: Architecture, Modules, and Vision**
 
-## **What is Neurodiagnoses?**
-**Neurodiagnoses** is an AI-powered framework that integrates **probabilistic modeling, machine learning, multimodal data (neuroimaging, biomarkers, and clinical data), and language models** to enhance **diagnostic precision and disease progression tracking**.
+## **1. What is Neurodiagnoses?**
+**Neurodiagnoses** is an AI-powered framework designed to integrate multi-modal data (neuroimaging, biomarkers, genetics, clinical) to enhance the diagnosis and prognosis of neurodegenerative diseases (NDDs). It moves beyond traditional single-disease labels towards a **probabilistic, tridimensional diagnostic system** based on three core axes: **Etiology (Axis 1)**, **Molecular Profile (Axis 2)**, and **Clinical Phenotype (Axis 3)**.
 
-The project focuses on five core functionalities:
-- **Probabilistic Annotation** – AI-based diagnostic modeling using probabilistic networks.
-- **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.
-- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.
-- **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.
-- **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML and language models.
+The project's vision is to build a unified, modality-agnostic core model (e.g., a Transformer) that learns a deep representation of a patient's state, enabling a flexible set of outputs like disease classification, biomarker prediction, and progression modeling.
 
 ---
 
-## **1️⃣ Data Acquisition and Integration**
+## **2. Current State: A Functional 3-Axis Prototype**
+Through recent development, the project now has a **functional, end-to-end prototype** that integrates the three diagnostic axes. This system is orchestrated by the central script `unified_orchestrator.py`, which serves as the "brain" of the current implementation.
 
-**Objective:** Unify multiple data sources for AI-driven neurological diagnosis.
-
-### **Data Sources:**
-- **Neuroimaging:** MRI, PET, EEG, acquired from **EBRAINS ([source](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data_integration/mip_integration.py)), OpenNeuro, and ADNI ([list of databases](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data/sources/list_of_potential_databases))**.
-- **Biomarkers:** Plasma and CSF from **PPMI, GP2, and clinical cohorts ([biomarker integration](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data_integration/multimodal_biomarker_integration))**.
-- **Clinical and Language-based Data:** Structured medical history, electronic records, physician notes, and demographic variables.
-
-### **Integration Infrastructure:**
-- **MIP (Milestone Integration Platform) from EBRAINS ([MIP integration](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/data_integration/mip_integration.py))**: Automated clinical data retrieval.
-- **DeepPrep ([Neuroimaging Standardization](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/standarization/neuroimaging))**: Neuroimaging preprocessing with artifact correction and segmentation.
-- **Clínica.run ([Advanced Neuroimaging Processing](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/standarization/neuroimaging))**: High-performance neuroimaging analysis and computational modeling.
-- **Jupyter Notebooks ([Jupyter Integration](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/standarization/flowchart#L2))**: Interactive computing environment for exploratory data analysis and AI modeling.
-- **Hugging Face ([Hugging Face Models](https://huggingface.co))**: Hosting machine learning models for neurodiagnostic applications and NLP-based biomarker analysis.
-- **InterMine**: Data warehouse for multimodal data integration.
-- **BIDS standardization ([BIDS Standardization](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/standarization/neuroimaging))** for improved neuroimaging interoperability.
+- ✅ **Axis 1 (Etiology):** A placeholder for an advanced phenotype-to-genotype model is integrated, demonstrating the architectural connection.
+- ✅ **Axis 2 (Molecular):** A research-grade ML pipeline (`Axis2MolecularPipeline`) trains and evaluates models (RandomForest, XGBoost) on simulated proteomics data to produce a co-pathology probability vector.
+- ✅ **Axis 3 (Phenotype):** An advanced "Severity Mapper" inspired by recent research (Murad et al., 2025) uses XGBoost and SHAP to predict clinical severity from regional neuroimaging data and identify the key contributing brain regions.
 
 ---
 
-## **2️⃣ Data Preprocessing and Standardization**
+## **3. Repository Architecture & Key Modules**
 
-**Objective:** Ensure quality and consistency before predictive analysis.
+This section serves as a map to the key components of the repository.
 
-### **Procedures:**
-- **Neuroimaging:** Segmentation, normalization, and registration to standard space (**MNI, FreeSurfer, ANTs**).
-- **EEG:** Noise filtering, feature extraction (**MNE-Python, NeuroKit2**).
-- **Biomarkers:** Cleaning and normalization for consistent clinical data.
-- **Text and Clinical Notes:** NLP preprocessing using **Hugging Face Transformers** for medical document analysis and automated extraction of diagnostic indicators.
+### ** Data Ingestion & Ontology (`tools/`)**
+This is the entry point for all patient data.
+- **`tools/ontology/neuromarker.py`**: **The heart of our data structure.** Defines the standardized `PatientRecord` and `Biomarker` classes, ensuring all data across the project speaks the same language.
+- **`tools/data_ingestion/parsers/`**: Contains specialized modules (`clinical_parser.py`, `imaging_parser.py`, etc.) responsible for reading raw data from different sources and converting it into the standardized `PatientRecord` format.
+- **`tools/data_ingestion/orchestrator.py`**: The main script for the ingestion pipeline, which calls the parsers and assembles the final patient JSON files.
 
----
+### ** Workflows & Pipelines (`workflows/`)**
+This directory contains end-to-end scripts for complex, multi-step processes.
+- **`workflows/preprocessing_pipeline/`**: Takes the standardized data from the ingestion phase and prepares a final, analysis-ready dataset (e.g., `analysis_ready_dataset.parquet`) for the AI models.
+- **`workflows/validation_pipeline/`**: Contains the scientific validation script (`run_validation.py`) to rigorously test our models against ground-truth data, including cross-validation and stratified analysis.
+- **`workflows/genomic_pipeline/`**: A new, advanced pipeline inspired by Cheng et al. (2025) for genetic data enrichment. It builds a reference panel (`1_build_panel.py`), imputes missing genotypes (`2_impute_genotypes.py`), and analyzes variants (`3_analyze_variants.py`).
 
-## **3️⃣ Predictive Modeling and Probabilistic Diagnosis**
+### ** AI Models & Pipelines (`tools/ml_pipelines/` and `models/`)**
+This is where the core intelligence of the project resides.
+- **`tools/ml_pipelines/pipelines_axis2_molecular.py`**: The mature, research-grade pipeline for our proteomics-based classifier.
+- **`tools/ml_pipelines/pipelines_axis3_severity_mapping.py`**: The advanced neuroimaging-based "Severity Mapper" with SHAP integration.
+- **`models/api.py`**: A functional FastAPI application that serves the entire 3-axis diagnostic system through a real-time web API.
+- **`models/meta_classifier/`**: Contains the final logic for combining the outputs of the three axes into a unified report.
 
-**Objective:** Utilize AI to extract patterns and generate diagnostic inferences.
-
-### **Implemented Models:**
-- **CNNs and Autoencoders:** Feature extraction from MRI and PET.
-- **Random Forest and SHAP ([Biomarker Prediction](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/standarization/biomarker_and_disease_prediction))**: Identifying the most relevant biomarkers.
-- **Transformers for EEG and Language Models:** Deep learning models for brain connectivity analysis and **clinical text-based diagnosis using Hugging Face NLP models**.
-- **Twin Brain Modeling with TVB:** Creating personalized neurodegenerative progression models.
-
-### **Evaluation and Validation:**
-- **Subject-level cross-validation** to prevent bias.
-- **Performance metrics:** AUC, sensitivity, specificity, and F1-score.
-
----
-
-## **4️⃣ Interpretability, Visualization, and 3D Diagnostic Annotation**
-
-**Objective:** Provide comprehensible interpretations, personalized simulations, and detailed spatial diagnostic annotation.
-
-### **Visualization and Interpretation:**
-- **Heatmaps on neuroimaging** to highlight affected brain regions.
-- **Explainability with SHAP and LIME** to interpret ML models.
-- **Interactive diagnostic panels** integrated into Hugging Face Spaces.
-
-### **3D Diagnostic Annotation:**
-- **Integration with Neurodiagnoses 3D diagnostic framework ([3D annotation workflow](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/blob/main/docs/diagnosis_workflow.md))**.
-- **Mapping of affected brain regions** based on probabilistic AI-based classifications.
-- **Overlaying MRI, PET, and EEG data** into 3D anatomical structures for precise localization of pathological findings.
-
-### **Twin Brain Simulation:**
-- **TVB (The Virtual Brain):** Personalized simulation of functional and structural connectivity.
-- **Evaluation of therapeutic interventions** in digital twin models.
+### ** Legacy & Deprecated Modules**
+These components contain valuable logic from previous iterations of the project but are not part of the current, unified workflow. They are candidates for future integration or pruning.
+- **`tools/advanced_annotator/`**: An earlier, deprecated version of a multi-modal annotator.
+- **`tools/annotator/`**: The original probabilistic annotator mentioned in early documentation.
+- **`semantic_retriever/`**: A powerful module for semantic data discovery based on "NeuroEmbed". It is currently disconnected from the main diagnostic pipeline but represents a high-value feature to be integrated in the future.
 
 ---
 
-## **5️⃣ Report Generation and Clinical Support**
+## **4. How It All Connects: The Main Workflow**
 
-**Objective:** Generate AI-based clinical reports for diagnostic assistance.
+1.  **Data Ingestion:** The `tools/data_ingestion/orchestrator.py` uses various **parsers** to read raw data and create standardized `PatientRecord` objects.
+2.  **Preprocessing:** The `workflows/preprocessing_pipeline/run_preprocessing.py` takes these records and creates a single, clean dataset.
+3.  **Diagnosis:** The `unified_orchestrator.py` takes a patient ID, simulates data loading, and calls the individual pipelines for **Axis 1, 2, and 3**.
+4.  **Unification:** The results are passed to the **Meta-Classifier**, which generates the final probabilistic diagnosis and tridimensional summary.
+5.  **Serving:** The `models/api.py` wraps this entire process in a web endpoint, making it accessible to external applications.
 
-### **Workflow:**
-1. **Results Compilation:** AI models generate probabilistic diagnoses.
-2. **Conversion to Clinical Report:** A structured report is generated with management recommendations.
-3. **Medical Decision Support:** Interactive platform to assess clinical scenarios.
-
----
-
-# **🔹 Conclusion: Integrated Neurodiagnoses Infrastructure**
-✅ **Neurodiagnoses integrates multiple data sources, advanced AI models, Hugging Face NLP tools, and simulation frameworks to enhance neurological diagnosis.**
-✅ **The infrastructure is based on GitHub, EBRAINS, Clínica.run, Hugging Face, and 3D visualization platforms for interactive analysis.**
-✅ **The workflow is modular, allowing real-time iterations and improvements.**
-
-📌 **Next Steps:** Detailed GitHub documentation and automation of integration pipelines.
-
----
-
-## **🔹 Visual Workflow Diagram**
-
-```mermaid
-graph TD;
-    A[Data Acquisition & Integration] -->|Multi-modal datasets: EEG, MRI, Biomarkers, Clinical Notes| B[Data Preprocessing & Feature Engineering];
-    B -->|Cleaning, normalization, transformation| C[AI Model Training & Evaluation];
-    C -->|Training & validation| D[Diagnostic Inference & Probabilistic Prediction];
-    D -->|Model Results Interpretation| E[Visualization, 3D Annotation & Twin Brain Simulation];
-    E -->|Output & Report Generation| F[Clinical Report & Decision Support];
-    F -->|Feedback & Model Refinement| C;
-```
-
-This diagram illustrates the **end-to-end workflow of Neurodiagnoses**, integrating **Clínica.run for advanced neuroimaging processing**, **Hugging Face NLP models**, **machine learning**, and **multimodal diagnostics**, from data acquisition to clinical decision support.
-
+This overview provides a clear and accurate map of the Neurodiagnoses project as it stands today, ready for the next phase of scientific validation and development.
