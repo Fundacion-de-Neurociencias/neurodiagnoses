@@ -1,23 +1,44 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" type="image/png" href="./neurodiagnoses favicon-32x32.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurodiagnoses</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="icon" type="image/png" href="./neurodiagnoses favicon-32x32.png">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Neurodiagnoses</h1>
-            <p>An AI-powered framework for the diagnosis of Neurodegenerative Disorders.</p>
-            <nav><ul><li><a href="#about">About</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#prototype">Prototype</a></li></ul></nav>
-        </header>
-        <main>
-            <section id="architecture">
-                <h2>High-Level Architecture</h2>
-                <div class="mermaid">
+<div class="container">
+<header>
+<h1>Neurodiagnoses</h1>
+<p>An AI-powered framework for the diagnosis of Neurodegenerative Disorders.</p>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#prototype">Prototype</a></li>
+<li><a href="#contribute">Contribute</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section id="disclaimer" style="background-color: #FFEBEE; border-left: 5px solid #D32F2F; padding: 15px; margin-bottom: 2rem; border-radius: 5px;">
+<h3 style="color: #B71C1C; margin-top: 0;">⚠️ Research Use Only Disclaimer</h3>
+<p>This is a developmental tool intended for <strong>research purposes only</strong>. It is not a medical device and has not been validated or approved by the FDA, EMA, or any other regulatory body. <strong>Do not use for clinical diagnosis or patient management.</strong></p>
+</section>
+<section id="about">
+<h2>Reimagining Neurodegenerative Diagnostics</h2>
+<p>Diseases of the Central Nervous System (CNS) like Alzheimer's or Parkinson's are incredibly complex. Neurodiagnoses aims to unify heterogeneous data—from MRI scans and CSF tests to cognitive assessments and genetic profiles—into a coherent, probabilistic, tridimensional framework.</p>
+</section>
+<section id="architecture">
+<h2>High-Level Architecture</h2>
+<p>The project's vision is a unified system that processes diverse inputs through a sophisticated pipeline to generate flexible, clinically relevant outputs.</p>
+<div class="main-image-container">
+<img src="tridimensional.png" alt="Tridimensional Diagnostic Approach">
+</div>
+<div class="mermaid">
 graph TD
     subgraph Inputs["A. Dynamic Input Layer"]
         A1[Clinical Data]
@@ -25,37 +46,50 @@ graph TD
         A3[Biomarker Data]
         A4[Genetic Data]
     end
+    
     subgraph Processing["B. Modality-Agnostic Processing"]
         B1[Feature Extraction]
         B2[Biomarker Encoding]
         B3[Missing Data Handler]
     end
+    
     subgraph Core["C. Core AI Architecture"]
         C1[Transformer Encoder]
         C2[Disease-Agnostic Representation]
         C3[Uncertainty Quantification]
     end
+    
     subgraph Outputs["D. Flexible Output Layer"]
         D1[Disease Classification]
         D2[Biomarker Status Prediction]
         D3[Prognosis & Progression Modeling]
         D4[Risk Prediction (asymptomatic)]
     end
+    
     Inputs --> Processing
     Processing --> Core
     Core --> Outputs
-                </div>
-            </section>
-            <section id="prototype">
-                <h2>Interactive Prototype (Gradio App)</h2>
-                <div style="text-align: center; margin: 2rem 0;">
-                    <a href="https://huggingface.co/spaces/fneurociencias/Neurodiagnoses" target="_blank" style="background-color: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold;">Launch Interactive App</a>
-                </div>
-            </section>
-        </main>
-        <footer><p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p></footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
+</div>
+</section>
+<section id="prototype">
+<h2>Interactive Prototype (Gradio App)</h2>
+<p>The full 3-axis diagnostic prototype is hosted on Hugging Face Spaces, allowing collaborators to test the system's capabilities in real-time without running any code.</p>
+<div style="text-align: center; margin: 2rem 0;">
+<a href="https://huggingface.co/spaces/fneurociencias/Neurodiagnoses" target="_blank" style="background-color: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold;">
+Launch Interactive App
+</a>
+</div>
+</section>
+<section id="contribute">
+<h2>Get Involved</h2>
+<p>Join our collaborative effort by visiting our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> and joining the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">Discussions</a>.</p>
+</section>
+</main>
+<footer>
+<p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p>
+</footer>
+</div>
+<script src="https://www.google.com/search?q=https://cdn.jsdelivr.net/npm/mermaid%4010/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script>
 </body>
 </html>
