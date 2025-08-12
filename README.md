@@ -105,6 +105,7 @@ This architecture processes four key types of data, each providing a unique pers
 
 The power of Neurodiagnoses lies in its ability to integrate these four distinct but interconnected dimensions into a single, coherent diagnostic and prognostic model." envisions a dedicated module for quantifying the model's confidence in its own predictions, a key step towards clinical translation.
 
+```
 ## ⚙️ Getting Started for Developers
 This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
 
