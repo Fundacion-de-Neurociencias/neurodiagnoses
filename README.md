@@ -39,7 +39,6 @@ graph TD
     C1 --> D1[Disease Classification]
     C1 --> D2[Biomarker Status Prediction]
     C1 --> D3[Prognosis & Progression Modeling]
-    C1 --> D4[Risk Prediction (asymptomatic)]
 ```
 
 ## Scientific Foundation & Key Modules
