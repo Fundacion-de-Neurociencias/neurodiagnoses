@@ -52,7 +52,7 @@ def parse_nacc_data(csv_path: str) -> List[PatientRecord]:
         # Add genetic data
         record.genetics = GeneticData()
         if row['apoe4'] > 0:
-            record.genetics.disease_specific_risk.append(f"APOE_e{int(row['apoe4'])}")
+            record.genetics.key_markers['APOE4'] = f"APOE_e{int(row['apoe4'])}"
         
         patient_records.append(record)
 

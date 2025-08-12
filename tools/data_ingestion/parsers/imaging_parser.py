@@ -5,9 +5,10 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../..'))
 from tools.ontology.neuromarker import PatientRecord, Biomarker, BiomarkerCategory
 
-def parse_imaging_data(patient_id, csv_path) -> PatientRecord:
+def parse_regional_imaging_data(patient_id, csv_path) -> PatientRecord:
     """
-    Parses an imaging metrics CSV and returns a standardized PatientRecord object.
+    Parses a regional neuroimaging metrics CSV and returns a standardized
+    PatientRecord object, adding each region as a separate biomarker.
     """
     record = PatientRecord(patient_id=patient_id, metadata={})
     try:
@@ -16,11 +17,18 @@ def parse_imaging_data(patient_id, csv_path) -> PatientRecord:
         if patient_data.empty:
             return record
 
-        if 'hippocampal_volume_norm' in patient_data.columns:
-            record.add_biomarker("Hippocampal Volume (Norm)", float(patient_data['hippocampal_volume_norm'].iloc[0]), "mm^3", BiomarkerCategory.NEUROIMAGING)
-        if 'cortical_thickness_avg' in patient_data.columns:
-            record.add_biomarker("Cortical Thickness (Avg)", float(patient_data['cortical_thickness_avg'].iloc[0]), "mm", BiomarkerCategory.NEUROIMAGING)
-            
+        # Iterate through all columns except the patient ID
+        for col_name in patient_data.columns:
+            if col_name != 'patient_id':
+                value = patient_data[col_name].iloc[0]
+                unit = "mm^3" if "volume" in col_name else "mm"
+                
+                record.add_biomarker(
+                    name=col_name,
+                    value=float(value),
+                    unit=unit,
+                    category=BiomarkerCategory.NEUROIMAGING
+                )
         return record
     except Exception as e:
         print(f"Warning in imaging_parser for patient {patient_id}: {e}")
