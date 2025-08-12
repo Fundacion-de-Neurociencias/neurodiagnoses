@@ -52,7 +52,56 @@ Current Implementation: An advanced genomics pipeline (`/workflows/genomic_pipel
 
 #### Axis 2 (Molecular Profile): Analyzes fluid and imaging biomarkers.
 
+## Scientific Foundation & Key Modules
+The development of Neurodiagnoses is guided by state-of-the-art research. The current functional prototype validates the 3-axis philosophy and is orchestrated by `unified_orchestrator.py`. Below is a map of our key capabilities and the science that inspires them.
+
+### 1. The 3-Axis Diagnostic System
+#### Axis 1 (Etiology): Focuses on the underlying causes.
+
+Current Implementation: An advanced genomics pipeline (`/workflows/genomic_pipeline/`) enriches low-density genotype data by imputing millions of variants, including Structural Variants (SVs). This is inspired by the methodology of Cheng et al. (2025). This high-density data then feeds into our risk and classification models.
+
+#### Axis 2 (Molecular Profile): Analyzes fluid and imaging biomarkers.
+
 Current Implementation: A research-grade ML pipeline (`/tools/ml_pipelines/pipelines_axis2_molecular.py`) that produces co-pathology probability vectors, inspired by Cruchaga et al. (2025).
+
+#### Axis 3 (Phenotypic Profile): Characterizes the clinical and neuroanatomical manifestation.
+
+Current Implementation: An advanced "Severity Mapper" (`/tools/ml_pipelines/pipelines_axis3_severity_mapping.py`), inspired by Murad et al. (2025), uses XGBoost and SHAP to map regional neuroimaging data to clinical severity.
+
+### 2. Risk & Prognosis Modeling
+#### Risk Prediction Module (`/workflows/risk_prediction/`):
+
+Goal: To predict the age-associated risk of disease onset in asymptomatic individuals.
+
+Inspiration: Inspired by Akdeniz et al. (2025) and Bellou et al. (2025), this module implements a Polygenic Hazard Score (PHS) using APOE status combined with a broader PRS.
+
+#### Prognosis Module (`/tools/ml_pipelines/prognosis/`):
+
+Goal: To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
+
+Inspiration: Inspired by Colautti et al. (2025) and Milà Alomà et al. (25), this module incorporates crucial temporal features like the "amyloid-tau interval" and uses Explainable AI (SHAP).
+
+### 3. Data Ingestion & Ontology
+- `/tools/ontology/neuromarker.py`: The heart of the project. Defines the standardized `PatientRecord` and `Biomarker` classes, ensuring all data across the project speaks the same language.
+
+- `/tools/data_ingestion/`: The main pipeline for ETL (Extract, Transform, Load), containing parsers and adapters for real-world datasets like NACC and ADNI.
+
+---
+
+## Probabilistic Approach & Co-Pathology Modeling
+
+A core principle of Neurodiagnoses is moving away from single, categorical diagnoses towards a more realistic probabilistic framework. This is crucial for handling the clinical heterogeneity and frequent co-pathologies found in NDDs.
+
+### Key Concepts:
+
+1.  **Probabilistic Outputs:** Instead of a single diagnostic label, the models (especially for Axis 2) are designed to output a **probability vector** across multiple diseases (e.g., AD, PD, FTD, DLB). This is directly inspired by the methodology of **Cruchaga et al. (2025)**.
+
+2.  **Handling Co-Pathologies:** The framework is designed to support two logic modes for interpreting probabilities, as defined in our project documentation:
+    * **Independent Multi-Label Probabilities (Sum > 100%):** Each pathology is modeled independently to detect the presence or absence of multiple mechanisms simultaneously (e.g., `AD: 70%`, `LBD: 50%`). This is useful for research and understanding complex cases.
+    * **Composite or Exclusive Modeling (Sum = 100%):** The probabilities are normalized to represent the most likely primary diagnosis, which is useful for clinical decision support.
+
+3.  **Uncertainty Quantification:** The "Core AI Architecture" envisions a dedicated module for quantifying the model's confidence in its own predictions, a key step towards clinical translation.
+
 
 #### Axis 3 (Phenotypic Profile): Characterizes the clinical and neuroanatomical manifestation.
 
