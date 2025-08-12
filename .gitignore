@@ -173,3 +173,21 @@ data/processed/
 
 # Generated analysis plots
 docs/assets/
+--> Directory \'workflows/genomic_pipeline/'' created.
+
+echo -e n-- 2: Creating placeholder scripts for each phase of the pipeline...
+# These scripts represent the new workflow inspired by Cheng et al. (2025)
+touch workflows/genomic_pipeline/1_build_panel.py
+touch workflows/genomic_pipeline/2_impute_genotypes.py
+touch workflows/genomic_pipeline/3_analyze_variants.py
+echo -- scripts for panel building, imputation, and analysis created.
+
+echo -e n-- 3: Updating .gitignore for large genomic files...
+# We add rules to ignore large panel files and imputed datasets.
+# Comments are in English for project standards.
+cat <<\EOF'
+
+# Genomics Pipeline Artifacts
+# Ignore large, generated reference panels and imputed data files.
+workflows/genomic_pipeline/*.panel
+workflows/genomic_pipeline/*.imputed.vcf.gz
