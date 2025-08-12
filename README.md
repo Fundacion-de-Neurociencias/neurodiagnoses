@@ -86,3 +86,7 @@ python app.py
 ```
 ## How to Contribute
 This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
+
+### 3. ML-Driven Genetic Discovery (`workflows/genetic_classifier/`)
+-   **Goal:** To move beyond known risk genes and discover novel genetic associations directly from data.
+-   **Inspiration:** Inspired by the work of **Bracher-Smith et al. (2025)**, this module will use Machine Learning models (e.g., Gradient Boosting Machines) on high-density imputed genotype data to classify subjects (case vs. control) and identify the most predictive genetic variants, highlighting novel biological pathways.
