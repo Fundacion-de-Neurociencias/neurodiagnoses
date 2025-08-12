@@ -26,7 +26,7 @@ The easiest way to interact with the Neurodiagnoses prototype is through our liv
 ```mermaid
 graph TD
     subgraph Inputs["A. Dynamic Input Layer"]
-        A1[Clinical Data]
+        A1[Clinical Data] 
         A2[Imaging Data]
         A3[Biomarker Data]
         A4[Genetic Data]
