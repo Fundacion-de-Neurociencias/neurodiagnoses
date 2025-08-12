@@ -58,19 +58,3 @@ graph TD
     Processing --> Core
     Core --> Outputs
 ```
-
----
-
-##  Scientific Foundation & Future Development
-
-The development of Neurodiagnoses is guided by state-of-the-art research. Our next phase focuses on implementing two advanced capabilities: Risk Prediction and Prognosis Modeling.
-
-### 1. Risk Prediction Module (`workflows/risk_prediction/`)
--   **Goal:** To predict the age-associated risk of disease onset in asymptomatic individuals.
--   **Inspiration:** This module is inspired by the methodologies of **Akdeniz et al. (2025)** and **Bellou et al. (2025)**. It will focus on developing and validating a **Polygenic Hazard Score (PHS)**. The implementation will follow the best-performing strategy of using **APOE status + a remaining PRS** derived from our high-density imputed genotype data.
-
-### 2. Prognosis Module (`tools/ml_pipelines/prognosis/`)
--   **Goal:** To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
--   **Inspiration:** This module is inspired by the work of **Colautti et al. (2025)** and **Milà Alomà et al. (2025)**. It will go beyond baseline data to incorporate crucial temporal features, such as the **age at biomarker positivity** and the **"amyloid-tau interval"**. The models will be stratified by `sex` and `APOE-ε4` status to account for their known effects on progression, with a strong emphasis on **Explainable AI (SHAP)** to identify the key drivers of progression.
-
-## ⚙️ Getting Started for Developers
