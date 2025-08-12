@@ -36,7 +36,7 @@ graph TD
         D1[Disease Classification]
         D2[Biomarker Status Prediction]
         D3[Prognosis & Progression Modeling]
-        D4[Risk Prediction (asymptomatic)]
+        D4[Risk Prediction asymptomatic]
     end
 
     Inputs --> Processing
