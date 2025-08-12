@@ -3,226 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neurodiagnoses - A New Paradigm in CNS Disease Diagnostics</title>
-    <style>
-        :root {
-            --primary-color: #005f73;
-            --secondary-color: #0a9396;
-            --background-color: #f8f9fa;
-            --text-color: #212529;
-            --light-text-color: #ffffff;
-            --accent-color: #ee9b00;
-            --card-bg: #ffffff;
-            --shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            background: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 20px 0;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-        }
-        .header p {
-            margin: 5px 0 0;
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.85);
-        }
-        .nav {
-            background-color: var(--secondary-color);
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .nav a {
-            color: var(--light-text-color);
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .nav a:hover {
-            color: var(--accent-color);
-        }
-        .section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.2em;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-        }
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-        .button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--light-text-color);
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #ca8100;
-            transform: scale(1.05);
-        }
-        .button-secondary {
-            background-color: var(--secondary-color);
-        }
-        .button-secondary:hover {
-            background-color: #087a7d;
-        }
-        .functionalities-list {
-            list-style: none;
-            padding: 0;
-        }
-        .functionalities-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
-            font-size: 1.05em;
-        }
-        .functionalities-list li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-        .tridimensional-container {
-            text-align: center;
-            padding: 20px;
-        }
-        .tridimensional-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-top: 20px;
-        }
-        .footer {
-            background: #343a40;
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .footer p {
-            margin: 0;
-        }
-        .cta-container {
-            text-align: center;
-        }
-        .cta-container .button {
-            margin: 10px;
-        }
-    </style>
+    <title>Neurodiagnoses</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/png" href="./neurodiagnoses favicon-32x32.png">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
+    <div class="container">
+        <header>
             <h1>Neurodiagnoses</h1>
-            <p>An open-source, AI-powered diagnostic framework for complex CNS diseases.</p>
-        </div>
-    </header>
-
-    <nav class="nav">
-        <a href="#about">The Project</a>
-        <a href="#functionalities">Features</a>
-        <a href="#framework">3D Framework</a>
-        <a href="#participate">Get Involved</a>
-    </nav>
-
-    <main class="container">
-
-        <section id="about" class="section">
-            <div class="card">
-                <h2 class="section-title">Reimagining Neurological Diagnostics</h2>
-                <p>Diseases of the Central Nervous System (CNS) like Alzheimer's, Parkinson's, or Multiple Sclerosis are incredibly complex. Diagnoses rely on scattered, heterogeneous data—from MRI scans and blood tests to cognitive assessments and genetic profiles.</p>
-                <p><strong>Neurodiagnoses aims to unify this chaos.</strong> We are an open-source project building an AI-assisted diagnostic framework. Our goal is to standardize and process multimodal data to offer clinicians a holistic, probabilistic view, improving accuracy and accelerating the path to personalized treatment.</p>
-            </div>
-        </section>
-
-        <section id="functionalities" class="section">
-            <h2 class="section-title">Key Functionalities</h2>
-            <div class="card">
-                <ul class="functionalities-list">
-                    <li><strong>Probabilistic Annotation</strong> – AI-based diagnostic modeling using probabilistic networks.</li>
-                    <li><strong>Tridimensional Annotation</strong> – Integration of neuroimaging, genetic, and clinical data.</li>
-                    <li><strong>Multi-Model Advanced Annotation</strong> – Unified pipeline for comprehensive 3-axis annotation using multiple AI models.</li>
-                    <li><strong>Interactive Visualization</strong> – User-friendly interfaces for research and clinical applications.</li>
-                    <li><strong>Biomarker Prediction</strong> – AI-driven estimation of biomarker status and progression.</li>
-                    <li><strong>Disease Prediction</strong> – Modeling of disease onset, conversion, and progression using ML.</li>
+            <p>An AI-powered framework for the diagnosis of Neurodegenerative Disorders.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#prototype">Interactive Prototype</a></li>
+                    <li><a href="#contribute">Contribute</a></li>
                 </ul>
-            </div>
-        </section>
+            </nav>
+        </header>
 
-        <section id="framework" class="section">
-            <h2 class="section-title">Our 3-Axis Approach</h2>
-            <div class="card">
-                <p>The core of Neurodiagnoses is a 3-axis model that structures diagnostic information in a coherent and clinically relevant way. Each axis represents a crucial facet of the patient's profile, allowing the AI to contextualize data and find hidden patterns.</p>
-                <div class="tridimensional-container">
-                    <p>This visualization illustrates how different data types (axis 1), biomarkers (axis 2), and clinical hypotheses (axis 3) interrelate to form a comprehensive diagnosis.</p>
-                    <img src="https://raw.githubusercontent.com/Fundacion-de-Neurociencias/neurodiagnoses/0d57212ea0fd7b59e8d74a7b9cdc535afc61b649/tridimensional.png" alt="Illustration of the Neurodiagnoses 3-axis framework">
+        <main>
+            <section id="disclaimer" style="background-color: #FFEBEE; border-left: 5px solid #D32F2F; padding: 15px; margin-bottom: 2rem; border-radius: 5px;">
+                <h3 style="color: #B71C1C; margin-top: 0;">⚠️ Research Use Only Disclaimer</h3>
+                <p>
+                    This is a developmental tool intended for **research purposes only**. It is not a medical device and has not been validated or approved by the FDA, EMA, or any other regulatory body.
+                    <strong>Do not use for clinical diagnosis or patient management.</strong> The user assumes all responsibility for data confidentiality and usage.
+                </p>
+            </section>
+
+            <section id="about">
+                <h2>Reimagining Neurodegenerative Diagnostics</h2>
+                <p>
+                    Diseases of the Central Nervous System (CNS) like Alzheimer's or Parkinson's are incredibly complex. Diagnoses often rely on scattered, heterogeneous data—from MRI scans and CSF tests to cognitive assessments and genetic profiles. Neurodiagnoses aims to unify this information into a coherent, probabilistic framework.
+                </p>
+                <div class="main-image-container">
+                    <img src="tridimensional.png" alt="Tridimensional Diagnostic Approach">
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="participate" class="section">
-            <div class="card cta-container">
-                <h2 class="section-title">Join Our Mission</h2>
-                <p>This is a project built by the community, for the community. We believe open collaboration is the only way to solve the greatest challenges in neuroscience. Whether you are a developer, clinician, researcher, or simply passionate about technology and health, your help is essential.</p>
-                <p><strong>How can you contribute?</strong></p>
-                <p>Join our discussions, suggest new features, help debug code, or contribute your clinical expertise. Every contribution matters!</p>
-                <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank" class="button">Go to Discussions</a>
-                <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" class="button button-secondary">Explore the Code</a>
-            </div>
-        </section>
+            <section id="prototype">
+                <h2>Interactive Prototype (Gradio App)</h2>
+                <p>
+                    The full 3-axis diagnostic prototype, including the advanced clinical data entry interface, is hosted on Hugging Face Spaces. It allows researchers and collaborators to test the system's capabilities in real-time without needing to run any code.
+                </p>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <a href="https://huggingface.co/spaces/fneurociencias/Neurodiagnoses" target="_blank" style="background-color: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold;">
+                        Launch Interactive App
+                    </a>
+                </div>
+            </section>
+            
+            <section id="contribute">
+                <h2>Get Involved</h2>
+                 <p>Join our collaborative effort by visiting our <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank">GitHub repository</a> and joining the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/discussions" target="_blank">Discussions</a>.</p>
+            </section>
+        </main>
 
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 Neuroscience Foundation for the Development of Science and Technology. All rights reserved.</p>
-        <p>Neurodiagnoses is an open source project. Check out the <a href="https://github.com/Fundacion-de-Neurociencias/neurodiagnoses" target="_blank" style="color: var(--accent-color);">repository on GitHub</a>.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Fundación de Neurociencias. All rights reserved.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
