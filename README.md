@@ -30,39 +30,34 @@ The core vision of Neurodiagnoses is to create a unified, modality-agnostic syst
 ```mermaid
 graph TD
     subgraph Inputs["A. Dynamic Input Layer"]
-        A1[Clinical Data]:::orange
-        A2[Imaging Data]:::orange
-        A3[Biomarker Data]:::orange
-        A4[Genetic Data]:::orange
+        A1[Clinical Data] 
+        A2[Imaging Data]
+        A3[Biomarker Data]
+        A4[Genetic Data]
     end
     
     subgraph Processing["B. Modality-Agnostic Processing"]
-        B1[Feature Extraction]:::blue
-        B2[Biomarker Encoding]:::blue
-        B3[Missing Data Handler]:::blue
+        B1[Feature Extraction]
+        B2[Biomarker Encoding]
+        B3[Missing Data Handler]
     end
     
     subgraph Core["C. Core AI Architecture"]
-        C1[Transformer Encoder]:::purple
-        C2[Disease-Agnostic Representation]:::purple
-        C3[Uncertainty Quantification]:::purple
+        C1[Transformer Encoder]
+        C2[Disease-Agnostic Representation]
+        C3[Uncertainty Quantification]
     end
     
     subgraph Outputs["D. Flexible Output Layer"]
-        D1[Disease Classification]:::green
-        D2[Biomarker Status Prediction]:::green
-        D3[Prognosis & Progression Modeling]:::green
-        D4[Risk Prediction (asymptomatic)]:::green
+        D1[Disease Classification]
+        D2[Biomarker Status Prediction]
+        D3[Prognosis & Progression Modeling]
+        D4[Risk Prediction (asymptomatic)]
     end
     
     Inputs --> Processing
     Processing --> Core
     Core --> Outputs
-
-    classDef orange fill:#e67e22,color:white,stroke:#333;
-    classDef blue fill:#3498db,color:white,stroke:#333;
-    classDef purple fill:#9b59b6,color:white,stroke:#333;
-    classDef green fill:#2ecc71,color:white,stroke:#333;
 ```
 
 ## Current State: A Functional 3-Axis Prototype
