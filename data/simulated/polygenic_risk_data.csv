@@ -1,0 +1,6 @@
+subject_id,event_observed,age_at_onset,APOE_e4,variant_rs123,variant_rs456,variant_rs789
+sub-001,1,68,1,0,1,1
+sub-002,0,85,0,1,1,0
+sub-003,1,72,2,1,0,1
+sub-004,1,78,1,1,1,1
+sub-005,0,90,0,0,0,0
