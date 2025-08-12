@@ -5,6 +5,16 @@
 Neurodiagnoses is an AI-powered diagnostic framework designed for probabilistic modeling, multimodal data integration, and disease progression prediction in complex central nervous system (CNS) conditions.
 The project combines machine learning, probabilistic reasoning, neuroimaging, biomarkers, and clinical assessments to enhance diagnostic precision and enable early-stage disease detection.
 
+### Advanced Genomics Pipeline (`workflows/genomic_pipeline/`)
+
+Inspired by the methodology of Cheng et al. (2025), this pipeline is designed to enrich genotype data through imputation. It consists of three main stages:
+
+1.  **Reference Panel Building (`1_build_panel.py`):** Takes raw Whole Genome Sequencing (WGS) data, performs quality control, and phases haplotypes to create a specialized Neurodiagnoses reference panel.
+2.  **Genotype Imputation (`2_impute_genotypes.py`):** (Under Development) Will use the generated panel to impute high-density genotypes onto lower-density array data.
+3.  **Variant Analysis (`3_analyze_variants.py`):** (Under Development) Will perform association tests on the enriched, imputed data to discover novel risk variants.
+
+---
+
 ### Core Architecture (`src/`)
 
 The project is being refactored into a professional Python package structure under `src/`. This ensures modularity, testability, and scalability. The key modules are:
