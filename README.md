@@ -58,4 +58,3 @@ graph TD
     Processing --> Core
     Core --> Outputs
 ```
-<!-- TEMP_FIX_MARKER -->
