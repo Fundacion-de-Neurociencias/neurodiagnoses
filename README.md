@@ -5,72 +5,43 @@
 Neurodiagnoses is an AI-powered diagnostic framework designed for probabilistic modeling, multimodal data integration, and disease progression prediction in complex central nervous system (CNS) conditions.
 The project combines machine learning, probabilistic reasoning, neuroimaging, biomarkers, and clinical assessments to enhance diagnostic precision and enable early-stage disease detection.
 
-### Advanced Genomics Pipeline (`workflows/genomic_pipeline/`)
+---
 
-Inspired by the methodology of Cheng et al. (2025), this pipeline is designed to enrich genotype data through imputation. It consists of three main stages:
+### **⚠️ Disclaimer: Research Use Only**
 
-1.  **Reference Panel Building (`1_build_panel.py`):** Takes raw Whole Genome Sequencing (WGS) data, performs quality control, and phases haplotypes to create a specialized Neurodiagnoses reference panel.
-2.  **Genotype Imputation (`2_impute_genotypes.py`):** (Under Development) Will use the generated panel to impute high-density genotypes onto lower-density array data.
-3.  **Variant Analysis (`3_analyze_variants.py`):** (Under Development) Will perform association tests on the enriched, imputed data to discover novel risk variants.
+**This entire project, including all models and web interfaces, is a research prototype. It is NOT a medical device.**
+- It has **not** been validated for clinical use.
+- It does **not** have FDA/EMA approval or any other regulatory certification.
+- It **must not** be used for clinical diagnosis, patient management, or any medical decision-making.
+- The user is solely responsible for ensuring the confidentiality and appropriate use of any data entered into the tool.
 
 ---
 
-### Core Architecture (`src/`)
+### ** Interactive Web Interface (Gradio App)**
 
-The project is being refactored into a professional Python package structure under `src/`. This ensures modularity, testability, and scalability. The key modules are:
+To make the Neurodiagnoses prototype accessible to non-technical users, the project includes a web-based interface built with Gradio, available at our [Hugging Face Space](https://huggingface.co/spaces/fneurociencias/Neurodiagnoses). The interface provides two main workflows:
 
-- **`src/neurodiagnoses/ontology/`**: Defines the core data structures and controlled vocabularies (e.g., Neuromarker).
-- **`src/neurodiagnoses/processing/`**: Contains modules for data ingestion, cleaning, and feature extraction from raw sources.
-- **`src/neurodiagnoses/models/`**: Will contain the implementations of the core AI models (e.g., Transformer, GNNs) that operate on the standardized data.
+1.  **Clinical: Single-Patient Report:**
+    * A comprehensive, research-grade data entry form designed for individual case analysis. It is organized into collapsible sections for demographics, advanced genetics (differentiating substitution vs. expansion variants for ~100 genes), a full battery of neuropsychological tests, fluid biomarkers (CSF/Plasma), and detailed neuroimaging data (volumetrics, visual scales, PET/SPECT). It enforces data integrity rules, such as requiring Total Intracranial Volume (TIV) for volumetric normalization.
 
----
+2.  **Research: Cohort Analysis:**
+    * A powerful tool for researchers to upload a full patient dataset in CSV format. The system performs a batch diagnosis on the entire cohort, providing a downloadable results table and a publication-ready methodological summary.
 
- **Key Functionalities**
+### ** Core Architecture & Vision**
 
-- **Probabilistic Annotation** – AI-based diagnostic modeling using probabilistic networks.
-- **Tridimensional Annotation** – Integration of neuroimaging, genetic, and clinical data.
-- **Multi-Model Advanced Annotation** – Unified pipeline for comprehensive 3-axis annotation using multiple AI models.
-- **Interactive Visualization** – User-friendly interfaces for research and clinical applications.
-- **Biomarker Prediction** – AI-driven estimation of biomarker status and progression.
-- **Disease Prediction** – Modeling of disease onset, conversion, and progression using ML.
+The project's vision is to build a unified, modality-agnostic core model (e.g., a Transformer) that learns a deep representation of a patient's state, enabling a flexible set of outputs like disease classification, biomarker prediction, and progression modeling. This is built upon a standardized **Neuromarker Ontology** (`tools/ontology/neuromarker.py`) that ensures data consistency across the entire platform.
 
- **Axis Annotation Pipelines**
+### **️ Key Modules & Pipelines**
 
-Neurodiagnoses implements a 3-axis annotation system to classify patients across:
-- **Axis 1** – Etiology / Causative factors
-- **Axis 2** – Molecular features: Aβ, pTau, tTau
-- **Axis 3** – Neuroanatomical-clinical (phenotypic) presentation
-
-You can run automatic annotation on sample patients using: `python -m tools.annotator.annotate --input data/sample_patient.json --output data/example_annotation.json`
-
-️ **Annotator UI**
-
-Use the interactive interface to explore annotation results:
--  **annotator.html**: Web-based local viewer for patient JSON files and annotations.
-
-✨ **Multi-Model Advanced Annotation**
-
-This new, unified pipeline integrates multiple AI models to generate a comprehensive 3-axis annotation for patient data. It combines genetic etiology prediction (Axis 1) with neuropathological phenotyping (Axis 3) to provide a coherent diagnostic output.
+-   **Data Ingestion (`tools/data_ingestion/`):** A robust pipeline for parsing and standardizing heterogeneous data sources (e.g., NACC, Cornblath) into the Neuromarker format.
+-   **Genomics Pipeline (`workflows/genomic_pipeline/`):** An advanced workflow inspired by Cheng et al. (2025) to enrich genotype data via a custom imputation panel.
+-   **ML Pipelines (`tools/ml_pipelines/`):** Contains the functional, research-grade models for the three diagnostic axes, including the proteomics-based **Axis 2** classifier and the neuroimaging-based **Axis 3** Severity Mapper with SHAP explainability.
+-   **Unified Orchestrator (`unified_orchestrator.py`):** The central "brain" that integrates the outputs from all three axes into a single, cohesive diagnostic report.
+-   **API (`models/api.py`):** A FastAPI server that exposes the full 3-axis diagnostic system for real-time predictions.
 
 ---
-
- **Current Achievements:**
-- ✅ Developed a biomarker-agnostic machine learning model using `RandomForestClassifier`.
-- ✅ Trained the model on simulated data and saved it as `model.pkl`.
-- ✅ Uploaded the trained model to Hugging Face: Neurodiagnoses Hugging Face Repo
-- ✅ Created an API using FastAPI and Uvicorn for real-time predictions.
-- ✅ Successfully tested the API locally at `http://127.0.0.1:8000/docs`.
 
  **Documentation and Resources**
 -  **Website**: neurodiagnoses.com
 -  **GitHub Repository**: Neurodiagnoses on GitHub
--  **eBrains Collaboration**: Neurodiagnoses on eBrains
-
- **How to Contribute**
-
-Neurodiagnoses is an open-source project, and we welcome contributors. Contribution Areas include: Documentation, AI Model Development, Data Integration, Platform Development, and Research.
-
- **Getting Started**
-- Fork the repository and explore the issues section.
-- Join discussions on eBrains and GitHub.
-- Clone the project and start working on tasks aligned with your expertise.
+-  **Gradio Web App**: [Interactive Demo on Hugging Face Spaces](https://huggingface.co/spaces/fneurociencias/Neurodiagnoses)
