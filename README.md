@@ -90,3 +90,7 @@ This is an open-source project. Please see our CONTRIBUTING.md file for details 
 ### 3. ML-Driven Genetic Discovery (`workflows/genetic_classifier/`)
 -   **Goal:** To move beyond known risk genes and discover novel genetic associations directly from data.
 -   **Inspiration:** Inspired by the work of **Bracher-Smith et al. (2025)**, this module will use Machine Learning models (e.g., Gradient Boosting Machines) on high-density imputed genotype data to classify subjects (case vs. control) and identify the most predictive genetic variants, highlighting novel biological pathways.
+
+### 4. Holistic Etiology Module (Axis 1 Expansion)
+-   **Goal:** To expand Axis 1 beyond genetics to create a comprehensive etiological profile.
+-   **Vision:** This involves integrating other data modalities with strong evidence of involvement in NDDs, such as **infection history (virome)** and the **gut microbiome**. The final Axis 1 model will be a machine learning classifier that learns to identify **etiological subtypes** (e.g., "Primarily Genetic", "Inflammatory/Infectious", "Mixed") from this rich, combined dataset.
