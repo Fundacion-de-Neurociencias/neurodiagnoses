@@ -1,0 +1,4 @@
+evidence,label,sens,spec,source_id,note
+pTau181_Abeta42_positive,AD,1.00,0.74,Chong2025,"Abnormal P-tau181/Abeta42 ratio"
+pTau181_Abeta42_positive,DLB,0.59,0.74,Chong2025,"Abnormal P-tau181/Abeta42 ratio"
+pTau181_Abeta42_positive,PD,0.37,0.74,Chong2025,"Abnormal P-tau181/Abeta42 ratio"
