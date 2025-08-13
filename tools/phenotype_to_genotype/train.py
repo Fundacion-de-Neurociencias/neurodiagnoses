@@ -85,7 +85,7 @@ def train_model():
         optimizer.step()
 
         if (epoch + 1) % 2 == 0:
-            print(f"Epoch [{epoch+1}/{EPOCHS}], Loss: {loss.item():.4f}")
+            print(f"Epoch [{epoch + 1}/{EPOCHS}], Loss: {loss.item():.4f}")
 
     print("✅ Training finished.")
 

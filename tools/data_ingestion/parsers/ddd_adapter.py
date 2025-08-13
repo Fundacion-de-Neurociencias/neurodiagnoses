@@ -16,7 +16,7 @@ def parse_ddd_csv(file_path):
             ";"
         )  # Split phenotypes by semicolon
 
-        patient_id = f"DDD_{index+1:03d}"
+        patient_id = f"DDD_{index + 1:03d}"
 
         patient_json = {
             "patient_id": patient_id,

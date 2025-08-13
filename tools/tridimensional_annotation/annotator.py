@@ -57,7 +57,7 @@ def generate_tridimensional_annotation(
     )
     # This simulates linking the top region to a clinical symptom
     clinical_correlation = "Episodic Memory Deficit"
-    axis3_text = f"{top_region.replace('_volume','')} atrophy: {clinical_correlation}"
+    axis3_text = f"{top_region.replace('_volume', '')} atrophy: {clinical_correlation}"
 
     # --- FINAL ANNOTATION ---
     timestamp = datetime.now().strftime("%B %y")  # Format: Month YY
