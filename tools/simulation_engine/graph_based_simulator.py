@@ -34,7 +34,7 @@ def simulate_patients(num_patients=1000, max_phenotypes=15, walk_probability=0.3
     print(f"Simulating {num_patients} patients...")
     dataset = []
     for i in range(num_patients):
-        patient_id = f"SIM_{i+1}"
+        patient_id = f"SIM_{i + 1}"
         causal_gene, seed_phenotypes = random.choice(list(disease_seeds.items()))
 
         patient_phenotypes = set(seed_phenotypes)

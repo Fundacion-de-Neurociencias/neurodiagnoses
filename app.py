@@ -53,7 +53,7 @@ def process_cohort_file(uploaded_file):
     results = []
     # Process the full cohort
     for i, row in cohort_df.iterrows():
-        patient_id = row.get("participant_id", f"Subject_{i+1}")
+        patient_id = row.get("participant_id", f"Subject_{i + 1}")
         annotation = generate_tridimensional_annotation(patient_id)
         results.append(
             {

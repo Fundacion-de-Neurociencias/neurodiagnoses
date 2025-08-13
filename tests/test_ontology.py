@@ -6,6 +6,7 @@ These tests ensure that the fundamental data structures (Biomarker, PatientRecor
 are behaving as expected. Any failure in these tests indicates a critical
 problem that could affect the entire framework.
 """
+
 from tools.ontology.neuromarker import (
     Biomarker,
     BiomarkerCategory,
