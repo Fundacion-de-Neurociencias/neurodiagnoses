@@ -48,3 +48,10 @@ class PatientRecord:
         self.biomarkers.append(
             Biomarker(name=name, value=value, unit=unit, category=category)
         )
+
+    def get_biomarker(self, name: str) -> Optional[Biomarker]:
+        """Helper method to retrieve a biomarker by name."""
+        for biomarker in self.biomarkers:
+            if biomarker.name == name:
+                return biomarker
+        return None
