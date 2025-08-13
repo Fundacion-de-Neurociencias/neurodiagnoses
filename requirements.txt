@@ -8,5 +8,4 @@ xgboost
 fastapi
 uvicorn[standard]
 matplotlib
-matplotlib
-matplotlib
+lifelines
