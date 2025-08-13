@@ -28,8 +28,7 @@ class Axis2MolecularPipeline:
         self.model_path = model_path
         self.plot_path = plot_path
         self.features = [
-            'biomarkers_Age_value', 'biomarkers_MMSE_value', 'biomarkers_GFAP_value',
-            'biomarkers_NfL_value', 'biomarkers_pTau_value', 'biomarkers_Abeta42_value',
+            'biomarkers_Age_value', 'biomarkers_MMSE_value', 'biomarkers_pTau_value', 'biomarkers_Abeta42_value',
             'biomarkers_Hippocampal Volume_value'
         ]
         self.target = 'ground_truth_diagnosis'

@@ -4,6 +4,7 @@
 
 from datetime import datetime
 import pandas as pd
+import numpy as np
 import os
 import sys
 
@@ -25,7 +26,7 @@ def generate_tridimensional_annotation(patient_id):
 
     # --- Simulate fetching standardized patient data ---
     # In a real system, this would come from the ingestion pipeline (e.g., a PatientRecord object)
-    patient_molecular_data = pd.DataFrame([pd.np.random.rand(7)], columns=['GDA', 'PDE6D', 'FN1', 'SEMA4B', 'TNFSF8', 'YWHAG', 'NPTX2'])
+    patient_molecular_data = pd.DataFrame([np.random.rand(5)], columns=['biomarkers_Age_value', 'biomarkers_MMSE_value', 'biomarkers_pTau_value', 'biomarkers_Abeta42_value', 'biomarkers_Hippocampal Volume_value'])
     patient_imaging_data = {
         'lh_entorhinal_volume': 1980.0, 'rh_entorhinal_volume': 2010.0,
         'lh_hippocampus_volume': 3050.0, 'rh_hippocampus_volume': 3100.0,
