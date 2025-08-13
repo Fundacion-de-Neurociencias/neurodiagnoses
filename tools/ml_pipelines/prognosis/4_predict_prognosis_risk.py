@@ -12,11 +12,11 @@ Workflow:
 4. Save or display the predictions.
 """
 
-import os
-import sys
 import argparse
-import pandas as pd
+import os
+
 import joblib
+import pandas as pd
 
 # Ensure the project root is in the Python path for module imports
 # This is typically handled by setting PYTHONPATH or by the execution environment.
@@ -49,9 +49,9 @@ class PrognosisPredictionPipeline:
 
         # --- Configuration for Features ---
         self.features = [
-            'biomarkers_MMSE_value_rate_of_change',
-            'biomarkers_Hippocampal Volume_value_rate_of_change',
-            'amyloid_tau_interval_years'
+            "biomarkers_MMSE_value_rate_of_change",
+            "biomarkers_Hippocampal Volume_value_rate_of_change",
+            "amyloid_tau_interval_years",
         ]
 
     def load_data_and_model(self):
@@ -62,7 +62,9 @@ class PrognosisPredictionPipeline:
         try:
             self.df = pd.read_parquet(self.data_path)
         except Exception as e:
-            print(f"ERROR: Could not load or read the dataset at {self.data_path}. Error: {e}")
+            print(
+                f"ERROR: Could not load or read the dataset at {self.data_path}. Error: {e}"
+            )
             return False
 
         print(f"Loading pre-trained model from: {self.model_path}")
@@ -83,7 +85,9 @@ class PrognosisPredictionPipeline:
 
         # Ensure required features are present
         if not all(f in self.df.columns for f in self.features):
-            print("ERROR: Input dataset is missing one or more required features for prediction.")
+            print(
+                "ERROR: Input dataset is missing one or more required features for prediction."
+            )
             print(f"Missing features: {set(self.features) - set(self.df.columns)}")
             return
 
@@ -92,7 +96,9 @@ class PrognosisPredictionPipeline:
         # Predict partial hazards (which can be interpreted as prognosis risk)
         # Higher values indicate higher risk.
         try:
-            self.df['predicted_prognosis_risk'] = self.model.predict_partial_hazard(self.df[self.features])
+            self.df["predicted_prognosis_risk"] = self.model.predict_partial_hazard(
+                self.df[self.features]
+            )
             print("Prognosis risk prediction completed.")
 
             # Save or display results
@@ -102,7 +108,7 @@ class PrognosisPredictionPipeline:
                 print(f"Predictions saved to: {self.output_path}")
             else:
                 print("--- Prognosis Risk Predictions ---")
-                print(self.df[['predicted_prognosis_risk']].head())
+                print(self.df[["predicted_prognosis_risk"]].head())
                 print("-----------------------")
 
         except Exception as e:
@@ -114,36 +120,38 @@ def main():
     """
     Main function to parse arguments and run the prediction pipeline.
     """
-    parser = argparse.ArgumentParser(description="Predict prognosis risk using a trained model.")
-    parser.add_argument(
-        '--data_path',
-        type=str,
-        default='data/processed/prognosis_feature_dataset.parquet',
-        help='Path to the dataset with engineered temporal features for prediction.'
+    parser = argparse.ArgumentParser(
+        description="Predict prognosis risk using a trained model."
     )
     parser.add_argument(
-        '--model_path',
+        "--data_path",
         type=str,
-        default='models/prognosis/prognosis_model.joblib',
-        help='Path to the pre-trained prognosis model file.'
+        default="data/processed/prognosis_feature_dataset.parquet",
+        help="Path to the dataset with engineered temporal features for prediction.",
     )
     parser.add_argument(
-        '--output_path',
+        "--model_path",
         type=str,
-        default='reports/prognosis/prognosis_predictions.csv',
-        help='Path to save the prediction results (CSV format).'
+        default="models/prognosis/prognosis_model.joblib",
+        help="Path to the pre-trained prognosis model file.",
+    )
+    parser.add_argument(
+        "--output_path",
+        type=str,
+        default="reports/prognosis/prognosis_predictions.csv",
+        help="Path to save the prediction results (CSV format).",
     )
     args = parser.parse_args()
 
     pipeline = PrognosisPredictionPipeline(
         data_path=args.data_path,
         model_path=args.model_path,
-        output_path=args.output_path
+        output_path=args.output_path,
     )
 
     if pipeline.load_data_and_model():
         pipeline.predict_prognosis()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

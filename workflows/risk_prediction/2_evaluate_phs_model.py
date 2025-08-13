@@ -13,14 +13,13 @@ Workflow:
 4. Visualize survival curves if desired.
 """
 
-import os
 import argparse
-import pandas as pd
+import os
+
 import joblib
-from lifelines import CoxPHFitter
-from lifelines.utils import concordance_index
 import matplotlib.pyplot as plt
-from lifelines.plotting import plot_lifetimes
+import pandas as pd
+from lifelines.utils import concordance_index
 
 
 class PHSEvaluationPipeline:
@@ -47,12 +46,9 @@ class PHSEvaluationPipeline:
         self.df = None
 
         # --- Configuration for Survival Analysis ---
-        self.duration_col = 'survival_duration_years'
-        self.event_col = 'survival_event_occurred'
-        self.features = [
-            'genetics_APOE4_allele_count',
-            'genetics_polygenic_risk_score'
-        ]
+        self.duration_col = "survival_duration_years"
+        self.event_col = "survival_event_occurred"
+        self.features = ["genetics_APOE4_allele_count", "genetics_polygenic_risk_score"]
 
     def load_data_and_model(self):
         """
@@ -62,7 +58,9 @@ class PHSEvaluationPipeline:
         try:
             self.df = pd.read_parquet(self.data_path)
         except Exception as e:
-            print(f"ERROR: Could not load or read the dataset at {self.data_path}. Error: {e}")
+            print(
+                f"ERROR: Could not load or read the dataset at {self.data_path}. Error: {e}"
+            )
             return False
 
         print(f"Loading pre-trained model from: {self.model_path}")
@@ -86,7 +84,9 @@ class PHSEvaluationPipeline:
         df_eval = self.df[required_cols].dropna()
 
         if df_eval.empty:
-            print("ERROR: No valid data available for evaluation after dropping NaNs. Please check the dataset.")
+            print(
+                "ERROR: No valid data available for evaluation after dropping NaNs. Please check the dataset."
+            )
             return
 
         print(f"Evaluating model on {len(df_eval)} records.")
@@ -98,19 +98,23 @@ class PHSEvaluationPipeline:
             # Ensure the features used for prediction match those the model was trained on
             # and are present in the evaluation dataframe.
             if not all(f in df_eval.columns for f in self.features):
-                print("ERROR: Evaluation dataset is missing one or more required features.")
+                print(
+                    "ERROR: Evaluation dataset is missing one or more required features."
+                )
                 print(f"Missing features: {set(self.features) - set(df_eval.columns)}")
                 return
 
             # Predict partial hazards. The C-index expects higher values for higher risk.
             # CoxPHFitter's predict_partial_hazard returns exp(linear_predictor), which is the hazard ratio.
             # Higher hazard ratio means higher risk.
-            predicted_hazards = self.model.predict_partial_hazard(df_eval[self.features])
+            predicted_hazards = self.model.predict_partial_hazard(
+                df_eval[self.features]
+            )
 
             c_index = concordance_index(
                 event_times=df_eval[self.duration_col],
                 predicted_scores=predicted_hazards,
-                event_observed=df_eval[self.event_col]
+                event_observed=df_eval[self.event_col],
             )
             print(f"Concordance Index (C-index): {c_index:.4f}")
 
@@ -136,26 +140,35 @@ class PHSEvaluationPipeline:
         # Predict risk scores (e.g., linear predictor or partial hazard)
         # For simplicity, let's use the linear predictor (log-hazard ratio)
         # A higher linear predictor means higher risk.
-        df_eval['risk_score'] = self.model.predict_log_partial_hazard(df_eval[self.features])
+        df_eval["risk_score"] = self.model.predict_log_partial_hazard(
+            df_eval[self.features]
+        )
 
         # Create risk groups (e.g., median split)
-        median_risk = df_eval['risk_score'].median()
-        df_eval['risk_group'] = df_eval['risk_score'].apply(lambda x: 'High Risk' if x > median_risk else 'Low Risk')
+        median_risk = df_eval["risk_score"].median()
+        df_eval["risk_group"] = df_eval["risk_score"].apply(
+            lambda x: "High Risk" if x > median_risk else "Low Risk"
+        )
 
         # Plot survival curves for each group
         from lifelines import KaplanMeierFitter
+
         kmf = KaplanMeierFitter()
 
         plt.figure(figsize=(10, 7))
-        for name, grouped_df in df_eval.groupby('risk_group'):
-            kmf.fit(grouped_df[self.duration_col], event_observed=grouped_df[self.event_col], label=name)
+        for name, grouped_df in df_eval.groupby("risk_group"):
+            kmf.fit(
+                grouped_df[self.duration_col],
+                event_observed=grouped_df[self.event_col],
+                label=name,
+            )
             kmf.plot_survival_function()
 
-        plt.title('Survival Curves by Risk Group')
-        plt.xlabel('Time (years)')
-        plt.ylabel('Survival Probability')
+        plt.title("Survival Curves by Risk Group")
+        plt.xlabel("Time (years)")
+        plt.ylabel("Survival Probability")
         plt.grid(True)
-        plot_path = os.path.join(self.output_dir, 'survival_curves.png')
+        plot_path = os.path.join(self.output_dir, "survival_curves.png")
         plt.savefig(plot_path)
         plt.close()
         print(f"Survival curves saved to: {plot_path}")
@@ -165,36 +178,36 @@ def main():
     """
     Main function to parse arguments and run the evaluation pipeline.
     """
-    parser = argparse.ArgumentParser(description="Evaluate a Polygenic Hazard Score (PHS) model.")
-    parser.add_argument(
-        '--data_path',
-        type=str,
-        default='data/processed/analysis_ready_dataset.parquet',
-        help='Path to the analysis-ready parquet dataset for evaluation.'
+    parser = argparse.ArgumentParser(
+        description="Evaluate a Polygenic Hazard Score (PHS) model."
     )
     parser.add_argument(
-        '--model_path',
+        "--data_path",
         type=str,
-        default='models/risk_prediction/phs_model.joblib',
-        help='Path to the pre-trained PHS model file.'
+        default="data/processed/analysis_ready_dataset.parquet",
+        help="Path to the analysis-ready parquet dataset for evaluation.",
     )
     parser.add_argument(
-        '--output_dir',
+        "--model_path",
         type=str,
-        default='reports/risk_prediction/',
-        help='Directory to save evaluation plots and reports.'
+        default="models/risk_prediction/phs_model.joblib",
+        help="Path to the pre-trained PHS model file.",
+    )
+    parser.add_argument(
+        "--output_dir",
+        type=str,
+        default="reports/risk_prediction/",
+        help="Directory to save evaluation plots and reports.",
     )
     args = parser.parse_args()
 
     pipeline = PHSEvaluationPipeline(
-        data_path=args.data_path,
-        model_path=args.model_path,
-        output_dir=args.output_dir
+        data_path=args.data_path, model_path=args.model_path, output_dir=args.output_dir
     )
 
     if pipeline.load_data_and_model():
         pipeline.evaluate_model()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

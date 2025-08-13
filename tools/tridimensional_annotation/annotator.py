@@ -3,11 +3,12 @@
 
 from datetime import datetime
 
+
 def generate_tridimensional_annotation(
     patient_id: str,
     axis1_genetics: dict,
     axis2_molecular_profile: dict,
-    axis3_severity_map: dict
+    axis3_severity_map: dict,
 ) -> str:
     """
     Generates a full, structured tridimensional diagnostic annotation
@@ -28,7 +29,9 @@ def generate_tridimensional_annotation(
     # Formats the pre-calculated genetic data.
     axis1_findings = []
     if axis1_genetics.get("APOE_e4", 0) > 0:
-        axis1_findings.append(f"Sporadic (APOE_e4 Positive, {axis1_genetics['APOE_e4']} allele(s))")
+        axis1_findings.append(
+            f"Sporadic (APOE_e4 Positive, {axis1_genetics['APOE_e4']} allele(s))"
+        )
     else:
         axis1_findings.append("Sporadic (APOE_e4 Negative)")
     axis1_text = ", ".join(axis1_findings)
@@ -47,15 +50,17 @@ def generate_tridimensional_annotation(
 
     # --- AXIS 3: NEUROANATOMOCLINICAL CORRELATIONS ---
     # Formats the pre-calculated severity mapping results.
-    top_region = max(axis3_severity_map.get('key_contributing_regions', {}), 
-                     key=lambda k: abs(axis3_severity_map['key_contributing_regions'][k]), 
-                     default="N/A")
+    top_region = max(
+        axis3_severity_map.get("key_contributing_regions", {}),
+        key=lambda k: abs(axis3_severity_map["key_contributing_regions"][k]),
+        default="N/A",
+    )
     # This simulates linking the top region to a clinical symptom
     clinical_correlation = "Episodic Memory Deficit"
     axis3_text = f"{top_region.replace('_volume','')} atrophy: {clinical_correlation}"
 
     # --- FINAL ANNOTATION ---
-    timestamp = datetime.now().strftime("%B %y") # Format: Month YY
+    timestamp = datetime.now().strftime("%B %y")  # Format: Month YY
     final_annotation = f"[{timestamp}]: {axis1_text} / {axis2_text} / {axis3_text}"
-    
+
     return final_annotation

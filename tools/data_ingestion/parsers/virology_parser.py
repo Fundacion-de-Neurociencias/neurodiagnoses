@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def parse_virology_data(patient_id, csv_path):
     """
     Parses virology data from a CSV file.
@@ -20,12 +21,13 @@ def parse_virology_data(patient_id, csv_path):
         # - Handling missing values.
         # - Converting data types.
         # - Extracting specific virology markers or measurements.
-        print(f"Successfully read virology data for patient {patient_id} from {csv_path}")
-        return {"patient_id": patient_id, "data": df.to_dict(orient='records')}
+        print(
+            f"Successfully read virology data for patient {patient_id} from {csv_path}"
+        )
+        return {"patient_id": patient_id, "data": df.to_dict(orient="records")}
     except FileNotFoundError:
         print(f"Error: CSV file not found at {csv_path}")
         return None
     except Exception as e:
         print(f"An error occurred while parsing virology data: {e}")
         return None
-

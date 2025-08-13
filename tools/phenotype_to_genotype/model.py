@@ -1,18 +1,18 @@
 # tools/phenotype_to_genotype/model.py
-import torch
-import torch.nn as nn
-import json
 import os
 
+import torch.nn as nn
+
 # --- Configuration ---
-MODEL_DIR = 'models'
-MODEL_PATH = os.path.join(MODEL_DIR, 'embedding_model.pth')
-VOCAB_PHENOTYPE_PATH = os.path.join(MODEL_DIR, 'phenotype_vocab.json')
-VOCAB_GENE_PATH = os.path.join(MODEL_DIR, 'gene_vocab.json')
+MODEL_DIR = "models"
+MODEL_PATH = os.path.join(MODEL_DIR, "embedding_model.pth")
+VOCAB_PHENOTYPE_PATH = os.path.join(MODEL_DIR, "phenotype_vocab.json")
+VOCAB_GENE_PATH = os.path.join(MODEL_DIR, "gene_vocab.json")
 
 # --- Model Hyperparameters ---
 EMBEDDING_DIM = 64
 HIDDEN_DIM = 128
+
 
 class PhenotypeEmbedder(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_size):
@@ -36,7 +36,7 @@ class PhenotypeEmbedder(nn.Module):
         Calculates the importance of each input phenotype for the top prediction
         using a gradient-based saliency method.
         """
-        self.eval() # Ensure model is in evaluation mode
+        self.eval()  # Ensure model is in evaluation mode
 
         # We need to calculate gradients with respect to the embeddings
         input_embeddings = self.embedding(input_tensor)
@@ -61,7 +61,7 @@ class PhenotypeEmbedder(nn.Module):
         importances = []
         for i, score in enumerate(saliency):
             phenotype_idx = input_tensor[0, i].item()
-            if phenotype_idx != 0: # Ignore padding
+            if phenotype_idx != 0:  # Ignore padding
                 phenotype_name = idx_to_phenotype.get(phenotype_idx, "Unknown")
                 importances.append((phenotype_name, score.item()))
 

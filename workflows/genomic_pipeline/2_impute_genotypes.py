@@ -1,12 +1,12 @@
 # workflows/genomic_pipeline/2_impute_genotypes.py
-import pandas as pd
-import subprocess
 import os
+import subprocess
 
 # --- CONFIGURATION ---
-INPUT_ARRAY_VCF = 'data/simulated/sample_genotype_array.vcf'
-REFERENCE_PANEL = 'workflows/genomic_pipeline/ND-Panel-v1.phased.panel'
-IMPUTED_OUTPUT_VCF = 'workflows/genomic_pipeline/sample.imputed.vcf'
+INPUT_ARRAY_VCF = "data/simulated/sample_genotype_array.vcf"
+REFERENCE_PANEL = "workflows/genomic_pipeline/ND-Panel-v1.phased.panel"
+IMPUTED_OUTPUT_VCF = "workflows/genomic_pipeline/sample.imputed.vcf"
+
 
 def impute_genotypes():
     """
@@ -37,12 +37,15 @@ def impute_genotypes():
         f"cat {INPUT_ARRAY_VCF} >> {IMPUTED_OUTPUT_VCF} && "
         f"echo 'chr1\\t10235\\trs540431307\\tT\\tTA\\t100\\tPASS\\t.\\tGT\\t0|1' >> {IMPUTED_OUTPUT_VCF}"
     )
-    
+
     print(f"--> Running command: {imputation_command}")
     subprocess.run(imputation_command, shell=True, check=True)
 
-    print(f"--> Imputation complete. High-resolution data saved to '{IMPUTED_OUTPUT_VCF}'")
+    print(
+        f"--> Imputation complete. High-resolution data saved to '{IMPUTED_OUTPUT_VCF}'"
+    )
     print("\n--- Genotype Imputation Finished Successfully ---")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     impute_genotypes()

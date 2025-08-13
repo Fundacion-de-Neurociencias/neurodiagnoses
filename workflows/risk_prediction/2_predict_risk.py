@@ -1,11 +1,11 @@
 # workflows/risk_prediction/2_predict_risk.py
-import pandas as pd
-import joblib
-import os
 import math
 
+import joblib
+
 # --- CONFIGURATION ---
-MODEL_PATH = 'models/risk_prediction/phs_model.joblib'
+MODEL_PATH = "models/risk_prediction/phs_model.joblib"
+
 
 def predict_risk(subject_genetic_data: dict):
     """
@@ -19,8 +19,8 @@ def predict_risk(subject_genetic_data: dict):
     Returns:
         A dictionary containing the calculated risk score and an interpretation.
     """
-    print(f"--- Starting PHS Risk Prediction ---")
-    
+    print("--- Starting PHS Risk Prediction ---")
+
     try:
         model = joblib.load(MODEL_PATH)
         print(f"--> Loaded PHS model from '{MODEL_PATH}'")
@@ -32,12 +32,12 @@ def predict_risk(subject_genetic_data: dict):
     # Calculate the Polygenic Hazard Score (PHS)
     # This is calculated as the sum of (variant_genotype * hazard_ratio)
     hazard_score = 0
-    for variant, hazard_ratio in model['hazard_ratios'].items():
+    for variant, hazard_ratio in model["hazard_ratios"].items():
         if variant in subject_genetic_data:
             # The formula is score = sum(beta_i * genotype_i)
             # log(hazard_ratio) gives us the coefficient (beta)
             hazard_score += math.log(hazard_ratio) * subject_genetic_data[variant]
-    
+
     # An exponentiated score gives the overall hazard ratio relative to the baseline
     overall_hazard_ratio = math.exp(hazard_score)
 
@@ -51,28 +51,32 @@ def predict_risk(subject_genetic_data: dict):
     result = {
         "polygenic_hazard_score": hazard_score,
         "relative_hazard_ratio": overall_hazard_ratio,
-        "interpretation": interpretation
+        "interpretation": interpretation,
     }
-    
+
     print("--> Risk prediction complete.")
     return result
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # --- Simulate genetic data for a new, asymptomatic subject ---
     # This subject has one APOE_e4 allele and one other risk variant.
     new_subject = {
-        'APOE_e4': 1,
-        'variant_rs123': 0,
-        'variant_rs456': 0,
-        'variant_rs789': 1
+        "APOE_e4": 1,
+        "variant_rs123": 0,
+        "variant_rs456": 0,
+        "variant_rs789": 1,
     }
-    
-    print(f"--- Running prediction for a sample subject with data: ---\n{new_subject}\n")
-    
+
+    print(
+        f"--- Running prediction for a sample subject with data: ---\n{new_subject}\n"
+    )
+
     prediction_result = predict_risk(new_subject)
-    
+
     if prediction_result:
         import json
+
         print("\n--- PHS Prediction Report ---")
         print(json.dumps(prediction_result, indent=2))
         print("---------------------------")
