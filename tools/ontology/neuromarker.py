@@ -22,9 +22,16 @@ class Biomarker:
     category: BiomarkerCategory
 
 @dataclass
+class GeneticMarker:
+    """A data structure for a single genetic marker."""
+    name: str
+    value: any
+    risk_level: Optional[int] = None # e.g., 0, 1, 2 for low, medium, high risk
+
+@dataclass
 class GeneticData:
     """Structured data for genetic information."""
-    key_markers: dict = field(default_factory=dict)
+    markers: List[GeneticMarker] = field(default_factory=list)
 
 @dataclass
 class PatientRecord:

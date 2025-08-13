@@ -10,3 +10,5 @@ uvicorn[standard]
 matplotlib
 lifelines
 tensorflow
+# Testing Framework
+pytest
