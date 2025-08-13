@@ -181,3 +181,17 @@ python app.py
 ```
 ## How to Contribute
 This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
+
+---
+
+##  Scientific Foundation & Future Development
+
+The development of Neurodiagnoses is guided by state-of-the-art research. Our next phase focuses on implementing two advanced capabilities: Risk Prediction and Prognosis Modeling.
+
+### 1. Risk Prediction Module (`workflows/risk_prediction/`)
+-   **Goal:** To predict the age-associated risk of disease onset in asymptomatic individuals.
+-   **Inspiration:** This module is inspired by the methodology of **Akdeniz et al. (2025)**, and will focus on developing and validating a **Polygenic Hazard Score (PHS)** using high-density imputed genotype data from our genomics pipeline.
+
+### 2. Prognosis Module (`tools/ml_pipelines/prognosis/`)
+-   **Goal:** To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
+-   **Inspiration:** This module is inspired by the work of **Colautti et al. (2025)**. It will use machine learning models on baseline multi-modal data to forecast future outcomes, with a strong emphasis on **Explainable AI (SHAP)** to identify the key drivers of progression for each individual.
