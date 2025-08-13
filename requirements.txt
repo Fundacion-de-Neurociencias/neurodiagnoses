@@ -13,3 +13,7 @@ tensorflow
 # Testing Framework
 pytest
 pyarrow
+
+# Code Quality & Formatting
+ruff
+black
