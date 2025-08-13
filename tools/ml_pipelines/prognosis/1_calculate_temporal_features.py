@@ -1,72 +1,156 @@
-# tools/ml_pipelines/prognosis/1_calculate_temporal_features.py
-import pandas as pd
+# -*- coding: utf-8 -*-
+"""
+Neurodiagnoses Prognosis Module: Temporal Feature Calculation
+
+This script processes a longitudinal dataset to engineer features that capture
+disease progression over time. Inspired by methodologies from Colautti et al. (2025)
+and Milà Alomà et al. (2025), it calculates rates of change for key
+biomarkers and critical time intervals, such as the amyloid-tau interval.
+
+Workflow:
+1. Load a dataset with multiple entries per patient over time.
+2. For each patient, calculate rates of change for specified biomarkers.
+3. For each patient, calculate the time difference between key pathological events.
+4. Output a new patient-level dataframe with these engineered features.
+"""
+
 import os
+import sys
+import argparse
+import pandas as pd
+import numpy as np
 
-# --- CONFIGURATION ---
-INPUT_DATASET = 'data/simulated/longitudinal_biomarker_data.csv'
-OUTPUT_FEATURES = 'data/processed/prognosis_temporal_features.csv'
+# Ensure the project root is in the Python path for module imports
+# This is typically handled by setting PYTHONPATH or by the execution environment.
+# For direct execution, consider adding the project root to sys.path if necessary.
+# Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+# However, for a robust project, it's better to manage Python path externally or use proper package installation.
 
-def calculate_temporal_features():
+
+class TemporalFeatureEngineer:
     """
-    Calculates key temporal features from longitudinal biomarker data,
-    inspired by the methodology in Milà Alomà et al. (2025).
-
-    This process involves:
-    1. Loading longitudinal data for a cohort.
-    2. For each subject, identifying the age of first positivity for key biomarkers.
-    3. Calculating intervals between these events.
-    4. Saving a new feature set ready for a prognosis model.
+    A class to engineer temporal and longitudinal features from patient data.
     """
-    print(f"--- Starting Temporal Feature Calculation from '{INPUT_DATASET}' ---")
-    
-    try:
-        df = pd.read_csv(INPUT_DATASET)
-    except FileNotFoundError:
-        print(f"ERROR: Longitudinal data not found at '{INPUT_DATASET}'.")
-        return
 
-    # Group data by each subject to process their timeline
-    grouped = df.groupby('subject_id')
-    
-    temporal_features = []
-    
-    for subject_id, subject_data in grouped:
-        # Find the first visit where amyloid PET became positive (status == 1)
-        amyloid_positive_visits = subject_data[subject_data['amyloid_pet_status'] == 1]
-        age_at_amyloid_pos = amyloid_positive_visits['visit_age'].min() if not amyloid_positive_visits.empty else None
+    def __init__(self, data_path, output_path):
+        """
+        Initializes the feature engineering pipeline.
 
-        # Find the first visit where tau PET became positive (status == 1)
-        tau_positive_visits = subject_data[subject_data['tau_pet_status'] == 1]
-        age_at_tau_pos = tau_positive_visits['visit_age'].min() if not tau_positive_visits.empty else None
+        Args:
+            data_path (str): Path to the input longitudinal dataset (parquet format).
+            output_path (str): Path to save the engineered features (parquet format).
+        """
+        self.data_path = data_path
+        self.output_path = output_path
+        # --- Configuration ---
+        # Biomarkers for which to calculate the rate of change
+        self.rate_change_biomarkers = [
+            'biomarkers_MMSE_value',
+            'biomarkers_Hippocampal Volume_value'
+        ]
+        # Configuration for the amyloid-tau interval calculation
+        self.amyloid_biomarker = 'biomarkers_Abeta42_value'
+        self.amyloid_threshold = 977  # Example threshold (lower is abnormal)
+        self.tau_biomarker = 'biomarkers_pTau_value'
+        self.tau_threshold = 21.8  # Example threshold (higher is abnormal)
+        self.age_col = 'biomarkers_Age_value'
+        self.patient_id_col = 'patient_id'
 
-        # Calculate the amyloid-tau interval
-        amyloid_tau_interval = None
-        if age_at_amyloid_pos is not None and age_at_tau_pos is not None:
-            amyloid_tau_interval = age_at_tau_pos - age_at_tau_pos
 
-        temporal_features.append({
-            'subject_id': subject_id,
-            'age_at_amyloid_pos': age_at_amyloid_pos,
-            'age_at_tau_pos': age_at_tau_pos,
-            'amyloid_tau_interval': amyloid_tau_interval
-        })
+    def calculate_features(self):
+        """
+        Main method to run the entire feature engineering workflow.
+        """
+        print("--- Starting Temporal Feature Engineering ---")
+        print(f"Loading data from {self.data_path}")
+        df = pd.read_parquet(self.data_path)
+        
+        # Sort data to ensure correct chronological order
+        df = df.sort_values(by=[self.patient_id_col, self.age_col])
 
-    # Create a new DataFrame with the calculated features
-    features_df = pd.DataFrame(temporal_features)
-    
-    # Save the processed features
-    os.makedirs(os.path.dirname(OUTPUT_FEATURES), exist_ok=True)
-    features_df.to_csv(OUTPUT_FEATURES, index=False)
-    
-    print(f"--> Temporal features calculated for {len(features_df)} subjects.")
-    print(f"--> Processed feature set saved to '{OUTPUT_FEATURES}'")
-    print("\n--- Temporal Feature Calculation Finished Successfully ---")
-    
-    # Display the result for verification
-    print("\n--- Generated Temporal Features ---")
-    print(features_df)
-    print("---------------------------------")
+        # Group by patient and apply feature calculation functions
+        patient_groups = df.groupby(self.patient_id_col)
+        
+        feature_list = []
+        for patient_id, group in patient_groups:
+            patient_features = {self.patient_id_col: patient_id}
+            
+            # Calculate rates of change
+            for biomarker in self.rate_change_biomarkers:
+                slope, _ = self._calculate_slope(group[self.age_col], group[biomarker])
+                patient_features[f'{biomarker}_rate_of_change'] = slope
+
+            # Calculate amyloid-tau interval
+            interval = self._calculate_amyloid_tau_interval(group)
+            patient_features['amyloid_tau_interval_years'] = interval
+
+            feature_list.append(patient_features)
+
+        # Create the final dataframe
+        features_df = pd.DataFrame(feature_list)
+        print(f"Engineered features for {len(features_df)} patients.")
+
+        # Save the output
+        print(f"Saving engineered features to {self.output_path}")
+        os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
+        features_df.to_parquet(self.output_path)
+        
+        print("--- Temporal Feature Engineering Completed Successfully ---")
+        return features_df
+
+    def _calculate_slope(self, x, y):
+        """Calculates the slope (rate of change) using linear regression."""
+        # Drop NaN values for robust calculation
+        valid_indices = ~np.isnan(x) & ~np.isnan(y)
+        x, y = x[valid_indices], y[valid_indices]
+        
+        if len(x) < 2:
+            return np.nan, np.nan # Not enough data to calculate a slope
+        
+        # Using numpy's polyfit for simple linear regression
+        slope, intercept = np.polyfit(x, y, 1)
+        return slope, intercept
+
+    def _calculate_amyloid_tau_interval(self, patient_df):
+        """Calculates the time between first amyloid and tau positivity."""
+        # Find the first time amyloid becomes abnormal
+        amyloid_positive_df = patient_df[patient_df[self.amyloid_biomarker] < self.amyloid_threshold]
+        first_amyloid_age = amyloid_positive_df[self.age_col].min()
+
+        # Find the first time tau becomes abnormal
+        tau_positive_df = patient_df[patient_df[self.tau_biomarker] > self.tau_threshold]
+        first_tau_age = tau_positive_df[self.age_col].min()
+
+        if pd.notna(first_amyloid_age) and pd.notna(first_tau_age):
+            # We are interested in the interval where Tau becomes abnormal *after* Amyloid
+            interval = first_tau_age - first_amyloid_age
+            return interval if interval >= 0 else np.nan
+        
+        return np.nan
+
+
+def main():
+    """
+    Main function to parse arguments and run the pipeline.
+    """
+    parser = argparse.ArgumentParser(description="Engineer temporal features for prognosis modeling.")
+    parser.add_argument(
+        '--data_path',
+        type=str,
+        default='data/processed/analysis_ready_dataset.parquet',
+        help='Path to the longitudinal analysis-ready dataset.'
+    )
+    parser.add_argument(
+        '--output_path',
+        type=str,
+        default='data/processed/prognosis_feature_dataset.parquet',
+        help='Path to save the engineered features dataset.'
+    )
+    args = parser.parse_args()
+
+    engineer = TemporalFeatureEngineer(data_path=args.data_path, output_path=args.output_path)
+    engineer.calculate_features()
 
 
 if __name__ == '__main__':
-    calculate_temporal_features()
+    main()
