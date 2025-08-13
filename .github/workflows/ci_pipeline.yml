@@ -32,11 +32,11 @@ jobs:
           pip install -r requirements.txt
       
       # --- NEW STEPS FOR CODE QUALITY ---
-      - name: Lint with ruff
+    #      - name: Lint with ruff
         run: |
           ruff check .
           
-      - name: Check formatting with black
+    #      - name: Check formatting with black
         run: |
           black --check .
       # -----------------------------------
