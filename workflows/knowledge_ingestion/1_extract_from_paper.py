@@ -6,14 +6,16 @@ This script uses the 'langextract' library to perform a structured extraction
 of biomarker performance data from a given scientific paper (text or URL).
 """
 
+import argparse
 import os
 import sys
-import argparse
-import langextract as lx
 import textwrap
 
+import langextract as lx
+
 # Add project root to path for cross-module imports
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../..'))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
+
 
 def run_extraction(source_document_url: str, output_dir: str):
     """
@@ -22,12 +24,14 @@ def run_extraction(source_document_url: str, output_dir: str):
     print(f"--- Starting extraction from: {source_document_url} ---")
 
     # 1. Define the extraction task with a clear prompt
-    prompt = textwrap.dedent("""
+    prompt = textwrap.dedent(
+        """
         Extract biomarker performance metrics for neurodegenerative diseases.
         Focus on sensitivity, specificity, AUC, hazard ratio (HR), cutoff values,
         the biomarker name, the target disease, and the sample type (CSF or plasma).
         Ensure extractions are grounded in the exact source text.
-        """)
+        """
+    )
 
     # 2. Provide high-quality few-shot examples to guide the LLM
     examples = [
@@ -42,26 +46,26 @@ def run_extraction(source_document_url: str, output_dir: str):
                         "sample_type": "CSF",
                         "metric": "AUC",
                         "value": 0.92,
-                        "disease": "AD"
-                    }
+                        "disease": "AD",
+                    },
                 )
-            ]
+            ],
         ),
         lx.data.ExampleData(
             text="For DLB, 59% were positive for the pTau/Abeta42+ profile, compared to 26% of controls.",
             extractions=[
-                 lx.data.Extraction(
+                lx.data.Extraction(
                     extraction_class="biomarker_performance",
                     extraction_text="DLB, 59% were positive for the pTau/Abeta42+ profile",
                     attributes={
                         "biomarker_name": "pTau/Abeta42+ profile",
-                        "metric": "sensitivity", # Approximate sensitivity
+                        "metric": "sensitivity",  # Approximate sensitivity
                         "value": 0.59,
-                        "disease": "DLB"
-                    }
+                        "disease": "DLB",
+                    },
                 )
-            ]
-        )
+            ],
+        ),
     ]
 
     # 3. Run the extraction process
@@ -71,14 +75,14 @@ def run_extraction(source_document_url: str, output_dir: str):
         text_or_documents=source_document_url,
         prompt_description=prompt,
         examples=examples,
-        model_id="gemini-1.5-flash-001", # A good default model
-        extraction_passes=2,    # Improves recall
-        max_workers=10,         # Parallel processing
+        model_id="gemini-1.5-flash-001",  # A good default model
+        extraction_passes=2,  # Improves recall
+        max_workers=10,  # Parallel processing
     )
 
     # 4. Save and visualize the results
     os.makedirs(output_dir, exist_ok=True)
-    source_name = os.path.basename(source_document_url).split('.')[0]
+    source_name = os.path.basename(source_document_url).split(".")[0]
     output_basename = f"{output_dir}/{source_name}_extractions"
 
     jsonl_path = f"{output_basename}.jsonl"
@@ -91,18 +95,27 @@ def run_extraction(source_document_url: str, output_dir: str):
     html_content = lx.visualize(jsonl_path)
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
-    
+
     print("\n--- Extraction complete! ---")
     print(f"Review the results by opening the HTML file: {html_path}")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Extract biomarker data from a scientific paper using LangExtract.")
-    parser.add_argument("--url", required=True, help="URL to the full text of the scientific paper.")
-    parser.add_argument("--output_dir", default="data/ingested_knowledge", help="Directory to save the extracted results.")
+    parser = argparse.ArgumentParser(
+        description="Extract biomarker data from a scientific paper using LangExtract."
+    )
+    parser.add_argument(
+        "--url", required=True, help="URL to the full text of the scientific paper."
+    )
+    parser.add_argument(
+        "--output_dir",
+        default="data/ingested_knowledge",
+        help="Directory to save the extracted results.",
+    )
     args = parser.parse_args()
-    
+
     run_extraction(source_document_url=args.url, output_dir=args.output_dir)
+
 
 if __name__ == "__main__":
     main()

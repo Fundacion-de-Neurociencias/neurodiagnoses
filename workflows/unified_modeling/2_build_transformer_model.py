@@ -13,9 +13,8 @@ Workflow:
 4. (Conceptual) Compile the model.
 """
 
-import os
-import sys
 import argparse
+
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -42,7 +41,9 @@ class MultiHeadSelfAttention(layers.Layer):
         self.combine_heads = layers.Dense(embed_dim)
 
     def attention(self, query, key, value):
-        key_transposed = keras.ops.transpose(key, axes=(0, 1, 3, 2)) # Transpose the last two dimensions
+        key_transposed = keras.ops.transpose(
+            key, axes=(0, 1, 3, 2)
+        )  # Transpose the last two dimensions
         score = keras.ops.matmul(query, key_transposed)
         dim_key = keras.ops.cast(keras.ops.shape(key)[-1], "float32")
         scaled_score = score / keras.ops.sqrt(dim_key)
@@ -64,7 +65,9 @@ class MultiHeadSelfAttention(layers.Layer):
         value = self.separate_heads(value, batch_size)
         attention, weights = self.attention(query, key, value)
         attention = keras.ops.transpose(attention, axes=[0, 2, 1, 3])
-        concat_attention = keras.ops.reshape(attention, (batch_size, -1, self.embed_dim))
+        concat_attention = keras.ops.reshape(
+            attention, (batch_size, -1, self.embed_dim)
+        )
         output = self.combine_heads(concat_attention)
         return output
 
@@ -111,6 +114,7 @@ class UnifiedTransformerModel:
     """
     Defines the architecture for the unified Transformer model.
     """
+
     def __init__(self, vocab_size, maxlen, embed_dim, num_heads, ff_dim):
         self.vocab_size = vocab_size
         self.maxlen = maxlen
@@ -125,33 +129,53 @@ class UnifiedTransformerModel:
         # For model building/summary, we can pass a concrete boolean False
         training_arg = False
 
-        embedding_layer = TokenAndPositionEmbedding(self.maxlen, self.vocab_size, self.embed_dim)
+        embedding_layer = TokenAndPositionEmbedding(
+            self.maxlen, self.vocab_size, self.embed_dim
+        )
         x = embedding_layer(inputs)
-        transformer_block = TransformerBlock(self.embed_dim, self.num_heads, self.ff_dim)
-        x = transformer_block(x, training=training_arg) # Pass the training argument
+        transformer_block = TransformerBlock(
+            self.embed_dim, self.num_heads, self.ff_dim
+        )
+        x = transformer_block(x, training=training_arg)  # Pass the training argument
         x = layers.GlobalAveragePooling1D()(x)
-        x = layers.Dropout(0.1)(x, training=training_arg) # Pass the training argument
+        x = layers.Dropout(0.1)(x, training=training_arg)  # Pass the training argument
         x = layers.Dense(20, activation="relu")(x)
-        x = layers.Dropout(0.1)(x, training=training_arg) # Pass the training argument
-        outputs = layers.Dense(1, activation="sigmoid")(x) # Example output for binary classification
+        x = layers.Dropout(0.1)(x, training=training_arg)  # Pass the training argument
+        outputs = layers.Dense(1, activation="sigmoid")(
+            x
+        )  # Example output for binary classification
 
-        model = keras.Model(inputs=inputs, outputs=outputs) # Revert to single input for simplicity of summary
+        model = keras.Model(
+            inputs=inputs, outputs=outputs
+        )  # Revert to single input for simplicity of summary
         return model
 
     def summary(self):
         # Create dummy inputs for summary
         dummy_inputs = tf.zeros((1, self.maxlen), dtype=tf.int32)
-        self.model(dummy_inputs) # Call the model once to build it
+        self.model(dummy_inputs)  # Call the model once to build it
         self.model.summary()
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build a conceptual Transformer model for unified modeling.")
-    parser.add_argument('--vocab_size', type=int, default=10000, help='Size of the vocabulary.')
-    parser.add_argument('--maxlen', type=int, default=200, help='Maximum sequence length.')
-    parser.add_argument('--embed_dim', type=int, default=32, help='Embedding dimension.')
-    parser.add_argument('--num_heads', type=int, default=2, help='Number of attention heads.')
-    parser.add_argument('--ff_dim', type=int, default=32, help='Feed forward dimension.')
+    parser = argparse.ArgumentParser(
+        description="Build a conceptual Transformer model for unified modeling."
+    )
+    parser.add_argument(
+        "--vocab_size", type=int, default=10000, help="Size of the vocabulary."
+    )
+    parser.add_argument(
+        "--maxlen", type=int, default=200, help="Maximum sequence length."
+    )
+    parser.add_argument(
+        "--embed_dim", type=int, default=32, help="Embedding dimension."
+    )
+    parser.add_argument(
+        "--num_heads", type=int, default=2, help="Number of attention heads."
+    )
+    parser.add_argument(
+        "--ff_dim", type=int, default=32, help="Feed forward dimension."
+    )
     args = parser.parse_args()
 
     print("--- Building Unified Transformer Model ---")
@@ -160,11 +184,11 @@ def main():
         maxlen=args.maxlen,
         embed_dim=args.embed_dim,
         num_heads=args.num_heads,
-        ff_dim=args.ff_dim
+        ff_dim=args.ff_dim,
     )
     model_builder.summary()
     print("--- Unified Transformer Model Built Successfully (Conceptual) ---")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

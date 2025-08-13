@@ -1,11 +1,10 @@
 # workflows/genomic_pipeline/3_analyze_variants.py
-import pandas as pd
-import subprocess
 import os
 
 # --- CONFIGURATION ---
-IMPUTED_VCF = 'workflows/genomic_pipeline/sample.imputed.vcf'
-SIGNIFICANT_VARIANTS_OUTPUT = 'data/processed/significant_genetic_variants.json'
+IMPUTED_VCF = "workflows/genomic_pipeline/sample.imputed.vcf"
+SIGNIFICANT_VARIANTS_OUTPUT = "data/processed/significant_genetic_variants.json"
+
 
 def analyze_variants():
     """
@@ -27,27 +26,31 @@ def analyze_variants():
     # In a real pipeline, this would use a statistical genetics tool.
     # We will simulate the output: identifying a significant imputed variant.
     print("--> Simulating single variant association test...")
-    
+
     significant_findings = {
         "pathogenic_variants": [],
-        "disease_specific_risk": ["APOE_e4"], # Assuming this was in the original array
+        "disease_specific_risk": ["APOE_e4"],  # Assuming this was in the original array
         "imputed_significant_variants": [
             {
                 "id": "rs540431307",
                 "gene": "HYPOTHETICAL_GENE",
                 "p_value": 1e-6,
-                "novelty": "Imputed from ND-Panel-v1"
+                "novelty": "Imputed from ND-Panel-v1",
             }
-        ]
+        ],
     }
-    
+
     # Save the structured findings to a file
     import json
-    with open(SIGNIFICANT_VARIANTS_OUTPUT, 'w') as f:
+
+    with open(SIGNIFICANT_VARIANTS_OUTPUT, "w") as f:
         json.dump(significant_findings, f, indent=2)
 
-    print(f"--> Analysis complete. Significant variants saved to '{SIGNIFICANT_VARIANTS_OUTPUT}'")
+    print(
+        f"--> Analysis complete. Significant variants saved to '{SIGNIFICANT_VARIANTS_OUTPUT}'"
+    )
     print("\n--- Variant Analysis Finished Successfully ---")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     analyze_variants()
