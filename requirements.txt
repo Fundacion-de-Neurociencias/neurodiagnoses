@@ -17,3 +17,6 @@ pyarrow
 # Code Quality & Formatting
 ruff
 black
+
+# Knowledge Ingestion & NLP
+langextract[openai,vertexai]
