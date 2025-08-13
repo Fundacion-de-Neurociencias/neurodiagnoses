@@ -12,3 +12,4 @@ lifelines
 tensorflow
 # Testing Framework
 pytest
+pyarrow
