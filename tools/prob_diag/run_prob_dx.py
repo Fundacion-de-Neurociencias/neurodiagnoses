@@ -117,8 +117,7 @@ def main():
     
     if posteriors:
         ranked_posteriors = sorted(posteriors.items(), key=lambda item: item[1], reverse=True)
-        print("
---- Probabilistic Diagnosis (Axis 2 - Bayesian Engine) ---")
+        print("\n--- Probabilistic Diagnosis (Axis 2 - Bayesian Engine) ---")
         for label, probability in ranked_posteriors:
             print(f"- {label}: {probability:.4f}")
 
