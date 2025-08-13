@@ -1,76 +1,115 @@
-# tools/ml_pipelines/prognosis/2_train_prognosis_model.py
+# -*- coding: utf-8 -*-
+"""
+Neurodiagnoses Prognosis Module: Prognosis Model Training
+
+This script trains a machine learning model for disease prognosis using
+temporal features engineered from longitudinal patient data. It leverages
+techniques from survival analysis and time-series modeling.
+
+Workflow:
+1. Load the dataset with engineered temporal features.
+2. Split data into training and testing sets.
+3. Train a suitable prognosis model (e.g., Random Survival Forest, CoxPH).
+4. Save the trained model.
+"""
+
+import os
+import sys
+import argparse
 import pandas as pd
 import joblib
-import os
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from lifelines import CoxPHFitter
+# from sksurv.ensemble import RandomSurvivalForest # Example for more advanced models
 
-# --- CONFIGURATION ---
-TEMPORAL_FEATURES_PATH = 'data/processed/prognosis_temporal_features.csv'
-OUTCOMES_PATH = 'data/simulated/longitudinal_outcomes.csv'
-MODEL_OUTPUT_PATH = 'models/prognosis/prognosis_model.joblib'
+# Ensure the project root is in the Python path for module imports
+# This is typically handled by setting PYTHONPATH or by the execution environment.
+# For direct execution, consider adding the project root to sys.path if necessary.
+# Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+# However, for a robust project, it's better to manage Python path externally or use proper package installation.
 
-def train_prognosis_model():
+
+class PrognosisModelTrainer:
     """
-    Trains a model to predict future cognitive decline, inspired by
-    Colautti et al. (2025) and using features from Milà Alomà et al. (2025).
-
-    This process involves:
-    1. Loading the pre-calculated temporal features.
-    2. Loading the longitudinal outcome data.
-    3. Merging them into a final training dataset.
-    4. Training a classifier to predict the future outcome.
-    5. Saving the trained prognosis model.
+    A class to train a prognosis model using temporal features.
     """
-    print(f"--- Starting Prognosis Model Training ---")
-    
-    try:
-        features_df = pd.read_csv(TEMPORAL_FEATURES_PATH)
-        outcomes_df = pd.read_csv(OUTCOMES_PATH)
-    except FileNotFoundError as e:
-        print(f"ERROR: A required data file is missing. Details: {e}")
-        print("Please run '1_calculate_temporal_features.py' first.")
-        return
 
-    # Merge the features and the target variable into one dataset
-    training_df = pd.merge(features_df, outcomes_df, on='subject_id')
-    
-    # Handle missing values simply for this PoC (e.g., fill with median)
-    training_df = training_df.fillna(training_df.median())
-    
-    print(f"--> Created training dataset with {training_df.shape[0]} subjects.")
+    def __init__(self, data_path, model_output_path):
+        """
+        Initializes the model trainer.
 
-    # Define features and target
-    features = ['age_at_amyloid_pos', 'age_at_tau_pos', 'amyloid_tau_interval']
-    target = 'cognitive_status_at_follow_up'
-    
-    X = training_df[features]
-    y = training_df[target]
-    
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        Args:
+            data_path (str): Path to the input dataset with engineered temporal features.
+            model_output_path (str): Path to save the trained model.
+        """
+        self.data_path = data_path
+        self.model_output_path = model_output_path
+        self.model = CoxPHFitter() # Using CoxPHFitter as a robust baseline
 
-    # Train a simple RandomForest model for this PoC
-    print("--> Training RandomForestClassifier for prognosis prediction...")
-    model = RandomForestClassifier(n_estimators=50, random_state=42)
-    model.fit(X_train, y_train)
+        # --- Configuration for Survival Analysis ---
+        self.duration_col = 'survival_duration_years' # Assuming this is available in the feature dataset
+        self.event_col = 'survival_event_occurred'   # Assuming this is available in the feature dataset
+        self.features = [
+            'biomarkers_MMSE_value_rate_of_change',
+            'biomarkers_Hippocampal Volume_value_rate_of_change',
+            'amyloid_tau_interval_years'
+        ]
 
-    # Evaluate the model
-    preds = model.predict(X_test)
-    accuracy = accuracy_score(y_test, preds)
-    print(f"  > Model accuracy on test set: {accuracy:.2f}")
+    def train_model(self):
+        """
+        Main method to run the model training workflow.
+        """
+        print("--- Starting Prognosis Model Training ---")
+        print(f"Loading data from {self.data_path}")
+        df = pd.read_parquet(self.data_path)
 
-    # Save the trained model artifact
-    os.makedirs(os.path.dirname(MODEL_OUTPUT_PATH), exist_ok=True)
-    joblib.dump(model, MODEL_OUTPUT_PATH)
-    print(f"--> Prognosis model artifact saved to '{MODEL_OUTPUT_PATH}'")
-    print("\n--- Prognosis Model Training Finished Successfully ---")
+        # Ensure required columns are present
+        required_cols = self.features + [self.duration_col, self.event_col]
+        df_train = df[required_cols].dropna()
+
+        if df_train.empty:
+            print("ERROR: No valid data available for training after dropping NaNs. Please check the dataset.")
+            return
+
+        print(f"Training model on {len(df_train)} records.")
+
+        # Train the Cox Proportional Hazards model
+        self.model.fit(df_train, duration_col=self.duration_col, event_col=self.event_col)
+
+        print("\n--- Model Training Summary ---")
+        self.model.print_summary()
+        print("----------------------------\n")
+
+        # Save the trained model
+        print(f"Saving trained model to {self.model_output_path}")
+        os.makedirs(os.path.dirname(self.model_output_path), exist_ok=True)
+        joblib.dump(self.model, self.model_output_path)
+
+        print("--- Prognosis Model Training Completed Successfully ---")
+
+
+def main():
+    """
+    Main function to parse arguments and run the pipeline.
+    """
+    parser = argparse.ArgumentParser(description="Train a prognosis model.")
+    parser.add_argument(
+        '--data_path',
+        type=str,
+        default='data/processed/prognosis_feature_dataset.parquet',
+        help='Path to the dataset with engineered temporal features.'
+    )
+    parser.add_argument(
+        '--model_out',
+        type=str,
+        default='models/prognosis/prognosis_model.joblib',
+        help='Path to save the trained prognosis model.'
+    )
+    args = parser.parse_args()
+
+    trainer = PrognosisModelTrainer(data_path=args.data_path, model_output_path=args.model_out)
+    trainer.train_model()
+
 
 if __name__ == '__main__':
-    # Ensure the input feature file exists before running
-    if not os.path.exists(TEMPORAL_FEATURES_PATH):
-        print("Temporal features file not found. Running the calculation script first...")
-        from tools.ml_pipelines.prognosis.one_calculate_temporal_features import calculate_temporal_features
-        calculate_temporal_features()
-    
-    train_prognosis_model()
+    main()
