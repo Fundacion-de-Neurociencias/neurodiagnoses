@@ -1,0 +1,23 @@
+# pyproject.toml
+# Central configuration for Python project tools.
+
+[tool.black]
+# Black is uncompromising, but we can set the line length.
+# 88 is the default, 99 is a common alternative. We'll stick to default.
+line-length = 88
+target-version = ['py310', 'py311']
+
+[tool.ruff]
+# Same line length as black to avoid conflicts.
+line-length = 88
+
+[tool.ruff.lint]
+# Select the rule sets to enable.
+# E = pycodestyle errors
+# F = Pyflakes errors
+# I = isort (import sorting)
+select = ["E", "F", "I"]
+
+[tool.pytest.ini_options]
+# We can move the pytest config here too, to centralize it.
+testpaths = ["tests"]
