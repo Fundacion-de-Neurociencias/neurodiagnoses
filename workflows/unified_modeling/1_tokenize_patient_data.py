@@ -24,7 +24,6 @@ import numpy as np
 # This is typically handled by setting PYTHONPATH or by the execution environment.
 # For direct execution, consider adding the project root to sys.path if necessary.
 # Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-# However, for a robust project, it's better to manage Python path externally or use proper package installation.
 
 
 class PatientDataTokenizer:
@@ -57,7 +56,6 @@ class PatientDataTokenizer:
                 self.next_token_id += 1
         
         # In a real scenario, we would also create tokens for binned numerical values
-        # For example, 'MMSE_25-27', 'pTau_high', etc.
         # For now, we'll just use feature names.
         
         self.reverse_vocabulary = {v: k for k, v in self.vocabulary.items()}

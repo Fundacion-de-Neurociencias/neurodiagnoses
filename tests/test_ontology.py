@@ -6,17 +6,8 @@ These tests ensure that the fundamental data structures (Biomarker, PatientRecor
 are behaving as expected. Any failure in these tests indicates a critical
 problem that could affect the entire framework.
 """
-import sys
-import os
 import pytest
-
-# Ensure the project root is in the Python path for module imports
-# This is typically handled by setting PYTHONPATH or by the execution environment.
-# For direct execution, consider adding the project root to sys.path if necessary.
-# Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from tools.ontology.neuromarker import Biomarker, PatientRecord, GeneticMarker
-
-from tools.ontology.neuromarker import BiomarkerCategory # Import BiomarkerCategory
+from tools.ontology.neuromarker import Biomarker, PatientRecord, GeneticMarker, BiomarkerCategory
 
 def test_biomarker_creation():
     """Tests the successful creation of a Biomarker object."""
