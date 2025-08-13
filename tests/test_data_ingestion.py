@@ -7,15 +7,9 @@ parser correctly reads raw data and transforms it into standardized
 PatientRecord objects.
 """
 
-import sys
-import os
 import pytest
 import pandas as pd
 
-# Ensure the project root is in the Python path for module imports
-# This is typically handled by setting PYTHONPATH or by the execution environment.
-# For direct execution, consider adding the project root to sys.path if necessary.
-# Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from tools.data_ingestion.parsers import nacc_parser # Assuming the parser module is named this
 from tools.ontology.neuromarker import PatientRecord
 

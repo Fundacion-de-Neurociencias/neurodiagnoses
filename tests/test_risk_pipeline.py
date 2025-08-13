@@ -2,16 +2,10 @@
 """
 Unit tests for the PHS risk prediction pipeline.
 """
-import sys
-import os
 import pytest
 import pandas as pd
 import joblib
-
-# Ensure the project root is in the Python path for module imports
-# This is typically handled by setting PYTHONPATH or by the execution environment.
-# For direct execution, consider adding the project root to sys.path if necessary.
-# Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+import os
 from workflows.risk_prediction.train_phs_model import PHSTrainingPipeline
 
 @pytest.fixture

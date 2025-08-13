@@ -27,7 +27,6 @@ from lifelines.plotting import plot_lifetimes
 # This is typically handled by setting PYTHONPATH or by the execution environment.
 # For direct execution, consider adding the project root to sys.path if necessary.
 # Example: sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-# However, for a robust project, it's better to manage Python path externally or use proper package installation.
 
 
 class PrognosisModelEvaluator:
