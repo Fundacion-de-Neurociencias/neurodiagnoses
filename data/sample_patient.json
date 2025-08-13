@@ -4,7 +4,9 @@
     "APOE4": 1,
     "ADAS13_bl": 31.5,
     "Ventricles": 7200,
-    "Hippocampus": 3400
+    "Hippocampus": 3400,
+    "PTAU_over_ABETA": 0.06,
+    "PTAU_over_ABETA_POSITIVE": true
   },
   "axis3_features": {
     "age": 72,

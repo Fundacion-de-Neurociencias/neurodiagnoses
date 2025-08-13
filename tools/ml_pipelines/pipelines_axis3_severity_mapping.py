@@ -18,8 +18,10 @@ class Axis3SeverityMapperPipeline:
                  model_path='models/axis3_severity_model.joblib'):
         self.data_path = data_path
         self.model_path = model_path
-        self.features = None # Will be determined from data
+        # Load data to determine features
+        df = pd.read_csv(self.data_path)
         self.target = 'clinical_severity_score'
+        self.features = [col for col in df.columns if col not in ['patient_id', self.target]]
         self.model = None
         self.explainer = None
         os.makedirs(os.path.dirname(self.model_path), exist_ok=True)
@@ -41,7 +43,7 @@ class Axis3SeverityMapperPipeline:
         
         # Evaluate model
         preds = model.predict(X_test)
-        rmse = mean_squared_error(y_test, preds, squared=False)
+        rmse = mean_squared_error(y_test, preds)**0.5
         print(f"Model evaluation | Test RMSE: {rmse:.4f}")
         
         print(f"Saving trained model to '{self.model_path}'")
