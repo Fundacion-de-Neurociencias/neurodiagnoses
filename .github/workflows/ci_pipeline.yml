@@ -32,6 +32,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Prepare Test Data
+        run: |
+          export PYTHONPATH=$PWD # Ensure PWD is in PYTHONPATH for script execution
+          python tools/data_ingestion/unify_multiomics_data.py
+          python tools/ml_pipelines/build_biomarker_features.py
+
       - name: Run tests with pytest
         run: |
           export PYTHONPATH=$PWD
