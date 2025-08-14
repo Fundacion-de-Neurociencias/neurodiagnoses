@@ -1,0 +1,3 @@
+patient_id,age,sex,years_of_education,MMSE,CDR-SB
+ND_004,62.0,Male,16,26,4.5
+ND_005,65.0,Female,14,23,6.0

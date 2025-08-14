@@ -20,3 +20,6 @@ black
 
 # Knowledge Ingestion & NLP
 langextract[openai,vertexai]
+google-generativeai
+pypdf
+requests
