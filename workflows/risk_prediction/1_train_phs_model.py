@@ -74,9 +74,9 @@ class PHSTrainingPipeline:
         print("Fitting Cox Proportional Hazards model...")
         self.model.fit(df_survival, duration_col=self.duration_col, event_col=self.event_col)
 
-        print("\n--- Model Training Summary ---")
+        print("n--- Model Training Summary ---")
         self.model.print_summary()
-        print("----------------------------\n")
+        print("----------------------------n")
 
         # 4. Save the trained model
         print(f"Saving trained model to: {self.model_output_path}")
