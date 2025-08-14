@@ -195,3 +195,40 @@ The development of Neurodiagnoses is guided by state-of-the-art research. Our ne
 ### 2. Prognosis Module (`tools/ml_pipelines/prognosis/`)
 -   **Goal:** To predict the trajectory of cognitive decline in diagnosed patients using longitudinal data.
 -   **Inspiration:** This module is inspired by the work of **Colautti et al. (2025)**. It will use machine learning models on baseline multi-modal data to forecast future outcomes, with a strong emphasis on **Explainable AI (SHAP)** to identify the key drivers of progression for each individual.
+
+---
+
+## Multi-Disease XAI Pipeline and Clinical Dashboard
+
+As part of our goal to build a robust and clinically relevant framework, we have implemented a modular pipeline for analyzing multiple neurodegenerative disorders (NDDs) with a focus on explainability and model governance.
+
+### Workflow Overview
+
+The new workflow is designed to be scalable and transparent:
+
+1.  **Multi-Disease Data Ingestion**: The system now supports multiple disease cohorts (e.g., AD, FTD) by unifying them into a single dataset with a `diagnosis` label (`tools/data_ingestion/unify_multiomics_data.py`).
+2.  **Disease-Specific Feature Engineering**: The pipeline creates tailored feature sets for each disease, selecting the most relevant biomarkers for that cohort (`tools/ml_pipelines/build_biomarker_features.py`).
+3.  **Model Registry & Governance**: For each disease, a dedicated model is trained and stored in a structured registry (`models/[DIAGNOSIS_CODE]/`). Each model is accompanied by a `_card.json` file containing metadata about its training, performance, and limitations, enhancing transparency.
+4.  **Explainable AI (XAI) Reports**: The framework generates standardized HTML reports for individual patient predictions, including SHAP plots and text summaries to make model decisions interpretable (`tools/ml_pipelines/explainability.py`).
+5.  **Interactive Clinical Dashboard**: A Gradio application (`app.py`) provides a user interface to select a disease and patient, view the XAI report and model card, and provide feedback on the model's performance.
+
+### How to Run the New Pipeline
+
+To regenerate all data and models and launch the dashboard, follow these steps from the root directory:
+
+1.  **Unify Data Sources**:
+    ```bash
+    python tools/data_ingestion/unify_multiomics_data.py
+    ```
+2.  **Build Feature Sets**:
+    ```bash
+    python tools/ml_pipelines/build_biomarker_features.py
+    ```
+3.  **Train Models & Create Cards**:
+    ```bash
+    python models/train_model.py
+    ```
+4.  **Launch the Dashboard**:
+    ```bash
+    python app.py
+    ```

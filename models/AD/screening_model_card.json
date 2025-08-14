@@ -1,0 +1,14 @@
+{
+    "model_name": "AD Screening Panel",
+    "model_version": "1.0",
+    "diagnosis_code": "AD",
+    "trained_at": "2025-08-14T09:06:08.336396",
+    "model_path": "/workspaces/neurodiagnoses/models/AD/screening_model.joblib",
+    "training_data_path": "/workspaces/neurodiagnoses/data/processed/featured_data_AD.parquet",
+    "model_type": "Logistic Regression",
+    "performance_metrics": {
+        "training_accuracy": "1.00"
+    },
+    "intended_use": "To provide a preliminary risk assessment for a specific neurodegenerative disorder. Not for final clinical diagnosis.",
+    "limitations": "Trained on a very small, synthetic dataset. Not suitable for clinical use without extensive validation."
+}

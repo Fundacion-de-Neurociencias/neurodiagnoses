@@ -4,7 +4,7 @@ from vertexai.generative_models import GenerativeModel
 # --- CONFIGURACIÓN ---
 PROJECT_ID = "neurodiagnoses-cli-12345"
 REGION = "us-central1"
-MODEL_NAME = "gemini-1.5-flash-001"
+MODEL_NAME = "gemini-1.5-flash-latest"
 
 # --- LÓGICA DEL SCRIPT ---
 def ask_gemini_about_code(file_to_analyze):

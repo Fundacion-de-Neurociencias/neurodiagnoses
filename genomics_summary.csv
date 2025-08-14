@@ -2,3 +2,5 @@ patient_id,APOE4_alleles,other_variants
 ND_001,1,"PSEN1:A431E;TREM2:R47H"
 ND_002,0,""
 ND_003,2,"MAPT:P301L"
+ND_004,0,"C9orf72"
+ND_005,0,"GRN:R493X"
