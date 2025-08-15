@@ -182,3 +182,7 @@ workflows/genomic_pipeline/*.imputed.vcf.gz
 # Ignored PDF files
 2025.07.30.25332433v1.full.pdf
 2025.08.13.25333561v1.full.pdf
+# Exception for our specific server log
+
+# Exception for our specific server log
+!ollama_server.log
