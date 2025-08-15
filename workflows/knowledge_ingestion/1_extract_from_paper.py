@@ -97,7 +97,7 @@ def run_extraction(source_document: str, output_dir: str):
         text_or_documents=document_content,
         prompt_description=prompt,
         examples=examples,
-        model_id="models/gemini-1.5-flash-latest",
+        model_id="gemini-1.5-flash-latest",
         extraction_passes=2,
         max_workers=10,
     )
