@@ -23,3 +23,4 @@ langextract[openai,vertexai]
 google-generativeai
 pypdf
 requests
+pymupdf4llm
