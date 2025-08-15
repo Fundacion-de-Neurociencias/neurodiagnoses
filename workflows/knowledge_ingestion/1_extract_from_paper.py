@@ -20,7 +20,7 @@ def get_text_from_pdf(local_path: str) -> str:
     with open(local_path, 'rb') as f:
         reader = pypdf.PdfReader(f)
         for page in reader.pages:
-            text += page.extract_text() + "n"
+            text += page.extract_text() + "\n"
     print(f"Extracted {len(text)} characters from PDF.")
     return text
 
@@ -28,7 +28,8 @@ def run_extraction(source_document: str, output_dir: str):
     print(f"--- Starting extraction from: {source_document} ---")
     document_content = get_text_from_pdf(source_document)
 
-    prompt = textwrap.dedent("""        Extract protein biomarker performance data for neurodegenerative diseases (PD, AD, ALS).
+    prompt = textwrap.dedent("""\
+        Extract protein biomarker performance data for neurodegenerative diseases (PD, AD, ALS).
         From tables or text, identify the protein name, the Hazard Ratio (HR) and 95% Confidence Interval (CI),
         the associated p-value, the primary disease, and any mentioned cross-disease associations.
         Ensure extractions are grounded in the exact source text.
@@ -86,7 +87,7 @@ def run_extraction(source_document: str, output_dir: str):
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     
-    print(f"n--- Extraction complete! Review results in {html_path} ---")
+    print(f"\n--- Extraction complete! Review results in {html_path} ---")
 
 def main():
     parser = argparse.ArgumentParser(description="Extract structured knowledge from a scientific paper.")
