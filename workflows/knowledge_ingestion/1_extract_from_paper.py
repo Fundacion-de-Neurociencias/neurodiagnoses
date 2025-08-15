@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Knowledge Ingestion Pipeline: Step 1 - Paper Extraction
-(Refactored to use a local LLM via Ollama)
+(Refactored to handle Ollama timeouts explicitly)
 """
 import os
 import sys
@@ -9,6 +9,8 @@ import argparse
 import langextract as lx
 import textwrap
 import pypdf
+# Import the specific provider class we need to configure
+from langextract.providers.ollama import OllamaLanguageModel
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../..'))
 
@@ -24,7 +26,6 @@ def get_text_from_pdf(local_path: str) -> str:
 
 def run_extraction(source_document: str, output_dir: str):
     print(f"--- Starting extraction from: {source_document} ---")
-
     document_content = get_text_from_pdf(source_document)
 
     prompt = textwrap.dedent("""        Extract protein biomarker performance data for neurodegenerative diseases (PD, AD, ALS).
@@ -34,7 +35,7 @@ def run_extraction(source_document: str, output_dir: str):
         """)
     examples = [
         lx.data.ExampleData(
-            text="TPPP2 showed a HR of 0.70 (0.61-0.80) with a p-value of 7.06E-08",
+            text="TPPP2 showed a HR of 0.70 (0.61-0.80) with a p-value of 7.06E-08.",
             extractions=[
                 lx.data.Extraction(
                     extraction_class="biomarker_finding",
@@ -48,23 +49,28 @@ def run_extraction(source_document: str, output_dir: str):
         )
     ]
 
-    print("Running LangExtract with local Ollama model... (This may take several minutes)")
-    # Explicitly create OllamaLanguageModel instance with timeout
-    from langextract.providers.ollama import OllamaLanguageModel
+    print("Running LangExtract with local Ollama model and extended timeout...")
+
+    # --- THE DEFINITIVE FIX ---
+    # Manually create the OllamaLanguageModel instance with a long timeout
     ollama_model = OllamaLanguageModel(
-        model_id="llama3:8b-instruct-q2_K",
+        model_id="llama3:8b-instruct-q4_K_M",
         model_url="http://localhost:11434",
-        timeout=300, # Set the timeout directly here
+        timeout=300,  # Set a 5-minute timeout directly
         fence_output=False,
         use_schema_constraints=False
     )
 
+    # Pass the pre-configured model object to lx.extract
     result = lx.extract(
         text_or_documents=document_content,
         prompt_description=prompt,
         examples=examples,
-        model=ollama_model # Pass the instantiated model
+        model=ollama_model, # Use the 'model' parameter instead of 'model_id'
+        extraction_passes=2,
+        max_workers=10,
     )
+    # -------------------------
 
     os.makedirs(output_dir, exist_ok=True)
     source_name = os.path.splitext(os.path.basename(source_document))[0]
