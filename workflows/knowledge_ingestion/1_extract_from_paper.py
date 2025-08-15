@@ -49,15 +49,21 @@ def run_extraction(source_document: str, output_dir: str):
     ]
 
     print("Running LangExtract with local Ollama model... (This may take several minutes)")
+    # Explicitly create OllamaLanguageModel instance with timeout
+    from langextract.providers.ollama import OllamaLanguageModel
+    ollama_model = OllamaLanguageModel(
+        model_id="llama3:8b-instruct-q2_K",
+        model_url="http://localhost:11434",
+        timeout=300, # Set the timeout directly here
+        fence_output=False,
+        use_schema_constraints=False
+    )
+
     result = lx.extract(
         text_or_documents=document_content,
         prompt_description=prompt,
         examples=examples,
-        model_id="llama3:8b-instruct-q4_K_M",  # Use the model we just downloaded
-        model_url="http://localhost:11434", # Default Ollama endpoint
-        # These flags are often needed for local models
-        fence_output=False,
-        use_schema_constraints=False
+        model=ollama_model # Pass the instantiated model
     )
 
     os.makedirs(output_dir, exist_ok=True)
