@@ -91,7 +91,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
                 with gr.Accordion("Evidence Trail (The 'Why')", open=True, visible=True): evidence_display = gr.HTML()
 
     with gr.Tab("Curated Knowledge Ingestion"):
-        gr.Markdown("## Add New Knowledge to the System\nProvide a URL or DOI of a scientific paper. The system will attempt to read it, extract relevant data, and integrate it into the knowledge base.")
+        gr.Markdown("## Add New Knowledge to the SystemnProvide a URL or DOI of a scientific paper. The system will attempt to read it, extract relevant data, and integrate it into the knowledge base.")
         url_input = gr.Textbox(label="URL or DOI", placeholder="e.g., https://pubmed.ncbi.nlm.nih.gov/35395825/ or 10.1186/s13024-022-00527-3")
         ingest_btn = gr.Button("Extract & Ingest Knowledge", variant="primary")
         ingestion_status = gr.HTML(label="Ingestion Status")
