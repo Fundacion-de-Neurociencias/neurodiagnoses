@@ -1,7 +1,7 @@
 # Contributing to Neurodiagnoses
 
 ## Overview
-Neurodiagnoses is an **open-source AI diagnostic framework** for **complex central nervous system (CNS) disorders**. This project is supported by the **Fundación de Neurociencias** and integrates **clinical, neuroimaging, and molecular data** to enhance AI-driven diagnostics.
+Neurodiagnoses is an **open-source AI diagnostic ecosystem** for **complex central nervous system (CNS) disorders**. This project is supported by the **Fundación de Neurociencias** and integrates **clinical, neuroimaging, and molecular data** to enhance AI-driven diagnostics.
 
 We welcome contributions from researchers, clinicians, and AI developers to improve the platform. Contributions can be in the form of **code, data curation, documentation, or clinical validation**.
 
