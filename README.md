@@ -6,7 +6,7 @@
 
 **Neurodiagnoses** is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).
 
-This project moves beyond traditional, static disease labels towards a **probabilistic, tridimensional diagnostic system** that reflects the biological and clinical complexity of each patient.
+This project moves beyond traditional, static disease labels towards a probabilistic system on classic diagnoses and a tridimensional diagnostic annotation -alternative or complementary to classic diagnoses- that reflects the biological and clinical complexity of each patient.
 
 > **⚠️ Research Use Only Disclaimer**
 > This entire project, including all models and web interfaces, is a research prototype and is **NOT a medical device**. It has not been validated for clinical use, nor does it have FDA/EMA approval. It **must not** be used for clinical diagnosis or patient management.
