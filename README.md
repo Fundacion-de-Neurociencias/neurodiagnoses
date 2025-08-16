@@ -62,20 +62,20 @@ The scientific foundation of Neurodiagnoses has evolved towards a fully transpar
 
 ### 1. The Knowledge Base: The Source of Truth
 
-The engine is powered by a human-readable and machine-readable Knowledge Base stored in simple CSV files (`data/knowledge_base/`). This KB is populated through a sophisticated, semi-automated pipeline:
-- **Vía 1 (Top-Down Synthesis):** An orchestrator (`workflows/knowledge_ingestion/7_knowledge_orchestrator.py`) processes a manifest of scientific topics (`topics.csv`), queries curated evidence sources (e.g., Open Evidence), and uses a Large Language Model (via Groq API) to extract structured "atomic evidence" (`.jsonl`). This is ideal for clinical guidelines and meta-analyses.
-- **Vía 2 (Bottom-Up ETL):** For high-throughput granular data (e.g., genetics, imaging atlases), dedicated parsers will ingest information directly from public databases like the GWAS Catalog.
+The engine is powered by a human-readable and machine-readable Knowledge Base stored in simple CSV files (`data/knowledge_base/`). This KB is populated through a sophisticated, dual-pathway, semi-automated pipeline:
+- **Vía 1 (Top-Down Synthesis):** An autonomous orchestrator (`workflows/knowledge_ingestion/7_knowledge_orchestrator.py`) processes a manifest of scientific topics (`topics.csv`), queries public academic databases like **PubMed** for meta-analyses, and uses a Large Language Model (via Groq API) to extract structured "atomic evidence".
+- **Vía 2 (Bottom-Up ETL):** For high-throughput granular data, dedicated parsers (e.g., `parsers/gwas_api_parser.py`, `parsers/adni_imaging_parser.py`) ingest and process large datasets from sources like the GWAS Catalog and ADNI.
 
 ### 2. The Bayesian Engine: The Reasoning Core
 
 The `BayesianEngine` is the brain of the system. Its key features are:
-- **Tridimensional Evidence:** It is designed to ingest likelihoods from all three diagnostic axes (Etiology, Molecular, Phenotypic).
+- **Tridimensional Evidence:** It is designed to ingest likelihoods (sensitivity, specificity, odds ratios, etc.) from all three diagnostic axes: **Axis 1 (Etiology)**, **Axis 2 (Molecular Profile)**, and **Axis 3 (Phenotype)**.
 - **Iterative Reasoning:** It processes multiple pieces of patient evidence sequentially, updating the diagnostic probability with each new finding.
-- **Uncertainty Quantification:** It performs Monte Carlo simulations to calculate not just a single probability, but a **95% Credibility Interval**, providing an honest assessment of the confidence in its own conclusions.
+- **Uncertainty Quantification:** It performs Monte Carlo simulations to calculate not just a single probability, but a **95% Credibility Interval**, providing an honest assessment of the confidence in its conclusions.
 
-### 3. The Unified Orchestrator
+### 3. Expert-in-the-Loop: Curated Knowledge Ingestion
 
-The main application entry point, `unified_orchestrator.py`, has been refactored to integrate the `BayesianEngine`.
+A key feature of the ecosystem is the ability for experts to enrich the Knowledge Base directly. The user interface includes a dedicated tab for **"Curated Knowledge Ingestion,"** allowing a user to provide a URL or DOI of a relevant scientific paper. The system will then automatically scrape, process, and integrate the extracted knowledge into the database, ensuring the system remains continuously updated with cutting-edge research.
 
 ---
 
@@ -127,26 +127,12 @@ To regenerate all data and models and launch the dashboard, follow these steps f
 ## ⚙️ Getting Started for Developers
 This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
 
-1. Launch the Environment
+### 1. Launch the Environment
 Create a new codespace from the repository's main page on GitHub.
 
-2. Install Dependencies
+### 2. Install Dependencies
 In the Codespace terminal, install the required Python packages:
-
 ```bash
 pip install -r requirements.txt
-```
-3. Run the Full Prototype
-To run the complete, end-to-end simulation of the Bayesian inference engine:
-
-```bash
-python unified_orchestrator.py
-```
-4. Launch the Interactive UI
-To start the Gradio web application for interactive use:
-
-```bash
-python app.py
-```
 ## How to Contribute
 This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
