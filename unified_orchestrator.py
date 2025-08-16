@@ -7,6 +7,7 @@ import sys
 import json
 from pathlib import Path
 
+# Ensure local modules can be imported
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # --- [MODIFICACIÓN 1]: Imports Antiguos (Comentados/Eliminados) ---
@@ -33,7 +34,6 @@ def run_full_pipeline(patient_id: str, patient_data: dict) -> dict:
     # --- 2. Extract data for each pipeline from the input dict ---
     patient_genetics = patient_data.get('axis1_features', {})
     # Para la prueba, definimos la evidencia del paciente directamente.
-    # En el futuro, esto vendrá de patient_data.
     patient_evidence_for_bayes = [
         "p-tau181",
         "Gene expression-based blood biomarker panels"
@@ -43,7 +43,7 @@ def run_full_pipeline(patient_id: str, patient_data: dict) -> dict:
     # --- 3. Run Pipelines to Generate Diagnostic Components ---
     
     # --- [MODIFICACIÓN 4]: Reemplazar la llamada al pipeline antiguo del Eje 2 ---
-    print("n--- Running Axis 2: Glass-Box Bayesian Inference ---")
+    print("\n--- Running Axis 2: Glass-Box Bayesian Inference ---")
     mean_prob, ci = bayesian_engine.run_inference_with_uncertainty(
         patient_evidence=patient_evidence_for_bayes,
         disease="Alzheimer's Disease",
@@ -85,7 +85,6 @@ def main():
     patient_data = {
         "patient_id": "ND_BAYLOR_001",
         "axis1_features": {"APOE": "e3/e4"},
-        # axis2_features se define ahora dentro del pipeline para la prueba
         "axis3_features": {"hippocampal_volume": "low"}
     }
     
@@ -95,13 +94,13 @@ def main():
     final_output = run_full_pipeline(patient_id, patient_data)
     
     # Print the final formatted report string
-    print("nn================ NEURODIAGNOSES FINAL REPORT ================")
+    print("\n\n================ NEURODIAGNOSES FINAL REPORT ================")
     print(f"Subject ID: {final_output['patient_id']}")
-    print("n--- Tridimensional Diagnostic Annotation ---")
+    print("\n--- Tridimensional Diagnostic Annotation ---")
     print(f"  {final_output['final_report_string']}")
-    print("n--- Structured Output ---")
+    print("\n--- Structured Output ---")
     print(json.dumps(final_output, indent=2))
-    print("===========================================================")
+    print("============================================================")
 
 
 if __name__ == '__main__':
