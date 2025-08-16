@@ -31,7 +31,7 @@ def get_engine():
         print('SUCCESS: Engine loaded and cached for future requests in Orchestrator.')
     return _bayesian_engine_instance
 
-def run_full_pipeline(patient_id: str, patient_data: dict) -> dict:
+def run_full_pipeline(patient_id: str, patient_data: dict, initial_prior: float = 0.20) -> dict:
     """
     Runs the full diagnostic pipeline for a single patient and returns the results.
     Integrates the new Bayesian Engine and its explainability trail.
@@ -51,7 +51,7 @@ def run_full_pipeline(patient_id: str, patient_data: dict) -> dict:
         axis1_evidence=axis1_evidence_list,
         axis2_evidence=axis2_evidence_list,
         disease="Alzheimer's Disease",
-        initial_prior=0.20
+        initial_prior=initial_prior
     )
     axis2_results = {
         "disease": "Alzheimer's Disease",
