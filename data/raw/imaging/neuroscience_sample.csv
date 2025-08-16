@@ -1,0 +1,6 @@
+SubjectID,Age,Gender,MemoryScore,AttentionScore,HippocampusVolume_mm3,Diagnosis
+001,25,M,85,92,4500,Control
+002,30,F,78,88,4350,Control
+003,68,M,55,62,3200,AD
+004,72,F,50,58,3150,AD
+005,45,F,70,75,4000,MCI

@@ -5,7 +5,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Parse GWAS Catalog API JSON to a TSV file.")
     parser.add_argument("--input-json", required=True, help="Path to the input raw JSON file.")
-    parser.add_argument("--output-tsv", required=True, help="Path for the output TSV file.")
+    parser.add_argument("--output-csv", required=True, help="Path for the output TSV file.")
     args = parser.parse_args()
 
     print(f"INFO: Reading raw JSON from {args.input_json}...")
@@ -40,8 +40,8 @@ def main():
         })
         
     df = pd.DataFrame(processed_data)
-    print(f"INFO: Writing processed data to {args.output_tsv}...")
-    df.to_csv(args.output_tsv, sep='\t', index=False)
+    print(f"INFO: Writing processed data to {args.output_csv}...")
+    df.to_csv(args.output_csv, sep='\t', index=False)
     print("SUCCESS: TSV file created.")
 
 if __name__ == "__main__":

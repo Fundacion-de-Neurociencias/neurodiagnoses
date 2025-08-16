@@ -1,0 +1,5 @@
+axis,biomarker_name,statistic_type,value,ci_lower,ci_upper,sample_size,primary_disease,cohort_description,source_snippet
+3,HippocampusVolume_mm3,distribution_mean,3175.0,,,,Alzheimer's Disease vs Control,ADNI cohort - AD group,ADNI Cortical Thickness Sample Dataset
+3,HippocampusVolume_mm3,distribution_std,35.35533905932738,,,,Alzheimer's Disease vs Control,ADNI cohort - AD group,ADNI Cortical Thickness Sample Dataset
+3,HippocampusVolume_mm3,distribution_mean,4425.0,,,,Alzheimer's Disease vs Control,ADNI cohort - Control group,ADNI Cortical Thickness Sample Dataset
+3,HippocampusVolume_mm3,distribution_std,106.06601717798213,,,,Alzheimer's Disease vs Control,ADNI cohort - Control group,ADNI Cortical Thickness Sample Dataset
