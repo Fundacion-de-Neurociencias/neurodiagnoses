@@ -28,7 +28,7 @@ class BayesianEngine:
         ].iloc[0]
         mean = row['value']
         std = ((row['ci_upper'] - row['ci_lower']) / 4.0) if pd.notna(row['ci_upper']) else 0.05
-        return mean, std
+        return mean, std, row['source_snippet']
 
     def _get_axis1_odds_ratio(self, variant_id: str, disease: str) -> float:
         """Finds the Odds Ratio for a given genetic variant."""
@@ -58,48 +58,48 @@ class BayesianEngine:
         print(f"Patient Evidence (Axis 1 - Genetics): {axis1_evidence}")
         print(f"Patient Evidence (Axis 2 - Molecular): {axis2_evidence}")
         print("----------------------------------------------------------")
-
         current_prob = initial_prior
-        
-        # --- Procesar Evidencia del Eje 1 ---
+        evidence_trail = []
         print("\n--- Processing Axis 1 Evidence (Genetics) ---")
         for variant in axis1_evidence:
             try:
-                odds_ratio = self._get_axis1_odds_ratio(variant, disease)
+                row = self.axis1_df[(self.axis1_df['biomarker_name'] == variant) & (self.axis1_df['primary_disease'].str.contains(disease, case=False))].iloc[0]
+                odds_ratio = row['value']
                 print(f"  - Found Evidence: Odds Ratio for {variant} is {odds_ratio:.2f}")
                 new_prob = self.update_belief_with_odds_ratio(current_prob, odds_ratio)
                 print(f"  - Belief Updated: {current_prob:.2%} -> {new_prob:.2%}")
                 current_prob = new_prob
-            except ValueError as e:
-                print(f"  - WARNING: Could not process genetic evidence for '{variant}'. Reason: {e}")
-        
-        # --- Procesar Evidencia del Eje 2 (con Incertidumbre) ---
+                evidence_trail.append(f"[Axis 1] {row['source_snippet']}")
+            except (ValueError, IndexError) as e:
+                print(f"  - WARNING: Could not process genetic evidence for ''{variant}''. Reason: {e}")
         print("\n--- Processing Axis 2 Evidence (Molecular) ---")
         final_posteriors = []
+        # Store snippets used in simulations to avoid duplicates
+        sim_evidence_trail = []
         for i in range(self.num_simulations):
-            sim_prob = current_prob # Empezamos cada simulación desde el prior actualizado por la genética
-            
+            sim_prob = current_prob
             for biomarker in axis2_evidence:
                 try:
-                    sens_mean, sens_std = self._get_axis2_distribution(biomarker, disease)
+                    sens_mean, sens_std, snippet = self._get_axis2_distribution(biomarker, disease)
+                    if i == 0: sim_evidence_trail.append(f"[Axis 2] {snippet}")
                     spec_mean, spec_std = (sens_mean * 1.1, 0.05) # Placeholder para especificidad
-                    
                     sampled_sens = np.clip(np.random.normal(sens_mean, sens_std), 0.01, 0.99)
                     sampled_spec = np.clip(np.random.normal(spec_mean, spec_std), 0.01, 0.99)
-                    
                     sim_prob = self.update_belief_with_likelihood(sim_prob, sampled_sens, sampled_spec)
                 except (IndexError, ValueError):
                     continue
             final_posteriors.append(sim_prob)
-
+        evidence_trail.extend(sim_evidence_trail)
         mean_posterior = np.mean(final_posteriors)
         credibility_interval = np.percentile(final_posteriors, [2.5, 97.5])
-
         print("\n--- [Final Inference Result] ---")
         print(f"Final Posterior Probability (Mean): {mean_posterior:.2%}")
         print(f"95% Credibility Interval: [{credibility_interval[0]:.2%} - {credibility_interval[1]:.2%}]")
+        print("--- Evidence Trail ---")
+        for i, trail in enumerate(evidence_trail):
+            print(f"  {i+1}. {trail}")
         print("--------------------------------")
-        return mean_posterior, credibility_interval
+        return mean_posterior, credibility_interval, evidence_trail
 
 if __name__ == "__main__":
     engine = BayesianEngine(
