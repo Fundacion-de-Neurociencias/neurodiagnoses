@@ -1,10 +1,10 @@
 # app.py
-# The user-facing Gradio dashboard for the Neurodiagnoses Bayesian Engine.
-# (Optimized with Lazy Loading to fit in memory-constrained environments)
+# The user-facing Gradio dashboard for the Neurodiagnoses 'Glass-Box' Engine.
 
 import gradio as gr
-import json
+import pandas as pd
 from pathlib import Path
+import json
 
 # Import the core logic from our backend components
 from unified_orchestrator import run_full_pipeline
@@ -12,111 +12,116 @@ from tools.bayesian_engine.core import BayesianEngine
 
 # --- [OPTIMIZACIÓN]: Singleton Pattern para Carga Perezosa ---
 # No inicializamos el motor aquí para ahorrar memoria en el arranque.
-# Lo haremos solo cuando sea necesario.
 bayesian_engine_instance = None
 
 def get_engine():
-    """
-    Singleton factory to load the Bayesian Engine only once when first needed.
-    """
+    """Singleton factory to load the Bayesian Engine only once."""
     global bayesian_engine_instance
     if bayesian_engine_instance is None:
-        print("INFO: First request received. Lazily loading Bayesian Engine and Knowledge Bases...")
+        print("INFO: First request received. Lazily loading Bayesian Engine and KBs...")
         try:
             bayesian_engine_instance = BayesianEngine(
                 axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
                 axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv")
+                # Add axis3_kb_path here when available
             )
             print("SUCCESS: Engine loaded and cached for future requests.")
         except FileNotFoundError as e:
-            print(f"ERROR: Could not load Knowledge Base. {e}")
-            # Devolvemos un error que se mostrará en la UI
             raise gr.Error(f"CRITICAL ERROR: Knowledge Base file not found. {e}")
     return bayesian_engine_instance
 
 def get_available_evidence():
-    """Gets the available biomarkers from the engine's KB."""
+    """Gets available biomarkers from the KBs to populate the UI dynamically."""
     try:
         engine = get_engine()
         axis1 = engine.axis1_df['biomarker_name'].unique().tolist()
         axis2 = engine.axis2_df['biomarker_name'].unique().tolist()
         return axis1, axis2
     except Exception:
-        # Si falla la carga del motor, devolvemos listas vacías para que la UI no se rompa.
         return [], []
 
-def run_bayesian_diagnosis(prior_prob, axis1_evidence, axis2_evidence):
-    """
-    The main function that connects the Gradio UI to our backend orchestrator.
-    """
+def run_bayesian_diagnosis(subject_id, prior_prob, axis1_evidence, axis2_evidence):
+    """Main function connecting the Gradio UI to our backend orchestrator."""
+    if not subject_id:
+        raise gr.Error("Please provide a Subject ID.")
     if not axis1_evidence and not axis2_evidence:
-        return None, "Please select at least one piece of evidence to run the diagnosis."
+        return None, "<p><i>Please select at least one piece of evidence.</i></p>"
 
-    print("--- [Gradio App] Received request ---")
+    print(f"--- [Gradio App] Received request for Subject: {subject_id} ---")
     
-    # 1. Construir el diccionario de datos del paciente
     patient_data = {
-        "patient_id": "VIRTUAL_PATIENT_01",
+        "patient_id": subject_id,
         "axis1_features": {"main_snp": axis1_evidence} if axis1_evidence else {},
         "axis2_features": {biomarker: "positive" for biomarker in axis2_evidence},
-        "axis3_features": {} # Placeholder for future use
+        "axis3_features": {} # Placeholder for Axis 3
     }
     
-    # 2. Llamar al orquestador (que ahora usará nuestro motor ya cargado)
     try:
-        # Nota: Ya no necesitamos pasar el motor, el orquestador lo crea por sí mismo.
-        # Esto es más limpio. Actualizaremos el orquestador para que también sea lazy.
-        # Por ahora, simplemente lo llamamos.
         results = run_full_pipeline(
             patient_id=patient_data["patient_id"],
             patient_data=patient_data,
             initial_prior=prior_prob
         )
     except Exception as e:
-        # Envia un error visible al usuario en la interfaz de Gradio
         raise gr.Error(f"Backend Error: {e}")
 
-    # 3. Formatear la salida para la UI
+    # Format the rich output for display
     prob = results["axis2_results"]["posterior_probability"]
     ci = results["axis2_results"]["credibility_interval_95"]
-    main_result_md = f"""
-    <div style="text-align: center;">
-        <p style="font-size: 1.2em; margin-bottom: 5px;">Posterior Probability of Alzheimer's Disease</p>
-        <p style="font-size: 3em; font-weight: bold; margin-top: 0; margin-bottom: 5px; color: #0b5ed7;">{prob}</p>
-        <p style="font-size: 1em; color: #555;">95% Credibility Interval: {ci}</p>
+    result_md = f"""
+    <div style="text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        <p style="font-size: 1.1em; margin-bottom: 5px;">Posterior Probability of Alzheimer's Disease</p>
+        <p style="font-size: 2.5em; font-weight: bold; margin: 0; color: #0b5ed7;">{prob}</p>
+        <p style="font-size: 0.9em; color: #555;">95% Credibility Interval: {ci}</p>
     </div>
     """
     
     trail = results.get("evidence_trail", [])
     trail_items = "".join(f"<li><p><code>{item}</code></p></li>" for item in trail)
-    evidence_trail_md = f"<ol>{trail_items}</ol>" if trail_items else "No evidence trail was generated."
+    trail_md = f"<ol>{trail_items}</ol>" if trail_items else "No evidence trail was generated."
         
-    return main_result_md, evidence_trail_md
+    return result_md, trail_md
 
 # --- Gradio Interface Definition ---
-with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses Glass-Box Engine") as app:
-    gr.Markdown("# Neurodiagnoses: The Glass-Box Diagnostic Engine")
-    gr.Markdown("Construct a virtual patient by selecting evidence. The Bayesian Engine will calculate the probability of Alzheimer's Disease and show the evidence it used.")
+# Load evidence choices once when the script starts
+AVAILABLE_AXIS1, AVAILABLE_AXIS2 = get_available_evidence()
 
-    # Obtenemos las evidencias disponibles una sola vez al cargar la UI
-    AVAILABLE_AXIS1, AVAILABLE_AXIS2 = get_available_evidence()
+with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
+    gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub")
+    gr.Markdown("""
+    **⚠️ Research Use Only Disclaimer**
+    This is a developmental tool intended for research purposes only. It is not a medical device and has not been validated or approved by the FDA, EMA, or any other regulatory body. Do not use for clinical diagnosis or patient management. The user assumes all responsibility for data confidentiality and usage.
+    """)
 
-    with gr.Row():
-        with gr.Column(scale=1):
-            gr.Markdown("### 1. Define Patient Evidence")
-            prior_slider = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, value=0.20, label="Initial Clinical Suspicion (Prior)")
-            axis1_dropdown = gr.Dropdown(choices=AVAILABLE_AXIS1, label="Axis 1: Genetic Evidence")
-            axis2_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS2, label="Axis 2: Molecular Biomarkers (Positive)")
-            run_btn = gr.Button("Run Diagnosis", variant="primary")
-        with gr.Column(scale=2):
-            gr.Markdown("### 2. Diagnostic Result")
-            result_display = gr.HTML(label="Posterior Probability")
-            with gr.Accordion("Show Evidence Trail (The 'Why')", open=False):
-                evidence_display = gr.HTML()
+    with gr.Tab("Single Case Analysis"):
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### 1. Define Case Evidence")
+                subject_id_input = gr.Textbox(label="Subject ID", value="ND_Case_001")
+                prior_slider = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, value=0.20, label="Initial Clinical Suspicion (Prior)")
+                
+                with gr.Accordion("Axis 1: Etiology (Genetics)", open=True):
+                    axis1_dropdown = gr.Dropdown(choices=AVAILABLE_AXIS1, label="Genetic Variant")
+                
+                with gr.Accordion("Axis 2: Molecular Profile (Biomarkers)", open=True):
+                    axis2_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS2, label="Positive Biomarkers")
+                
+                run_btn = gr.Button("Run Diagnosis", variant="primary", scale=2)
 
+            with gr.Column(scale=2):
+                gr.Markdown("### 2. Diagnostic Result")
+                result_display = gr.HTML(label="Posterior Probability")
+                with gr.Accordion("Evidence Trail (The 'Why')", open=True):
+                    evidence_display = gr.HTML()
+
+    with gr.Tab("Batch Cohort Analysis"):
+        gr.Markdown("*(Coming Soon)*: This section will allow you to upload a CSV file with a cohort of subjects and receive a downloadable CSV with their diagnostic probabilities.")
+
+
+    # --- Event Handling ---
     run_btn.click(
         fn=run_bayesian_diagnosis,
-        inputs=[prior_slider, axis1_dropdown, axis2_checkboxes],
+        inputs=[subject_id_input, prior_slider, axis1_dropdown, axis2_checkboxes],
         outputs=[result_display, evidence_display]
     )
 
