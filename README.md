@@ -134,5 +134,12 @@ Create a new codespace from the repository's main page on GitHub.
 In the Codespace terminal, install the required Python packages:
 ```bash
 pip install -r requirements.txt
+3. Launch the Interactive UI
+The main entry point to the ecosystem is the Gradio application. This interface allows you to perform tridimensional diagnoses on virtual cases and add new knowledge to the system.
+
+Bash
+
+python app.py
+After running the command, navigate to the PORTS tab in your Codespace terminal, find the entry for port 7860, and click the globe icon (🌐) to open the application in your browser.
 ## How to Contribute
 This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
