@@ -1,25 +1,42 @@
-biomarker_name,statistic_type,value,ci_lower,ci_upper,primary_disease,source_snippet
-rs997277,odds_ratio,1.63,,,Parkinson disease and lewy body pathology,25663231
-rs10788972,odds_ratio,1.56,,,Parkinson disease and lewy body pathology,25663231
-rs78736162,odds_ratio,2.79,,,Parkinson disease and lewy body pathology,25663231
-rs6465122,odds_ratio,1.67,,,Parkinson disease and lewy body pathology,25663231
-rs12921479,odds_ratio,1.54,,,Parkinson disease and lewy body pathology,25663231
-rs141863958,odds_ratio,3.32,,,Parkinson disease and lewy body pathology,25663231
-rs816535,odds_ratio,1.8,,,Parkinson disease and lewy body pathology,25663231
-rs7984966,odds_ratio,1.61,,,Parkinson disease and lewy body pathology,25663231
-rs4778720,odds_ratio,1.46,,,Parkinson disease and lewy body pathology,25663231
-rs12959200,odds_ratio,1.68,,,Parkinson disease and lewy body pathology,25663231
-rs2243170,odds_ratio,1.65,,,Alzheimer's disease (survival time),25649651
-rs7588354,odds_ratio,1.5151515,,,Alzheimer's disease (survival time),25649651
-rs2400749,odds_ratio,1.3888888,,,Alzheimer's disease (survival time),25649651
-rs840163,odds_ratio,1.4,,,Alzheimer's disease (survival time),25649651
-rs4474465,odds_ratio,1.44,,,Alzheimer's disease (survival time),25649651
-rs6695033,odds_ratio,2.71,,,Alzheimer's disease (survival time),25649651
-rs11601321,odds_ratio,1.63,,,Alzheimer's disease (survival time),25649651
-rs17090219,odds_ratio,5.15,3.33,6.97,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs3936289,odds_ratio,3.34,2.09,4.59,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs56378310,odds_ratio,2.98,1.8,4.16,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs192470679,odds_ratio,2.89,1.73,4.05,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs11121365,odds_ratio,5.76,3.45,8.07,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs2484,odds_ratio,4.53,2.69,6.37,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs10903488,odds_ratio,4.58,2.7,6.46,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+DISEASE_TRAIT	SNP_ID	P_VALUE	ODDS_RATIO	BETA	RISK_ALLELE	REPORTED_GENE
+N/A	rs0	N/A			N/A	N/A
+N/A	rs0	N/A			N/A	N/A
+N/A	rs0	N/A			N/A	N/A
+N/A	rs0	N/A	1.105		N/A	N/A
+N/A	rs0	N/A	1.41		N/A	N/A
+N/A	rs0	N/A		0.02	N/A	N/A
+N/A	rs0	N/A	1.44		N/A	N/A
+N/A	rs0	N/A	1.29		N/A	N/A
+N/A	rs0	N/A		0.01	N/A	N/A
+N/A	rs0	N/A		1.09	N/A	N/A
+N/A	rs0	N/A		0.4	N/A	N/A
+N/A	rs0	N/A		0.46	N/A	N/A
+N/A	rs0	N/A		0.71	N/A	N/A
+N/A	rs0	N/A		0.42	N/A	N/A
+N/A	rs0	N/A		1.06	N/A	N/A
+N/A	rs0	N/A		0.63	N/A	N/A
+N/A	rs0	N/A		0.07	N/A	N/A
+N/A	rs0	N/A		0.07	N/A	N/A
+N/A	rs0	N/A		0.07	N/A	N/A
+N/A	rs0	N/A		0.06	N/A	N/A
+1,APOE4,odds_ratio,3.8,2.38,6.07,,Global Hispanic populations from different ethnic regions of origin,Alzheimer's disease and related dementias,PMID:37483326 | J Alzheimers Dis. 2023;93(3):1095-1109.
+1,APOE4,odds_ratio,4.61,2.74,7.75,,South American subgroup,Alzheimer's disease and related dementias,PMID:37483326 | J Alzheimers Dis. 2023;93(3):1095-1109.
+1,18F-florbetapir,sensitivity,67.0,30.0,93.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) by visual assessment (n = 47, 1 study)."
+1,18F-florbetapir,sensitivity,89.0,78.0,95.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
+1,18F-florbetapir,specificity,71.0,54.0,85.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) and a specificity of 71% (95% CI 54 to 85) by visual assessment (n = 47, 1 study)."
+1,18F-florbetapir,specificity,58.0,53.0,64.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) and a specificity of 58% (95% CI 53 to 64) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) and a specificity of 51% (95% CI 45 to 56) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
+1,18F-flutemetamol,sensitivity,89.0,52.0,100.0,19,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at two years of follow-up had a sensitivity of 89% (95% CI 52 to 100) and a specificity of 80% (95% CI 44 to 97) by quantitative assessment by SUVR (n = 19, 1 study)."
+1,18F-flutemetamol,sensitivity,64.0,53.0,75.0,224,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at three years of follow-up had a sensitivity of 64% (95% CI 53 to 75) and a specificity of 69% (95% CI 60 to 76) by visual assessment (n = 224, 1 study)."
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,18F-florbetapir,sensitivity,67.0,30.0,93.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) by visual assessment (n = 47, 1 study)."
+1,18F-florbetapir,sensitivity,89.0,78.0,95.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
+1,18F-florbetapir,specificity,71.0,54.0,85.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) and a specificity of 71% (95% CI 54 to 85) by visual assessment (n = 47, 1 study)."
+1,18F-florbetapir,specificity,58.0,53.0,64.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) and a specificity of 58% (95% CI 53 to 64) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) and a specificity of 51% (95% CI 45 to 56) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
+1,18F-flutemetamol,sensitivity,89.0,52.0,100.0,19,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at two years of follow-up had a sensitivity of 89% (95% CI 52 to 100) and a specificity of 80% (95% CI 44 to 97) by quantitative assessment by SUVR (n = 19, 1 study)."
+1,18F-flutemetamol,sensitivity,64.0,53.0,75.0,224,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at three years of follow-up had a sensitivity of 64% (95% CI 53 to 75) and a specificity of 69% (95% CI 60 to 76) by visual assessment (n = 224, 1 study)."
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
+1,GBA,odds_ratio,1.82,,,,Patients with PD,Parkinson's disease,PMID:35395825 | Transl Neurodegener. 2022 Apr 8;11(1):21. doi: 10.1186/s40035-022-00294-1.
