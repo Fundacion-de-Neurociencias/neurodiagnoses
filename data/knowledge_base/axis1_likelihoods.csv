@@ -1,4 +1,14 @@
 biomarker_name,statistic_type,value,ci_lower,ci_upper,primary_disease,source_snippet
+rs997277,odds_ratio,1.63,,,Parkinson disease and lewy body pathology,25663231
+rs10788972,odds_ratio,1.56,,,Parkinson disease and lewy body pathology,25663231
+rs78736162,odds_ratio,2.79,,,Parkinson disease and lewy body pathology,25663231
+rs6465122,odds_ratio,1.67,,,Parkinson disease and lewy body pathology,25663231
+rs12921479,odds_ratio,1.54,,,Parkinson disease and lewy body pathology,25663231
+rs141863958,odds_ratio,3.32,,,Parkinson disease and lewy body pathology,25663231
+rs816535,odds_ratio,1.8,,,Parkinson disease and lewy body pathology,25663231
+rs7984966,odds_ratio,1.61,,,Parkinson disease and lewy body pathology,25663231
+rs4778720,odds_ratio,1.46,,,Parkinson disease and lewy body pathology,25663231
+rs12959200,odds_ratio,1.68,,,Parkinson disease and lewy body pathology,25663231
 rs2243170,odds_ratio,1.65,,,Alzheimer's disease (survival time),25649651
 rs7588354,odds_ratio,1.5151515,,,Alzheimer's disease (survival time),25649651
 rs2400749,odds_ratio,1.3888888,,,Alzheimer's disease (survival time),25649651
@@ -6,10 +16,10 @@ rs840163,odds_ratio,1.4,,,Alzheimer's disease (survival time),25649651
 rs4474465,odds_ratio,1.44,,,Alzheimer's disease (survival time),25649651
 rs6695033,odds_ratio,2.71,,,Alzheimer's disease (survival time),25649651
 rs11601321,odds_ratio,1.63,,,Alzheimer's disease (survival time),25649651
-rs17090219,odds_ratio,5.15,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs3936289,odds_ratio,3.34,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs56378310,odds_ratio,2.98,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs192470679,odds_ratio,2.89,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs11121365,odds_ratio,5.76,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs2484,odds_ratio,4.53,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
-rs10903488,odds_ratio,4.58,,,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs17090219,odds_ratio,5.15,3.33,6.97,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs3936289,odds_ratio,3.34,2.09,4.59,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs56378310,odds_ratio,2.98,1.8,4.16,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs192470679,odds_ratio,2.89,1.73,4.05,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs11121365,odds_ratio,5.76,3.45,8.07,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs2484,odds_ratio,4.53,2.69,6.37,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309
+rs10903488,odds_ratio,4.58,2.7,6.46,Accelerated cognitive decline after conversion of mild cognitive impairment to Alzheimer's disease (Alzhiemer's diagnosis trajectory interaction),28560309

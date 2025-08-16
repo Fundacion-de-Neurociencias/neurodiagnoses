@@ -18,16 +18,26 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # --- [MODIFICACIÓN 2]: Imports Nuevos ---
 from tools.bayesian_engine.core import BayesianEngine
 
+# --- Singleton Pattern for Lazy Loading ---
+_bayesian_engine_instance = None
+def get_engine():
+    global _bayesian_engine_instance
+    if _bayesian_engine_instance is None:
+        print('INFO: Lazily loading Bayesian Engine and Knowledge Bases in Orchestrator...')
+        _bayesian_engine_instance = BayesianEngine(
+            axis1_kb_path=Path('data/knowledge_base/axis1_likelihoods.csv'),
+            axis2_kb_path=Path('data/knowledge_base/axis2_likelihoods.csv')
+        )
+        print('SUCCESS: Engine loaded and cached for future requests in Orchestrator.')
+    return _bayesian_engine_instance
+
 def run_full_pipeline(patient_id: str, patient_data: dict) -> dict:
     """
     Runs the full diagnostic pipeline for a single patient and returns the results.
     Integrates the new Bayesian Engine and its explainability trail.
     """
     print(f"--- Running Full Pipeline for Subject ID: {patient_id} ---")
-    bayesian_engine = BayesianEngine(
-        axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
-        axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv")
-    )
+    bayesian_engine = get_engine()
     patient_genetics = patient_data.get("axis1_features", {})
     patient_molecular = patient_data.get("axis2_features", {})
     patient_phenotype = patient_data.get("axis3_features", {})

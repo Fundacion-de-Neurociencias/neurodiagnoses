@@ -3,117 +3,86 @@ from pathlib import Path
 import numpy as np
 
 class BayesianEngine:
-    def __init__(self, axis2_kb_path: Path, axis1_kb_path: Path, num_simulations: int = 10000):
-        # Carga de múltiples bases de conocimiento
-        self.axis2_df = self._load_knowledge_base(axis2_kb_path, "Axis 2")
+    def __init__(self, axis1_kb_path: Path, axis2_kb_path: Path, num_simulations: int = 10000):
         self.axis1_df = self._load_knowledge_base(axis1_kb_path, "Axis 1")
+        self.axis2_df = self._load_knowledge_base(axis2_kb_path, "Axis 2")
         self.num_simulations = num_simulations
-        print(f"INFO: Engine initialized for {self.num_simulations} simulations.")
 
     def _load_knowledge_base(self, kb_path: Path, axis_name: str) -> pd.DataFrame:
-        if not kb_path.exists():
-            raise FileNotFoundError(f"{axis_name} KB file not found at: {kb_path}")
-        print(f"INFO: Loading {axis_name} KB from {kb_path}...")
+        if not kb_path.exists(): raise FileNotFoundError(f"{axis_name} KB file not found at: {kb_path}")
         df = pd.read_csv(kb_path)
         for col in ['value', 'ci_lower', 'ci_upper']:
-            if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors='coerce')
-        print(f"SUCCESS: {axis_name} Knowledge Base loaded.")
+            if col in df.columns: df[col] = pd.to_numeric(df[col], errors='coerce')
         return df
 
-    def _get_axis2_distribution(self, biomarker: str, disease: str):
-        row = self.axis2_df[
-            (self.axis2_df['biomarker_name'] == biomarker) &
-            (self.axis2_df['primary_disease'].str.contains(disease, case=False))
+    def _get_distribution_params(self, df: pd.DataFrame, biomarker: str, disease: str, stat_types: list):
+        """Helper to get distribution parameters (mean, std) for any evidence."""
+        row = df[
+            (df['biomarker_name'] == biomarker) &
+            (df['statistic_type'].isin(stat_types)) &
+            (df['primary_disease'].str.contains(disease, case=False, na=False))
         ].iloc[0]
         mean = row['value']
-        std = ((row['ci_upper'] - row['ci_lower']) / 4.0) if pd.notna(row['ci_upper']) else 0.05
+        std = ((row['ci_upper'] - row['ci_lower']) / 4.0) if pd.notna(row['ci_upper']) else 0.1 * abs(mean) # Estimate std as 10% of mean if CI is missing
         return mean, std, row['source_snippet']
 
-    def _get_axis1_odds_ratio(self, variant_id: str, disease: str) -> float:
-        """Finds the Odds Ratio for a given genetic variant."""
-        row = self.axis1_df[
-            (self.axis1_df['biomarker_name'] == variant_id) &
-            (self.axis1_df['primary_disease'].str.contains(disease, case=False))
-        ]
-        if row.empty:
-            raise ValueError(f"Odds Ratio not found for variant '{variant_id}'")
-        return row.iloc[0]['value']
-
     def update_belief_with_likelihood(self, prior, sensitivity, specificity):
+        # ... (código sin cambios)
         false_positive_rate = 1 - specificity
         p_evidence = (sensitivity * prior) + (false_positive_rate * (1 - prior))
         return (sensitivity * prior) / p_evidence if p_evidence > 0 else 0.0
-    
+
     def update_belief_with_odds_ratio(self, prior, odds_ratio):
-        """Updates a prior probability using an Odds Ratio."""
+        # ... (código sin cambios)
         prior_odds = prior / (1 - prior)
         posterior_odds = prior_odds * odds_ratio
-        posterior_prob = posterior_odds / (1 + posterior_odds)
-        return posterior_prob
+        return posterior_odds / (1 + posterior_odds)
 
     def run_full_inference(self, axis1_evidence: list, axis2_evidence: list, disease: str, initial_prior: float):
-        print("\n--- [Full Tridimensional Inference Scenario (Axis 1 & 2)] ---")
-        print(f"Initial Belief (Prior) for {disease}: {initial_prior:.2%}")
-        print(f"Patient Evidence (Axis 1 - Genetics): {axis1_evidence}")
-        print(f"Patient Evidence (Axis 2 - Molecular): {axis2_evidence}")
-        print("----------------------------------------------------------")
-        current_prob = initial_prior
-        evidence_trail = []
-        print("\n--- Processing Axis 1 Evidence (Genetics) ---")
-        for variant in axis1_evidence:
-            try:
-                row = self.axis1_df[(self.axis1_df['biomarker_name'] == variant) & (self.axis1_df['primary_disease'].str.contains(disease, case=False))].iloc[0]
-                odds_ratio = row['value']
-                print(f"  - Found Evidence: Odds Ratio for {variant} is {odds_ratio:.2f}")
-                new_prob = self.update_belief_with_odds_ratio(current_prob, odds_ratio)
-                print(f"  - Belief Updated: {current_prob:.2%} -> {new_prob:.2%}")
-                current_prob = new_prob
-                evidence_trail.append(f"[Axis 1] {row['source_snippet']}")
-            except (ValueError, IndexError) as e:
-                print(f"  - WARNING: Could not process genetic evidence for ''{variant}''. Reason: {e}")
-        print("\n--- Processing Axis 2 Evidence (Molecular) ---")
+        print("\n--- [Full Tridimensional Inference with Full Uncertainty] ---")
         final_posteriors = []
-        # Store snippets used in simulations to avoid duplicates
-        sim_evidence_trail = []
+        evidence_trail = []
+        
+        # --- [MEJORA]: El bucle de Monte Carlo ahora engloba TODOS los ejes ---
         for i in range(self.num_simulations):
-            sim_prob = current_prob
+            current_prob = initial_prior
+            
+            # --- Procesa Eje 1 con Incertidumbre ---
+            for variant in axis1_evidence:
+                try:
+                    or_mean, or_std, snippet = self._get_distribution_params(self.axis1_df, variant, disease, ['odds_ratio'])
+                    if i == 0: evidence_trail.append(f"[Axis 1] {snippet}") # Add to trail only once
+                    
+                    sampled_or = np.random.normal(or_mean, or_std)
+                    sampled_or = np.clip(sampled_or, 0.1, 20.0) # Clamp to reasonable values
+                    current_prob = self.update_belief_with_odds_ratio(current_prob, sampled_or)
+                except (ValueError, IndexError):
+                    continue
+
+            # --- Procesa Eje 2 con Incertidumbre ---
             for biomarker in axis2_evidence:
                 try:
-                    sens_mean, sens_std, snippet = self._get_axis2_distribution(biomarker, disease)
-                    if i == 0: sim_evidence_trail.append(f"[Axis 2] {snippet}")
-                    spec_mean, spec_std = (sens_mean * 1.1, 0.05) # Placeholder para especificidad
+                    sens_mean, sens_std, snippet = self._get_distribution_params(self.axis2_df, biomarker, disease, ['sensitivity', 'auc', 'c-index'])
+                    if i == 0: evidence_trail.append(f"[Axis 2] {snippet}")
+                    
+                    # Placeholder para especificidad
+                    spec_mean, spec_std = (sens_mean * 1.1, 0.05)
+                    
                     sampled_sens = np.clip(np.random.normal(sens_mean, sens_std), 0.01, 0.99)
                     sampled_spec = np.clip(np.random.normal(spec_mean, spec_std), 0.01, 0.99)
-                    sim_prob = self.update_belief_with_likelihood(sim_prob, sampled_sens, sampled_spec)
+                    current_prob = self.update_belief_with_likelihood(current_prob, sampled_sens, sampled_spec)
                 except (IndexError, ValueError):
                     continue
-            final_posteriors.append(sim_prob)
-        evidence_trail.extend(sim_evidence_trail)
+
+            final_posteriors.append(current_prob)
+            
         mean_posterior = np.mean(final_posteriors)
         credibility_interval = np.percentile(final_posteriors, [2.5, 97.5])
-        print("\n--- [Final Inference Result] ---")
+
         print(f"Final Posterior Probability (Mean): {mean_posterior:.2%}")
         print(f"95% Credibility Interval: [{credibility_interval[0]:.2%} - {credibility_interval[1]:.2%}]")
-        print("--- Evidence Trail ---")
-        for i, trail in enumerate(evidence_trail):
-            print(f"  {i+1}. {trail}")
-        print("--------------------------------")
         return mean_posterior, credibility_interval, evidence_trail
 
 if __name__ == "__main__":
-    engine = BayesianEngine(
-        axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv"),
-        axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv")
-    )
-    
-    # Paciente con evidencia genética y molecular
-    patient_axis1 = ["rs6695033"] # OR de 2.71
-    patient_axis2 = ["p-tau181"]  # AUC de 0.74
-
-    engine.run_full_inference(
-        axis1_evidence=patient_axis1,
-        axis2_evidence=patient_axis2,
-        disease="Alzheimer's Disease",
-        initial_prior=0.10 # Un prior más bajo, de un paciente más joven por ejemplo
-    )
+    # Esta sección queda para pruebas directas, la UI usará el orquestador
+    pass

@@ -1,119 +1,123 @@
-# -*- coding: utf-8 -*-
-"""
-Clinical Decision Support Dashboard.
-(Refactored to use gr.Plot for direct Matplotlib rendering)
-"""
+# app.py
+# The user-facing Gradio dashboard for the Neurodiagnoses Bayesian Engine.
+# (Optimized with Lazy Loading to fit in memory-constrained environments)
 
 import gradio as gr
-import pandas as pd
-import os
 import json
-from datetime import datetime
-from tools.ml_pipelines.explainability import XAIReport
+from pathlib import Path
 
-# --- Configuration ---
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'processed')
-MODEL_REGISTRY_DIR = os.path.join(PROJECT_ROOT, 'models')
-REPORTS_DIR = os.path.join(PROJECT_ROOT, 'reports')
-DISEASE_COHORTS = ['AD', 'FTD']
+# Import the core logic from our backend components
+from unified_orchestrator import run_full_pipeline
+from tools.bayesian_engine.core import BayesianEngine
 
-def load_patient_ids(diagnosis_code):
-    if not diagnosis_code:
-        return gr.Dropdown(choices=[])
+# --- [OPTIMIZACIÓN]: Singleton Pattern para Carga Perezosa ---
+# No inicializamos el motor aquí para ahorrar memoria en el arranque.
+# Lo haremos solo cuando sea necesario.
+bayesian_engine_instance = None
+
+def get_engine():
+    """
+    Singleton factory to load the Bayesian Engine only once when first needed.
+    """
+    global bayesian_engine_instance
+    if bayesian_engine_instance is None:
+        print("INFO: First request received. Lazily loading Bayesian Engine and Knowledge Bases...")
+        try:
+            bayesian_engine_instance = BayesianEngine(
+                axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
+                axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv")
+            )
+            print("SUCCESS: Engine loaded and cached for future requests.")
+        except FileNotFoundError as e:
+            print(f"ERROR: Could not load Knowledge Base. {e}")
+            # Devolvemos un error que se mostrará en la UI
+            raise gr.Error(f"CRITICAL ERROR: Knowledge Base file not found. {e}")
+    return bayesian_engine_instance
+
+def get_available_evidence():
+    """Gets the available biomarkers from the engine's KB."""
     try:
-        data_path = os.path.join(DATA_DIR, f'featured_data_{diagnosis_code}.parquet')
-        df = pd.read_parquet(data_path)
-        return gr.Dropdown(choices=df['patient_id'].tolist())
-    except FileNotFoundError:
-        return gr.Dropdown(choices=[])
+        engine = get_engine()
+        axis1 = engine.axis1_df['biomarker_name'].unique().tolist()
+        axis2 = engine.axis2_df['biomarker_name'].unique().tolist()
+        return axis1, axis2
+    except Exception:
+        # Si falla la carga del motor, devolvemos listas vacías para que la UI no se rompa.
+        return [], []
 
-def handle_feedback(diagnosis_code, patient_id, agreement, notes):
-    if not all([diagnosis_code, patient_id, agreement, notes]):
-        return "<span style='color:red'>Please fill all feedback fields.</span>"
+def run_bayesian_diagnosis(prior_prob, axis1_evidence, axis2_evidence):
+    """
+    The main function that connects the Gradio UI to our backend orchestrator.
+    """
+    if not axis1_evidence and not axis2_evidence:
+        return None, "Please select at least one piece of evidence to run the diagnosis."
+
+    print("--- [Gradio App] Received request ---")
     
-    feedback_data = {
-        'timestamp': [datetime.now().isoformat()], 'diagnosis_code': [diagnosis_code],
-        'patient_id': [patient_id], 'agreement': [agreement], 'notes': [notes]
+    # 1. Construir el diccionario de datos del paciente
+    patient_data = {
+        "patient_id": "VIRTUAL_PATIENT_01",
+        "axis1_features": {"main_snp": axis1_evidence} if axis1_evidence else {},
+        "axis2_features": {biomarker: "positive" for biomarker in axis2_evidence},
+        "axis3_features": {} # Placeholder for future use
     }
-    feedback_df = pd.DataFrame(feedback_data)
     
-    feedback_file = os.path.join(REPORTS_DIR, 'clinical_feedback.csv')
-    feedback_df.to_csv(feedback_file, mode='a', header=not os.path.exists(feedback_file), index=False)
-    
-    return f"<span style='color:green'>Feedback for {patient_id} submitted successfully!</span>"
-
-def generate_clinical_report(diagnosis_code, patient_id):
-    if not diagnosis_code or not patient_id:
-        return "Please select a diagnosis and patient first.", None, "", ""
-
+    # 2. Llamar al orquestador (que ahora usará nuestro motor ya cargado)
     try:
-        # 1. Load Model Card
-        card_path = os.path.join(MODEL_REGISTRY_DIR, diagnosis_code, 'screening_model_card.json')
-        with open(card_path, 'r') as f:
-            model_card = json.load(f)
-        model_card_html = f"""<b>Model Name:</b> {model_card['model_name']}<br>
-                              <b>Version:</b> {model_card['model_version']}<br>
-                              <b>Intended Use:</b> {model_card['intended_use']}<br>
-                              <b>Limitations:</b> <span style='color:red;'>{model_card['limitations']}</span>"""
-
-        # 2. Generate XAI Report Assets
-        xai_generator = XAIReport(diagnosis_code, patient_id)
-        report_assets = xai_generator.generate_report_assets()
-        
-        xai_summary_html = f"""<h3>Prediction Summary</h3>
-                               {report_assets['text_summary']}
-                               <h3>Prediction Explanation</h3>
-                               <p>The plot below shows features pushing the prediction higher (red) or lower (blue).</p>"""
-        xai_plot_figure = report_assets['plot_figure']
-        
-        # 3. Get Raw Patient Data for display
-        patient_data_html = xai_generator.patient_data.to_html(index=False)
-
-        return xai_summary_html, xai_plot_figure, model_card_html, patient_data_html
-
+        # Nota: Ya no necesitamos pasar el motor, el orquestador lo crea por sí mismo.
+        # Esto es más limpio. Actualizaremos el orquestador para que también sea lazy.
+        # Por ahora, simplemente lo llamamos.
+        results = run_full_pipeline(
+            patient_id=patient_data["patient_id"],
+            patient_data=patient_data,
+            initial_prior=prior_prob
+        )
     except Exception as e:
-        return f"<pre>An error occurred: {e}</pre>", None, "", ""
+        # Envia un error visible al usuario en la interfaz de Gradio
+        raise gr.Error(f"Backend Error: {e}")
+
+    # 3. Formatear la salida para la UI
+    prob = results["axis2_results"]["posterior_probability"]
+    ci = results["axis2_results"]["credibility_interval_95"]
+    main_result_md = f"""
+    <div style="text-align: center;">
+        <p style="font-size: 1.2em; margin-bottom: 5px;">Posterior Probability of Alzheimer's Disease</p>
+        <p style="font-size: 3em; font-weight: bold; margin-top: 0; margin-bottom: 5px; color: #0b5ed7;">{prob}</p>
+        <p style="font-size: 1em; color: #555;">95% Credibility Interval: {ci}</p>
+    </div>
+    """
+    
+    trail = results.get("evidence_trail", [])
+    trail_items = "".join(f"<li><p><code>{item}</code></p></li>" for item in trail)
+    evidence_trail_md = f"<ol>{trail_items}</ol>" if trail_items else "No evidence trail was generated."
+        
+    return main_result_md, evidence_trail_md
 
 # --- Gradio Interface Definition ---
-with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses Clinical Support") as app:
-    gr.Markdown("# Neurodiagnoses Clinical Decision Support Prototype")
-    gr.Markdown("Select a disorder and patient to generate a full diagnostic and explainability report.")
+with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses Glass-Box Engine") as app:
+    gr.Markdown("# Neurodiagnoses: The Glass-Box Diagnostic Engine")
+    gr.Markdown("Construct a virtual patient by selecting evidence. The Bayesian Engine will calculate the probability of Alzheimer's Disease and show the evidence it used.")
+
+    # Obtenemos las evidencias disponibles una sola vez al cargar la UI
+    AVAILABLE_AXIS1, AVAILABLE_AXIS2 = get_available_evidence()
 
     with gr.Row():
         with gr.Column(scale=1):
-            diag_dropdown = gr.Dropdown(label="1. Select Diagnosis Cohort", choices=DISEASE_COHORTS)
-            patient_dropdown = gr.Dropdown(label="2. Select Patient ID", interactive=True)
-            report_btn = gr.Button("Generate Report", variant="primary")
-            
-            gr.Markdown("### Patient Data")
-            patient_data_display = gr.HTML()
+            gr.Markdown("### 1. Define Patient Evidence")
+            prior_slider = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, value=0.20, label="Initial Clinical Suspicion (Prior)")
+            axis1_dropdown = gr.Dropdown(choices=AVAILABLE_AXIS1, label="Axis 1: Genetic Evidence")
+            axis2_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS2, label="Axis 2: Molecular Biomarkers (Positive)")
+            run_btn = gr.Button("Run Diagnosis", variant="primary")
+        with gr.Column(scale=2):
+            gr.Markdown("### 2. Diagnostic Result")
+            result_display = gr.HTML(label="Posterior Probability")
+            with gr.Accordion("Show Evidence Trail (The 'Why')", open=False):
+                evidence_display = gr.HTML()
 
-        with gr.Column(scale=3):
-            gr.Markdown("### Model Information (from Model Card)")
-            model_card_display = gr.HTML()
-            gr.Markdown("### Explainable AI (XAI) Report")
-            xai_summary_display = gr.HTML()
-            xai_plot_display = gr.Plot(label="SHAP Force Plot") # Use gr.Plot now
-            
-            with gr.Accordion("Submit Clinical Feedback", open=False):
-                gr.Markdown("Your feedback is valuable for model improvement.")
-                feedback_agreement = gr.Radio(["Agree", "Disagree"], label="Do you agree with the model's risk assessment?")
-                feedback_notes = gr.Textbox(lines=3, label="Clinical Notes", placeholder="Enter any observations or disagreements here...")
-                feedback_btn = gr.Button("Submit Feedback")
-                feedback_status = gr.Markdown()
-
-    # --- Event Handling ---
-    diag_dropdown.change(fn=load_patient_ids, inputs=diag_dropdown, outputs=patient_dropdown)
-    report_btn.click(
-        fn=generate_clinical_report,
-        inputs=[diag_dropdown, patient_dropdown],
-        outputs=[xai_summary_display, xai_plot_display, model_card_display, patient_data_display]
-    )
-    feedback_btn.click(
-        fn=handle_feedback,
-        inputs=[diag_dropdown, patient_dropdown, feedback_agreement, feedback_notes],
-        outputs=feedback_status
+    run_btn.click(
+        fn=run_bayesian_diagnosis,
+        inputs=[prior_slider, axis1_dropdown, axis2_checkboxes],
+        outputs=[result_display, evidence_display]
     )
 
 if __name__ == "__main__":
