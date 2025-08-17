@@ -1,13 +1,10 @@
-refactor(orchestrator): Integrate Bayesian engine for Axis 2
+docs: Refactor README.md for Open Core model and update Bayesian Engine logic
 
-Replaces the previous black-box ML model call for the molecular
-profile (Axis 2) with the new glass-box BayesianEngine.
+Refactor README.md:
+- Removed obsolete "Multi-Disease XAI Pipeline and Clinical Dashboard" section.
+- Updated "Scientific Foundation & Core Architecture" to remove specific code file references.
+- Aligned public documentation with the "Open Core" model.
 
-The orchestrator now:
-- Initializes the BayesianEngine with the knowledge base.
-- Calls the `run_inference_with_uncertainty` method.
-- Formats the probabilistic output (mean posterior and credibility
-  interval) into the final patient report.
-
-This commit marks the first successful end-to-end integration of the
-new evidence-based reasoning core into the main application workflow.
+feat: Implement Specificity Logic v3.0 in Bayesian Engine:
+- Modified `_get_dist_params` in `tools/bayesian_engine/core.py` to incorporate new specificity logic.
+- Evidence now applies directly to specific disease hypotheses or defaults to neutral values if not specific.
