@@ -1,42 +1,1022 @@
-DISEASE_TRAIT	SNP_ID	P_VALUE	ODDS_RATIO	BETA	RISK_ALLELE	REPORTED_GENE
-N/A	rs0	N/A			N/A	N/A
-N/A	rs0	N/A			N/A	N/A
-N/A	rs0	N/A			N/A	N/A
-N/A	rs0	N/A	1.105		N/A	N/A
-N/A	rs0	N/A	1.41		N/A	N/A
-N/A	rs0	N/A		0.02	N/A	N/A
-N/A	rs0	N/A	1.44		N/A	N/A
-N/A	rs0	N/A	1.29		N/A	N/A
-N/A	rs0	N/A		0.01	N/A	N/A
-N/A	rs0	N/A		1.09	N/A	N/A
-N/A	rs0	N/A		0.4	N/A	N/A
-N/A	rs0	N/A		0.46	N/A	N/A
-N/A	rs0	N/A		0.71	N/A	N/A
-N/A	rs0	N/A		0.42	N/A	N/A
-N/A	rs0	N/A		1.06	N/A	N/A
-N/A	rs0	N/A		0.63	N/A	N/A
-N/A	rs0	N/A		0.07	N/A	N/A
-N/A	rs0	N/A		0.07	N/A	N/A
-N/A	rs0	N/A		0.07	N/A	N/A
-N/A	rs0	N/A		0.06	N/A	N/A
-1,APOE4,odds_ratio,3.8,2.38,6.07,,Global Hispanic populations from different ethnic regions of origin,Alzheimer's disease and related dementias,PMID:37483326 | J Alzheimers Dis. 2023;93(3):1095-1109.
-1,APOE4,odds_ratio,4.61,2.74,7.75,,South American subgroup,Alzheimer's disease and related dementias,PMID:37483326 | J Alzheimers Dis. 2023;93(3):1095-1109.
-1,18F-florbetapir,sensitivity,67.0,30.0,93.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) by visual assessment (n = 47, 1 study)."
-1,18F-florbetapir,sensitivity,89.0,78.0,95.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
-1,18F-florbetapir,specificity,71.0,54.0,85.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) and a specificity of 71% (95% CI 54 to 85) by visual assessment (n = 47, 1 study)."
-1,18F-florbetapir,specificity,58.0,53.0,64.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) and a specificity of 58% (95% CI 53 to 64) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) and a specificity of 51% (95% CI 45 to 56) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
-1,18F-flutemetamol,sensitivity,89.0,52.0,100.0,19,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at two years of follow-up had a sensitivity of 89% (95% CI 52 to 100) and a specificity of 80% (95% CI 44 to 97) by quantitative assessment by SUVR (n = 19, 1 study)."
-1,18F-flutemetamol,sensitivity,64.0,53.0,75.0,224,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at three years of follow-up had a sensitivity of 64% (95% CI 53 to 75) and a specificity of 69% (95% CI 60 to 76) by visual assessment (n = 224, 1 study)."
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,18F-florbetapir,sensitivity,67.0,30.0,93.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) by visual assessment (n = 47, 1 study)."
-1,18F-florbetapir,sensitivity,89.0,78.0,95.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
-1,18F-florbetapir,specificity,71.0,54.0,85.0,47,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between two to less than four years had a sensitivity of 67% (95% CI 30 to 93) and a specificity of 71% (95% CI 54 to 85) by visual assessment (n = 47, 1 study)."
-1,18F-florbetapir,specificity,58.0,53.0,64.0,401,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD in those with a follow-up between one to less than two years had a sensitivity of 89% (95% CI 78 to 95) and a specificity of 58% (95% CI 53 to 64) by visual assessment, and a sensitivity of 87% (95% CI 76 to 94) and a specificity of 51% (95% CI 45 to 56) by quantitative assessment by the standardised uptake value ratio (SUVR)(n = 401, 1 study)."
-1,18F-flutemetamol,sensitivity,89.0,52.0,100.0,19,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at two years of follow-up had a sensitivity of 89% (95% CI 52 to 100) and a specificity of 80% (95% CI 44 to 97) by quantitative assessment by SUVR (n = 19, 1 study)."
-1,18F-flutemetamol,sensitivity,64.0,53.0,75.0,224,MCI to ADD,Alzheimer's disease dementia,"PMID:29164603 | Progression from MCI to ADD at three years of follow-up had a sensitivity of 64% (95% CI 53 to 75) and a specificity of 69% (95% CI 60 to 76) by visual assessment (n = 224, 1 study)."
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,accuracy,0.89,0.86,0.91,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,Diagnosis accuracy of touchscreen-based testings for major neurocognitive disorders,specificity,0.88,0.82,0.92,,"Participants had Alzheimer's disease, Parkinson's disease, vascular dementia, Lewy body disease or any type of dementia",Major neurocognitive disorder,PMID:40742248 | A systematic review and meta-analysis.
-1,GBA,odds_ratio,1.82,,,,Patients with PD,Parkinson's disease,PMID:35395825 | Transl Neurodegener. 2022 Apr 8;11(1):21. doi: 10.1186/s40035-022-00294-1.
+axis,biomarker_name,statistic_type,value,ci_lower,ci_upper,sample_size,primary_disease,cohort_description,source_snippet
+1,APP_p.I703V,pathogenicity_score,24.4,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs775713536
+1,APP_p.E665D,pathogenicity_score,20.9,,,,AD,Multi-ancestry (1500.0),Khani_2025_PMID:39456102_rsID:rs63750363
+1,APP_p.I716M,pathogenicity_score,3.857,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs145564988 
+1,APP_p.T276S,pathogenicity_score,24.0,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202198008
+1,APP_p.S198P,pathogenicity_score,22.6,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs145081708 
+1,APP_p.V76I,pathogenicity_score,27.6,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs151188448
+1,APP_p.R397T,pathogenicity_score,25.3,,,,AD,Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs913378009
+1,APP_p.A358S,pathogenicity_score,12.23,,,,AD,Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs1008281141 
+1,APP_p.A740V,pathogenicity_score,26.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID: Novel
+1,APP_p.A713T,pathogenicity_score,26.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750066
+1,APP_p.S614G,pathogenicity_score,19.51,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs112263157
+1,APP_p.E599K,pathogenicity_score,24.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs140304729 
+1,APP_p.L597W,pathogenicity_score,25.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs765301301 
+1,APP_p.E583D,pathogenicity_score,13.16,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs756941168
+1,APP_p.T279_T280del,pathogenicity_score,18.91,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID: Novel
+1,APP_p.S271G,pathogenicity_score,24.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID: Novel
+1,APP_ -,pathogenicity_score,1.078,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs183084252
+1,APP_p.S407T,pathogenicity_score,24.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2042464223
+1,APP_p.V375I,pathogenicity_score,25.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs141331202
+1,APP_p.T371A,pathogenicity_score,24.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs747438691
+1,APP_p.L364F,pathogenicity_score,23.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs749453173
+1,APP_p.R306H,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202218688
+1,PSEN1_p.E318G,pathogenicity_score,23.5,,,,"AD, Dementia",Multi-ancestry (0.02102),Khani_2025_PMID:39456102_rsID:rs17125721
+1,PSEN1_ -,pathogenicity_score,9.177,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs362382
+1,PSEN1_p.P49A,pathogenicity_score,16.76,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200373970
+1,PSEN1_p.R54X,pathogenicity_score,36.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.A79V,pathogenicity_score,26.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63749824
+1,PSEN1_p.P355T,pathogenicity_score,7.811,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376433615 
+1,PSEN1_p.G371V,pathogenicity_score,17.76,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1169974839
+1,PSEN2_p.R62H,pathogenicity_score,8.003,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs58973334 
+1,PSEN2_p.R71W,pathogenicity_score,21.8,,,,"AD, Dementia",Multi-ancestry (0.006006),Khani_2025_PMID:39456102_rsID:rs140501902 
+1,PSEN2_p.S130L,pathogenicity_score,29.6,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750197
+1,PSEN2_p.V139M,pathogenicity_score,24.1,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202178897
+1,PSEN2_p.M174V,pathogenicity_score,15.68,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs61757781
+1,PSEN2_p.S296P,pathogenicity_score,33.0,,,,AD,Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs1410382029
+1,PSEN2_p.L344X,pathogenicity_score,23.9,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.V393M,pathogenicity_score,27.0,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs142690225 
+1,PSEN2_p.H444Y,pathogenicity_score,23.2,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs151048692
+1,PSEN2_c.-206C>T,pathogenicity_score,7.607,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200954447
+1,PSEN2_ -,pathogenicity_score,0.032,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1054466525 
+1,PSEN2_p.E54D,pathogenicity_score,11.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs146894466 
+1,PSEN2_p.D55E,pathogenicity_score,8.922,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139332886
+1,PSEN2_p.P69A,pathogenicity_score,12.81,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202133351
+1,PSEN2_ -,pathogenicity_score,8.009,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs372616074
+1,PSEN2_p.H169R,pathogenicity_score,26.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1661490243
+1,PSEN2_p.A198S,pathogenicity_score,26.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs757273954 
+1,PSEN2_p.I293L,pathogenicity_score,27.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199689738
+1,PSEN2_p.Y319C,pathogenicity_score,18.94,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs547494670 
+1,PSEN2_p.G349R,pathogenicity_score,22.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs759669954
+1,PSEN2_p.R435W,pathogenicity_score,26.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs142772982
+1,GRN_p.R19W,pathogenicity_score,13.8,,,,"AD,Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750723
+1,GRN_p.D33E,pathogenicity_score,7.418,,,,AD,Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750742
+1,GRN_p.A37G,pathogenicity_score,12.06,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_ -,pathogenicity_score,6.552,,,,"AD, Dementia",Multi-ancestry (0.003003),Khani_2025_PMID:39456102_rsID:rs60100877
+1,GRN_p.C139R,pathogenicity_score,24.7,,,,AD,Multi-ancestry (0.001515),Khani_2025_PMID:39456102_rsID:rs763841075
+1,GRN_p.T182M,pathogenicity_score,1.781,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750479
+1,GRN_p.R212Q,pathogenicity_score,0.027,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750787
+1,GRN_ -,pathogenicity_score,15.21,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs370878457
+1,GRN_p.P275S,pathogenicity_score,16.16,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_ -,pathogenicity_score,4.095,,,,"AD, Dementia",Multi-ancestry (0.07357),Khani_2025_PMID:39456102_rsID:rs72824736
+1,GRN_p.A324T,pathogenicity_score,3.064,,,,"AD,Dementia",Multi-ancestry (0.003003),Khani_2025_PMID:39456102_rsID:rs63750541
+1,GRN_p.D376N,pathogenicity_score,5.196,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143030899
+1,GRN_p.R418Q,pathogenicity_score,0.839,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63751100
+1,GRN_p.R433W,pathogenicity_score,18.67,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750412
+1,GRN_p.R433Q,pathogenicity_score,0.013,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114248177 
+1,GRN_p.G515A,pathogenicity_score,0.829,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs25647 
+1,GRN_p.V519M,pathogenicity_score,22.5,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs141111290 
+1,GRN_p.V77I,pathogenicity_score,0.937,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs148531161
+1,GRN_ -,pathogenicity_score,5.143,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs777474762
+1,GRN_p.R101W,pathogenicity_score,20.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs543578531
+1,GRN_ -,pathogenicity_score,8.916,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.S120Y,pathogenicity_score,2.085,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750043 
+1,GRN_p.V121M,pathogenicity_score,0.042,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs780731069
+1,GRN_p.F131L,pathogenicity_score,0.002,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149180605 
+1,GRN_p.C140R,pathogenicity_score,24.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1248058567 
+1,GRN_p.P166L,pathogenicity_score,25.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368705304 
+1,GRN_p.S204G,pathogenicity_score,6.492,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs772012249
+1,GRN_p.M207I,pathogenicity_score,0.044,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.P209L,pathogenicity_score,24.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368995988
+1,GRN_p.C215R,pathogenicity_score,29.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1201429668
+1,GRN_p.C222Y,pathogenicity_score,28.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs777704177
+1,GRN_ -,pathogenicity_score,0.439,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1289528203 
+1,GRN_ -,pathogenicity_score,6.043,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376226985
+1,GRN_ -,pathogenicity_score,8.916,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs761620336 
+1,GRN_p.H320R,pathogenicity_score,26.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.T330M,pathogenicity_score,16.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376059429
+1,GRN_p.I442M,pathogenicity_score,2.018,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748758630
+1,GRN_p.R478H,pathogenicity_score,14.05,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs140747584
+1,GRN_p.R556C,pathogenicity_score,24.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750116 
+1,GRN_p.A582T,pathogenicity_score,0.314,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs72824737
+1,MAPT_p.P140S,pathogenicity_score,18.75,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs151115928
+1,MAPT_p.P202Q,pathogenicity_score,15.73,,,,"AD,Dementia",Multi-ancestry (0.2117),Khani_2025_PMID:39456102_rsID:rs63750417
+1,MAPT_p.G213R,pathogenicity_score,12.8,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs76375268
+1,MAPT_p.V224G,pathogenicity_score,19.62,,,,"AD, Dementia",Multi-ancestry (0.007508),Khani_2025_PMID:39456102_rsID:rs141120474
+1,MAPT_p.Q230R,pathogenicity_score,16.45,,,,"AD, Dementia",Multi-ancestry (0.04354),Khani_2025_PMID:39456102_rsID:rs63750072
+1,MAPT_p.D285N,pathogenicity_score,4.843,,,,"AD, Dementia",Multi-ancestry (0.2117),Khani_2025_PMID:39456102_rsID:rs62063786
+1,MAPT_p.D285E,pathogenicity_score,0.509,,,,"AD, Dementia",Multi-ancestry (0.1201),Khani_2025_PMID:39456102_rsID:rs63750222
+1,MAPT_p.V289A,pathogenicity_score,0.723,,,,"AD, Dementia",Multi-ancestry (0.2117),Khani_2025_PMID:39456102_rsID:rs62063787
+1,MAPT_p.S318L,pathogenicity_score,18.56,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs73314997
+1,MAPT_p.R370W,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.2117),Khani_2025_PMID:39456102_rsID:rs17651549
+1,MAPT_p.K381E,pathogenicity_score,25.0,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs762213614
+1,MAPT_p.S427F,pathogenicity_score,25.4,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs143956882
+1,MAPT_p.Y441H,pathogenicity_score,15.33,,,,"AD, Dementia",Multi-ancestry (0.2177),Khani_2025_PMID:39456102_rsID:rs2258689
+1,MAPT_p.S447P,pathogenicity_score,17.55,,,,"AD, Dementia",Multi-ancestry (0.2117),Khani_2025_PMID:39456102_rsID:rs10445337
+1,MAPT_p.I468T,pathogenicity_score,20.7,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114635790 
+1,MAPT_p.A469T,pathogenicity_score,22.8,,,,"AD, Dementia",Multi-ancestry (0.003003),Khani_2025_PMID:39456102_rsID:rs143624519
+1,MAPT_p.A495T,pathogenicity_score,0.275,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750612 
+1,MAPT_p.P512S,pathogenicity_score,12.28,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs187760483
+1,MAPT_p.P512H,pathogenicity_score,12.6,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs192236920
+1,MAPT_p.V635I,pathogenicity_score,22.2,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs116733906
+1,MAPT_p.R406W,pathogenicity_score,23.9,,,,"AD,Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs63750424
+1,MAPT_ -,pathogenicity_score,12.56,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368954564
+1,MAPT_p.P4T,pathogenicity_score,22.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs974837695
+1,MAPT_p.T17M,pathogenicity_score,14.22,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144611688
+1,MAPT_p.T30A,pathogenicity_score,8.164,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748728879
+1,MAPT_p.P78A,pathogenicity_score,19.69,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs760729741
+1,MAPT_c.307+1G>A,pathogenicity_score,23.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs747085337
+1,MAPT_p.G107D,pathogenicity_score,24.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144397565 
+1,MAPT_p.P126T,pathogenicity_score,7.606,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs776821664
+1,MAPT_p.V132A,pathogenicity_score,5.543,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1395344337 
+1,MAPT_p.H147Y,pathogenicity_score,0.172,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs12938245
+1,MAPT_p.R182H,pathogenicity_score,0.043,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs773565326
+1,MAPT_p.G205R,pathogenicity_score,17.62,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs556178454
+1,MAPT_p.R222S,pathogenicity_score,21.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs150983093
+1,MAPT_p.G258A,pathogenicity_score,13.08,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376750246
+1,MAPT_p.H321Y,pathogenicity_score,16.44,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs375988437
+1,MAPT_p.A325LfsX80,pathogenicity_score,21.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.G332LfsX64,pathogenicity_score,27.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.P513T,pathogenicity_score,13.31,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs267604921
+1,MAPT_p.P513A,pathogenicity_score,11.19,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs267604921
+1,MAPT_p.G701R,pathogenicity_score,34.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs948573449 
+1,MAPT_p.G750S,pathogenicity_score,33.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs768841567
+1,TREM2_p.H157Y,pathogenicity_score,23.1,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs2234255
+1,TREM2_p.E151K,pathogenicity_score,15.26,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs79011726
+1,TREM2_p.R136Q,pathogenicity_score,11.48,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs149622783
+1,TREM2_p.T96K,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs2234253
+1,TREM2_p.D87N,pathogenicity_score,20.4,,,,"AD,Dementia",Multi-ancestry (0.004505),Khani_2025_PMID:39456102_rsID:rs142232675
+1,TREM2_p.R62H,pathogenicity_score,14.21,,,,"AD, Dementia",Multi-ancestry (0.004505),Khani_2025_PMID:39456102_rsID:rs143332484
+1,TREM2_p.R47H,pathogenicity_score,28.4,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs75932628
+1,TREM2_ -,pathogenicity_score,0.888,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.A105V,pathogenicity_score,22.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs145080901
+1,TREM2_p.R98W,pathogenicity_score,21.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs147564421
+1,TREM2_p.T96M,pathogenicity_score,25.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2234253
+1,TREM2_p.E56Q,pathogenicity_score,8.019,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.C51Y,pathogenicity_score,27.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs369181900
+1,TREM2_p.W44X,pathogenicity_score,37.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.A28V,pathogenicity_score,2.217,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2234252
+1,TREM2_p.R5Q,pathogenicity_score,4.266,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs146485698
+1,GBA1_p.T75del,pathogenicity_score,15.1,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs761621516
+1,GBA1_p.K13R,pathogenicity_score,4.773,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs150466109
+1,GBA1_p.P138H,pathogenicity_score,22.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs759174705
+1,GBA1_p.G103D,pathogenicity_score,20.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748485792
+1,GBA1_p.R83C,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1141812
+1,GBA1_p.S77R,pathogenicity_score,22.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368786234
+1,GBA1_p.R41C,pathogenicity_score,22.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs190207858
+1,GBA1_c.115+1G>A,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs104886460
+1,GBA1_c.-73T>A,pathogenicity_score,12.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1672056507
+1,SNCA_p.H50Q,pathogenicity_score,12.21,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs201106962
+1,SNCA_p.Q99R,pathogenicity_score,21.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs757477802
+1,TBK1_p.L306I,pathogenicity_score,26.8,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201970436
+1,TBK1_p.E653Q,pathogenicity_score,18.76,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs144370662
+1,TBK1_p.V464A,pathogenicity_score,21.2,,,,"AD, Dementia",Multi-ancestry (0.01502),Khani_2025_PMID:39456102_rsID:rs35635889
+1,TBK1_p.N42S,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748061846
+1,TBK1_p.S268G,pathogenicity_score,21.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs746971642
+1,TBK1_p.R271Q,pathogenicity_score,21.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs56196591
+1,TBK1_p.S315L,pathogenicity_score,33.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs369620088
+1,TBK1_p.N652del,pathogenicity_score,15.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.T672S,pathogenicity_score,14.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs766758218
+1,TBK1_p.R507I,pathogenicity_score,25.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1251738886
+1,TBK1_p.L508I,pathogenicity_score,20.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144424516
+1,TARDBP_p.A90V,pathogenicity_score,23.2,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs80356715
+1,TARDBP_p.M202I,pathogenicity_score,22.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.G287S,pathogenicity_score,22.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs80356719
+1,TARDBP_p.N358T,pathogenicity_score,18.97,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.G413A,pathogenicity_score,23.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.L46P,pathogenicity_score,2.29,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs769452
+1,APOE_p.C130R,pathogenicity_score,16.6,,,,"AD, Dementia",Multi-ancestry (0.2357),Khani_2025_PMID:39456102_rsID:rs429358
+1,APOE_p.R163C,pathogenicity_score,28.6,,,,"AD, Dementia",Multi-ancestry (0.01562),Khani_2025_PMID:39456102_rsID:rs769455
+1,APOE_p.R176C,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.05255),Khani_2025_PMID:39456102_rsID:rs7412
+1,APOE_p.R207C,pathogenicity_score,24.0,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs749750245
+1,APOE_p.G214S,pathogenicity_score,6.76,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs759721023
+1,APOE_p.R269G,pathogenicity_score,22.0,,,,"AD, Dementia",Multi-ancestry (0.001502),Khani_2025_PMID:39456102_rsID:rs267606661
+1,APOE_p.E31K,pathogenicity_score,18.74,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201672011
+1,APOE_p.L89S,pathogenicity_score,24.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368210726
+1,APOE_p.P102R,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs11083750
+1,APOE_p.Q119P,pathogenicity_score,24.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs777291619
+1,APOE_p.R121Q,pathogenicity_score,24.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1969859756
+1,APOE_p.Q219E,pathogenicity_score,11.76,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs941248161
+1,APOE_p.Q222K,pathogenicity_score,16.85,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1181840153
+1,APOE_p.E249Q,pathogenicity_score,16.92,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762906934
+1,APOE_p.V254E,pathogenicity_score,23.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199768005
+1,APOE_p.R278C,pathogenicity_score,27.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762845923
+1,APOE_p.S314R,pathogenicity_score,11.65,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs28931579
+1,APP_p.Y626Y,pathogenicity_score,0.379,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs774518756
+1,APP_p.S619C,pathogenicity_score,27.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1437503550
+1,APP_p.I600L,pathogenicity_score,25.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.V717L,pathogenicity_score,26.8,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750264
+1,APP_p.I585I,pathogenicity_score,6.758,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs145564988
+1,APP_p.I716M,pathogenicity_score,3.857,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs145564988
+1,APP_p.A713T,pathogenicity_score,26.9,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750066
+1,APP_p.V580V,pathogenicity_score,9.091,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs116650065
+1,APP_p.G577G,pathogenicity_score,7.92,,,,"AD, Dementia",Multi-ancestry (0.00123426),Khani_2025_PMID:39456102_rsID:rs148888161
+1,APP_p.E693Q,pathogenicity_score,27.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750579
+1,APP_p.I535F,pathogenicity_score,23.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200084346
+1,APP_p.E534K,pathogenicity_score,26.9,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201945946
+1,APP_p.G526R,pathogenicity_score,28.1,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs1305531440
+1,APP_p.R517G,pathogenicity_score,25.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs768182065
+1,APP_p.D516N,pathogenicity_score,27.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs368159818
+1,APP_p.P489L,pathogenicity_score,24.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs759926843
+1,APP_p.L487L,pathogenicity_score,5.402,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs200539821
+1,APP_p.S614G,pathogenicity_score,19.51,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs112263157
+1,APP_p.G480G,pathogenicity_score,14.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.V473M,pathogenicity_score,24.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199887707
+1,APP_p.T472T,pathogenicity_score,1.058,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs150151009
+1,APP_p.T469M,pathogenicity_score,26.8,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs200088099
+1,APP_p.E599K,pathogenicity_score,24.6,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs140304729
+1,APP_p.T467T,pathogenicity_score,0.615,,,,"AD, Dementia",Multi-ancestry (0.00074056),Khani_2025_PMID:39456102_rsID:rs201817181
+1,APP_p.D460N,pathogenicity_score,26.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201874897
+1,APP_p.G458R,pathogenicity_score,27.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs755645885
+1,APP_p.V445I,pathogenicity_score,23.7,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs200769792
+1,APP_p.L435F,pathogenicity_score,24.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1038162399
+1,APP_p.E425K,pathogenicity_score,26.1,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs760615902
+1,APP_p.L414L,pathogenicity_score,4.952,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1358828168
+1,APP_p.R409C,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200500889
+1,APP_p.Y407Y,pathogenicity_score,0.204,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs45537238
+1,APP_p.Y407H,pathogenicity_score,25.6,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs779792929
+1,APP_p.R404H,pathogenicity_score,26.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs753052785
+1,APP_p.A393T,pathogenicity_score,27.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199521746
+1,APP_p.K365Q,pathogenicity_score,25.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201384815
+1,APP_p.R355Q,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200268317
+1,APP_p.A348S,pathogenicity_score,23.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143794560
+1,APP_p.A341A,pathogenicity_score,7.293,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201377759
+1,APP_p.F304F,pathogenicity_score,16.38,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs148180403
+1,APP_p.P251S,pathogenicity_score,26.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs752243493
+1,APP_p.V375I,pathogenicity_score,25.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs141331202
+1,APP_c.1090+1G>A,pathogenicity_score,28.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs113902200
+1,APP_p.R303X,pathogenicity_score,40.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200772442
+1,APP_p.A358S,pathogenicity_score,12.23,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1008281141
+1,APP_p.A283A,pathogenicity_score,12.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201462552
+1,APP_p.A283V,pathogenicity_score,28.1,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs373234317
+1,APP_p.M282V,pathogenicity_score,21.6,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs200074159
+1,APP_p.E278K,pathogenicity_score,27.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.R272Q,pathogenicity_score,28.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs370414043
+1,APP_p.R272W,pathogenicity_score,25.3,,,,"AD, Dementia",Multi-ancestry (0.00086398),Khani_2025_PMID:39456102_rsID:rs200978018
+1,APP_p.G269G,pathogenicity_score,13.29,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201622977
+1,APP_p.G269D,pathogenicity_score,27.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs967346296
+1,APP_p.G266G,pathogenicity_score,12.47,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200016837
+1,APP_p.Y265Y,pathogenicity_score,14.43,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs150676543
+1,APP_p.Y252H,pathogenicity_score,26.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.I248V,pathogenicity_score,23.1,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs200539466
+1,APP_p.T241T,pathogenicity_score,7.27,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs773857944
+1,APP_p.V227L,pathogenicity_score,25.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs772069024
+1,APP_p.E225E,pathogenicity_score,10.27,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs775689062
+1,APP_p.221_223del,pathogenicity_score,18.91,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.T221delinsTT,pathogenicity_score,18.76,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.T220T,pathogenicity_score,7.868,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs777163427
+1,APP_p.T276S,pathogenicity_score,24.0,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202198008
+1,APP_p.A209T,pathogenicity_score,20.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs754672142
+1,APP_p.D192N,pathogenicity_score,23.2,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs200103591
+1,APP_p.D191D,pathogenicity_score,0.286,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs148832151
+1,APP_p.D187N,pathogenicity_score,20.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs750279232
+1,APP_p.V181V,pathogenicity_score,0.446,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs770301922
+1,APP_p.A179V,pathogenicity_score,21.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs139819006
+1,APP_p.E175D,pathogenicity_score,14.52,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,APP_p.V172I,pathogenicity_score,19.63,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs755841034
+1,APP_p.S150S,pathogenicity_score,0.025,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201022619
+1,APP_p.A145V,pathogenicity_score,20.3,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs149995579
+1,APP_p.S198P,pathogenicity_score,22.6,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs145081708
+1,APP_p.P132S,pathogenicity_score,27.9,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs199744129
+1,APP_p.T101T,pathogenicity_score,0.016,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs778848481
+1,APP_p.V97I,pathogenicity_score,26.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201454946
+1,APP_p.H95H,pathogenicity_score,7.853,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs41276552
+1,APP_p.Q82R,pathogenicity_score,25.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1451050785
+1,APP_p.D69N,pathogenicity_score,28.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1386906450
+1,APP_p.H54Q,pathogenicity_score,22.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202145222
+1,APP_p.V30I,pathogenicity_score,25.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs768921158
+1,APP_p.I63I,pathogenicity_score,1.167,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1339370778
+1,APP_p.C62C,pathogenicity_score,12.53,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs201970902
+1,APP_p.P21P,pathogenicity_score,9.008,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs765279960
+1,APP_p.R16Q,pathogenicity_score,21.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs955517095
+1,APP_p.A12T,pathogenicity_score,21.7,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs2063725474
+1,APP_p.A11A,pathogenicity_score,14.14,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs754674097
+1,APP_p.L5V,pathogenicity_score,15.84,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1446208112
+1,GBA1_p.R502C,pathogenicity_score,32.0,,,,"AD, Dementia",Multi-ancestry (0.00013858),Khani_2025_PMID:39456102_rsID:rs80356771
+1,GBA1_p.V412V,pathogenicity_score,6.088,,,,"AD, Dementia",Multi-ancestry (0.0002739),Khani_2025_PMID:39456102_rsID:rs1135675
+1,GBA1_p.V411V,pathogenicity_score,0.262,,,,"AD, Dementia",Multi-ancestry (0.00054407),Khani_2025_PMID:39456102_rsID:rs371779859
+1,GBA1_p.A495P,pathogenicity_score,18.43,,,,"AD, Dementia",Multi-ancestry (0.00026795),Khani_2025_PMID:39456102_rsID:rs368060
+1,GBA1_p.A408T,pathogenicity_score,14.56,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.A398A,pathogenicity_score,0.053,,,,AD,Multi-ancestry (0.0001292),Khani_2025_PMID:39456102_rsID:rs199928507
+1,GBA1_p.L483R,pathogenicity_score,25.3,,,,"AD, Dementia",Multi-ancestry (0.00141243),Khani_2025_PMID:39456102_rsID:rs421016
+1,GBA1_p.D395N,pathogenicity_score,6.432,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs75671029
+1,GBA1_p.D448H,pathogenicity_score,24.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1064651
+1,GBA1_p.R347C,pathogenicity_score,31.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs747284798
+1,GBA1_p.E427X,pathogenicity_score,20.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149171124
+1,GBA1_p.G416S,pathogenicity_score,22.2,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs121908311
+1,GBA1_p.N409S,pathogenicity_score,23.8,,,,"AD, Dementia",Multi-ancestry (0.0023451),Khani_2025_PMID:39456102_rsID:rs76763715
+1,GBA1_p.T321T,pathogenicity_score,18.53,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs138498426
+1,GBA1_p.T321M,pathogenicity_score,21.4,,,,"AD, Dementia",Multi-ancestry (0.00666502),Khani_2025_PMID:39456102_rsID:rs75548401
+1,GBA1_p.I320T,pathogenicity_score,25.3,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1057519358
+1,GBA1_p.S316R,pathogenicity_score,27.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.R398X,pathogenicity_score,40.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs121908309
+1,GBA1_p.Q302H,pathogenicity_score,21.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs761681845
+1,GBA1_p.R281H,pathogenicity_score,18.74,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1064648
+1,GBA1_p.E278K,pathogenicity_score,19.46,,,,"AD, Dementia",Multi-ancestry (0.0146877),Khani_2025_PMID:39456102_rsID:rs2230288
+1,GBA1_p.G277G,pathogenicity_score,5.637,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143222798
+1,GBA1_p.D267H,pathogenicity_score,29.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs398123526
+1,GBA1_p.V262I,pathogenicity_score,19.23,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs371083513
+1,GBA1_p.K255K,pathogenicity_score,8.996,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1064646
+1,GBA1_c.1000-2A>G,pathogenicity_score,31.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.L238L,pathogenicity_score,6.708,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs753890133
+1,GBA1_p.D234D,pathogenicity_score,5.391,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.S223G,pathogenicity_score,25.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1057942
+1,GBA1_p.L220L,pathogenicity_score,0.822,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs708610
+1,GBA1_p.L220L,pathogenicity_score,0.212,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs708610
+1,GBA1_p.T219T,pathogenicity_score,7.435,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs371856161
+1,GBA1_p.T219I,pathogenicity_score,19.5,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs199628072
+1,GBA1_p.P218fs,pathogenicity_score,34.0,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs1366567865
+1,GBA1_p.R214H,pathogenicity_score,17.38,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs140955685
+1,GBA1_p.F298L,pathogenicity_score,23.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1671825414
+1,GBA1_p.R296Q,pathogenicity_score,29.2,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs78973108
+1,GBA1_p.H207Q,pathogenicity_score,13.29,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs367968666
+1,GBA1_p.Y172C,pathogenicity_score,28.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_c.762-1G>A,pathogenicity_score,26.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.G241R,pathogenicity_score,20.8,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs409652
+1,GBA1_p.G147G,pathogenicity_score,8.164,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs774539868
+1,GBA1_p.G145E,pathogenicity_score,27.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1376479747
+1,GBA1_p.V230G,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs381427
+1,GBA1_p.N140K,pathogenicity_score,17.36,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs381418
+1,GBA1_p.N227S,pathogenicity_score,19.46,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs364897
+1,GBA1_p.W223R,pathogenicity_score,28.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs61748906
+1,GBA1_p.S212X,pathogenicity_score,35.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1671872221
+1,GBA1_p.P123P,pathogenicity_score,1.991,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs201615998
+1,GBA1_p.P198L,pathogenicity_score,28.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs80222298
+1,GBA1_p.K109Q,pathogenicity_score,24.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs121908297
+1,GBA1_p.Q95Q,pathogenicity_score,9.028,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs545391048
+1,GBA1_p.D92H,pathogenicity_score,14.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs147138516
+1,GBA1_p.R159W,pathogenicity_score,24.8,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs439898
+1,GBA1_p.I71I,pathogenicity_score,5.363,,,,"AD, Dementia",Multi-ancestry (0.00061713),Khani_2025_PMID:39456102_rsID:rs147411159
+1,GBA1_p.G67R,pathogenicity_score,23.9,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs769343650
+1,GBA1_p.I66I,pathogenicity_score,2.356,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs772855106
+1,GBA1_p.L57R,pathogenicity_score,28.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs794727708
+1,GBA1_p.L57P,pathogenicity_score,29.2,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.L43L,pathogenicity_score,11.05,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs752444566
+1,GBA1_p.A42T,pathogenicity_score,21.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1671971599
+1,GBA1_p.P7S,pathogenicity_score,0.008,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1671985395
+1,GBA1_p.R86Q,pathogenicity_score,23.3,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs144173415
+1,GBA1_p.R83C,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1141812
+1,GBA1_p.R78C,pathogenicity_score,28.2,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs146774384
+1,GBA1_p.A72A,pathogenicity_score,7.568,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.P68P,pathogenicity_score,12.48,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs750712570
+1,GBA1_p.N58S,pathogenicity_score,23.8,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs747971975
+1,GBA1_p.C57C,pathogenicity_score,13.51,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1671995080
+1,GBA1_p.S52delinsYSS,pathogenicity_score,20.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GBA1_p.P42P,pathogenicity_score,10.12,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs758949381
+1,GBA1_p.P42S,pathogenicity_score,25.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs779377390
+1,GBA1_c.115+1G>A,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs104886460
+1,GBA1_p.V34M,pathogenicity_score,16.2,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs768854161
+1,GBA1_p.L29L,pathogenicity_score,7.511,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748322959
+1,GBA1_p.L28L,pathogenicity_score,8.533,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201330214
+1,GBA1_p.K13R,pathogenicity_score,4.773,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs150466109
+1,GBA1_p.E9fs,pathogenicity_score,23.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs766291162
+1,GBA1_p.S5N,pathogenicity_score,10.52,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201985614
+1,GRN_p.V8M,pathogenicity_score,18.78,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs774367010
+1,GRN_p.L14L,pathogenicity_score,9.807,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs111435385
+1,GRN_p.T18M,pathogenicity_score,18.1,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs199572314
+1,GRN_p.R19W,pathogenicity_score,13.8,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750723
+1,GRN_p.R19Q,pathogenicity_score,3.671,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs764665710
+1,GRN_p.V28fs,pathogenicity_score,33.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63751057
+1,GRN_p.D33E,pathogenicity_score,8.705,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750742
+1,GRN_p.D33E,pathogenicity_score,7.418,,,,"AD, Dementia",Multi-ancestry (0.00407307),Khani_2025_PMID:39456102_rsID:rs63750742
+1,GRN_p.G35R,pathogenicity_score,22.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs533451404
+1,GRN_p.Q62Q,pathogenicity_score,5.497,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2048350899
+1,GRN_p.A65A,pathogenicity_score,3.477,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.G70S,pathogenicity_score,16.85,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs772381732
+1,GRN_p.I74T,pathogenicity_score,19.71,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs372406610
+1,GRN_p.T76T,pathogenicity_score,0.281,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144736470
+1,GRN_p.V77I,pathogenicity_score,0.937,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs148531161
+1,GRN_p.T80S,pathogenicity_score,18.75,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1022228740
+1,GRN_p.S81fs,pathogenicity_score,32.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63751193
+1,GRN_p.P85A,pathogenicity_score,24.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143560849
+1,GRN_p.C92C,pathogenicity_score,3.867,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs146792371
+1,GRN_p.G93R,pathogenicity_score,9.288,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs375961960
+1,GRN_p.G93G,pathogenicity_score,1.381,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs63751088
+1,GRN_p.H96R,pathogenicity_score,0.076,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139272628
+1,GRN_p.R101Q,pathogenicity_score,11.94,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201686997
+1,GRN_p.G109R,pathogenicity_score,26.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs766292113
+1,GRN_p.S120Y,pathogenicity_score,2.085,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750043
+1,GRN_p.S120S,pathogenicity_score,8.68,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs375183423
+1,GRN_p.P127A,pathogenicity_score,23.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs150003993
+1,GRN_p.D128D,pathogenicity_score,0.454,,,,"AD, Dementia",Multi-ancestry (0.025179),Khani_2025_PMID:39456102_rsID:rs25646
+1,GRN_p.Q130fs,pathogenicity_score,23.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63749801
+1,GRN_p.F131L,pathogenicity_score,0.002,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149180605
+1,GRN_p.P134P,pathogenicity_score,4.507,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201932427
+1,GRN_p.T138K,pathogenicity_score,24.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs146769257
+1,GRN_p.T138T,pathogenicity_score,0.057,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs543344476
+1,GRN_p.C139R,pathogenicity_score,24.7,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs763841075
+1,GRN_p.M142fs,pathogenicity_score,26.1,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.V143V,pathogenicity_score,2.344,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs369649646
+1,GRN_p.G148R,pathogenicity_score,33.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs375343686
+1,GRN_p.P166fs*,pathogenicity_score,34.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:VCV001922048.3
+1,GRN_p.P166P,pathogenicity_score,6.363,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs141873754
+1,GRN_p.H167H,pathogenicity_score,0.454,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs372194047
+1,GRN_p.C171C,pathogenicity_score,9.431,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs147974849
+1,GRN_p.T182M,pathogenicity_score,1.781,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs63750479
+1,GRN_p.K189Q,pathogenicity_score,16.04,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.K190Q,pathogenicity_score,25.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs768727709
+1,GRN_p.P192S,pathogenicity_score,24.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.R198G,pathogenicity_score,0.557,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.M207T,pathogenicity_score,4.184,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs776198499
+1,GRN_p.P209L,pathogenicity_score,24.2,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs368995988
+1,GRN_p.R212W,pathogenicity_score,20.9,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs139375860
+1,GRN_p.R212Q,pathogenicity_score,0.027,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750787
+1,GRN_p.L224L,pathogenicity_score,11.21,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.P235P,pathogenicity_score,12.87,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs148507354
+1,GRN_c.708+6_708+9del,pathogenicity_score,32.0,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs778599933
+1,GRN_c.708+1G>A,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.00012346),Khani_2025_PMID:39456102_rsID:rs63749817
+1,GRN_c.708+1G>T,pathogenicity_score,35.0,,,,AD,Multi-ancestry (0.00012346),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.V252fs,pathogenicity_score,25.8,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.T251S,pathogenicity_score,19.53,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376153436
+1,GRN_p.T251T,pathogenicity_score,7.946,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs142805340
+1,GRN_p.L261F,pathogenicity_score,12.15,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750435
+1,GRN_p.L270F,pathogenicity_score,13.48,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1567887059
+1,GRN_p.P275L,pathogenicity_score,16.84,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs529849967
+1,GRN_p.E287D,pathogenicity_score,21.4,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs63750565
+1,GRN_p.Y294X,pathogenicity_score,3.365,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs794729670
+1,GRN_p.T295T,pathogenicity_score,7.137,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.R298H,pathogenicity_score,27.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs750810467
+1,GRN_p.S301S,pathogenicity_score,2.988,,,,"AD, Dementia",Multi-ancestry (0.00160494),Khani_2025_PMID:39456102_rsID:rs63750142
+1,GRN_p.A303S,pathogenicity_score,10.71,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1247120619
+1,GRN_p.W304X,pathogenicity_score,39.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63751177
+1,GRN_p.P323P,pathogenicity_score,0.355,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs749575144
+1,GRN_p.A324T,pathogenicity_score,3.064,,,,"AD, Dementia",Multi-ancestry (0.00111084),Khani_2025_PMID:39456102_rsID:rs63750541
+1,GRN_p.T330M,pathogenicity_score,16.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376059429
+1,GRN_p.K332E,pathogenicity_score,20.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.K332K,pathogenicity_score,18.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750785
+1,GRN_p.P349fs,pathogenicity_score,23.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.A359V,pathogenicity_score,4.22,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs371073236
+1,GRN_p.C397Y,pathogenicity_score,26.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.S398L,pathogenicity_score,8.595,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs148213321
+1,GRN_p.T409M,pathogenicity_score,10.27,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs373885474
+1,GRN_p.T409T,pathogenicity_score,0.202,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs140298583
+1,GRN_p.G414V,pathogenicity_score,21.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750920
+1,GRN_p.R418X,pathogenicity_score,25.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63751180
+1,GRN_p.R418Q,pathogenicity_score,0.839,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63751100
+1,GRN_p.R432C,pathogenicity_score,17.53,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750130
+1,GRN_p.R433W,pathogenicity_score,18.67,,,,"AD, Dementia",Multi-ancestry (0.00197482),Khani_2025_PMID:39456102_rsID:rs63750412
+1,GRN_p.R433Q,pathogenicity_score,0.013,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114248177
+1,GRN_p.H447H,pathogenicity_score,5.998,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750775
+1,GRN_p.T448I,pathogenicity_score,20.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1350620142
+1,GRN_p.P451A,pathogenicity_score,18.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.P451fs,pathogenicity_score,0.004,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.P451L,pathogenicity_score,25.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs752428000
+1,GRN_p.P451P,pathogenicity_score,0.078,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1402302242
+1,GRN_p.P458P,pathogenicity_score,1.416,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs780844774
+1,GRN_c.1413+1G>A,pathogenicity_score,35.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.C475R,pathogenicity_score,29.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs778265623
+1,GRN_p.R478C,pathogenicity_score,24.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs781387612
+1,GRN_p.G485G,pathogenicity_score,3.774,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.N489N,pathogenicity_score,1.059,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1180956607
+1,GRN_p.V490M,pathogenicity_score,25.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs886053006
+1,GRN_p.R493X,pathogenicity_score,36.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63751294
+1,GRN_p.R493Q,pathogenicity_score,24.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs753486849
+1,GRN_p.C495C,pathogenicity_score,6.086,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750576
+1,GRN_p.E498fs,pathogenicity_score,27.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs775435624
+1,GRN_p.A505G,pathogenicity_score,14.71,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs780159686
+1,GRN_p.R510C,pathogenicity_score,11.35,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs747873577
+1,GRN_p.V514M,pathogenicity_score,9.078,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs142926942
+1,GRN_p.G515A,pathogenicity_score,0.829,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs25647
+1,GRN_p.V516V,pathogenicity_score,0.784,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1044281109
+1,GRN_p.R535Q,pathogenicity_score,10.13,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs753857985
+1,GRN_p.D536E,pathogenicity_score,6.551,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs368896932
+1,GRN_p.G549G,pathogenicity_score,0.153,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs745391227
+1,GRN_p.V550I,pathogenicity_score,0.006,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs63750754
+1,GRN_p.C565C,pathogenicity_score,2.641,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63751248
+1,GRN_p.P578L,pathogenicity_score,1.58,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs914538363
+1,GRN_p.P578P,pathogenicity_score,8.703,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs564341596
+1,GRN_p.R579H,pathogenicity_score,13.63,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs373138049
+1,GRN_p.D581D,pathogenicity_score,10.34,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1442769378
+1,GRN_p.A582T,pathogenicity_score,0.314,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs72824737
+1,MAPT_p.H14H,pathogenicity_score,0.467,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs759306195
+1,MAPT_p.T17M,pathogenicity_score,14.22,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144611688
+1,MAPT_p.Y18Y,pathogenicity_score,7.532,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750811
+1,MAPT_p.G37A,pathogenicity_score,21.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs966689443
+1,MAPT_p.T39M,pathogenicity_score,5.868,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs372017279
+1,MAPT_p.D40D,pathogenicity_score,7.379,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs191362093
+1,MAPT_p.A41T,pathogenicity_score,11.33,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs115239819
+1,MAPT_p.P47S,pathogenicity_score,15.23,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs751685945
+1,MAPT_p.A77A,pathogenicity_score,0.959,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs773274633
+1,MAPT_p.P85P,pathogenicity_score,0.934,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1378561672
+1,MAPT_p.G86S,pathogenicity_score,10.18,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63751135
+1,MAPT_p.G86G,pathogenicity_score,2.178,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs375470008
+1,MAPT_p.K87K,pathogenicity_score,12.82,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs368318765
+1,MAPT_p.A91T,pathogenicity_score,12.07,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs371071165
+1,MAPT_p.T95M,pathogenicity_score,5.238,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs138293088
+1,MAPT_p.G49V,pathogenicity_score,24.6,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs144397565
+1,MAPT_p.A60G,pathogenicity_score,25.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139796158
+1,MAPT_p.A61S,pathogenicity_score,23.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.H63H,pathogenicity_score,3.457,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs202000892
+1,MAPT_p.P101P,pathogenicity_score,1.835,,,,"AD, Dementia",Multi-ancestry (0.214815),Khani_2025_PMID:39456102_rsID:rs56234850
+1,MAPT_p.P101P,pathogenicity_score,0.19,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs56234850
+1,MAPT_p.R103W,pathogenicity_score,20.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs940936590
+1,MAPT_p.A107T,pathogenicity_score,15.26,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs865881974
+1,MAPT_p.A107A,pathogenicity_score,1.214,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs772581321
+1,MAPT_p.S117R,pathogenicity_score,0.197,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs796680326
+1,MAPT_p.V120I,pathogenicity_score,9.47,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs373471744
+1,MAPT_p.K139R,pathogenicity_score,7.139,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.A143S,pathogenicity_score,5.614,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114203446
+1,MAPT_p.P144P,pathogenicity_score,0.078,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1460680349
+1,MAPT_p.T148T,pathogenicity_score,4.14,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs953427852
+1,MAPT_p.A149V,pathogenicity_score,14.86,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1363780336
+1,MAPT_p.R155H,pathogenicity_score,0.065,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs116395699
+1,MAPT_p.E169K,pathogenicity_score,16.23,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs2073139848
+1,MAPT_p.S171C,pathogenicity_score,1.687,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs930795533
+1,MAPT_p.G179R,pathogenicity_score,18.39,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs527817276
+1,MAPT_p.E183K,pathogenicity_score,0.003,,,,"AD, Dementia",Multi-ancestry (0.0575167),Khani_2025_PMID:39456102_rsID:rs80189278
+1,MAPT_p.P189L,pathogenicity_score,7.234,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs375008883
+1,MAPT_p.P189P,pathogenicity_score,4.709,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs771938835
+1,MAPT_p.P201S,pathogenicity_score,3.053,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs776821664
+1,MAPT_p.G216fs,pathogenicity_score,22.7,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs953116486
+1,MAPT_p.S226S,pathogenicity_score,5.857,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs537438059
+1,MAPT_p.P232A,pathogenicity_score,11.58,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200089666
+1,MAPT_p.E236K,pathogenicity_score,11.84,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.R243C,pathogenicity_score,1.465,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs770059067
+1,MAPT_p.P245R,pathogenicity_score,16.07,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.T253fs,pathogenicity_score,21.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748194611
+1,MAPT_p.E254E,pathogenicity_score,1.137,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs185284364
+1,MAPT_p.A259T,pathogenicity_score,9.303,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs377597373
+1,MAPT_p.P260T,pathogenicity_score,0.006,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1371812784
+1,MAPT_p.L267L,pathogenicity_score,1.766,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.P276P,pathogenicity_score,0.504,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs767330757
+1,MAPT_p.P202Q,pathogenicity_score,15.73,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs63750417
+1,MAPT_p.G283D,pathogenicity_score,13.37,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202121710
+1,MAPT_p.P287L,pathogenicity_score,0.183,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368295974
+1,MAPT_p.G213R,pathogenicity_score,12.8,,,,"AD, Dementia",Multi-ancestry (0.00111084),Khani_2025_PMID:39456102_rsID:rs76375268
+1,MAPT_p.E292K,pathogenicity_score,23.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2073193780
+1,MAPT_p.R222S,pathogenicity_score,21.2,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs150983093
+1,MAPT_p.V224G,pathogenicity_score,19.62,,,,"AD, Dementia",Multi-ancestry (0.00456677),Khani_2025_PMID:39456102_rsID:rs141120474
+1,MAPT_p.P304P,pathogenicity_score,0.598,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs142327009
+1,MAPT_p.Q230R,pathogenicity_score,16.45,,,,"AD, Dementia",Multi-ancestry (0.0572698),Khani_2025_PMID:39456102_rsID:rs63750072
+1,MAPT_p.S307C,pathogenicity_score,22.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs563636373
+1,MAPT_p.P309fs,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.K311E,pathogenicity_score,10.23,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs764221455
+1,MAPT_p.A312V,pathogenicity_score,0.066,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs367626345
+1,MAPT_p.R319Q,pathogenicity_score,6.905,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs192840932
+1,MAPT_p.R319P,pathogenicity_score,0.586,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs192840932
+1,MAPT_p.A336A,pathogenicity_score,2.263,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs200385096
+1,MAPT_p.P341P,pathogenicity_score,1.249,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1382449748
+1,MAPT_p.S348P,pathogenicity_score,6.661,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs753640366
+1,MAPT_p.S357L,pathogenicity_score,6.675,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199644237
+1,MAPT_p.D285N,pathogenicity_score,4.843,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs62063786
+1,MAPT_p.D285E,pathogenicity_score,0.509,,,,"AD, Dementia",Multi-ancestry (0.120341),Khani_2025_PMID:39456102_rsID:rs63750222
+1,MAPT_p.V289A,pathogenicity_score,0.723,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs62063787
+1,MAPT_p.A372V,pathogenicity_score,0.061,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs377402921
+1,MAPT_p.T377T,pathogenicity_score,0.438,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.H379fs,pathogenicity_score,18.26,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.H379H,pathogenicity_score,4.248,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs142283842
+1,MAPT_p.V386M,pathogenicity_score,14.82,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs747178896
+1,MAPT_p.A391V,pathogenicity_score,4.366,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs762447364
+1,MAPT_p.S318L,pathogenicity_score,18.56,,,,"AD, Dementia",Multi-ancestry (0.00111084),Khani_2025_PMID:39456102_rsID:rs73314997
+1,MAPT_p.S393S,pathogenicity_score,0.582,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139144750
+1,MAPT_p.S393S,pathogenicity_score,0.07,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139144750
+1,MAPT_p.G409E,pathogenicity_score,3.75,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs781280791
+1,MAPT_p.R439R,pathogenicity_score,0.055,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2073267939
+1,MAPT_p.P442P,pathogenicity_score,1.098,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs201312701
+1,MAPT_p.R370W,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs17651549
+1,MAPT_p.R68H,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200710643
+1,MAPT_p.G76R,pathogenicity_score,23.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs569445345
+1,MAPT_p.D80N,pathogenicity_score,29.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs768615863
+1,MAPT_p.L485F,pathogenicity_score,25.8,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs199759929
+1,MAPT_p.T491A,pathogenicity_score,18.08,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs772568358
+1,MAPT_p.T491I,pathogenicity_score,22.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149471977
+1,MAPT_p.501_501del,pathogenicity_score,17.88,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs777681272
+1,MAPT_p.S427F,pathogenicity_score,25.4,,,,"AD, Dementia",Multi-ancestry (0.00197482),Khani_2025_PMID:39456102_rsID:rs143956882
+1,MAPT_p.V506V,pathogenicity_score,12.98,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.Y441H,pathogenicity_score,15.33,,,,"AD, Dementia",Multi-ancestry (0.198099),Khani_2025_PMID:39456102_rsID:rs2258689
+1,MAPT_p.S447P,pathogenicity_score,17.55,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs10445337
+1,MAPT_p.R523Q,pathogenicity_score,24.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201861969
+1,MAPT_p.G86G,pathogenicity_score,8.095,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368785842
+1,MAPT_p.T91T,pathogenicity_score,5.788,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs139748238
+1,MAPT_p.I468T,pathogenicity_score,20.7,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114635790
+1,MAPT_p.A469T,pathogenicity_score,22.8,,,,"AD, Dementia",Multi-ancestry (0.00283881),Khani_2025_PMID:39456102_rsID:rs143624519
+1,MAPT_p.A94S,pathogenicity_score,18.72,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143624519
+1,MAPT_p.N109S,pathogenicity_score,20.8,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs150420625
+1,MAPT_p.T117T,pathogenicity_score,9.627,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs765007821
+1,MAPT_p.P118P,pathogenicity_score,0.874,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs1052551
+1,MAPT_p.A495T,pathogenicity_score,0.275,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750612
+1,MAPT_p.T504T,pathogenicity_score,10.34,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs62063845
+1,MAPT_p.P512S,pathogenicity_score,12.28,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs187760483
+1,MAPT_p.P513T,pathogenicity_score,13.31,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs267604921
+1,MAPT_p.G515G,pathogenicity_score,13.3,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1465285260
+1,MAPT_p.R136H,pathogenicity_score,28.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143334682
+1,MAPT_p.G143S,pathogenicity_score,31.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs749091697
+1,MAPT_p.G149S,pathogenicity_score,27.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs771662961
+1,MAPT_p.P160A,pathogenicity_score,23.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.R163W,pathogenicity_score,28.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs374286863
+1,MAPT_p.R163Q,pathogenicity_score,29.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs779901466
+1,MAPT_p.P165P,pathogenicity_score,12.92,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1006206564
+1,MAPT_p.V168V,pathogenicity_score,9.455,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114900761
+1,MAPT_p.A169A,pathogenicity_score,0.661,,,,"AD, Dementia",Multi-ancestry (0.215009),Khani_2025_PMID:39456102_rsID:rs1052553
+1,MAPT_p.S177S,pathogenicity_score,3.349,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs115142761
+1,MAPT_p.P178P,pathogenicity_score,1.603,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs145897970
+1,MAPT_p.A181T,pathogenicity_score,17.92,,,,"AD, Dementia",Multi-ancestry (0.00197482),Khani_2025_PMID:39456102_rsID:rs63750096
+1,MAPT_p.K196K,pathogenicity_score,9.542,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs141636979
+1,MAPT_p.N197N,pathogenicity_score,5.873,,,,"AD, Dementia",Multi-ancestry (0.214762),Khani_2025_PMID:39456102_rsID:rs17652121
+1,MAPT_p.V198I,pathogenicity_score,23.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs766508402
+1,MAPT_p.T205I,pathogenicity_score,27.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.L208L,pathogenicity_score,12.91,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs373081497
+1,MAPT_p.P212P,pathogenicity_score,0.156,,,,"AD, Dementia",Multi-ancestry (0.0445569),Khani_2025_PMID:39456102_rsID:rs11568305
+1,MAPTIT_p.M1R,pathogenicity_score,7.502,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs756936873
+1,MAPTIT_p.Q7R,pathogenicity_score,0.006,,,,"AD, Dementia",Multi-ancestry (0.214638),Khani_2025_PMID:39456102_rsID:rs62063857
+1,MAPTIT_p.P22L,pathogenicity_score,8.165,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs543012879
+1,MAPTIT_p.P22P,pathogenicity_score,2.867,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs73317018
+1,MAPTIT_p.G28R,pathogenicity_score,11.95,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs140271686
+1,MAPTIT_p.S84N,pathogenicity_score,7.51,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201620886
+1,MAPTIT_p.E89Q,pathogenicity_score,12.18,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPTIT_p.Q90H,pathogenicity_score,7.192,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs990094943
+1,MAPTIT_p.G91R,pathogenicity_score,0.154,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPTIT_p.S95P,pathogenicity_score,3.31,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs201824198
+1,MAPTIT_p.R118T,pathogenicity_score,14.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPTIT_p.V128A,pathogenicity_score,1.075,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200384262
+1,MAPT_p.G245S,pathogenicity_score,33.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.G245D,pathogenicity_score,33.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.K251R,pathogenicity_score,24.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,MAPT_p.H273H,pathogenicity_score,0.429,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs747658161
+1,MAPT_p.A301V,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762104961
+1,MAPT_p.E302E,pathogenicity_score,6.038,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs142776675
+1,MAPT_p.I303V,pathogenicity_score,26.2,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs991713081
+1,MAPT_p.S307S,pathogenicity_score,4.642,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs377720312
+1,MAPT_p.R406W,pathogenicity_score,23.9,,,,AD,Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs63750424
+1,MAPT_p.N321N,pathogenicity_score,5.702,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs115381139
+1,MAPT_p.G750S,pathogenicity_score,33.0,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs768841567
+1,MAPT_p.D329N,pathogenicity_score,12.89,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs748310006
+1,MAPT_p.Q335K,pathogenicity_score,25.5,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750191
+1,MAPT_p.A337T,pathogenicity_score,26.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs764874119
+1,MAPT_p.T338T,pathogenicity_score,1.342,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs369954009
+1,MAPT_p.D341D,pathogenicity_score,7.038,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114838482
+1,PSEN1_p.P7P,pathogenicity_score,12.05,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs116466962
+1,PSEN1_p.M16R,pathogenicity_score,22.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199759305
+1,PSEN1_p.N24T,pathogenicity_score,12.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs200598249
+1,PSEN1_p.N32N,pathogenicity_score,5.958,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs201759335
+1,PSEN1_p.R35W,pathogenicity_score,26.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs746691776
+1,PSEN1_p.R35Q,pathogenicity_score,22.0,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750592
+1,PSEN1_p.39_40del,pathogenicity_score,11.72,,,,"AD, Dementia",Multi-ancestry (0.00086398),Khani_2025_PMID:39456102_rsID:rs759538127
+1,PSEN1_p.D40E,pathogenicity_score,3.407,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.R41fs,pathogenicity_score,30.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs747281728
+1,PSEN1_p.R41delinsRP,pathogenicity_score,18.05,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs769125155
+1,PSEN1_p.R41fs,pathogenicity_score,22.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs776683638
+1,PSEN1_p.R42Q,pathogenicity_score,19.08,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs367775281
+1,PSEN1_p.R42L,pathogenicity_score,18.09,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs367775281
+1,PSEN1_p.E48K,pathogenicity_score,23.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1377702483
+1,PSEN1_p.P49A,pathogenicity_score,16.76,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200373970
+1,PSEN1_p.A79T,pathogenicity_score,28.1,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs769650189
+1,PSEN1_p.A79V,pathogenicity_score,26.1,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63749824
+1,PSEN1_p.V97M,pathogenicity_score,28.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750852
+1,PSEN1_p.V97A,pathogenicity_score,25.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1356498068
+1,PSEN1_p.T107T,pathogenicity_score,4.616,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs139863395
+1,PSEN1_p.L113L,pathogenicity_score,11.05,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1382127121
+1,PSEN1_p.Y115Y,pathogenicity_score,7.346,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs201363471
+1,PSEN1_p.P117P,pathogenicity_score,5.173,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.E123Q,pathogenicity_score,23.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750378
+1,PSEN1_p.V145V,pathogenicity_score,9.441,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202090424
+1,PSEN1_p.V152V,pathogenicity_score,6.959,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.L153L,pathogenicity_score,0.325,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs753457678
+1,PSEN1_p.Y156Y,pathogenicity_score,8.735,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs956638868
+1,PSEN1_p.F175S,pathogenicity_score,23.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750771
+1,PSEN1_p.H214H,pathogenicity_score,7.195,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.R220Q,pathogenicity_score,23.8,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs763831389
+1,PSEN1_p.Q222Q,pathogenicity_score,9.002,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.I227L,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.00024802),Khani_2025_PMID:39456102_rsID:rs199842082 
+1,PSEN1_p.I227V,pathogenicity_score,24.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199842082
+1,PSEN1_p.A246E,pathogenicity_score,25.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750526
+1,PSEN1_p.A246A,pathogenicity_score,3.08,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs756309757
+1,PSEN1_p.A260G,pathogenicity_score,26.8,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.L262L,pathogenicity_score,8.79,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1369926746
+1,PSEN1_p.P264R,pathogenicity_score,25.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.P267L,pathogenicity_score,25.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750779
+1,PSEN1_p.R269H,pathogenicity_score,29.9,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs63750900
+1,PSEN1_p.M270V,pathogenicity_score,18.67,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs114317083
+1,PSEN1_p.T291A,pathogenicity_score,27.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750298
+1,PSEN1_p.P303P,pathogenicity_score,12.1,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs377053325
+1,PSEN1_p.R307R,pathogenicity_score,7.912,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs554783173
+1,PSEN1_p.K311R,pathogenicity_score,18.28,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs115865530
+1,PSEN1_p.E318G,pathogenicity_score,23.5,,,,"AD, Dementia",Multi-ancestry (0.0213528),Khani_2025_PMID:39456102_rsID:rs17125721
+1,PSEN1_p.G334G,pathogenicity_score,6.854,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs116640707
+1,PSEN1_p.E339E,pathogenicity_score,7.1,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs201776669
+1,PSEN1_p.E341fs,pathogenicity_score,34.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.R358Q,pathogenicity_score,23.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63751174
+1,PSEN1_p.A360T,pathogenicity_score,23.1,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs199715992
+1,PSEN1_p.S365T,pathogenicity_score,14.14,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.S367I,pathogenicity_score,14.7,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1899703799
+1,PSEN1_p.G378A,pathogenicity_score,25.4,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs63750323
+1,PSEN1_p.F411F,pathogenicity_score,8.606,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs146071629
+1,PSEN1_p.L424F,pathogenicity_score,25.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1555358260
+1,PSEN1_p.A434A,pathogenicity_score,6.876,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.L435I,pathogenicity_score,25.8,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.I437V,pathogenicity_score,23.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs764971634
+1,PSEN1_p.M457V,pathogenicity_score,23.5,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1430581353
+1,PSEN1_p.A461V,pathogenicity_score,25.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1235843749
+1,PSEN2_c.-961G>C,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1660207472
+1,PSEN2_p.F4L,pathogenicity_score,22.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1485007322
+1,PSEN2_p.S9S,pathogenicity_score,4.626,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs201692678
+1,PSEN2_p.S22S,pathogenicity_score,0.074,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs367645069
+1,PSEN2_p.A23A,pathogenicity_score,0.028,,,,"AD, Dementia",Multi-ancestry (0.773636),Khani_2025_PMID:39456102_rsID:rs11405
+1,PSEN2_p.N43N,pathogenicity_score,1.187,,,,"AD, Dementia",Multi-ancestry (0.523698),Khani_2025_PMID:39456102_rsID:rs6759
+1,PSEN2_p.T44T,pathogenicity_score,0.222,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143227762
+1,PSEN2_p.A45fs,pathogenicity_score,26.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.S49N,pathogenicity_score,14.35,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1051303953
+1,PSEN2_p.N52N,pathogenicity_score,3.096,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs749675208
+1,PSEN2_p.D55E,pathogenicity_score,8.922,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs139332886
+1,PSEN2_p.G56S,pathogenicity_score,9.22,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs188598190
+1,PSEN2_p.R62C,pathogenicity_score,24.0,,,,"AD, Dementia",Multi-ancestry (0.00111084),Khani_2025_PMID:39456102_rsID:rs150400387
+1,PSEN2_p.R62H,pathogenicity_score,8.003,,,,"AD, Dementia",Multi-ancestry (0.00098741),Khani_2025_PMID:39456102_rsID:rs58973334
+1,PSEN2_p.P69P,pathogenicity_score,0.318,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs142546082
+1,PSEN2_p.R71W,pathogenicity_score,21.8,,,,"AD, Dementia",Multi-ancestry (0.00320908),Khani_2025_PMID:39456102_rsID:rs140501902
+1,PSEN2_p.L79P,pathogenicity_score,24.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs760961297
+1,PSEN2_p.H87H,pathogenicity_score,5.361,,,,"AD, Dementia",Multi-ancestry (0.523698),Khani_2025_PMID:39456102_rsID:rs1046240
+1,PSEN2_p.F92fs,pathogenicity_score,32.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.R110H,pathogenicity_score,26.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs747296921
+1,PSEN2_p.Y112fs,pathogenicity_score,34.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.Y112Y,pathogenicity_score,10.41,,,,"AD, Dementia",Multi-ancestry (0.00111084),Khani_2025_PMID:39456102_rsID:rs200610057
+1,PSEN2_p.L119L,pathogenicity_score,14.99,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.T122T,pathogenicity_score,3.191,,,,"AD, Dementia",Multi-ancestry (0.00098741),Khani_2025_PMID:39456102_rsID:rs148996705
+1,PSEN2_p.S130L,pathogenicity_score,29.6,,,,"AD, Dementia",Multi-ancestry (0.00160454),Khani_2025_PMID:39456102_rsID:rs63750197
+1,PSEN2_p.R134C,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1363866270
+1,PSEN2_p.L135R,pathogenicity_score,28.3,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1272015481
+1,PSEN2_p.V139M,pathogenicity_score,24.1,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs202178897
+1,PSEN2_p.L140L,pathogenicity_score,6.702,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.N141N,pathogenicity_score,10.79,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs116003409
+1,PSEN2_p.L143L,pathogenicity_score,11.73,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201196514
+1,PSEN2_p.S147S,pathogenicity_score,7.566,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs114334281
+1,PSEN2_p.I149I,pathogenicity_score,7.207,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs767835970
+1,PSEN2_p.V151F,pathogenicity_score,20.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.R163C,pathogenicity_score,32.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200931244
+1,PSEN2_p.M174V,pathogenicity_score,15.68,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs61757781
+1,PSEN2_p.Y195C,pathogenicity_score,28.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200410369
+1,PSEN2_p.Y195F,pathogenicity_score,25.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.N196N,pathogenicity_score,2.276,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs144629723
+1,PSEN2_p.Y201C,pathogenicity_score,28.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200410369
+1,PSEN2_p.F211F,pathogenicity_score,6.496,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs199760083
+1,PSEN2_p.K222T,pathogenicity_score,26.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1163620977
+1,PSEN2_p.A230A,pathogenicity_score,8.587,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs145010538
+1,PSEN2_p.S236S,pathogenicity_score,4.333,,,,"AD, Dementia",Multi-ancestry (0.00419649),Khani_2025_PMID:39456102_rsID:rs61730652
+1,PSEN2_p.A237A,pathogenicity_score,0.632,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs202003390
+1,PSEN2_p.L238F,pathogenicity_score,27.0,,,,AD,Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs367855127
+1,PSEN2_p.A252T,pathogenicity_score,23.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs138836272
+1,PSEN2_p.A252A,pathogenicity_score,3.282,,,,"AD, Dementia",Multi-ancestry (0.00493705),Khani_2025_PMID:39456102_rsID:rs147702142
+1,PSEN2_p.G257G,pathogenicity_score,0.073,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs7539017
+1,PSEN2_p.A258T,pathogenicity_score,27.5,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs148238688
+1,PSEN2_p.P287P,pathogenicity_score,12.39,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs75733498
+1,PSEN2_p.M298T,pathogenicity_score,25.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1482790603
+1,PSEN2_p.T301T,pathogenicity_score,0.01,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs6426553
+1,PSEN2_p.P318H,pathogenicity_score,23.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.P318P,pathogenicity_score,10.27,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs199587016
+1,PSEN2_p.Y319fs,pathogenicity_score,27.9,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.Y328H,pathogenicity_score,22.1,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs994711686
+1,PSEN2_p.P334R,pathogenicity_score,22.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs63750207
+1,PSEN2_p.S335S,pathogenicity_score,0.041,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs781365270
+1,PSEN2_p.G346D,pathogenicity_score,20.3,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1365789341
+1,PSEN2_p.G349R,pathogenicity_score,22.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs759669954
+1,PSEN2_p.R358G,pathogenicity_score,23.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.L364L,pathogenicity_score,1.846,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs201093218
+1,PSEN2_p.T380K,pathogenicity_score,24.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs143912759
+1,PSEN2_p.T388M,pathogenicity_score,31.0,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs143549266
+1,PSEN2_p.T388T,pathogenicity_score,0.126,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs369274454
+1,PSEN2_p.F392F,pathogenicity_score,2.252,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs115652716
+1,PSEN2_p.V393M,pathogenicity_score,27.0,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs142690225
+1,PSEN2_p.I397M,pathogenicity_score,11.9,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.C400F,pathogenicity_score,29.9,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1662076442
+1,PSEN2_p.C400C,pathogenicity_score,6.834,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs138494303
+1,PSEN2_p.A407D,pathogenicity_score,28.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs371315050
+1,PSEN2_p.A412A,pathogenicity_score,2.267,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201982084
+1,PSEN2_p.T430T,pathogenicity_score,6.656,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1489614058
+1,PSEN2_p.R435R,pathogenicity_score,8.223,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN2_p.R435Q,pathogenicity_score,19.41,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201922151
+1,PSEN2_p.D439A,pathogenicity_score,27.2,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs63750110
+1,SNCA_p.P90H,pathogenicity_score,24.6,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs746232417
+1,SNCA_p.Y88Y,pathogenicity_score,4.374,,,,"AD, Dementia",Multi-ancestry (0.00160454),Khani_2025_PMID:39456102_rsID:rs76642636
+1,SNCA_p.P80T,pathogenicity_score,23.4,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs750899874
+1,SNCA_p.E78E,pathogenicity_score,7.571,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,SNCA_p.P69T,pathogenicity_score,23.3,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs145138372
+1,SNCA_p.H32P,pathogenicity_score,2.968,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs927774368
+1,SNCA_p.N27N,pathogenicity_score,2.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,SNCA_p.K8fs,pathogenicity_score,6.115,,,,"AD, Dementia",Multi-ancestry (0.00456677),Khani_2025_PMID:39456102_rsID:rs150886566
+1,SNCA_p.R4H,pathogenicity_score,4.192,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs951147810
+1,SNCA_p.L100L,pathogenicity_score,0.681,,,,"AD, Dementia",Multi-ancestry (0.00061713),Khani_2025_PMID:39456102_rsID:rs138969470
+1,SNCA_p.K96R,pathogenicity_score,22.2,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs548523899
+1,SNCA_p.A91S,pathogenicity_score,23.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,SNCA_p.V82A,pathogenicity_score,24.4,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1319839593
+1,SNCA_p.T81T,pathogenicity_score,1.212,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs568436589
+1,SNCA_p.A78V,pathogenicity_score,27.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,SNCA_p.T75T,pathogenicity_score,7.509,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149401968
+1,SNCA_p.A69A,pathogenicity_score,0.08,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs765809605
+1,SNCA_p.G68E,pathogenicity_score,18.44,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs752981956
+1,SNCA_p.K60E,pathogenicity_score,27.5,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,SNCA_p.H50Q,pathogenicity_score,12.21,,,,"AD, Dementia",Multi-ancestry (0.00049371),Khani_2025_PMID:39456102_rsID:rs201106962
+1,SNCA_p.V49V,pathogenicity_score,5.668,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs141859659
+1,SNCA_p.E35E,pathogenicity_score,9.518,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs768334864
+1,SNCA_p.E13E,pathogenicity_score,7.48,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs774124882
+1,SNCA_c.-25-434G>C,pathogenicity_score,10.38,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs778196551
+1,TREM2_p.G219D,pathogenicity_score,0.766,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1232354245
+1,TREM2_p.A216V,pathogenicity_score,0.587,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs761884997
+1,TREM2_p.E202D,pathogenicity_score,1.44,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs530314472
+1,TREM2_p.E202Q,pathogenicity_score,7.053,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs752403953
+1,TREM2_p.W191X,pathogenicity_score,0.111,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs2234258
+1,TREM2_p.G181A,pathogenicity_score,1.423,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs376505321
+1,TREM2_p.E177K,pathogenicity_score,0.909,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs75272959
+1,TREM2_p.R172W,pathogenicity_score,5.749,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs534753905
+1,TREM2_p.K167K,pathogenicity_score,2.215,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1296579106
+1,TREM2_p.V166M,pathogenicity_score,2.956,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199795809
+1,TREM2_p.T230M,pathogenicity_score,17.66,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368921728
+1,TREM2_p.T223I,pathogenicity_score,11.21,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs138355759
+1,TREM2_p.L211P,pathogenicity_score,0.018,,,,"AD, Dementia",Multi-ancestry (0.00098741),Khani_2025_PMID:39456102_rsID:rs2234256
+1,TREM2_p.I168I,pathogenicity_score,1.551,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs1423781551
+1,TREM2_p.G166E,pathogenicity_score,3.758,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs779960537
+1,TREM2_p.S162R,pathogenicity_score,18.87,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs371702633
+1,TREM2_p.H157Y,pathogenicity_score,23.1,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs2234255
+1,TREM2_p.E151K,pathogenicity_score,15.26,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs79011726
+1,TREM2_p.R136Q,pathogenicity_score,11.48,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs149622783
+1,TREM2_p.R136W,pathogenicity_score,21.9,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs772641807
+1,TREM2_p.L133L,pathogenicity_score,0.874,,,,"AD, Dementia",Multi-ancestry (0.00172797),Khani_2025_PMID:39456102_rsID:rs144250872
+1,TREM2_p.D131D,pathogenicity_score,4.61,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs139607688
+1,TREM2_p.D131G,pathogenicity_score,20.7,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs762052858
+1,TREM2_p.V126G,pathogenicity_score,29.7,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs121908402
+1,TREM2_p.V124I,pathogenicity_score,20.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.R122W,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.L121R,pathogenicity_score,27.0,,,,"AD, Dementia",Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.A105V,pathogenicity_score,22.3,,,,"AD, Dementia",Multi-ancestry (0.00037028),Khani_2025_PMID:39456102_rsID:rs145080901
+1,TREM2_p.D104V,pathogenicity_score,23.7,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:Novel
+1,TREM2_p.R98W,pathogenicity_score,21.9,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs147564421
+1,TREM2_p.T96M,pathogenicity_score,25.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs2234253
+1,TREM2_p.T96K,pathogenicity_score,24.3,,,,"AD, Dementia",Multi-ancestry (0.00098741),Khani_2025_PMID:39456102_rsID:rs2234253
+1,TREM2_p.D87N,pathogenicity_score,20.4,,,,"AD, Dementia",Multi-ancestry (0.00074056),Khani_2025_PMID:39456102_rsID:rs142232675
+1,TREM2_p.N68K,pathogenicity_score,8.467,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs753372932
+1,TREM2_p.T66M,pathogenicity_score,29.6,,,,"AD, Dementia",Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs201258663
+1,TREM2_p.R62H,pathogenicity_score,14.21,,,,"AD, Dementia",Multi-ancestry (0.0153049),Khani_2025_PMID:39456102_rsID:rs143332484
+1,TREM2_p.R62C,pathogenicity_score,29.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201258314
+1,TREM2_p.R47H,pathogenicity_score,28.4,,,,"AD, Dementia",Multi-ancestry (0.00901012),Khani_2025_PMID:39456102_rsID:rs75932628
+1,TREM2_p.D39E,pathogenicity_score,23.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs200392967
+1,TREM2_p.Q33X,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.00024685),Khani_2025_PMID:39456102_rsID:rs104894002
+1,TREM2_p.S31F,pathogenicity_score,26.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs746216516
+1,TREM2_p.V23L,pathogenicity_score,21.5,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1294900634
+1,TREM2_p.S16S,pathogenicity_score,5.78,,,,AD,Multi-ancestry (0.00012343),Khani_2025_PMID:39456102_rsID:rs762650272
+1,TREM2_p.L10fs,pathogenicity_score,28.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.T8T,pathogenicity_score,5.876,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs72870030
+1,TARDBP_p.N12N,pathogenicity_score,8.446,,,,"AD, Dementia",Multi-ancestry (0.000370279),Khani_2025_PMID:39456102_rsID:rs565091566
+1,TARDBP_p.S29S,pathogenicity_score,14.37,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs201693535
+1,TARDBP_p.A66A,pathogenicity_score,8.491,,,,"AD, Dementia",Multi-ancestry (0.000987411),Khani_2025_PMID:39456102_rsID:rs61730366
+1,TARDBP_p.N70S,pathogenicity_score,21.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.A90V,pathogenicity_score,23.2,,,,"AD, Dementia",Multi-ancestry (0.000740558),Khani_2025_PMID:39456102_rsID:rs80356715
+1,TARDBP_p.S104S,pathogenicity_score,9.893,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs774307145
+1,TARDBP_p.L120L,pathogenicity_score,0.779,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1333754120
+1,TARDBP_p.K137K,pathogenicity_score,10.63,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs766028449
+1,TARDBP_p.Y155Y,pathogenicity_score,8.067,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1207947256
+1,TARDBP_p.T157T,pathogenicity_score,10.16,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.Q213Q,pathogenicity_score,5.238,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.P223P,pathogenicity_score,12.62,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs149517613
+1,TARDBP_p.P225P,pathogenicity_score,0.206,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs61741294
+1,TARDBP_p.A240A,pathogenicity_score,6.675,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs765175133
+1,TARDBP_p.H264H,pathogenicity_score,7.539,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs528733699
+1,TARDBP_p.R268G,pathogenicity_score,26.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.G287S,pathogenicity_score,22.6,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs80356719
+1,TARDBP_p.M311V,pathogenicity_score,17.01,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs80356725
+1,TARDBP_p.A315A,pathogenicity_score,0.725,,,,"AD, Dementia",Multi-ancestry (0.000370279),Khani_2025_PMID:39456102_rsID:rs145364830
+1,TARDBP_p.A325A,pathogenicity_score,0.8,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs777072801
+1,TARDBP_p.S350S,pathogenicity_score,0.366,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs528494087
+1,TARDBP_p.F367F,pathogenicity_score,7.775,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs377531374
+1,TARDBP_p.G368S,pathogenicity_score,23.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs755393183
+1,TARDBP_p.S377T,pathogenicity_score,22.9,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1570725499
+1,TARDBP_p.N390S,pathogenicity_score,21.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs80356742
+1,TARDBP_p.A391G,pathogenicity_score,20.5,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1643663101
+1,TARDBP_p.S403X,pathogenicity_score,37.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TARDBP_p.M405V,pathogenicity_score,19.37,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762209110
+1,TBK1_p.S3S,pathogenicity_score,12.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs115692983
+1,TBK1_p.S5Y,pathogenicity_score,24.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.N22H,pathogenicity_score,26.4,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs576726084
+1,TBK1_p.N22N,pathogenicity_score,13.45,,,,"AD, Dementia",Multi-ancestry (0.0588744),Khani_2025_PMID:39456102_rsID:rs41292019
+1,TBK1_p.G26E,pathogenicity_score,33.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs918462348
+1,TBK1_p.F45F,pathogenicity_score,16.08,,,,"AD, Dementia",Multi-ancestry (0.00197482),Khani_2025_PMID:39456102_rsID:rs11538420
+1,TBK1_p.I73V,pathogenicity_score,18.38,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs751253214
+1,TBK1_p.C89Y,pathogenicity_score,31.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs2040580815
+1,TBK1_p.T96A,pathogenicity_score,23.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.A104V,pathogenicity_score,27.9,,,,AD,Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.S110Y,pathogenicity_score,24.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.R127R,pathogenicity_score,11.87,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs749847349
+1,TBK1_p.I145V,pathogenicity_score,19.83,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs773092409
+1,TBK1_p.S151F,pathogenicity_score,31.0,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs55824172
+1,TBK1_p.K154N,pathogenicity_score,23.3,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.L173L,pathogenicity_score,5.913,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs73313869
+1,TBK1_p.R228H,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs748622208
+1,TBK1_p.A245V,pathogenicity_score,26.8,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs751890932
+1,TBK1_p.V249I,pathogenicity_score,21.3,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1048722058
+1,TBK1_p.S260N,pathogenicity_score,27.4,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs753475158
+1,TBK1_p.R271Q,pathogenicity_score,21.8,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs56196591
+1,TBK1_p.G272G,pathogenicity_score,9.391,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs757938202
+1,TBK1_p.K291E,pathogenicity_score,29.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs34774243
+1,TBK1_p.D304V,pathogenicity_score,29.8,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs904427940
+1,TBK1_p.M309T,pathogenicity_score,20.2,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1381192966
+1,TBK1_p.H322Y,pathogenicity_score,25.8,,,,"AD, Dementia",Multi-ancestry (0.000370279),Khani_2025_PMID:39456102_rsID:rs145905497
+1,TBK1_p.H322L,pathogenicity_score,25.2,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs751180634
+1,TBK1_p.I326I,pathogenicity_score,8.615,,,,"AD, Dementia",Multi-ancestry (0.57924),Khani_2025_PMID:39456102_rsID:rs7486100
+1,TBK1_p.A332A,pathogenicity_score,9.519,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs752407982
+1,TBK1_p.Y340H,pathogenicity_score,24.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.I353T,pathogenicity_score,23.8,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs753694282
+1,TBK1_p.F370F,pathogenicity_score,7.016,,,,"AD, Dementia",Multi-ancestry (0.00320908),Khani_2025_PMID:39456102_rsID:rs143590388
+1,TBK1_p.I379V,pathogenicity_score,23.2,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs748864346
+1,TBK1_p.I393M,pathogenicity_score,14.03,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs755520364
+1,TBK1_p.I397T,pathogenicity_score,21.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs755069538
+1,TBK1_p.I450V,pathogenicity_score,16.1,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1466364667
+1,TBK1_p.V464A,pathogenicity_score,21.2,,,,"AD, Dementia",Multi-ancestry (0.0238213),Khani_2025_PMID:39456102_rsID:rs35635889
+1,TBK1_p.E476fs,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1131690783
+1,TBK1_p.K484R,pathogenicity_score,20.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs752336723
+1,TBK1_p.M486T,pathogenicity_score,20.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.I498V,pathogenicity_score,19.26,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.T503I,pathogenicity_score,22.3,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs779715292
+1,TBK1_p.L508I,pathogenicity_score,20.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs144424516
+1,TBK1_p.T517A,pathogenicity_score,12.67,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.S518S,pathogenicity_score,6.909,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs773284810
+1,TBK1_p.I522I,pathogenicity_score,5.863,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs375618295
+1,TBK1_p.D523N,pathogenicity_score,17.56,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs139195702
+1,TBK1_p.G530R,pathogenicity_score,26.7,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs2040916858
+1,TBK1_p.H538R,pathogenicity_score,19.94,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs375428983
+1,TBK1_p.E540V,pathogenicity_score,24.5,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs768023625
+1,TBK1_p.R573H,pathogenicity_score,31.0,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs186475789
+1,TBK1_p.R573P,pathogenicity_score,26.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.R574fs,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.A576G,pathogenicity_score,23.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs767446906
+1,TBK1_p.Q588fs,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.T595T,pathogenicity_score,6.285,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs778841271
+1,TBK1_p.M598V,pathogenicity_score,17.28,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs899858451
+1,TBK1_p.T599T,pathogenicity_score,7.486,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs758803587
+1,TBK1_p.L613F,pathogenicity_score,16.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs368859659
+1,TBK1_p.K622R,pathogenicity_score,35.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199605037
+1,TBK1_p.D639H,pathogenicity_score,22.9,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs778577820
+1,TBK1_p.641_641del,pathogenicity_score,18.16,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1402092579
+1,TBK1_p.651_652del,pathogenicity_score,15.1,,,,"AD, Dementia",Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs141727722
+1,TBK1_p.E653Q,pathogenicity_score,18.76,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs144370662
+1,TBK1_p.M673I,pathogenicity_score,18.33,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.T682I,pathogenicity_score,23.6,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.L683L,pathogenicity_score,7.896,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs369067312
+1,TBK1_p.M686V,pathogenicity_score,20.8,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_c.2067-2A>G,pathogenicity_score,29.3,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,TBK1_p.H709N,pathogenicity_score,21.8,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs770870248
+1,APOE_p.G4E,pathogenicity_score,10.72,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs373985746
+1,APOE_p.S6F,pathogenicity_score,6.983,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1377502673
+1,APOE_p.N14K,pathogenicity_score,0.768,,,,"AD, Dementia",Multi-ancestry (0.7255),Khani_2025_PMID:39456102_rsID:rs440446
+1,APOE_p.P18L,pathogenicity_score,6.824,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs772022603
+1,APOE_p.D19N,pathogenicity_score,8.406,,,,"AD, Dementia",Multi-ancestry (0.000740558),Khani_2025_PMID:39456102_rsID:rs563571689
+1,APOE_p.G24D,pathogenicity_score,8.656,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs1214824838
+1,APOE_p.K28R,pathogenicity_score,24.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.A49A,pathogenicity_score,7.919,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs111833428
+1,APOE_p.P54P,pathogenicity_score,7.128,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs150688032
+1,APOE_p.P56P,pathogenicity_score,0.056,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs370227413
+1,APOE_p.Q65X,pathogenicity_score,34.0,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.S66S,pathogenicity_score,9.453,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs373020952
+1,APOE_p.L72P,pathogenicity_score,2.293,,,,"AD, Dementia",Multi-ancestry (0.00431992),Khani_2025_PMID:39456102_rsID:rs769452
+1,APOE_p.R76H,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762461580
+1,APOE_p.E89Q,pathogenicity_score,22.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1265280650
+1,APOE_p.E103K,pathogenicity_score,26.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs770545391
+1,APOE_p.A106E,pathogenicity_score,0.016,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs774000134
+1,APOE_p.D109D,pathogenicity_score,3.924,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs767980905
+1,APOE_p.M112V,pathogenicity_score,19.01,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1434287349
+1,APOE_p.K119T,pathogenicity_score,8.13,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs761285934
+1,APOE_p.K119K,pathogenicity_score,3.731,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs371331933
+1,APOE_p.E121K,pathogenicity_score,22.6,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.P128R,pathogenicity_score,22.5,,,,AD,Multi-ancestry (0.000370279),Khani_2025_PMID:39456102_rsID:rs11083750
+1,APOE_p.R136P,pathogenicity_score,25.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.A150A,pathogenicity_score,3.216,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1269499752
+1,APOE_p.A150A,pathogenicity_score,0.329,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1269499752
+1,APOE_p.M152T,pathogenicity_score,23.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.C156R,pathogenicity_score,16.6,,,,"AD, Dementia",Multi-ancestry (0.378919),Khani_2025_PMID:39456102_rsID:rs429358
+1,APOE_p.G157C,pathogenicity_score,12.19,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1458301734
+1,APOE_p.G171D,pathogenicity_score,23.2,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs267606664
+1,APOE_p.T174T,pathogenicity_score,4.537,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs773479792
+1,APOE_p.R178W,pathogenicity_score,24.0,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs531939919
+1,APOE_p.V179M,pathogenicity_score,17.23,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs990344075
+1,APOE_p.K187E,pathogenicity_score,24.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.L188M,pathogenicity_score,17.04,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1377830202
+1,APOE_p.R189C,pathogenicity_score,28.6,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs769455
+1,APOE_p.192_192del,pathogenicity_score,15.79,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs515726148
+1,APOE_p.D195D,pathogenicity_score,4.558,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1312923493
+1,APOE_p.A196A,pathogenicity_score,3.29,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1235156724
+1,APOE_p.R202C,pathogenicity_score,25.1,,,,"AD, Dementia",Multi-ancestry (0.0392496),Khani_2025_PMID:39456102_rsID:rs7412
+1,APOE_p.R211R,pathogenicity_score,8.707,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs781722239
+1,APOE_p.E230K,pathogenicity_score,20.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.G240S,pathogenicity_score,6.762,,,,"AD, Dementia",Multi-ancestry (0.000246853),Khani_2025_PMID:39456102_rsID:rs759721023
+1,APOE_p.A243A,pathogenicity_score,8.515,,,,"AD, Dementia",Multi-ancestry (0.000863984),Khani_2025_PMID:39456102_rsID:rs72654468
+1,APOE_p.G244C,pathogenicity_score,1.241,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1488379910
+1,APOE_p.Q245E,pathogenicity_score,11.76,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs941248161
+1,APOE_p.R250L,pathogenicity_score,20.7,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1425703838
+1,APOE_p.G255G,pathogenicity_score,9.311,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1446994466
+1,APOE_p.E256K,pathogenicity_score,18.3,,,,AD,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs567353589
+1,APOE_p.R261W,pathogenicity_score,22.3,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs530010303
+1,APOE_p.E264D,pathogenicity_score,16.05,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.D271N,pathogenicity_score,22.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs1334498236
+1,APOE_p.R272C,pathogenicity_score,23.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs121918395
+1,APOE_p.E275G,pathogenicity_score,22.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs765845034
+1,APOE_p.E275E,pathogenicity_score,8.11,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs771354248
+1,APOE_p.V280E,pathogenicity_score,23.8,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs199768005
+1,APOE_p.E288E,pathogenicity_score,8.924,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs569017773
+1,APOE_p.R295G,pathogenicity_score,22.0,,,,"AD, Dementia",Multi-ancestry (0.00123426),Khani_2025_PMID:39456102_rsID:rs267606661
+1,APOE_p.A298A,pathogenicity_score,6.886,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs1257978352
+1,APOE_p.R304C,pathogenicity_score,27.5,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs762845923
+1,APOE_p.W308C,pathogenicity_score,25.2,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs778901516
+1,APOE_p.E310D,pathogenicity_score,18.29,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs759118026
+1,APOE_p.R318H,pathogenicity_score,23.6,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs121918398
+1,APOE_p.G322W,pathogenicity_score,19.24,,,,"AD, Dementia",Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:rs757764781
+1,APOE_p.T333S,pathogenicity_score,6.422,,,,AD,Multi-ancestry (0.000123426),Khani_2025_PMID:39456102_rsID:Novel
+1,APOE_p.A335A,pathogenicity_score,5.973,,,,Dementia,Multi-ancestry (0.0),Khani_2025_PMID:39456102_rsID:rs774354369
+1,APP_p.L5V,pathogenicity_score,15.84,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs1446208112
+1,APP_p.A283A,pathogenicity_score,12.1,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs201462552
+1,APP_p.Y407H,pathogenicity_score,25.6,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs779792929
+1,PSEN1_p.D40del,pathogenicity_score,11.72,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:Novel
+1,PSEN1_p.R269H,pathogenicity_score,29.9,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs63750900
+1,PSEN1_p.R35Q,pathogenicity_score,22.0,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs63750592
+1,PSEN2_p.D320N,pathogenicity_score,21.8,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs565698726
+1,GRN_c.1179+3A>T,pathogenicity_score,13.13,,,,SAS,Multi-ancestry (SAS),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.G183Afs*73,pathogenicity_score,11.65,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:Novel
+1,GRN_p.T58M,pathogenicity_score,0.111,,,,AMR,Multi-ancestry (AMR),Khani_2025_PMID:39456102_rsID:rs772977073
+1,GBA1_p.H207Q,pathogenicity_score,13.29,,,,SAS,Multi-ancestry (SAS),Khani_2025_PMID:39456102_rsID:rs367968666
+1,TBK1_p.S151F,pathogenicity_score,31.0,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs55824172
+1,TARDBP_p.G287S,pathogenicity_score,22.6,,,,EUR,Multi-ancestry (EUR),Khani_2025_PMID:39456102_rsID:rs80356719
