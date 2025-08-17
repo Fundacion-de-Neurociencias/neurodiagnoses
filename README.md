@@ -57,35 +57,27 @@ The power of Neurodiagnoses lies in its ability to integrate these four distinct
 ---
 
 ## Scientific Foundation & Core Architecture
+## Scientific Foundation & Core Architecture
 
-The scientific foundation of Neurodiagnoses has evolved towards a fully transparent, "glass-box" approach, centered around a **probabilistic, evidence-based Bayesian inference engine**. This moves away from opaque "black-box" models. The core logic is implemented in `tools/bayesian_engine/core.py`.
+The scientific foundation of Neurodiagnoses has evolved towards a fully transparent, "glass-box" approach, centered around a **probabilistic, evidence-based Bayesian inference engine**. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process.
 
-### 1. The Knowledge Base: The Source of Truth
+### 1. The Dynamic Knowledge Base
 
-The engine is powered by a human-readable and machine-readable Knowledge Base stored in simple CSV files (`data/knowledge_base/`). This KB is populated through a sophisticated, dual-pathway, semi-automated pipeline:
-- **Vía 1 (Top-Down Synthesis):** An autonomous orchestrator (`workflows/knowledge_ingestion/7_knowledge_orchestrator.py`) processes a manifest of scientific topics (`topics.csv`), queries public academic databases like **PubMed** for meta-analyses, and uses a Large Language Model (via Groq API) to extract structured "atomic evidence".
-- **Vía 2 (Bottom-Up ETL):** For high-throughput granular data, dedicated parsers (e.g., `parsers/gwas_api_parser.py`, `parsers/adni_imaging_parser.py`) ingest and process large datasets from sources like the GWAS Catalog and ADNI.
-n### Herramienta Recomendada para Vía 2: Microsoft Data Formulator
-Para la exploración, limpieza y transformación rápida de nuevos ficheros de datos (e.g., CSVs de cohortes), hemos validado e integrado **Microsoft Data Formulator**. Esta herramienta AI-powered permite a los investigadores realizar operaciones complejas de ETL usando lenguaje natural e interacción gráfica, acelerando drásticamente la creación de nuevos ficheros para la Base de Conocimiento.
-**Setup para Data Formulator:**
-1. Instala la herramienta: `pip install data-formulator`
-2. Crea tu fichero `api-keys.env` a partir de la plantilla `api-keys.env.template` y añade tu clave de API (Groq o OpenAI).
-3. Lanza la herramienta: `data_formulator`
-4. Accede a la interfaz a través de la pestaña 'PORTS' de tu Codespace.
+The engine is powered by a human-readable and machine-readable Knowledge Base. This is not a static database; it's a dynamic ecosystem designed to grow continuously through a dual-pathway pipeline:
+
+-   **Vía 1 (Autonomous Synthesis):** An autonomous agent periodically scans public academic databases (like **PubMed**) for new high-quality evidence (e.g., meta-analyses, clinical guidelines). It then uses a Large Language Model to extract and integrate this knowledge automatically.
+-   **Vía 2 (High-Throughput ETL):** For large, granular datasets (e.g., genomics, imaging atlases), the ecosystem uses dedicated tools to perform Extract, Transform, Load (ETL) operations, turning massive raw data files into structured, actionable knowledge. We recommend **Microsoft Data Formulator** for this workflow.
 
 ### 2. The Bayesian Engine: The Reasoning Core
 
-The `BayesianEngine` is the brain of the system. Its key features are:
-- **Tridimensional Evidence:** It is designed to ingest likelihoods (sensitivity, specificity, odds ratios, etc.) from all three diagnostic axes: **Axis 1 (Etiology)**, **Axis 2 (Molecular Profile)**, and **Axis 3 (Phenotype)**.
-- **Iterative Reasoning:** It processes multiple pieces of patient evidence sequentially, updating the diagnostic probability with each new finding.
-- **Uncertainty Quantification:** It performs Monte Carlo simulations to calculate not just a single probability, but a **95% Credibility Interval**, providing an honest assessment of the confidence in its conclusions.
+The engine is the brain of the system. Its key features are:
+-   **Tridimensional Evidence:** It is designed to ingest and reason upon likelihoods from all three diagnostic axes: **Axis 1 (Etiology)**, **Axis 2 (Molecular Profile)**, and **Axis 3 (Phenotype)**.
+-   **Iterative Reasoning:** It processes multiple pieces of evidence sequentially, updating the diagnostic probability with each new finding, mimicking the process of differential diagnosis.
+-   **Uncertainty Quantification:** It performs Monte Carlo simulations to calculate not just a single probability, but a **95% Credibility Interval**, providing an honest assessment of the confidence in its own conclusions.
 
 ### 3. Expert-in-the-Loop: Curated Knowledge Ingestion
 
-A key feature of the ecosystem is the ability for experts to enrich the Knowledge Base directly. The user interface includes a dedicated tab for **"Curated Knowledge Ingestion,"** allowing a user to provide a URL or DOI of a relevant scientific paper. The system will then automatically scrape, process, and integrate the extracted knowledge into the database, ensuring the system remains continuously updated with cutting-edge research.
-
----
-
+A key feature of the ecosystem is the ability for experts to enrich the Knowledge Base directly. The user interface includes a dedicated tab for **"Curated Knowledge Ingestion,"** allowing a user to provide a URL or DOI of a relevant scientific paper. The system will then automatically scrape, process, and integrate the extracted knowledge, ensuring it remains continuously updated with cutting-edge research.
 ## Multi-Disease XAI Pipeline and Clinical Dashboard
 
 As part of our goal to build a robust and clinically relevant ecosystem, we have implemented a modular pipeline for analyzing multiple neurodegenerative disorders (NDDs) with a focus on explainability and model governance.
