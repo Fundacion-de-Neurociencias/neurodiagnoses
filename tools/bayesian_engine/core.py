@@ -4,11 +4,12 @@ import numpy as np
 from scipy.stats import norm
 
 class BayesianEngine:
-    def __init__(self, axis1_kb_path: Path, axis2_kb_path: Path, axis3_kb_path: Path, num_simulations: int = 10000):
+    def __init__(self, axis1_kb_path: Path, axis2_kb_path: Path, axis3_kb_path: Path, num_simulations: int = 2000):
         self.axis1_df = self._load_knowledge_base(axis1_kb_path, "Axis 1")
         self.axis2_df = self._load_knowledge_base(axis2_kb_path, "Axis 2")
         self.axis3_df = self._load_knowledge_base(axis3_kb_path, "Axis 3")
         self.num_simulations = num_simulations
+        print(f"INFO: PyMC-like Bayesian Engine initialized. Draws set to {self.num_simulations}.")
 
     def _load_knowledge_base(self, kb_path: Path, axis_name: str) -> pd.DataFrame:
         if not kb_path.exists(): raise FileNotFoundError(f"{axis_name} KB not found: {kb_path}")
@@ -19,9 +20,23 @@ class BayesianEngine:
         return df
 
     def _get_dist_params(self, df, biomarker, disease, stat_types):
+        # --- [LÓGICA MEJORADA] ---
         rows = df[(df['biomarker_name'] == biomarker) & (df['statistic_type'].isin(stat_types))]
+        if rows.empty: return None, None, None
+
+        # 1. Búsqueda Específica: Intenta encontrar evidencia para la enfermedad exacta.
         best_match = rows[rows['primary_disease'].str.contains(disease, case=False, na=False)]
+        
+        # 2. Búsqueda de Fallback: Si no hay, busca evidencia general de AD (la más común).
+        if best_match.empty:
+            best_match = rows[rows['primary_disease'].str.contains("Alzheimer's Disease", case=False, na=False)]
+        
+        # 3. Fallback Final: Si sigue sin haber, coge la primera que haya para ese biomarcador.
+        if best_match.empty:
+            best_match = rows
+
         if best_match.empty: return None, None, None
+        
         row = best_match.iloc[0]
         mean = row['value']
         std = ((row['ci_upper'] - row['ci_lower']) / 3.92) if pd.notna(row['ci_upper']) and row['ci_upper'] > row['ci_lower'] else 0.15 * abs(mean)
@@ -45,7 +60,7 @@ class BayesianEngine:
             final_posteriors, evidence_trail = [], []
             for i in range(self.num_simulations):
                 current_prob = initial_prior
-                # Ejes 1, 2, 3a
+                # (El resto de la lógica de simulación no cambia)
                 for ev_type, df, stat_types in [('axis1', self.axis1_df, ['odds_ratio']), ('axis2', self.axis2_df, ['sensitivity', 'auc']), ('axis3_phenotype', self.axis3_df, ['sensitivity', 'specificity', 'accuracy'])]:
                     for biomarker in patient_data.get(ev_type, []):
                         mean, std, snippet = self._get_dist_params(df, biomarker, disease, stat_types)
@@ -54,7 +69,6 @@ class BayesianEngine:
                         val = np.random.normal(mean, std)
                         lr = val if ev_type == 'axis1' else (val / (1 - np.clip(np.random.normal(val * 1.1, 0.05), 0.01, 0.99)))
                         current_prob = self.update_belief_with_likelihood_ratio(current_prob, lr)
-                # Eje 3b
                 for biomarker, value in patient_data.get('axis3_imaging', {}).items():
                     mean_d, std_d = self._get_axis3_imaging_params(biomarker, disease); mean_c, std_c = self._get_axis3_imaging_params(biomarker, 'Control')
                     if mean_d is not None and mean_c is not None:
@@ -62,6 +76,7 @@ class BayesianEngine:
                         lr = norm.pdf(value, mean_d, std_d) / norm.pdf(value, mean_c, std_c) if norm.pdf(value, mean_c, std_c) > 0 else 1
                         current_prob = self.update_belief_with_likelihood_ratio(current_prob, lr)
                 final_posteriors.append(current_prob)
+            
             all_results.append({"disease": disease, "posterior_probability": np.mean(final_posteriors), "credibility_interval": np.percentile(final_posteriors, [2.5, 97.5]), "evidence_trail": list(set(evidence_trail))})
         
         total_prob = sum(res['posterior_probability'] for res in all_results)
