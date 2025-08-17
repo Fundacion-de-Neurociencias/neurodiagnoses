@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.getcwd())
+print("app.py sys.path:", sys.path)
 # app.py v2.2 - Tridimensional Hub con Ingestión Curada
 import gradio as gr
 from pathlib import Path

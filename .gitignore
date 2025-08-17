@@ -186,3 +186,4 @@ workflows/genomic_pipeline/*.imputed.vcf.gz
 
 # Exception for our specific server log
 !ollama_server.log
+api-keys.env

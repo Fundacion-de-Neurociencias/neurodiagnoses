@@ -65,6 +65,13 @@ The scientific foundation of Neurodiagnoses has evolved towards a fully transpar
 The engine is powered by a human-readable and machine-readable Knowledge Base stored in simple CSV files (`data/knowledge_base/`). This KB is populated through a sophisticated, dual-pathway, semi-automated pipeline:
 - **Vía 1 (Top-Down Synthesis):** An autonomous orchestrator (`workflows/knowledge_ingestion/7_knowledge_orchestrator.py`) processes a manifest of scientific topics (`topics.csv`), queries public academic databases like **PubMed** for meta-analyses, and uses a Large Language Model (via Groq API) to extract structured "atomic evidence".
 - **Vía 2 (Bottom-Up ETL):** For high-throughput granular data, dedicated parsers (e.g., `parsers/gwas_api_parser.py`, `parsers/adni_imaging_parser.py`) ingest and process large datasets from sources like the GWAS Catalog and ADNI.
+n### Herramienta Recomendada para Vía 2: Microsoft Data Formulator
+Para la exploración, limpieza y transformación rápida de nuevos ficheros de datos (e.g., CSVs de cohortes), hemos validado e integrado **Microsoft Data Formulator**. Esta herramienta AI-powered permite a los investigadores realizar operaciones complejas de ETL usando lenguaje natural e interacción gráfica, acelerando drásticamente la creación de nuevos ficheros para la Base de Conocimiento.
+**Setup para Data Formulator:**
+1. Instala la herramienta: `pip install data-formulator`
+2. Crea tu fichero `api-keys.env` a partir de la plantilla `api-keys.env.template` y añade tu clave de API (Groq o OpenAI).
+3. Lanza la herramienta: `data_formulator`
+4. Accede a la interfaz a través de la pestaña 'PORTS' de tu Codespace.
 
 ### 2. The Bayesian Engine: The Reasoning Core
 
