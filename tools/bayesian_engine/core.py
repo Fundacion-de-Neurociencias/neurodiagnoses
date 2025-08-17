@@ -13,16 +13,16 @@ class BayesianEngine:
 
     def _load_knowledge_base(self, kb_path: Path, axis_name: str) -> pd.DataFrame:
         if not kb_path.exists(): raise FileNotFoundError(f"{axis_name} KB not found: {kb_path}")
-        df = pd.read_csv(kb_path)
+        # --- [CORRECCIÓN CLAVE]: keep_default_na=False evita que las celdas vacías se conviertan en NaN ---
+        df = pd.read_csv(kb_path, keep_default_na=False)
         df.columns = df.columns.str.strip()
         for col in ['value', 'ci_lower', 'ci_upper']:
             if col in df.columns: df[col] = pd.to_numeric(df[col], errors='coerce')
         return df
 
     def _get_dist_params(self, df, biomarker, disease, stat_types):
-        # --- [LÓGICA MEJORADA] ---
         rows = df[(df['biomarker_name'] == biomarker) & (df['statistic_type'].isin(stat_types))]
-        if rows.empty: return None, None, None
+        if rows.empty: return None, None, None, None
 
         # 1. Búsqueda Específica: Intenta encontrar evidencia para la enfermedad exacta.
         best_match = rows[rows['primary_disease'].str.contains(disease, case=False, na=False)]
@@ -35,12 +35,13 @@ class BayesianEngine:
         if best_match.empty:
             best_match = rows
 
-        if best_match.empty: return None, None, None
+        if best_match.empty: return None, None, None, None
         
         row = best_match.iloc[0]
         mean = row['value']
         std = ((row['ci_upper'] - row['ci_lower']) / 3.92) if pd.notna(row['ci_upper']) and row['ci_upper'] > row['ci_lower'] else 0.15 * abs(mean)
-        return mean, std if std > 0 else 0.01, row.get('source_snippet', f"KB entry for {biomarker}")
+        # --- [MEJORA]: Devolvemos también el valor y el tipo para un "Why" más rico ---
+        return mean, std if std > 0 else 0.01, row.get('source_snippet', ''), row.get('statistic_type')
 
     def _get_axis3_imaging_params(self, biomarker, cohort):
         try:
@@ -60,19 +61,20 @@ class BayesianEngine:
             final_posteriors, evidence_trail = [], []
             for i in range(self.num_simulations):
                 current_prob = initial_prior
-                # (El resto de la lógica de simulación no cambia)
                 for ev_type, df, stat_types in [('axis1', self.axis1_df, ['odds_ratio']), ('axis2', self.axis2_df, ['sensitivity', 'auc']), ('axis3_phenotype', self.axis3_df, ['sensitivity', 'specificity', 'accuracy'])]:
                     for biomarker in patient_data.get(ev_type, []):
-                        mean, std, snippet = self._get_dist_params(df, biomarker, disease, stat_types)
+                        mean, std, snippet, stat_type = self._get_dist_params(df, biomarker, disease, stat_types)
                         if mean is None: continue
-                        if i == 0: evidence_trail.append(f"[{ev_type.upper()}] {biomarker}: {snippet}")
+                        if i == 0:
+                            # --- [MEJORA]: La pista de auditoría ahora incluye el valor ---
+                            evidence_trail.append(f"[{ev_type.upper()}] {biomarker} ({stat_type}={mean:.2f}): {snippet}")
                         val = np.random.normal(mean, std)
-                        lr = val if ev_type == 'axis1' else (val / (1 - np.clip(np.random.normal(val * 1.1, 0.05), 0.01, 0.99)))
+                        lr = val if ev_type == 'axis1' else (val / (1 - np.clip(np.random.normal(val * 0.85, 0.05), 0.01, 0.99)))
                         current_prob = self.update_belief_with_likelihood_ratio(current_prob, lr)
                 for biomarker, value in patient_data.get('axis3_imaging', {}).items():
                     mean_d, std_d = self._get_axis3_imaging_params(biomarker, disease); mean_c, std_c = self._get_axis3_imaging_params(biomarker, 'Control')
                     if mean_d is not None and mean_c is not None:
-                        if i == 0: evidence_trail.append(f"[IMAGING] {biomarker}: ADNI Dataset")
+                        if i == 0: evidence_trail.append(f"[IMAGING] {biomarker}={value}mm³: ADNI Dataset")
                         lr = norm.pdf(value, mean_d, std_d) / norm.pdf(value, mean_c, std_c) if norm.pdf(value, mean_c, std_c) > 0 else 1
                         current_prob = self.update_belief_with_likelihood_ratio(current_prob, lr)
                 final_posteriors.append(current_prob)

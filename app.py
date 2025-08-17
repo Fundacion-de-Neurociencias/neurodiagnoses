@@ -1,7 +1,6 @@
-# app.py v3.1 - The Clinical Differential Diagnosis Hub
+# app.py v3.2 - The Clinical Insight Hub
 import gradio as gr
 from pathlib import Path
-import pandas as pd
 from unified_orchestrator import run_full_pipeline
 from tools.bayesian_engine.core import BayesianEngine
 
@@ -34,39 +33,45 @@ def run_differential_diagnosis_ui(subject_id, clinical_suspicion, diseases_to_ev
 
     results = run_full_pipeline(patient_id=subject_id, patient_data=patient_data, diseases_to_evaluate=diseases_to_evaluate, initial_prior=initial_prior)
     
-    # --- [LÓGICA MEJORADA]: Construir un informe HTML ---
+    # --- [RESTAURADO Y MEJORADO]: Informe Clínico en HTML ---
     html = "<h3>Differential Diagnosis Report</h3>"
-    html += "<table style='width:100%; border-collapse: collapse;'>"
-    html += "<tr style='background-color:#f2f2f2;'><th>Diagnosis</th><th>Probability</th><th>95% Credibility Interval</th><th>Key Supporting Evidence</th></tr>"
+    html += "<table style='width:100%; border-collapse: collapse; font-family: sans-serif;'>"
+    html += "<tr style='background-color:#f0f0f0; border-bottom: 2px solid #ccc;'><th style='padding: 10px; text-align: left;'>Diagnosis</th><th style='padding: 10px;'>Probability</th><th style='padding: 10px;'>95% Credibility Interval</th><th style='padding: 10px; text-align: left;'>Key Supporting Evidence</th></tr>"
     
     for res in results.get('differential_diagnosis', []):
         prob_pct = f"{res['posterior_probability']:.1%}"
         ci = f"[{res['credibility_interval'][0]:.1%} - {res['credibility_interval'][1]:.1%}]"
         
-        # Formatear la pista de auditoría como una lista de viñetas
-        trail_items = "".join(f"<li style='font-size: 0.9em; margin-left: -20px;'>{item.split(']')[1].strip()}</li>" for item in res['evidence_trail'])
-        trail_html = f"<ul style='padding-left: 20px;'>{trail_items}</ul>" if trail_items else "No specific evidence found."
+        trail_items = "".join(f"<li style='margin-bottom: 8px; font-size: 0.9em;'>{item}</li>" for item in res['evidence_trail'])
+        trail_html = f"<ul style='padding-left: 20px; margin: 0;'>{trail_items}</ul>" if trail_items else "<p>No specific evidence found for this hypothesis.</p>"
 
-        html += f"<tr style='border-bottom: 1px solid #ddd;'><td style='padding: 8px;'><b>{res['disease']}</b></td><td style='padding: 8px; font-weight:bold; font-size: 1.2em;'>{prob_pct}</td><td style='padding: 8px;'>{ci}</td><td style='padding: 8px;'>{trail_html}</td></tr>"
+        html += f"<tr style='border-bottom: 1px solid #eee;'><td style='padding: 8px; font-weight:bold;'>{res['disease']}</td><td style='padding: 8px; font-weight:bold; font-size: 1.3em; text-align:center;'>{prob_pct}</td><td style='padding: 8px; text-align:center;'>{ci}</td><td style='padding: 8px;'>{trail_html}</td></tr>"
         
     html += "</table>"
     return html
 
 # --- Construcción de la Interfaz ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
-    # ... (El resto de la UI no cambia, solo el componente de salida)
     gr.Markdown("# Neurodiagnoses: The Differential Diagnosis Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
     AVAILABLE_AXIS1, AVAILABLE_AXIS2, AVAILABLE_AXIS3_PHENO, AVAILABLE_AXIS3_IMG = get_available_evidence()
     with gr.Tab("Single Case Analysis"):
         with gr.Row():
             with gr.Column(scale=2):
-                # ... (Todos los inputs se quedan igual)
+                gr.Markdown("### 1. Define Case & Hypotheses")
+                subject_id_input = gr.Textbox(label="Subject ID", value="ND_DiffDx_001")
+                clinical_suspicion_radio = gr.Radio(["None / Unsure", "Suspected AD", "Suspected LBD", "Suspected FTD"], label="Initial Clinical Suspicion", value="None / Unsure")
+                diseases_checkboxes = gr.CheckboxGroup(choices=["Alzheimer's Disease", "Parkinson's Disease", "Lewy Body Dementia", "Frontotemporal Dementia"], label="Evaluate for (Differential Diagnosis)", value=["Alzheimer's Disease", "Frontotemporal Dementia"])
+                
+                with gr.Accordion("Axis 1: Genetics", open=False): axis1_dropdown = gr.Dropdown(choices=AVAILABLE_AXIS1, label="Genetic Variant", filterable=True)
+                with gr.Accordion("Axis 2: Molecular", open=False): axis2_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS2, label="Positive Biomarkers")
+                with gr.Accordion("Axis 3: Phenotype", open=True):
+                    gr.Markdown("**Clinical Signs & Criteria**"); axis3_pheno_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS3_PHENO, label="Positive Signs / Criteria Met")
+                    gr.Markdown("**Neuroimaging (Volumes in mm³)**"); imaging_inputs = [gr.Number(label=f"Left {region}") for region in AVAILABLE_AXIS3_IMG]
                 run_btn = gr.Button("Run Differential Diagnosis", variant="primary")
             with gr.Column(scale=3):
                 gr.Markdown("### 2. Diagnostic Report")
-                # --- [MEJORA]: La salida ahora es un componente HTML ---
                 result_display = gr.HTML(label="Differential Diagnosis Table")
-        
+    
         all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
         run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
 
