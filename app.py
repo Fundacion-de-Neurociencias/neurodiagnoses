@@ -66,9 +66,9 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
                 gr.Markdown("### 2. Diagnostic Report")
                 # --- [MEJORA]: La salida ahora es un componente HTML ---
                 result_display = gr.HTML(label="Differential Diagnosis Table")
-    
-    all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
-    run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
+        
+        all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
+        run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
 
 if __name__ == "__main__":
     app.launch()
