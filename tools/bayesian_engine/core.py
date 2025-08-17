@@ -9,39 +9,42 @@ class BayesianEngine:
         self.axis2_df = self._load_knowledge_base(axis2_kb_path, "Axis 2")
         self.axis3_df = self._load_knowledge_base(axis3_kb_path, "Axis 3")
         self.num_simulations = num_simulations
-        print(f"INFO: PyMC-like Bayesian Engine initialized. Draws set to {self.num_simulations}.")
 
     def _load_knowledge_base(self, kb_path: Path, axis_name: str) -> pd.DataFrame:
         if not kb_path.exists(): raise FileNotFoundError(f"{axis_name} KB not found: {kb_path}")
-        # --- [CORRECCIÓN CLAVE]: keep_default_na=False evita que las celdas vacías se conviertan en NaN ---
         df = pd.read_csv(kb_path, keep_default_na=False)
         df.columns = df.columns.str.strip()
         for col in ['value', 'ci_lower', 'ci_upper']:
             if col in df.columns: df[col] = pd.to_numeric(df[col], errors='coerce')
         return df
 
-    def _get_dist_params(self, df, biomarker, disease, stat_types):
+    def _get_dist_params(self, df, biomarker, disease_hypothesis, stat_types):
+        # --- [LÓGICA DE ESPECIFICIDAD v3.0] ---
         rows = df[(df['biomarker_name'] == biomarker) & (df['statistic_type'].isin(stat_types))]
         if rows.empty: return None, None, None, None
 
-        # 1. Búsqueda Específica: Intenta encontrar evidencia para la enfermedad exacta.
-        best_match = rows[rows['primary_disease'].str.contains(disease, case=False, na=False)]
+        # Intenta encontrar una coincidencia directa primero
+        specific_match = rows[rows['primary_disease'].str.contains(disease_hypothesis, case=False, na=False)]
         
-        # 2. Búsqueda de Fallback: Si no hay, busca evidencia general de AD (la más común).
-        if best_match.empty:
-            best_match = rows[rows['primary_disease'].str.contains("Alzheimer's Disease", case=False, na=False)]
-        
-        # 3. Fallback Final: Si sigue sin haber, coge la primera que haya para ese biomarcador.
-        if best_match.empty:
-            best_match = rows
-
-        if best_match.empty: return None, None, None, None
-        
-        row = best_match.iloc[0]
-        mean = row['value']
-        std = ((row['ci_upper'] - row['ci_lower']) / 3.92) if pd.notna(row['ci_upper']) and row['ci_upper'] > row['ci_lower'] else 0.15 * abs(mean)
-        # --- [MEJORA]: Devolvemos también el valor y el tipo para un "Why" más rico ---
-        return mean, std if std > 0 else 0.01, row.get('source_snippet', ''), row.get('statistic_type')
+        if not specific_match.empty:
+            # ¡Coincidencia perfecta! La evidencia aplica directamente a esta enfermedad.
+            row = specific_match.iloc[0]
+            mean = row['value']
+            std = ((row['ci_upper'] - row['ci_lower']) / 3.92) if pd.notna(row.get('ci_upper')) and row.get('ci_upper', 0) > row.get('ci_lower', 0) else 0.15 * abs(mean)
+            return mean, std if std > 0 else 0.01, row.get('source_snippet', ''), row.get('statistic_type')
+        else:
+            # No hay coincidencia directa. Esta evidencia NO es específica para esta enfermedad.
+            # Su valor para esta hipótesis es "neutral".
+            # Para OR/LR, el valor neutral es 1.0. Para AUC/Sensibilidad, es 0.5.
+            row = rows.iloc[0] # Cogemos la primera que haya para tener el snippet
+            stat_type = row.get('statistic_type')
+            
+            if stat_type == 'odds_ratio':
+                # Un OR de 1 no cambia la probabilidad.
+                return 1.0, 0.01, row.get('source_snippet', ''), stat_type
+            else: # sensitivity, auc, etc.
+                # Un AUC de 0.5 es azar. No aporta información.
+                return 0.5, 0.01, row.get('source_snippet', ''), stat_type
 
     def _get_axis3_imaging_params(self, biomarker, cohort):
         try:
@@ -56,6 +59,7 @@ class BayesianEngine:
         return posterior_odds / (1 + posterior_odds)
 
     def run_differential_diagnosis(self, patient_data: dict, diseases_to_evaluate: list, initial_prior: float):
+        # (El resto del código es idéntico, ya que el cambio de lógica está encapsulado en _get_dist_params)
         all_results = []
         for disease in diseases_to_evaluate:
             final_posteriors, evidence_trail = [], []
@@ -66,7 +70,6 @@ class BayesianEngine:
                         mean, std, snippet, stat_type = self._get_dist_params(df, biomarker, disease, stat_types)
                         if mean is None: continue
                         if i == 0:
-                            # --- [MEJORA]: La pista de auditoría ahora incluye el valor ---
                             evidence_trail.append(f"[{ev_type.upper()}] {biomarker} ({stat_type}={mean:.2f}): {snippet}")
                         val = np.random.normal(mean, std)
                         lr = val if ev_type == 'axis1' else (val / (1 - np.clip(np.random.normal(val * 0.85, 0.05), 0.01, 0.99)))
@@ -78,7 +81,6 @@ class BayesianEngine:
                         lr = norm.pdf(value, mean_d, std_d) / norm.pdf(value, mean_c, std_c) if norm.pdf(value, mean_c, std_c) > 0 else 1
                         current_prob = self.update_belief_with_likelihood_ratio(current_prob, lr)
                 final_posteriors.append(current_prob)
-            
             all_results.append({"disease": disease, "posterior_probability": np.mean(final_posteriors), "credibility_interval": np.percentile(final_posteriors, [2.5, 97.5]), "evidence_trail": list(set(evidence_trail))})
         
         total_prob = sum(res['posterior_probability'] for res in all_results)
