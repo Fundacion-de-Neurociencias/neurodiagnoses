@@ -1,17 +1,14 @@
 import sys
 import os
-# --- [CORRECCIÓN CLAVE]: Añadir el directorio actual a la ruta de Python ---
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-# -------------------------------------------------------------------------
 
 import gradio as gr
 from pathlib import Path
-# --- [CORRECCIÓN CLAVE]: Importar desde el fichero correcto ---
-from unified_orchestrator import run_full_pipeline 
+import pandas as pd
+from unified_orchestrator import run_full_pipeline
 from tools.bayesian_engine.core import BayesianEngine
 
-# (El resto del fichero app.py se mantiene igual)
-
+# --- App Logic (No changes) ---
 def get_available_evidence():
     engine = BayesianEngine(
         axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
@@ -40,22 +37,29 @@ def run_differential_diagnosis_ui(subject_id, clinical_suspicion, diseases_to_ev
     html = "<h3>Differential Diagnosis Report</h3>"
     html += "<table style='width:100%; border-collapse: collapse; font-family: sans-serif;'>"
     html += "<tr style='background-color:#f0f0f0; border-bottom: 2px solid #ccc;'><th style='padding: 10px; text-align: left;'>Diagnosis</th><th style='padding: 10px;'>Probability</th><th style='padding: 10px;'>95% Credibility Interval</th><th style='padding: 10px; text-align: left;'>Key Supporting Evidence</th></tr>"
-    
     for res in results.get('differential_diagnosis', []):
         prob_pct = f"{res['posterior_probability']:.1%}"
         ci = f"[{res['credibility_interval'][0]:.1%} - {res['credibility_interval'][1]:.1%}]"
-        
         trail_items = "".join(f"<li style='margin-bottom: 8px; font-size: 0.9em;'>{item}</li>" for item in res['evidence_trail'])
         trail_html = f"<ul style='padding-left: 20px; margin: 0;'>{trail_items}</ul>" if trail_items else "<p>No specific evidence found for this hypothesis.</p>"
-
         html += f"<tr style='border-bottom: 1px solid #eee;'><td style='padding: 8px; font-weight:bold;'>{res['disease']}</td><td style='padding: 8px; font-weight:bold; font-size: 1.3em; text-align:center;'>{prob_pct}</td><td style='padding: 8px; text-align:center;'>{ci}</td><td style='padding: 8px;'>{trail_html}</td></tr>"
-        
     html += "</table>"
     return html
+    
+def cohort_analysis_placeholder(file_obj):
+    if file_obj is None:
+        return None, None
+    df = pd.read_csv(file_obj.name)
+    n_patients = len(df)
+    placeholder_html = f"<h4>File '{os.path.basename(file_obj.name)}' uploaded successfully.</h4>"
+    placeholder_html += f"<p>Detected <b>{n_patients}</b> patients. Full cohort analysis functionality is under development.</p>"
+    return df, placeholder_html
 
+# --- UI Build ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
-    gr.Markdown("# Neurodiagnoses: The Differential Diagnosis Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
+    gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
     AVAILABLE_AXIS1, AVAILABLE_AXIS2, AVAILABLE_AXIS3_PHENO, AVAILABLE_AXIS3_IMG = get_available_evidence()
+    
     with gr.Tab("Single Case Analysis"):
         with gr.Row():
             with gr.Column(scale=2):
@@ -74,8 +78,23 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
                 gr.Markdown("### 2. Diagnostic Report")
                 result_display = gr.HTML(label="Differential Diagnosis Table")
     
+    # --- [TRANSLATED] Cohort Analysis Tab ---
+    with gr.Tab("Cohort Analysis"):
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### 1. Upload Cohort")
+                gr.Markdown("Upload a CSV file with your patient data. The first row must be the header with biomarker names (e.g., `SubjectID`, `APOE_e4`, etc.).")
+                cohort_csv_input = gr.File(label="Cohort CSV File", file_types=[".csv"])
+                run_cohort_btn = gr.Button("Analyze Cohort", variant="primary")
+            with gr.Column(scale=2):
+                gr.Markdown("### 2. Cohort Analysis Results")
+                cohort_result_table = gr.DataFrame(label="Patient-level Results", wrap=True)
+                cohort_summary_display = gr.HTML(label="Cohort Summary")
+
     all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
     run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
+    
+    run_cohort_btn.click(fn=cohort_analysis_placeholder, inputs=[cohort_csv_input], outputs=[cohort_result_table, cohort_summary_display])
 
 if __name__ == "__main__":
     app.launch()
