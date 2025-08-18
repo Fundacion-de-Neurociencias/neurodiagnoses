@@ -25,3 +25,4 @@ pypdf
 requests
 pymupdf4llm
 gradio
+pymc
