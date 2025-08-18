@@ -1,1 +1,0 @@
-The 1984 NINCDS-ADRDA criteria are a cornerstone for the clinical diagnosis of Alzheimer's disease (AD). A large meta-analysis assessing their diagnostic accuracy against neuropathological confirmation found a pooled sensitivity of 0.81 (95% CI: 0.75–0.86) and a pooled specificity of 0.70 (95% CI: 0.65–0.74) for probable AD.
