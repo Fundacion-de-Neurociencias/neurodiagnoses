@@ -5,16 +5,18 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import gradio as gr
 from pathlib import Path
 import pandas as pd
-from unified_orchestrator import run_full_pipeline
+# --- [CAMBIO]: Importamos las dos funciones del orquestador ---
+from unified_orchestrator import run_single_case_pipeline, run_cohort_pipeline
 from tools.bayesian_engine.core import BayesianEngine
 
-# --- App Logic (No changes) ---
+# Lógica de la App (sin cambios en get_available_evidence)
 def get_available_evidence():
     engine = BayesianEngine(
         axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
         axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv"),
         axis3_kb_path=Path("data/knowledge_base/axis3_likelihoods.csv")
     )
+    # ... código sin cambios ...
     axis1 = sorted(engine.axis1_df['biomarker_name'].unique().tolist())
     axis2 = sorted(engine.axis2_df['biomarker_name'].unique().tolist())
     axis3_all = engine.axis3_df['biomarker_name'].unique()
@@ -22,79 +24,64 @@ def get_available_evidence():
     axis3_img = sorted(list(set([name.replace('Left_', '').replace('Right_', '') for name in axis3_all if 'Volume' in name])))
     return axis1, axis2, axis3_pheno, axis3_img
 
+# --- [CAMBIO]: La función de un solo caso ahora es un placeholder ---
 def run_differential_diagnosis_ui(subject_id, clinical_suspicion, diseases_to_evaluate, axis1_evidence, axis2_evidence, axis3_pheno_evidence, *imaging_values):
-    if not diseases_to_evaluate: raise gr.Error("Please select at least one diagnosis to evaluate.")
-    prior_map = {"None / Unsure": 0.05, "Suspected AD": 0.30, "Suspected LBD": 0.15, "Suspected FTD": 0.15}
-    initial_prior = prior_map.get(clinical_suspicion, 0.05)
-    
-    patient_data = {"axis1": [axis1_evidence] if axis1_evidence else [], "axis2": axis2_evidence, "axis3_phenotype": axis3_pheno_evidence, "axis3_imaging": {}}
-    img_regions = get_available_evidence()[3]
-    for i, region in enumerate(img_regions):
-        if imaging_values[i]: patient_data["axis3_imaging"][f"Left_{region}_Volume"] = imaging_values[i]
+    return "<h3>Single Case Analysis is temporarily disabled pending refactor for new engine. Please use Cohort Analysis tab." 
 
-    results = run_full_pipeline(patient_id=subject_id, patient_data=patient_data, diseases_to_evaluate=diseases_to_evaluate, initial_prior=initial_prior)
-    
-    html = "<h3>Differential Diagnosis Report</h3>"
-    html += "<table style='width:100%; border-collapse: collapse; font-family: sans-serif;'>"
-    html += "<tr style='background-color:#f0f0f0; border-bottom: 2px solid #ccc;'><th style='padding: 10px; text-align: left;'>Diagnosis</th><th style='padding: 10px;'>Probability</th><th style='padding: 10px;'>95% Credibility Interval</th><th style='padding: 10px; text-align: left;'>Key Supporting Evidence</th></tr>"
-    for res in results.get('differential_diagnosis', []):
-        prob_pct = f"{res['posterior_probability']:.1%}"
-        ci = f"[{res['credibility_interval'][0]:.1%} - {res['credibility_interval'][1]:.1%}]"
-        trail_items = "".join(f"<li style='margin-bottom: 8px; font-size: 0.9em;'>{item}</li>" for item in res['evidence_trail'])
-        trail_html = f"<ul style='padding-left: 20px; margin: 0;'>{trail_items}</ul>" if trail_items else "<p>No specific evidence found for this hypothesis.</p>"
-        html += f"<tr style='border-bottom: 1px solid #eee;'><td style='padding: 8px; font-weight:bold;'>{res['disease']}</td><td style='padding: 8px; font-weight:bold; font-size: 1.3em; text-align:center;'>{prob_pct}</td><td style='padding: 8px; text-align:center;'>{ci}</td><td style='padding: 8px;'>{trail_html}</td></tr>"
-    html += "</table>"
-    return html
-    
-def cohort_analysis_placeholder(file_obj):
+# --- [NUEVA FUNCIÓN REAL]: Lógica para el análisis de cohortes ---
+def run_cohort_analysis_ui(file_obj, diseases_to_evaluate):
     if file_obj is None:
-        return None, None
-    df = pd.read_csv(file_obj.name)
-    n_patients = len(df)
-    placeholder_html = f"<h4>File '{os.path.basename(file_obj.name)}' uploaded successfully.</h4>"
-    placeholder_html += f"<p>Detected <b>{n_patients}</b> patients. Full cohort analysis functionality is under development.</p>"
-    return df, placeholder_html
+        return None, "Please upload a CSV file to begin analysis."
+    if not diseases_to_evaluate:
+        raise gr.Error("Please select at least one diagnosis to evaluate.")
 
-# --- UI Build ---
+    # El prior se simplifica para el análisis de cohorte por ahora
+    initial_prior = 0.10 
+    
+    results_df = run_cohort_pipeline(
+        cohort_csv_path=file_obj.name,
+        diseases_to_evaluate=diseases_to_evaluate,
+        initial_prior=initial_prior
+    )
+
+    # Calcular insights de la cohorte
+    primary_disease = diseases_to_evaluate[0].replace(" ", "_")
+    prob_col = f'Prob_{primary_disease}'
+    
+    if prob_col in results_df.columns:
+        high_risk_patients = results_df[results_df[prob_col] > 0.80]
+        num_high_risk = len(high_risk_patients)
+        total_patients = len(results_df)
+        summary_html = f"<h4>Cohort Analysis Summary:</h4>"
+        summary_html += f"<ul><li><b>{total_patients}</b> patients analyzed.</li>"
+        summary_html += f"<li><b>{num_high_risk} ({num_high_risk/total_patients:.1%})</b> classified as high-probability (>80%) for {diseases_to_evaluate[0]}.</li></ul>"
+    else:
+        summary_html = f"<h4>Analysis Complete</h4><p>Results generated without summary statistics.</p>"
+
+    return results_df, summary_html
+
+# --- Construcción de la Interfaz ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
     gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
     AVAILABLE_AXIS1, AVAILABLE_AXIS2, AVAILABLE_AXIS3_PHENO, AVAILABLE_AXIS3_IMG = get_available_evidence()
     
-    with gr.Tab("Single Case Analysis"):
-        with gr.Row():
-            with gr.Column(scale=2):
-                gr.Markdown("### 1. Define Case & Hypotheses")
-                subject_id_input = gr.Textbox(label="Subject ID", value="ND_DiffDx_001")
-                clinical_suspicion_radio = gr.Radio(["None / Unsure", "Suspected AD", "Suspected LBD", "Suspected FTD"], label="Initial Clinical Suspicion", value="None / Unsure")
-                diseases_checkboxes = gr.CheckboxGroup(choices=["Alzheimer's Disease", "Parkinson's Disease", "Lewy Body Dementia", "Frontotemporal Dementia"], label="Evaluate for (Differential Diagnosis)", value=["Alzheimer's Disease", "Frontotemporal Dementia"])
-                
-                with gr.Accordion("Axis 1: Genetics", open=False): axis1_dropdown = gr.Dropdown(choices=AVAILABLE_AXIS1, label="Genetic Variant", filterable=True)
-                with gr.Accordion("Axis 2: Molecular", open=False): axis2_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS2, label="Positive Biomarkers")
-                with gr.Accordion("Axis 3: Phenotype", open=True):
-                    gr.Markdown("**Clinical Signs & Criteria**"); axis3_pheno_checkboxes = gr.CheckboxGroup(choices=AVAILABLE_AXIS3_PHENO, label="Positive Signs / Criteria Met")
-                    gr.Markdown("**Neuroimaging (Volumes in mm³)**"); imaging_inputs = [gr.Number(label=f"Left {region}") for region in AVAILABLE_AXIS3_IMG]
-                run_btn = gr.Button("Run Differential Diagnosis", variant="primary")
-            with gr.Column(scale=3):
-                gr.Markdown("### 2. Diagnostic Report")
-                result_display = gr.HTML(label="Differential Diagnosis Table")
-    
-    # --- [TRANSLATED] Cohort Analysis Tab ---
     with gr.Tab("Cohort Analysis"):
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### 1. Upload Cohort")
-                gr.Markdown("Upload a CSV file with your patient data. The first row must be the header with biomarker names (e.g., `SubjectID`, `APOE_e4`, etc.).")
-                cohort_csv_input = gr.File(label="Cohort CSV File", file_types=[".csv"])
+                gr.Markdown("### 1. Upload & Configure")
+                gr.Markdown("Upload a CSV file with patient data. The first row must be the header with biomarker names.")
+                cohort_csv_input = gr.File(label="Cohort CSV File", file_types=[ ".csv"])
+                diseases_cohort_checkboxes = gr.CheckboxGroup(choices=["Alzheimer's Disease", "Parkinson's Disease", "Lewy Body Dementia", "Frontotemporal Dementia"], label="Evaluate for (Differential Diagnosis)", value=["Alzheimer's Disease", "Frontotemporal Dementia"])
                 run_cohort_btn = gr.Button("Analyze Cohort", variant="primary")
             with gr.Column(scale=2):
                 gr.Markdown("### 2. Cohort Analysis Results")
-                cohort_result_table = gr.DataFrame(label="Patient-level Results", wrap=True)
                 cohort_summary_display = gr.HTML(label="Cohort Summary")
+                cohort_result_table = gr.DataFrame(label="Patient-level Results", wrap=True, height=500)
 
-    all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
-    run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
+    with gr.Tab("Single Case Analysis"):
+        gr.Markdown("## Single Case Analysis\nThis feature is temporarily disabled and will be refactored to use the new vectorized engine.")
     
-    run_cohort_btn.click(fn=cohort_analysis_placeholder, inputs=[cohort_csv_input], outputs=[cohort_result_table, cohort_summary_display])
+    run_cohort_btn.click(fn=run_cohort_analysis_ui, inputs=[cohort_csv_input, diseases_cohort_checkboxes], outputs=[cohort_result_table, cohort_summary_display])
 
 if __name__ == "__main__":
     app.launch()
