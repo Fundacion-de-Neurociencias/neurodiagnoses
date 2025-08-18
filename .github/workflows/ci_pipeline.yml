@@ -1,44 +1,21 @@
-# .github/workflows/ci_pipeline.yml
-# Definitive CI Pipeline for Neurodiagnoses
-# This version ONLY runs tests, as automated quality checks have proven
-# to be unstable in the execution environment.
-
-name: Neurodiagnoses CI (Tests Only)
-
+name: Neurodiagnoses CI (Public Repo)
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
-
+    branches: [ "main" ]
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11"] # We can use a single, modern version.
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: Prepare Test Data
-        run: |
-          export PYTHONPATH=$PWD # Ensure PWD is in PYTHONPATH for script execution
-          python tools/data_ingestion/unify_multiomics_data.py
-          python tools/ml_pipelines/build_biomarker_features.py
-
-      - name: Run tests with pytest
-        run: |
-          export PYTHONPATH=$PWD
-          pytest
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Placeholder Test
+      run: echo "CI pipeline for public repository. Engine tests are in the private repo."
