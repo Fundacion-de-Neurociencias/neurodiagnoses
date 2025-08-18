@@ -1,11 +1,18 @@
-# app.py v3.2 - The Clinical Insight Hub
+import sys
+import os
+# --- [CORRECCIÓN CLAVE]: Añadir el directorio actual a la ruta de Python ---
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# -------------------------------------------------------------------------
+
 import gradio as gr
 from pathlib import Path
-from unified_orchestrator import run_full_pipeline
+# --- [CORRECCIÓN CLAVE]: Importar desde el fichero correcto ---
+from unified_orchestrator import run_full_pipeline 
 from tools.bayesian_engine.core import BayesianEngine
 
+# (El resto del fichero app.py se mantiene igual)
+
 def get_available_evidence():
-    # (Lógica sin cambios)
     engine = BayesianEngine(
         axis1_kb_path=Path("data/knowledge_base/axis1_likelihoods.csv"),
         axis2_kb_path=Path("data/knowledge_base/axis2_likelihoods.csv"),
@@ -23,17 +30,13 @@ def run_differential_diagnosis_ui(subject_id, clinical_suspicion, diseases_to_ev
     prior_map = {"None / Unsure": 0.05, "Suspected AD": 0.30, "Suspected LBD": 0.15, "Suspected FTD": 0.15}
     initial_prior = prior_map.get(clinical_suspicion, 0.05)
     
-    patient_data = {
-        "axis1": [axis1_evidence] if axis1_evidence else [], 
-        "axis2": axis2_evidence, "axis3_phenotype": axis3_pheno_evidence, "axis3_imaging": {}
-    }
+    patient_data = {"axis1": [axis1_evidence] if axis1_evidence else [], "axis2": axis2_evidence, "axis3_phenotype": axis3_pheno_evidence, "axis3_imaging": {}}
     img_regions = get_available_evidence()[3]
     for i, region in enumerate(img_regions):
         if imaging_values[i]: patient_data["axis3_imaging"][f"Left_{region}_Volume"] = imaging_values[i]
 
     results = run_full_pipeline(patient_id=subject_id, patient_data=patient_data, diseases_to_evaluate=diseases_to_evaluate, initial_prior=initial_prior)
     
-    # --- [RESTAURADO Y MEJORADO]: Informe Clínico en HTML ---
     html = "<h3>Differential Diagnosis Report</h3>"
     html += "<table style='width:100%; border-collapse: collapse; font-family: sans-serif;'>"
     html += "<tr style='background-color:#f0f0f0; border-bottom: 2px solid #ccc;'><th style='padding: 10px; text-align: left;'>Diagnosis</th><th style='padding: 10px;'>Probability</th><th style='padding: 10px;'>95% Credibility Interval</th><th style='padding: 10px; text-align: left;'>Key Supporting Evidence</th></tr>"
@@ -50,7 +53,6 @@ def run_differential_diagnosis_ui(subject_id, clinical_suspicion, diseases_to_ev
     html += "</table>"
     return html
 
-# --- Construcción de la Interfaz ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
     gr.Markdown("# Neurodiagnoses: The Differential Diagnosis Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
     AVAILABLE_AXIS1, AVAILABLE_AXIS2, AVAILABLE_AXIS3_PHENO, AVAILABLE_AXIS3_IMG = get_available_evidence()
@@ -72,8 +74,8 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
                 gr.Markdown("### 2. Diagnostic Report")
                 result_display = gr.HTML(label="Differential Diagnosis Table")
     
-        all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
-        run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
+    all_inputs = [subject_id_input, clinical_suspicion_radio, diseases_checkboxes, axis1_dropdown, axis2_checkboxes, axis3_pheno_checkboxes] + imaging_inputs
+    run_btn.click(fn=run_differential_diagnosis_ui, inputs=all_inputs, outputs=[result_display])
 
 if __name__ == "__main__":
     app.launch()
