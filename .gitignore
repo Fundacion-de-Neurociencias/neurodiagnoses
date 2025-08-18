@@ -192,3 +192,7 @@ api-keys.env
 /workflows/ 
 /parsers/ 
 /unified_orchestrator.py 
+
+# Ignorar el repositorio del motor privado anidado
+neurodiagnoses-engine/
+*.sh
