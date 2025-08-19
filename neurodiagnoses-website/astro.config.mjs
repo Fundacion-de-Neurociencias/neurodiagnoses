@@ -8,3 +8,4 @@ export default defineConfig({
   integrations: [tailwind(), mdx(), sitemap()],
   output: 'static'
 });
+// Trigger new deployment
