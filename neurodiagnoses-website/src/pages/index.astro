@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+
+const features = [
+  { title: 'Explainable by Design', desc: 'XAI at feature and patient level (SHAP, counterfactuals, saliency maps).' },
+  { title: 'Multimodal Fusion', desc: 'Integrates clinical, cognitive, imaging, and multi-omic data.' },
+  { title: 'Subtype Discovery', desc: 'Anatomo‑cognitive subtypes support personalized prognosis.' },
+  { title: 'Privacy‑Preserving', desc: 'On‑premise & edge‑ready options; full GDPR/HIPAA compliance.' },
+];
+---
+<BaseLayout title="Neurodiagnoses — Explainable AI for Brain Health" description="Early detection and stratification of cognitive decline using explainable AI.">
+  <Header />
+
+  <main>
+    <section class="mx-auto max-w-7xl px-4 py-20 lg:py-32 grid gap-10 md:grid-cols-2 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Explainable AI for Early Cognitive Decline
+        </h1>
+        <p class="mt-4 text-lg text-slate-600">
+          From clinic to MRI, integrate multimodal data to predict trajectories and support personalized care.
+        </p>
+        <div class="mt-8 flex gap-4">
+          <a href="/product" class="px-5 py-3 rounded-2xl bg-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all">See How It Works</a>
+          <a href="/science" class="px-5 py-3 rounded-2xl border border-slate-300 font-semibold hover:bg-slate-100 transition-colors">Validation & Publications</a>
+        </div>
+      </div>
+      <div class="bg-slate-200 h-80 rounded-2xl flex items-center justify-center">
+        <p class="text-slate-500">Hero Image Placeholder</p>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 grid gap-6 md:grid-cols-4">
+        {features.map(f => <FeatureCard title={f.title} desc={f.desc} />)}
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

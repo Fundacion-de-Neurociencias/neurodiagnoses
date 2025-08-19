@@ -1,0 +1,22 @@
+---
+const nav = [
+  { href: '/product', label: 'Product' },
+  { href: '/science', label: 'Science' },
+  { href: '/use-cases', label: 'Use Cases' },
+  { href: '/team', label: 'Team' },
+];
+---
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      <img src="/logo.svg" class="h-8 w-8" alt="Neurodiagnoses Logo" />
+      <span class="font-semibold text-lg">Neurodiagnoses</span>
+    </a>
+    <nav class="hidden md:flex gap-6 items-center">
+      {nav.map(i => <a href={i.href} class="text-slate-700 hover:text-primary transition-colors">{i.label}</a>)}
+    </nav>
+    <div class="hidden md:flex">
+        <a href="/contact" class="px-4 py-2 rounded-2xl bg-primary text-white font-semibold hover:bg-primary/90 transition-colors">Request Demo</a>
+    </div>
+  </div>
+</header>

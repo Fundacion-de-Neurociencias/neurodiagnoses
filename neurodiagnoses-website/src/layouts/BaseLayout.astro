@@ -1,0 +1,19 @@
+---
+import '../styles/global.css';
+const { title = "Neurodiagnoses", description = "Explainable AI for early cognitive decline stratification", lang = "en" } = Astro.props;
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+    {import.meta.env.PROD && (
+      <script defer data-domain="neurodiagnoses.com" src="https://plausible.io/js/script.js"></script>
+    )}
+  </head>
+  <body class="bg-light text-dark selection:bg-primary/20">
+    <slot />
+  </body>
+</html>
