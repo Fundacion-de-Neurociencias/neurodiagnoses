@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Ecosystem - Neurodiagnoses">
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-16 prose lg:prose-xl">
+    <h1>The Neurodiagnoses Ecosystem</h1>
+    <p class="lead">Neurodiagnoses is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).</p>
+    
+    <p>This project moves beyond traditional, static disease labels. It generates both a probabilistic differential for classical diagnoses and a rich, <strong>tridimensional diagnostic annotation</strong> that reflects the biological and clinical complexity of each patient, as described in its <a href="/science">foundational paper</a>.</p>
+    
+    <h2>Scientific Foundation & Core Architecture</h2>
+    <p>The scientific foundation of Neurodiagnoses is a fully transparent, "glass-box" approach, centered around a probabilistic, evidence-based Bayesian inference engine. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process based on our tridimensional framework.</p>
+
+    <h3>The Three Axes of Diagnosis</h3>
+    <p>Our system organizes all patient data along three fundamental axes:</p>
+    <ul>
+        <li><strong>Axis 1: Etiology:</strong> The "Why". Focuses on the root cause or predisposition, including genetic factors (monogenic or risk alleles) and significant environmental or infectious contributors.</li>
+        <li><strong>Axis 2: Molecular Pathology:</strong> The "What". Describes the underlying biological processes. This is the primary axis for multi-omics data, integrating evidence from proteomics, transcriptomics, metabolomics, and fluid biomarkers (CSF/plasma) to profile active pathological pathways like amyloid, tau, synucleinopathy, and neuroinflammation.</li>
+        <li><strong>Axis 3: Clinical-Anatomical Phenotype:</strong> The "How & Where". Captures the observable manifestation of the disease, representing the crucial correlation between clinical symptoms (cognitive scores, neuropsychiatric symptoms) and neuroanatomical findings (structural and functional neuroimaging).</li>
+    </ul>
+
+    <h3>The Dual-Output Engine</h3>
+    <p>The BayesianEngine is the brain of the system. After processing evidence from all three axes, it generates a comprehensive "Neurodegenerative Signature" composed of two parts:</p>
+    <ol>
+        <li><strong>Classical Differential:</strong> A familiar, ranked list of classical neurodegenerative diseases, each with a calculated posterior probability.</li>
+        <li><strong>Tridimensional Annotation:</strong> A rich, structured report detailing the patient's profile across the three axes, providing deep insight into the specific mechanisms at play.</li>
+    </ol>
+  </main>
+  <Footer />
+</BaseLayout>
