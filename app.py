@@ -52,7 +52,7 @@ def run_cohort_analysis_ui(file_obj):
         final_html += "</table></div>"
 
     summary_html = f"<h4>Cohort Analysis Summary</h4><p><b>{len(results)}</b> patients analyzed against the full spectrum of NDDs.</p><p style='font-size: 0.8em; color: #666;'><i>Note: Only diagnoses with a posterior probability > 5% are listed individually for each patient.</i></p>"
-    return "Analysis complete. See report below.", final_html, "" # Limpiamos la tabla antigua
+    return "Analysis complete. See report below.", final_html
 
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
     gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
@@ -72,7 +72,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
     run_cohort_btn.click(
         fn=run_cohort_analysis_ui, 
         inputs=[cohort_csv_input], 
-        outputs=[cohort_summary_display, cohort_result_html, cohort_result_table] # Usamos un tercer output para limpiar la tabla vieja
+        outputs=[cohort_summary_display, cohort_result_html]
     )
 
 if __name__ == "__main__":
