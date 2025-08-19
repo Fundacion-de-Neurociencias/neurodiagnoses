@@ -76,7 +76,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
             with gr.Column(scale=2):
                 gr.Markdown("### 2. Cohort Analysis Results")
                 cohort_summary_display = gr.HTML(label="Cohort Summary")
-                cohort_result_table = gr.DataFrame(label="Patient-level Results", wrap=True, height=500)
+                cohort_result_table = gr.DataFrame(label="Patient-level Results", wrap=True)
 
     with gr.Tab("Single Case Analysis"):
         gr.Markdown("## Single Case Analysis\nThis feature is temporarily disabled and will be refactored to use the new vectorized engine.")
