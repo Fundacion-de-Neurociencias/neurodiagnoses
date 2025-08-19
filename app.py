@@ -8,7 +8,7 @@ import pandas as pd
 from unified_orchestrator import run_cohort_pipeline
 
 def run_cohort_analysis_ui(file_obj):
-    if file_obj is None: return "", ""
+    if file_obj is None: return "", "Please upload a CSV file to begin analysis."
     initial_prior = 0.05
     results = run_cohort_pipeline(cohort_csv_path=file_obj.name, initial_prior=initial_prior)
 
@@ -62,7 +62,15 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
                 cohort_summary_display = gr.HTML(label="Cohort Summary")
                 cohort_result_html = gr.HTML()
     
-    run_cohort_btn.click(fn=run_cohort_analysis_ui, inputs=[cohort_csv_input], outputs=[cohort_summary_display, cohort_result_html])
+    with gr.Tab("Single Case Analysis (Disabled)"):
+        gr.Markdown("## Single Case AnalysisnThis feature is temporarily disabled and will be refactored to use the new universal diagnosis engine.")
+
+    # --- [CORRECCIÓN CLAVE]: La lista de 'outputs' ahora solo tiene dos componentes ---
+    run_cohort_btn.click(
+        fn=run_cohort_analysis_ui, 
+        inputs=[cohort_csv_input], 
+        outputs=[cohort_summary_display, cohort_result_html]
+    )
 
 if __name__ == "__main__":
     app.launch()
