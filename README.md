@@ -1,12 +1,12 @@
 # Neurodiagnoses: An AI-Powered Ecosystem for Neurodegenerative Disorders
 
-[![GitHub last commit](httpss://img.shields.io/github/last-commit/Fundacion-de-Neurociencias/neurodiagnoses)](httpss://github.com/Fundacion-de-Neurociencias/neurodiagnoses/commits/main)
-[![GitHub issues](httpss://img.shields.io/github/issues/Fundacion-de-Neurociencias/neurodiagnoses)](httpss://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues)
-[![License](httpss://img.shields.io/github/license/Fundacion-de-Neurociencias/neurodiagnoses)](LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues)
+[![License](https://img.shields.io/github/license/Fundacion-de-Neurociencias/neurodiagnoses)](LICENSE)
 
 **Neurodiagnoses** is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).
 
-This project moves beyond traditional, static disease labels. It generates both a probabilistic differential for classical diagnoses and a rich, **tridimensional diagnostic annotation** that reflects the biological and clinical complexity of each patient, as described in its foundational paper: [Implementing a tridimensional diagnostic framework for personalized medicine in neurodegenerative diseases](httpss://doi.org/10.1002/alz.14591).
+This project moves beyond traditional, static disease labels. It generates both a probabilistic differential for classical diagnoses and a rich, **tridimensional diagnostic annotation** that reflects the biological and clinical complexity of each patient, as described in its foundational paper: [Implementing a tridimensional diagnostic framework for personalized medicine in neurodegenerative diseases](https://doi.org/10.1002/alz.14591).
 
 > **⚠️ Research Use Only Disclaimer**
 > This entire project, including all models and web interfaces, is a research prototype and is **NOT a medical device**. It has not been validated for clinical use, nor does it have FDA/EMA approval. It **must not** be used for clinical diagnosis or patient management.
@@ -20,16 +20,16 @@ The core vision of Neurodiagnoses is to generate a comprehensive **Neurodegenera
 ```mermaid
 graph TD
     subgraph Inputs
-        A1[Axis 1: Etiology<br/>(Genomics, Environment)]
-        A2[Axis 2: Molecular Pathology<br/>(Omics, Fluid Biomarkers)]
-        A3[Axis 3: Clinical-Anatomical Phenotype<br/>(Symptoms, Neuroimaging)]
+        A1["Axis 1: Etiology<br/>(Genomics, Environment)"]
+        A2["Axis 2: Molecular Pathology<br/>(Omics, Fluid Biomarkers)"]
+        A3["Axis 3: Clinical-Anatomical Phenotype<br/>(Symptoms, Neuroimaging)"]
     end
 
     C1(Bayesian Inference Engine)
 
     subgraph Outputs
-        D1[Classical Differential Diagnosis<br/>(e.g., AD 85%, LBD 10%)]
-        D2[Tridimensional Annotation<br/>(Detailed Etiological, Molecular, and Phenotypic Profile)]
+        D1["Classical Differential Diagnosis<br/>(e.g., AD 85%, LBD 10%)"]
+        D2["Tridimensional Annotation<br/>(Detailed Etiological, Molecular, and Phenotypic Profile)"]
     end
 
     A1 --> C1
@@ -38,6 +38,8 @@ graph TD
     
     C1 --> D1
     C1 --> D2
+```
+
 Scientific Foundation & Core Architecture
 The scientific foundation of Neurodiagnoses is a fully transparent, "glass-box" approach, centered around a probabilistic, evidence-based Bayesian inference engine. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process based on our tridimensional framework.
 
