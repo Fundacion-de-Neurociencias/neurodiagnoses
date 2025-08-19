@@ -188,11 +188,13 @@ workflows/genomic_pipeline/*.imputed.vcf.gz
 !ollama_server.log
 api-keys.env
 /tools/ 
-/data/ 
+ 
 /workflows/ 
 /parsers/ 
 /unified_orchestrator.py 
 
 # Ignorar el repositorio del motor privado anidado
 neurodiagnoses-engine/
+!neurodiagnoses-engine/data/simulated/
 *.sh
+!neurodiagnoses-engine/data/simulated/test_patient_proteomics.csv
