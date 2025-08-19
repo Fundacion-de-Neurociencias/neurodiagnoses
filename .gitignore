@@ -198,3 +198,4 @@ neurodiagnoses-engine/
 !neurodiagnoses-engine/data/simulated/
 *.sh
 !neurodiagnoses-engine/data/simulated/test_patient_proteomics.csv
+neurodiagnoses-engine/data/raw/proteomics/Simulated_Ali_2025_Supplementary.xlsx
