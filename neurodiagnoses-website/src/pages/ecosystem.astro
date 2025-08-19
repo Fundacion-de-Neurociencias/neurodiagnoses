@@ -5,29 +5,45 @@ import Footer from '../components/Footer.astro';
 ---
 <BaseLayout title="Ecosystem - Neurodiagnoses">
   <Header />
-  <main class="mx-auto max-w-5xl px-4 py-16 prose lg:prose-xl">
-    <h1>The Neurodiagnoses Ecosystem</h1>
-    <p class="lead">Neurodiagnoses is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).</p>
-    
-    <p>This project moves beyond traditional, static disease labels. It generates both a probabilistic differential for classical diagnoses and a rich, <strong>tridimensional diagnostic annotation</strong> that reflects the biological and clinical complexity of each patient, as described in its <a href="/science">foundational paper</a>.</p>
-    
-    <h2>Scientific Foundation & Core Architecture</h2>
-    <p>The scientific foundation of Neurodiagnoses is a fully transparent, "glass-box" approach, centered around a probabilistic, evidence-based Bayesian inference engine. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process based on our tridimensional framework.</p>
+  <main class="mx-auto max-w-7xl px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center">The Neurodiagnoses Ecosystem</h1>
+        <p class="mt-4 text-xl text-slate-600 text-center">An AI-powered, open-source platform designed to integrate multi-modal data and enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).</p>
+    </div>
 
-    <h3>The Three Axes of Diagnosis</h3>
-    <p>Our system organizes all patient data along three fundamental axes:</p>
-    <ul>
-        <li><strong>Axis 1: Etiology:</strong> The "Why". Focuses on the root cause or predisposition, including genetic factors (monogenic or risk alleles) and significant environmental or infectious contributors.</li>
-        <li><strong>Axis 2: Molecular Pathology:</strong> The "What". Describes the underlying biological processes. This is the primary axis for multi-omics data, integrating evidence from proteomics, transcriptomics, metabolomics, and fluid biomarkers (CSF/plasma) to profile active pathological pathways like amyloid, tau, synucleinopathy, and neuroinflammation.</li>
-        <li><strong>Axis 3: Clinical-Anatomical Phenotype:</strong> The "How & Where". Captures the observable manifestation of the disease, representing the crucial correlation between clinical symptoms (cognitive scores, neuropsychiatric symptoms) and neuroanatomical findings (structural and functional neuroimaging).</li>
-    </ul>
+    <div class="mt-16">
+        <h2 class="text-3xl font-bold text-center">A Tridimensional Diagnostic Framework</h2>
+        <p class="mt-4 text-lg text-slate-600 text-center max-w-3xl mx-auto">Our system moves beyond static labels by organizing all patient data along three fundamental axes, providing a holistic and mechanistic view of the disease.</p>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <h3 class="text-xl font-semibold">Axis 1: Etiology (The Why)</h3>
+                <p class="text-slate-600 mt-2">Focuses on the root cause or predisposition, including genetic factors (monogenic or risk alleles) and significant environmental or infectious contributors.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <h3 class="text-xl font-semibold">Axis 2: Molecular Pathology (The What)</h3>
+                <p class="text-slate-600 mt-2">Describes the underlying biological processes, integrating multi-omics data to profile active pathological pathways like amyloid, tau, and neuroinflammation.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
+                <h3 class="text-xl font-semibold">Axis 3: Phenotype (The How & Where)</h3>
+                <p class="text-slate-600 mt-2">Captures the observable manifestation, correlating clinical symptoms with their neuroanatomical findings from imaging.</p>
+            </div>
+        </div>
+    </div>
 
-    <h3>The Dual-Output Engine</h3>
-    <p>The BayesianEngine is the brain of the system. After processing evidence from all three axes, it generates a comprehensive "Neurodegenerative Signature" composed of two parts:</p>
-    <ol>
-        <li><strong>Classical Differential:</strong> A familiar, ranked list of classical neurodegenerative diseases, each with a calculated posterior probability.</li>
-        <li><strong>Tridimensional Annotation:</strong> A rich, structured report detailing the patient's profile across the three axes, providing deep insight into the specific mechanisms at play.</li>
-    </ol>
+    <div class="mt-16 bg-light p-8 rounded-2xl">
+        <h2 class="text-3xl font-bold text-center">The Dual-Output Engine</h2>
+        <p class="mt-4 text-lg text-slate-600 text-center max-w-3xl mx-auto">The Bayesian inference engine generates a comprehensive "Neurodegenerative Signature" for each patient, composed of two key parts:</p>
+        <div class="mt-8 grid md:grid-cols-2 gap-8">
+            <div >
+                <h4 class="font-bold text-lg">1. Classical Differential Diagnosis</h4>
+                <p class="text-slate-600">A familiar, ranked list of classical neurodegenerative diseases, each with a calculated posterior probability, enabling direct clinical interpretation.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg">2. Tridimensional Annotation</h4>
+                <p class="text-slate-600">A rich, structured report detailing the patient's unique profile across the three axes, providing deep insight into the specific mechanisms at play for precision medicine.</p>
+            </div>
+        </div>
+    </div>
   </main>
   <Footer />
 </BaseLayout>

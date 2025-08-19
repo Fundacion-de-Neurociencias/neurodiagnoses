@@ -2,12 +2,45 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const useCases = [
+    {
+        title: "For Clinical Neurologists",
+        subtitle: "Enhancing Differential Diagnosis in Complex Cases",
+        description: "Move beyond symptom-based ambiguity. Neurodiagnoses provides a probabilistic assessment across multiple neurodegenerative diseases, supported by a deep, multi-modal evidence trail. It helps clarify complex presentations, such as differentiating between Alzheimer's Disease, Lewy Body Dementia, and Frontotemporal Dementia, especially in early stages.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary"><path d="M12 2a5.5 5.5 0 0 0-5.5 5.5c0 3.036 2.464 5.5 5.5 5.5s5.5-2.464 5.5-5.5A5.5 5.5 0 0 0 12 2z"></path><path d="M12 13c-3.866 0-7 1.79-7 4v1h14v-1c0-2.21-3.134-4-7-4z"></path></svg>`
+    },
+    {
+        title: "For Medical Researchers",
+        subtitle: "Accelerating Patient Stratification and Subtype Discovery",
+        description: "Analyze large, multi-modal datasets to uncover novel patient subgroups. The tridimensional annotation allows for stratification based not on clinical labels alone, but on shared etiological, molecular, and neuroanatomical profiles. This is crucial for understanding the biological drivers of heterogeneity in NDDs.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary"><path d="M4.5 12.5l-1.5 1.5-1.5-1.5"></path><path d="M21 12.5l1.5 1.5 1.5-1.5"></path><path d="M12 2c-3.333 3.333-3.333 6.667 0 10"></path><path d="M12 12c-3.333-3.333-3.333-6.667 0-10"></path><path d="M19.5 12.5l-1.5-1.5-1.5 1.5"></path><path d="M6 12.5l1.5-1.5 1.5 1.5"></path></svg>`
+    },
+    {
+        title: "For Pharmaceutical & Clinical Trials",
+        subtitle: "Optimizing Trial Design and Endpoint Monitoring",
+        description: "Improve the success rate of clinical trials with precision patient selection. Enroll participants based on confirmed molecular pathology (e.g., active amyloid or tau pathways) rather than just clinical scores. Use the system's quantitative annotations as sensitive biomarkers to monitor therapeutic response and treatment efficacy over time.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary"><path d="M10.7 20.7a2 2 0 0 0 2.6 0l3-3a2 2 0 0 0 0-2.6l-3-3a2 2 0 0 0-2.6 0l-3 3a2 2 0 0 0 0 2.6l3 3z"></path><path d="m14 11 3-3"></path><path d="M19 19l-3-3"></path><path d="M14 17.75V22"></path><path d="m5 11-2-2"></path><path d="M5 5l2 2"></path><path d="m10 14-3 3"></path><path d="M3 21h3.25"></path></svg>`
+    }
+]
 ---
 <BaseLayout title="Use Cases - Neurodiagnoses">
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-16">
-    <h1 class="text-4xl font-bold">Use Cases</h1>
-    <p class="mt-4 text-slate-600">Content for this page is under construction.</p>
+    <div class="text-center">
+        <h1 class="text-4xl font-bold">Real-World Applications</h1>
+        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Neurodiagnoses is designed to provide actionable insights for a range of stakeholders in the neurodegenerative disease space.</p>
+    </div>
+    <div class="mt-16 grid gap-12 lg:grid-cols-3">
+      {useCases.map(uc => (
+        <div class="flex flex-col items-center text-center">
+            <div class="flex-shrink-0" set:html={uc.icon} />
+            <h2 class="mt-4 text-2xl font-bold">{uc.title}</h2>
+            <h3 class="mt-1 font-semibold text-primary">{uc.subtitle}</h3>
+            <p class="mt-4 text-slate-600">{uc.description}</p>
+        </div>
+      ))}
+    </div>
   </main>
   <Footer />
 </BaseLayout>
