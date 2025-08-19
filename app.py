@@ -45,8 +45,8 @@ def run_cohort_analysis_ui(file_obj, diseases_to_evaluate):
     )
 
     # Calcular insights de la cohorte
-    primary_disease = diseases_to_evaluate[0].replace(" ", "_")
-    prob_col = f'Prob_{primary_disease}'
+    primary_disease = diseases_to_evaluate[0].replace(" ", "_").replace('',"")
+    prob_col = f'Prob_{primary_disease.replace(" ", "_").replace('',"")}'
     
     if prob_col in results_df.columns:
         high_risk_patients = results_df[results_df[prob_col] > 0.80]
