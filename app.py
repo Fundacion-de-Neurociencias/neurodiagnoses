@@ -5,72 +5,76 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import gradio as gr
 from pathlib import Path
 import pandas as pd
-from unified_orchestrator import run_cohort_pipeline
+from unified_orchestrator import run_cohort_analysis_pipeline
 
-def run_cohort_analysis_ui(file_obj):
-    if file_obj is None: return "", "Please upload a CSV file to begin analysis."
-    initial_prior = 0.05
-    results = run_cohort_pipeline(cohort_csv_path=file_obj.name, initial_prior=initial_prior)
+def format_signature_to_html(signature: dict) -> str:
+    """Convierte el output JSON del motor en un informe HTML profesional."""
+    subject_id = signature.get('SubjectID', 'N/A')
+    html = f"<h4>Report for Subject: {subject_id}</h4>"
+    
+    # Resumen Clínico
+    html += "<h5>Clinical Summary (Classical Differential)</h5><table style='width:100%; border-collapse: collapse;'>"
+    html += "<tr style='background-color:#f0f0f0;'><th>Diagnosis</th><th>Probability</th></tr>"
+    for dx in signature.get('resumen_clinico', {}).get('diagnostico_diferencial', []):
+        html += f"<tr><td style='padding: 5px; border-bottom: 1px solid #ddd;'>{dx['enfermedad']}</td><td style='padding: 5px; border-bottom: 1px solid #ddd;'><b>{dx['probabilidad']:.1%}</b></td></tr>"
+    html += "</table>"
+    
+    # Anotación Tridimensional
+    annotation = signature.get('anotacion_diagnostica_tridimensional', {})
+    html += "<h5 style='margin-top: 15px;'>Tridimensional Annotation</h5>"
+    
+    # Eje 1
+    axis1 = annotation.get('eje_1_etiologia', {})
+    html += "<b>Axis 1 (Etiology):</b><ul>"
+    for ev in axis1.get('raw_evidence', []): html += f"<li>{ev}</li>"
+    html += "</ul>"
 
-    if isinstance(results, list) and "Error" in results[0]:
-        raise gr.Error(results[0]["Error"])
+    # Eje 2
+    axis2 = annotation.get('eje_2_fisiopatologia_molecular', {})
+    html += "<b>Axis 2 (Molecular Pathology):</b><ul>"
+    for path, prob in axis2.items(): html += f"<li>{path.replace('_', ' ').title()}: <b>{prob}</b></li>"
+    html += "</ul>"
 
-    final_html = "<h3>Differential Diagnosis Report</h3>"
-    for patient_result in results:
-        final_html += f"<div style='margin-top: 20px; border-top: 2px solid #007bff; padding-top: 10px;'>"
-        final_html += f"<h4>Patient: {patient_result['SubjectID']}</h4>"
-        
-        sorted_diagnoses = sorted(patient_result['diagnoses'].items(), key=lambda item: item[1]['probability'], reverse=True)
-        
-        high_prob_diagnoses = []
-        other_prob_sum = 0.0
-        
-        for disease, data in sorted_diagnoses:
-            if data['probability'] > 0.05:
-                high_prob_diagnoses.append((disease, data))
-            else:
-                other_prob_sum += data['probability']
-        
-        final_html += "<table style='width:100%; border-collapse: collapse; font-family: sans-serif;'>"
-        final_html += "<tr style='background-color:#f0f0f0;'><th>Diagnosis</th><th>Probability</th><th>Supporting Evidence (Why)</th></tr>"
+    # Eje 3
+    axis3 = annotation.get('eje_3_fenotipo_clinico_anatomico', {})
+    html += "<b>Axis 3 (Clinical-Anatomical Phenotype):</b><ul>"
+    for ev in axis3.get('raw_evidence', []): html += f"<li>{ev}</li>"
+    html += "</ul>"
+    
+    return f"<div style='border: 1px solid #eee; padding: 15px; border-radius: 5px; margin-bottom: 10px;'>{html}</div>"
 
-        for disease, data in high_prob_diagnoses:
-            prob_pct = f"{data['probability']:.1%}"
-            trail_items = "".join(f"<li>{item}</li>" for item in data['evidence_trail'])
-            trail_html = f"<ul>{trail_items}</ul>" if trail_items else "No specific evidence found."
-            final_html += f"<tr><td style='padding: 8px; border-bottom: 1px solid #ddd;'><b>{disease}</b></td><td style='padding: 8px; border-bottom: 1px solid #ddd; text-align:center; font-weight:bold;'>{prob_pct}</td><td style='padding: 8px; border-bottom: 1px solid #ddd; font-size: 0.9em;'>{trail_html}</td></tr>"
+def run_cohort_analysis_ui(file_obj, diseases_to_evaluate):
+    if file_obj is None: return "Please upload a CSV file."
+    if not diseases_to_evaluate: raise gr.Error("Please select at least one diagnosis to evaluate.")
+    
+    results_list = run_cohort_analysis_pipeline(
+        cohort_csv_path=file_obj.name,
+        diseases_to_evaluate=diseases_to_evaluate
+    )
+    
+    if isinstance(results_list, str): return results_list # Devolver mensaje de error
+    
+    # Concatenar todos los informes HTML
+    full_report_html = "".join([format_signature_to_html(res) for res in results_list])
+    
+    return full_report_html
 
-        if other_prob_sum > 0.0:
-            final_html += f"<tr><td style='padding: 8px; border-bottom: 1px solid #ddd;'>Others (&lt;5%)</td><td style='padding: 8px; border-bottom: 1px solid #ddd; text-align:center;'>{other_prob_sum:.1%}</td><td style='padding: 8px; border-bottom: 1px solid #ddd;'>-</td></tr>"
-        
-        final_html += "</table></div>"
-
-    summary_html = f"<h4>Cohort Analysis Summary</h4><p><b>{len(results)}</b> patients analyzed.</p><p style='font-size: 0.8em; color: #666;'><i>Note: Only diagnoses with a posterior probability > 5% are listed individually for each patient.</i></p>"
-    return summary_html, final_html
-
+# --- UI Build ---
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
     gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
+    
     with gr.Tab("Cohort Analysis"):
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### 1. Upload Cohort")
-                gr.Markdown("Upload a CSV file with patient data. The first row must be the header.")
+                gr.Markdown("### 1. Upload & Configure")
                 cohort_csv_input = gr.File(label="Cohort CSV File", file_types=[".csv"])
-                run_cohort_btn = gr.Button("Run Universal Analysis", variant="primary")
+                diseases_cohort_checkboxes = gr.CheckboxGroup(choices=["Alzheimer's Disease", "Frontotemporal Dementia", "Lewy Body Dementia"], label="Evaluate for (Differential Diagnosis)", value=["Alzheimer's Disease", "Frontotemporal Dementia"])
+                run_cohort_btn = gr.Button("Analyze Cohort", variant="primary")
             with gr.Column(scale=2):
-                gr.Markdown("### 2. Clinical Report")
-                cohort_summary_display = gr.HTML(label="Cohort Summary")
-                cohort_result_html = gr.HTML()
-    
-    with gr.Tab("Single Case Analysis (Disabled)"):
-        gr.Markdown("## Single Case AnalysisnThis feature is temporarily disabled and will be refactored to use the new universal diagnosis engine.")
+                gr.Markdown("### 2. Patient Reports")
+                cohort_summary_display = gr.HTML(label="Cohort Results")
 
-    # --- [CORRECCIÓN CLAVE]: La lista de 'outputs' ahora solo tiene dos componentes ---
-    run_cohort_btn.click(
-        fn=run_cohort_analysis_ui, 
-        inputs=[cohort_csv_input], 
-        outputs=[cohort_summary_display, cohort_result_html]
-    )
+    run_cohort_btn.click(fn=run_cohort_analysis_ui, inputs=[cohort_csv_input, diseases_cohort_checkboxes], outputs=[cohort_summary_display])
 
 if __name__ == "__main__":
     app.launch()
