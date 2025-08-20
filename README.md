@@ -15,61 +15,79 @@ This project moves beyond traditional, static disease labels. It generates both 
 
 ## ️ A Dual-System Architecture: Diagnosis & Prognosis
 
-> A detailed technical breakdown of all engine and pipeline components is available in the private engine repository.
-> - [Master Architecture Document](neurodiagnoses-engine/ARCHITECTURE.md)
-> - [Component Manifest](neurodiagnoses-engine/MANIFEST.md)
-> - [Operations Playbook](neurodiagnoses-engine/PLAYBOOK.md)
-The Neurodiagnoses ecosystem is built on a powerful, unified vision that combines two distinct but complementary computational systems: a "glass-box" Bayesian engine for deep diagnosis and "black-box" Machine Learning pipelines for prognosis and risk prediction.
+> **A detailed technical breakdown of all engine and pipeline components is available in the private engine repository.**
+> - **[Master Architecture Document](neurodiagnoses-engine/ARCHITECTURE.md)**
+> - **[Component Manifest](neurodiagnoses-engine/MANIFEST.md)**
+> - **[Operations Playbook](neurodiagnoses-engine/PLAYBOOK.md)**
+
+The Neurodiagnoses ecosystem combines two distinct but complementary computational systems: a "glass-box" Bayesian engine for deep diagnosis and "black-box" Machine Learning pipelines for prognosis and risk prediction.
+
+```mermaid
+graph TD
+    subgraph Inputs
+        A1[Axis 1: Etiology]
+        A2[Axis 2: Molecular Pathology]
+        A3[Axis 3: Phenotype]
+    end
+
+    subgraph "Neurodiagnoses Core"
+        C1(Bayesian Diagnostic Engine)
+        C2(ML Prognostic Pipelines)
+    end
+    
+    subgraph "Outputs (Neurodegenerative Signature)"
+        D1[Classical Differential]
+        D2[Tridimensional Annotation]
+        P1[Prognosis & Risk Score]
+    end
+
+    A1 --> C1
+    A2 --> C1
+    A3 --> C1
+    
+    A1 & A2 & A3 --> C2
+
+    C1 --> D1
+    C1 --> D2
+    C2 --> P1
+```
 
 ### 1. The "Glass-Box" Bayesian Diagnostic Engine
-This is the reasoning core of the system, responsible for generating the **"Firma Neurodegenerativa"** (Neurodegenerative Signature).
-- **Function:** Performs a **diagnostic** analysis to explain a patient's current state.
-- **Methodology:** It's a transparent, evidence-based system that uses a dynamic Knowledge Base and Bayesian inference to process patient data across our three fundamental axes (Etiology, Molecular Pathology, Phenotype).
-- **Output:** Produces the dual-output report containing the classical differential diagnosis and the rich, tridimensional annotation.
+This is the reasoning core of the system, responsible for generating the "Firma Neurodegenerativa" (Neurodegenerative Signature).
+
+Function: Performs a diagnostic analysis to explain a patient's current state.
+
+Methodology: It's a transparent, evidence-based system that uses a dynamic Knowledge Base and Bayesian inference to process patient data across our three fundamental axes (Etiology, Molecular Pathology, Phenotype).
+
+Output: Produces the dual-output report containing the classical differential diagnosis and the rich, tridimensional annotation.
 
 ### 2. The "Black-Box" Machine Learning Prognostic Pipelines
 Rescued and integrated from the project's rich development history, these pipelines are focused on prediction.
-- **Function:** Performs a **prognostic** analysis to predict future outcomes.
-- **Methodology:** Utilizes established Machine Learning models (e.g., Cox Proportional Hazards for survival analysis, Polygenic Hazard Scores) trained on large datasets to identify patterns and predict patient trajectories.
-- **Output:** Generates risk scores, predicts rates of progression, and estimates future clinical events.
 
-Scientific Foundation & Core Architecture
-The scientific foundation of Neurodiagnoses is a fully transparent, "glass-box" approach, centered around a probabilistic, evidence-based Bayesian inference engine. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process based on our tridimensional framework.
+Function: Performs a prognostic analysis to predict future outcomes.
 
-The Three Axes of Diagnosis
-Our system organizes all patient data along three fundamental axes:
+Methodology: Utilizes established Machine Learning models (e.g., Cox Proportional Hazards for survival analysis, Polygenic Hazard Scores) trained on large datasets to identify patterns and predict patient trajectories.
 
-Axis 1: Etiology: The "Why". Focuses on the root cause or predisposition, including genetic factors (monogenic or risk alleles) and significant environmental or infectious contributors.
-
-Axis 2: Molecular Pathology: The "What". Describes the underlying biological processes. This is the primary axis for multi-omics data, integrating evidence from proteomics, transcriptomics, metabolomics, and fluid biomarkers (CSF/plasma) to profile active pathological pathways like amyloid, tau, synucleinopathy, and neuroinflammation.
-
-Axis 3: Clinical-Anatomical Phenotype: The "How & Where". Captures the observable manifestation of the disease, representing the crucial correlation between clinical symptoms (cognitive scores, neuropsychiatric symptoms) and neuroanatomical findings (structural and functional neuroimaging).
-
-The Dual-Output Engine
-The BayesianEngine is the brain of the system. After processing evidence from all three axes, it generates a comprehensive "Neurodegenerative Signature" composed of two parts:
-
-Classical Differential: A familiar, ranked list of classical neurodegenerative diseases, each with a calculated posterior probability.
-
-Tridimensional Annotation: A rich, structured report detailing the patient's profile across the three axes, providing deep insight into the specific mechanisms at play.
+Output: Generates risk scores, predicts rates of progression, and estimates future clinical events.
 
 ⚙️ Getting Started for Developers
 This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
 
 1. Launch the Environment
-Create a new codespace from the repository's main page on GitHub. The new environment will require a one-time setup of the private neurodiagnoses-engine submodule.
+Create a new codespace from the repository's main page on GitHub.
 
 2. Install Dependencies
 In the Codespace terminal, install the required Python packages:
 
-Bash
-
+```bash
 pip install -r requirements.txt
+```
 3. Launch the Interactive UI
 The main entry point to the ecosystem is the Gradio application.
 
-Bash
-
+```bash
 python app.py
+```
 After running the command, navigate to the PORTS tab in your Codespace terminal, find the entry for port 7860, and click the globe icon (🌐) to open the application in your browser.
 
 How to Contribute
