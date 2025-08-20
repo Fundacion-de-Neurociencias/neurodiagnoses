@@ -1,22 +1,21 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import gradio as gr
 from pathlib import Path
 import pandas as pd
 import re
-from unified_orchestrator import run_cohort_analysis_pipeline
+from unified_orchestrator import run_cohort_analysis_pipeline, ingest_from_url
 
 def linkify(text):
     """Detecta DOIs y PMIDs en un texto y los convierte en enlaces HTML."""
-    # Enlace para DOI
-    text = re.sub(r'(DOI:?s*)(10.d{4,9}/[-._;()/:A-Z0-9]+)', r'<a href="https://doi.org/2" target="_blank">12</a>', text, flags=re.IGNORECASE)
-    # Enlace para PMID
-    text = re.sub(r'(PMID:?s*)(d+)', r'<a href="https://pubmed.ncbi.nlm.nih.gov/2/" target="_blank">12</a>', text)
+    text = re.sub(r'(DOI:?s*)(10.\d{4,9}/[-._;()/:A-Z0-9]+)', r'<a href="https://doi.org/\2" target="_blank">\1\2</a>', text, flags=re.IGNORECASE)
+    text = re.sub(r'(PMID:?s*)(\d+)', r'<a href="https://pubmed.ncbi.nlm.nih.gov/\2" target="_blank">\1\2</a>', text)
     return text
 
 def format_signature_to_html(signature: dict) -> str:
-    subject_id = signature.get('SubjectID', 'N/A')
+    subject_id = signature.get('subject_id', 'N/A') # Corrected key
     html = f"<h4>Report for Subject: {subject_id}</h4>"
     
     classical_summary = signature.get('classical_differential', {})
@@ -38,13 +37,18 @@ def format_signature_to_html(signature: dict) -> str:
     annotation = signature.get('tridimensional_annotation', {})
     html += "<h5 style='margin-top: 15px;'>Tridimensional Annotation & Evidence Trail</h5>"
 
-    # --- [MODIFICADO]: Se renderiza la pista de evidencia para cada eje ---
     for i, (axis_key, axis_data) in enumerate(annotation.items()):
         axis_name = axis_key.replace('_', ' ').title()
         html += f"<details {'open' if i == 0 else ''}><summary><b>{axis_name}</b></summary><ul style='margin-top: 5px;'>"
-        for trail_item in axis_data.get('evidence_trail', []):
-            html += f"<li style='font-size: 0.9em;'>{linkify(trail_item)}</li>"
-        if not axis_data.get('evidence_trail'): html += "<li>No direct evidence provided for this axis.</li>"
+        # Check if evidence_trail exists and is a list
+        evidence_trail = axis_data.get('evidence_trail', [])
+        if isinstance(evidence_trail, list):
+            for trail_item in evidence_trail:
+                html += f"<li style='font-size: 0.9em;'>{linkify(trail_item)}</li>"
+            if not evidence_trail:
+                html += "<li>No direct evidence provided for this axis.</li>"
+        else:
+            html += "<li>Evidence trail format is invalid.</li>"
         html += "</ul></details>"
     
     return f"<div style='border: 1px solid #eee; padding: 15px; border-radius: 5px; margin-bottom: 10px;'>{html}</div>"
@@ -61,8 +65,8 @@ def run_cohort_analysis_ui(file_obj):
     return full_report_html
 
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
-    # ... (UI sin cambios)
     gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
+    
     with gr.Tab("Cohort Analysis"):
         with gr.Row():
             with gr.Column(scale=1):
@@ -73,7 +77,18 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
             with gr.Column(scale=2):
                 gr.Markdown("### 2. Patient Reports")
                 cohort_summary_display = gr.HTML(label="Cohort Results")
+
+    with gr.Tab("Curated Knowledge Ingestion"):
+        with gr.Row():
+            with gr.Column():
+                gr.Markdown("## Add New Knowledge to the System")
+                gr.Markdown("Provide a URL or DOI of a scientific paper. The system will use its AI capabilities to read the full text, extract structured evidence, and integrate it into the Knowledge Base.")
+                url_input = gr.Textbox(label="Paper URL or DOI", placeholder="e.g., https://doi.org/10.1002/alz.14591")
+                ingest_btn = gr.Button("Extract & Ingest Knowledge", variant="primary")
+                ingestion_status = gr.HTML(label="Ingestion Status")
+
     run_cohort_btn.click(fn=run_cohort_analysis_ui, inputs=[cohort_csv_input], outputs=[cohort_summary_display])
+    ingest_btn.click(fn=ingest_from_url, inputs=[url_input], outputs=[ingestion_status])
 
 if __name__ == "__main__":
     app.launch()
