@@ -26,13 +26,16 @@ import Footer from '../components/Footer.astro';
       <div class="bg-white p-8 rounded-2xl border border-slate-200 h-full">
         <h2 class="text-2xl font-bold">The "Black-Box" ML Pipelines</h2>
         <p class="mt-2 font-semibold text-primary">For Prognosis: Predicting the "Next"</p>
-        <p class="mt-4 text-slate-600">Leverages proven Machine Learning models trained on large-scale datasets to predict future outcomes, rescuing powerful legacy components of the project.</p>
+        <p class="mt-4 text-slate-600">Leverages proven Machine Learning models (Cox Proportional Hazards, Polygenic Hazard Scores) trained on large-scale datasets to predict future outcomes, rescuing powerful legacy components of the project.</p>
         <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
-          <li><strong>Input:</strong> Longitudinal data, genetic profiles, and baseline clinical markers.</li>
-          <li><strong>Process:</strong> Cox Proportional Hazards models and Polygenic Hazard Scores.</li>
-          <li><strong>Output:</strong> Actionable predictions, suchando as progression risk and estimated decline rates.</li>
+          <li><strong>Input:</strong> Longitudinal data and genetic profiles.</li>
+          <li><strong>Process:</strong> Survival analysis and risk scoring models.</li>
+          <li><strong>Output:</strong> Actionable predictions, such as progression risk and estimated decline rates.</li>
         </ul>
       </div>
+    </div>
+    <div class="text-center mt-8">
+        <p class="text-slate-500 text-sm">A detailed technical breakdown of all components is available in `ARCHITECTURE.md` within the private engine repository.</p>
     </div>
   </main>
   <Footer />
