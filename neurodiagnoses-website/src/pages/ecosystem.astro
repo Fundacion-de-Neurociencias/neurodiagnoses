@@ -6,43 +6,33 @@ import Footer from '../components/Footer.astro';
 <BaseLayout title="Ecosystem - Neurodiagnoses">
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-16">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-center">The Neurodiagnoses Ecosystem</h1>
-        <p class="mt-4 text-xl text-slate-600 text-center">An AI-powered, open-source platform designed to integrate multi-modal data and enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).</p>
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl font-bold">A Dual-System Architecture</h1>
+        <p class="mt-4 text-xl text-slate-600">Neurodiagnoses integrates explainable AI for deep diagnosis with machine learning for robust prognosis.</p>
     </div>
 
-    <div class="mt-16">
-        <h2 class="text-3xl font-bold text-center">A Tridimensional Diagnostic Framework</h2>
-        <p class="mt-4 text-lg text-slate-600 text-center max-w-3xl mx-auto">Our system moves beyond static labels by organizing all patient data along three fundamental axes, providing a holistic and mechanistic view of the disease.</p>
-        <div class="mt-12 grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
-                <h3 class="text-xl font-semibold">Axis 1: Etiology (The Why)</h3>
-                <p class="text-slate-600 mt-2">Focuses on the root cause or predisposition, including genetic factors (monogenic or risk alleles) and significant environmental or infectious contributors.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
-                <h3 class="text-xl font-semibold">Axis 2: Molecular Pathology (The Plot)</h3>
-                <p class="text-slate-600 mt-2">Describes the underlying biological processes, integrating multi-omics data to profile active pathological pathways like amyloid, tau, and neuroinflammation.</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center">
-                <h3 class="text-xl font-semibold">Axis 3: Phenotype (The How & Where)</h3>
-                <p class="text-slate-600 mt-2">Captures the observable manifestation, correlating clinical symptoms with their neuroanatomical findings from imaging.</p>
-            </div>
-        </div>
-    </div>
+    <div class="mt-16 grid lg:grid-cols-2 gap-8 items-start">
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 h-full">
+        <h2 class="text-2xl font-bold">The "Glass-Box" Bayesian Engine</h2>
+        <p class="mt-2 font-semibold text-primary">For Diagnosis: Understanding the "Now"</p>
+        <p class="mt-4 text-slate-600">The reasoning core of the system, designed for transparency. It processes multi-modal patient data through our tridimensional framework to generate a comprehensive "Neurodegenerative Signature."</p>
+        <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+          <li><strong>Input:</strong> Evidence from Etiology, Molecular Pathology, and Phenotype Axes.</li>
+          <li><strong>Process:</strong> Probabilistic inference against a dynamic, machine-readable Knowledge Base.</li>
+          <li><strong>Output:</strong> A dual report with a classical differential and a rich, tridimensional annotation.</li>
+        </ul>
+      </div>
 
-    <div class="mt-16 bg-light p-8 rounded-2xl">
-        <h2 class="text-3xl font-bold text-center">The Dual-Output Engine</h2>
-        <p class="mt-4 text-lg text-slate-600 text-center max-w-3xl mx-auto">The Bayesian inference engine generates a comprehensive "Neurodegenerative Signature" for each patient, composed of two key parts:</p>
-        <div class="mt-8 grid md:grid-cols-2 gap-8">
-            <div >
-                <h4 class="font-bold text-lg">1. Classical Differential Diagnosis</h4>
-                <p class="text-slate-600">A familiar, ranked list of classical neurodegenerative diseases, each with a calculated posterior probability, enabling direct clinical interpretation.</p>
-            </div>
-            <div>
-                <h4 class="font-bold text-lg">2. Tridimensional Annotation</h4>
-                <p class="text-slate-600">A rich, structured report detailing the patient's unique profile across the three axes, providing deep insight into the specific mechanisms at play for precision medicine.</p>
-            </div>
-        </div>
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 h-full">
+        <h2 class="text-2xl font-bold">The "Black-Box" ML Pipelines</h2>
+        <p class="mt-2 font-semibold text-primary">For Prognosis: Predicting the "Next"</p>
+        <p class="mt-4 text-slate-600">Leverages proven Machine Learning models trained on large-scale datasets to predict future outcomes, rescuing powerful legacy components of the project.</p>
+        <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+          <li><strong>Input:</strong> Longitudinal data, genetic profiles, and baseline clinical markers.</li>
+          <li><strong>Process:</strong> Cox Proportional Hazards models and Polygenic Hazard Scores.</li>
+          <li><strong>Output:</strong> Actionable predictions, suchando as progression risk and estimated decline rates.</li>
+        </ul>
+      </div>
     </div>
   </main>
   <Footer />

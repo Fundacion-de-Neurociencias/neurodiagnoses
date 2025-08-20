@@ -13,32 +13,20 @@ This project moves beyond traditional, static disease labels. It generates both 
 
 ---
 
-## ️ Project Vision & High-Level Architecture
+## ️ A Dual-System Architecture: Diagnosis & Prognosis
+The Neurodiagnoses ecosystem is built on a powerful, unified vision that combines two distinct but complementary computational systems: a "glass-box" Bayesian engine for deep diagnosis and "black-box" Machine Learning pipelines for prognosis and risk prediction.
 
-The core vision of Neurodiagnoses is to generate a comprehensive **Neurodegenerative Signature** for each patient. This is achieved by processing diverse inputs through a sophisticated Bayesian inference engine to produce a dual output: a classical differential diagnosis and a detailed tridimensional annotation.
+### 1. The "Glass-Box" Bayesian Diagnostic Engine
+This is the reasoning core of the system, responsible for generating the **"Firma Neurodegenerativa"** (Neurodegenerative Signature).
+- **Function:** Performs a **diagnostic** analysis to explain a patient's current state.
+- **Methodology:** It's a transparent, evidence-based system that uses a dynamic Knowledge Base and Bayesian inference to process patient data across our three fundamental axes (Etiology, Molecular Pathology, Phenotype).
+- **Output:** Produces the dual-output report containing the classical differential diagnosis and the rich, tridimensional annotation.
 
-```mermaid
-graph TD
-    subgraph Inputs
-        A1["Axis 1: Etiology<br/>(Genomics, Environment)"]
-        A2["Axis 2: Molecular Pathology<br/>(Omics, Fluid Biomarkers)"]
-        A3["Axis 3: Clinical-Anatomical Phenotype<br/>(Symptoms, Neuroimaging)"]
-    end
-
-    C1(Bayesian Inference Engine)
-
-    subgraph Outputs
-        D1["Classical Differential Diagnosis<br/>(e.g., AD 85%, LBD 10%)"]
-        D2["Tridimensional Annotation<br/>(Detailed Etiological, Molecular, and Phenotypic Profile)"]
-    end
-
-    A1 --> C1
-    A2 --> C1
-    A3 --> C1
-    
-    C1 --> D1
-    C1 --> D2
-```
+### 2. The "Black-Box" Machine Learning Prognostic Pipelines
+Rescued and integrated from the project's rich development history, these pipelines are focused on prediction.
+- **Function:** Performs a **prognostic** analysis to predict future outcomes.
+- **Methodology:** Utilizes established Machine Learning models (e.g., Cox Proportional Hazards for survival analysis, Polygenic Hazard Scores) trained on large datasets to identify patterns and predict patient trajectories.
+- **Output:** Generates risk scores, predicts rates of progression, and estimates future clinical events.
 
 Scientific Foundation & Core Architecture
 The scientific foundation of Neurodiagnoses is a fully transparent, "glass-box" approach, centered around a probabilistic, evidence-based Bayesian inference engine. This moves away from opaque "black-box" models and allows for a fully traceable and explainable diagnostic process based on our tridimensional framework.
