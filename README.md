@@ -15,7 +15,10 @@ This project moves beyond traditional, static disease labels. It generates both 
 
 ## ️ A Dual-System Architecture: Diagnosis & Prognosis
 
-> A detailed technical breakdown of all engine and pipeline components is available in `ARCHITECTURE.md` within the private `neurodiagnoses-engine` repository.
+> A detailed technical breakdown of all engine and pipeline components is available in the private engine repository.
+> - [Master Architecture Document](neurodiagnoses-engine/ARCHITECTURE.md)
+> - [Component Manifest](neurodiagnoses-engine/MANIFEST.md)
+> - [Operations Playbook](neurodiagnoses-engine/PLAYBOOK.md)
 The Neurodiagnoses ecosystem is built on a powerful, unified vision that combines two distinct but complementary computational systems: a "glass-box" Bayesian engine for deep diagnosis and "black-box" Machine Learning pipelines for prognosis and risk prediction.
 
 ### 1. The "Glass-Box" Bayesian Diagnostic Engine
