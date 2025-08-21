@@ -1,60 +1,44 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'neurodiagnoses-engine'))
 import gradio as gr
 from pathlib import Path
 import pandas as pd
 import re
-from unified_orchestrator import run_cohort_analysis_pipeline, ingest_from_url
-
-def linkify(text):
-    """Detecta DOIs y PMIDs en un texto y los convierte en enlaces HTML."""
-    text = re.sub(r'(DOI:?s*)(10.\d{4,9}/[-._;()/:A-Z0-9]+)', r'<a href="https://doi.org/\2" target="_blank">\1\2</a>', text, flags=re.IGNORECASE)
-    text = re.sub(r'(PMID:?s*)(\d+)', r'<a href="https://pubmed.ncbi.nlm.nih.gov/\2" target="_blank">\1\2</a>', text)
-    return text
+from unified_orchestrator import run_cohort_analysis_pipeline
 
 def format_signature_to_html(signature: dict) -> str:
-    subject_id = signature.get('subject_id', 'N/A') # Corrected key
+    subject_id = signature.get('SubjectID', 'N/A')
     html = f"<h4>Report for Subject: {subject_id}</h4>"
     
-    classical_summary = signature.get('classical_differential', {})
-    dominant_hypothesis = classical_summary.get('dominant_hypothesis')
-
-    if dominant_hypothesis:
-        html += f"<div style='border: 2px solid #198754; background-color: #d1e7dd; padding: 10px; border-radius: 5px; margin-bottom: 15px;'>"
-        html += f"<h5 style='color: #0f5132; margin:0;'>High-Confidence Finding</h5>"
-        html += f"<p style='margin:0;'>The evidence strongly suggests a dominant diagnosis of: <strong>{dominant_hypothesis}</strong>.</p></div>"
-
-    html += "<h5>Clinical Summary (Classical Differential)</h5><table style='width:100%; border-collapse: collapse;'>"
-    html += "<tr style='background-color:#f0f0f0;'><th>Diagnosis</th><th>Probability</th></tr>"
-    for dx in classical_summary.get('hypotheses', []):
-        style = "style='color: #6c757d;'" if dominant_hypothesis and dx['diagnosis'] != dominant_hypothesis else ""
-        if dominant_hypothesis and dx['diagnosis'] == dominant_hypothesis: style = "style='color: #198754; font-weight: bold; font-size: 1.1em;'"
-        html += f"<tr><td {style} style='padding: 5px; border-bottom: 1px solid #ddd;'>{dx['diagnosis']}</td><td {style} style='padding: 5px; border-bottom: 1px solid #ddd;'><b>{dx['probability']:.1%}</b></td></tr>"
-    html += "</table>"
-    
-    annotation = signature.get('tridimensional_annotation', {})
-    html += "<h5 style='margin-top: 15px;'>Tridimensional Annotation & Evidence Trail</h5>"
-
-    for i, (axis_key, axis_data) in enumerate(annotation.items()):
-        axis_name = axis_key.replace('_', ' ').title()
-        html += f"<details {'open' if i == 0 else ''}><summary><b>{axis_name}</b></summary><ul style='margin-top: 5px;'>"
-        # Check if evidence_trail exists and is a list
-        evidence_trail = axis_data.get('evidence_trail', [])
-        if isinstance(evidence_trail, list):
-            for trail_item in evidence_trail:
-                html += f"<li style='font-size: 0.9em;'>{linkify(trail_item)}</li>"
-            if not evidence_trail:
-                html += "<li>No direct evidence provided for this axis.</li>"
+    risk_assessment = signature.get('risk_assessment', {})
+    if risk_assessment and not risk_assessment.get('error'):
+        hazard_ratio = risk_assessment.get('relative_hazard_ratio', 1.0)
+        interpretation = risk_assessment.get('interpretation', 'No interpretation available.')
+        
+        if hazard_ratio > 1.5:
+            risk_color = "#dc3545"
+            risk_level = "High Risk"
+        elif hazard_ratio > 1.0:
+            risk_color = "#ffc107"
+            risk_level = "Moderate Risk"
         else:
-            html += "<li>Evidence trail format is invalid.</li>"
-        html += "</ul></details>"
+            risk_color = "#198754"
+            risk_level = "Low Risk"
+
+        html += f"<div style='border: 2px solid {risk_color}; background-color: {risk_color}20; padding: 10px; border-radius: 5px; margin-bottom: 15px;'>"
+        html += f"<h5 style='color: {risk_color}; margin:0;'>Genetic Risk Assessment</h5>"
+        html += f"<p style='margin:0;'>Relative Hazard Ratio: <strong>{hazard_ratio:.2f}</strong> ({risk_level}).</p>"
+        html += f"<p style='margin:0; font-size:0.8em; color:#6c757d;'><em>{interpretation}</em></p></div>"
+
+    classical_summary = signature.get('classical_differential', {})
+    html += "<h5>Clinical Summary (Classical Differential)</h5>"
+    html += f"<p><strong>Dominant Hypothesis:</strong> {classical_summary.get('dominant_hypothesis', 'N/A')}</p>"
     
     return f"<div style='border: 1px solid #eee; padding: 15px; border-radius: 5px; margin-bottom: 10px;'>{html}</div>"
 
 def run_cohort_analysis_ui(file_obj):
-    if file_obj is None: return "Please upload a CSV file to begin analysis."
+    if file_obj is None: return "<p style='color:red;'>Please upload a CSV file.</p>"
     try:
         cohort_df = pd.read_csv(file_obj.name)
     except Exception as e:
@@ -65,30 +49,18 @@ def run_cohort_analysis_ui(file_obj):
     return full_report_html
 
 with gr.Blocks(theme=gr.themes.Soft(), title="Neurodiagnoses") as app:
-    gr.Markdown("# Neurodiagnoses: The AI-Powered Diagnostic Hub"); gr.Markdown("---"); gr.Markdown("⚠️ **Research Use Only Disclaimer**...")
-    
+    gr.Markdown("<h1>Neurodiagnoses: The AI-Powered Diagnostic Hub</h1>")
+    gr.Markdown("---<br>⚠️ **Disclaimer:** This tool is for research purposes only and not for clinical use. ...<br>---")
     with gr.Tab("Cohort Analysis"):
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### 1. Upload Cohort")
-                gr.Markdown("Upload a CSV file with patient data. The system will automatically perform a differential diagnosis against all known pathologies.")
+                gr.Markdown("### 1. Upload Cohort Data")
                 cohort_csv_input = gr.File(label="Cohort CSV File", file_types=[".csv"])
                 run_cohort_btn = gr.Button("Analyze Cohort", variant="primary")
             with gr.Column(scale=2):
                 gr.Markdown("### 2. Patient Reports")
                 cohort_summary_display = gr.HTML(label="Cohort Results")
-
-    with gr.Tab("Curated Knowledge Ingestion"):
-        with gr.Row():
-            with gr.Column():
-                gr.Markdown("## Add New Knowledge to the System")
-                gr.Markdown("Provide a URL or DOI of a scientific paper. The system will use its AI capabilities to read the full text, extract structured evidence, and integrate it into the Knowledge Base.")
-                url_input = gr.Textbox(label="Paper URL or DOI", placeholder="e.g., https://doi.org/10.1002/alz.14591")
-                ingest_btn = gr.Button("Extract & Ingest Knowledge", variant="primary")
-                ingestion_status = gr.HTML(label="Ingestion Status")
-
     run_cohort_btn.click(fn=run_cohort_analysis_ui, inputs=[cohort_csv_input], outputs=[cohort_summary_display])
-    ingest_btn.click(fn=ingest_from_url, inputs=[url_input], outputs=[ingestion_status])
 
 if __name__ == "__main__":
     app.launch()
