@@ -1,3 +1,5 @@
 [submodule "models/neurodiagnoses-agnostic-ml"]
 	path = models/neurodiagnoses-agnostic-ml
 	url = https://huggingface.co/fneurociencias/neurodiagnoses-agnostic-ml
+[submodule "scikg-engine"]
+	url = https://github.com/Fundacion-de-Neurociencias/scikg.git
