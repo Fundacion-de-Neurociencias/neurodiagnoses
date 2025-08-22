@@ -2,9 +2,9 @@
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/issues)
-[![License](https://img.shields.io/github/license/Fundacion-de-Neurociencias/neurodiagnoses)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Visión General y Hoja de Ruta del Proyecto: [Consulta nuestro ROADMAP.md](ROADMAP.md)**
+> **Project Vision & Roadmap: [See our ROADMAP.md](ROADMAP.md)**
 
 **Neurodiagnoses** is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).
 
@@ -43,24 +43,41 @@ graph TD
     C2 --> P1;
 ```
 ⚙️ Getting Started for Developers
-This project is developed within GitHub Codespaces to ensure a consistent and reproducible environment.
+This project is architected to run within GitHub Codespaces, which provides a consistent and reproducible development environment.
 
 1. Launch the Environment
-Create a new codespace from the repository's main page on GitHub. The new environment will require a one-time setup of the private neurodiagnoses-engine and scikg submodules.
+Create a new codespace from the main page of the neurodiagnoses repository on GitHub.
 
-2. Install Dependencies
-In the Codespace terminal, install the required Python packages:
+2. Initialize Submodules
+Our ecosystem uses Git submodules to manage the private neurodiagnoses-engine and the standalone scikg projects. After the Codespace builds, initialize them with this command:
 
-Bash
+```bash
+git submodule update --init --recursive
+```
 
+3. Install Dependencies
+Install all required Python packages from the master requirements file:
+
+```bash
 pip install -r requirements.txt
-3. Launch the Interactive UI
-The main entry point to the ecosystem is the Gradio application.
+```
 
-Bash
+4. Configure API Keys
+The knowledge harvesting and generation pipelines require API keys. Copy the template file and add your key:
 
+```bash
+cp neurodiagnoses-engine/api-keys.env.template neurodiagnoses-engine/api-keys.env
+# Now, open neurodiagnoses-engine/api-keys.env and add your Gemini API key.
+```
+
+5. Launch the Application
+The main user interface is a Gradio application. Launch it with:
+
+```bash
 python app.py
-After running the command, navigate to the PORTS tab in your Codespace terminal, find the entry for port 7860, and click the globe icon (🌐) to open the application in your browser.
+```
+
+Once running, navigate to the PORTS tab in your Codespace terminal, find the entry for port 7860, and click the globe icon (🌐) to open the application in a new browser tab.
 
 How to Contribute
 This is an open-source project. Please see our CONTRIBUTING.md file for details and explore the open issues. Join our GitHub Discussions to get involved.
