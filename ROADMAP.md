@@ -1,72 +1,33 @@
-﻿# 🧠 Neurodiagnoses — Semantic Retriever Module
+# Neurodiagnoses: Roadmap Estratégico
 
-This document outlines the integration of a **semantic retrieval system** based on the methodology described in "NeuroEmbed" (Pardo et al., 2025), adapted for the Neurodiagnoses.Knowledge branch.
+Este documento es la fuente de la verdad para la visión, el estado y la hoja de ruta del proyecto Neurodiagnoses.
 
-## 🔍 Objective
+## 1. Visión del Proyecto
 
-Enable semantic cohort/sample discovery using:
-- Ontology-based metadata normalization
-- Synonym augmentation
-- Natural language query (NLQ) embedding
-- Fine-tuning of a PubMedBERT-like model
-
-## 📁 Submodule Structure: neurodiagnoses/semantic_retriever/
-
-semantic_retriever/
-├── normalize_metadata.py
-├── generate_QA_dataset.py
-├── fine_tune_embedder.py
-├── run_gradio_interface.py
-└── README.md
-
-## 🧭 Phases
-
-1. Ontology mapping
-2. QA Dataset generation
-3. Embedder fine-tuning
-4. Interface deployment
+Crear un ecosistema de IA de código abierto para potenciar la investigación de las enfermedades neurodegenerativas (NDD). El sistema unifica un **motor de diagnóstico "glass-box"** (basado en un marco tridimensional y una base de conocimiento) con **pipelines de ML "black-box"** (para predicción de riesgo y pronóstico), proporcionando una visión de 360 grados del paciente.
 
 ---
 
-## Módulo de Diagnóstico Probabilístico (Prueba de Concepto)
+## 2. Fases del Desarrollo
 
-Se ha añadido un nuevo módulo de IA para el diagnóstico probabilístico basado en el **Eje 2 (Perfil Molecular)**. Este módulo es una implementación inspirada en el paper "Protein-based Diagnosis and Analysis of Co-pathologies".
+### ✅ FASE 1: Fundación y Refactorización (Completada)
 
-### Cómo Ejecutar la Simulación
+* **Bifurcación de Repositorios:** Separación del proyecto en un repositorio público (`neurodiagnoses`) y uno privado (`neurodiagnoses-engine`).
+* **Creación de la Web Pública:** Despliegue de un sitio web profesional en Astro (`neurodiagnoses.com`).
+* **Incidente de Seguridad:** Revocación y purga de una API key expuesta, con implementación de protocolos de seguridad mejorados.
+* **Arquitectura de Submódulos:** Creación del proyecto `scikg` y su integración como un submódulo de Git para la generación de conocimiento.
 
-Para ejecutar la prueba de concepto y obtener un diagnóstico simulado, sigue estos pasos:
+### ✅ FASE 2: Rescate e Integración de Pipelines de ML (Completada)
 
-1.  **Configurar el Entorno Virtual (si se trabaja localmente):**
-    ```bash
-    # Si no lo has hecho ya, crea el entorno
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+* **Auditoría Profunda:** Análisis completo del código base para redescubrir funcionalidades "huérfanas".
+* **Rescate del Pipeline de Riesgo:** Reparación, refactorización a un módulo (`RiskPredictionEngine`) y validación del pipeline de riesgo genético (PHS).
+* **Rescate del Pipeline de Prognosis:** Reparación y validación del pipeline de pronóstico temporal (actualmente "mothballed" a la espera de datos a gran escala).
+* **Integración Funcional:** Integración del `RiskPredictionEngine` en el motor principal, enriqueciendo la "Firma Neurodegenerativa" con una evaluación de riesgo.
+* **Expansión del Diagnóstico Diferencial:** Evolución del motor y la KB para diferenciar NDDs de sus "grandes imitadores" (ej. autoinmunes) y generar alertas accionables.
 
-2.  **Instalar Dependencias:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+### ➡️ FASE 3: Expansión y Puesta en Producción (Sprint Actual)
 
-3.  **Entrenar el Modelo de Ejemplo (si no existe):**
-    ```bash
-    # El script principal requiere un modelo entrenado. Para crear uno de ejemplo:
-    python -c "from neurodiagnoses_code.axis_2.classifier import train_model; train_model()"
-    ```
-
-4.  **Ejecutar el Diagnóstico:**
-    ```bash
-    python run_neurodiagnosis.py
-    ```
-
-## 🔗 Dependencies
-
-- sentence-transformers
-- rdflib, thefuzz, PubMedBERT
-- gradio, scikit-learn, pymed, pandas, huggingface_hub
-
-## 📌 Source Inspiration
-
-Based on:
-Pardo et al. (2025) *Enhancing Omics Cohort Discovery through Ontology-Augmented Embedding Models*
-https://github.com/JoseAdrian3/NeuroEmbed
+* **Misión 1: "Operación Océano" Definitiva:** Ejecutar el `knowledge_orchestrator` robustecido para poblar masivamente la Base de Conocimiento.
+* **Misión 2: Integración Final en la UI:** Modificar la `app.py` para mostrar los resultados de **riesgo** y **pronóstico** en el informe final.
+* **Misión 3: Desarrollo del NKC (`scikg`):** Implementar el pipeline `Dolphin + Ollama` en el repositorio `scikg`.
+* **Misión 4: "Laboratorio Visual":** Desarrollar las visualizaciones interactivas para el análisis de cohortes en la UI.

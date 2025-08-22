@@ -2,6 +2,8 @@
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Fundacion-de-Neurociencias/neurodiagnoses)](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses/commits/main)
 
+> **Visión General y Hoja de Ruta del Proyecto: [Consulta nuestro ROADMAP.md](ROADMAP.md)**
+
 **Neurodiagnoses** is an AI-powered, open-source ecosystem designed to integrate multi-modal data and advanced computational models to enhance the diagnostic precision, risk assessment, and prognostic understanding of complex neurodegenerative diseases (NDDs).
 
 > **⚠️ Research Use Only Disclaimer**
