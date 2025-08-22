@@ -3,3 +3,9 @@
 	url = https://huggingface.co/fneurociencias/neurodiagnoses-agnostic-ml
 [submodule "scikg-engine"]
 	url = https://github.com/Fundacion-de-Neurociencias/scikg.git
+[submodule "hf-repo-neurodiagnoses"]
+	path = hf-repo-neurodiagnoses
+	url = https://github.com/Fundacion-de-Neurociencias/hf-repo-neurodiagnoses.git
+[submodule "neurodiagnoses-engine"]
+	path = neurodiagnoses-engine
+	url = https://github.com/Fundacion-de-Neurociencias/neurodiagnoses-engine.git
