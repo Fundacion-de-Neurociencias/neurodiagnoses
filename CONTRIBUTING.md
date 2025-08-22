@@ -1,66 +1,64 @@
+# Contributing to Neurodiagnoses
 
-# Contributing Guidelines
+## Overview
+Neurodiagnoses is an **open-source AI diagnostic ecosystem** for **complex central nervous system (CNS) disorders**. This project is supported by the **Fundación de Neurociencias** and integrates **clinical, neuroimaging, and molecular data** to enhance AI-driven diagnostics.
 
-Thank you for contributing to this repository! To ensure consistency and best practices across the team, please follow these conventions when working with notebooks and scripts.
+We welcome contributions from researchers, clinicians, and AI developers to improve the platform. Contributions can be in the form of **code, data curation, documentation, or clinical validation**.
 
-## 📒 When to Use Notebooks (Jupyter, Colab)
+## How to Contribute
 
-Use notebooks in the following cases:
+### 1️⃣ Get Started
+1. **Fork the Repository**: Visit [Neurodiagnoses GitHub](https://github.com/Fundacion-de-Neurociencias/neurodiagnoses) and fork the repository.
+2. **Clone the Repo**: 
+   ```sh
+   git clone https://github.com/your-username/neurodiagnoses.git
+   cd neurodiagnoses
+   ```
+3. **Set Up a Virtual Environment** (Recommended):
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+4. **Install Dependencies**:
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-- **Exploratory Data Analysis (EDA)**: Initial inspection of datasets, missing values, distributions, correlations.
-- **Visualization and Communication**: Interactive plots, tables, summaries for discussion with clinical or non-technical stakeholders.
-- **Rapid Prototyping**: Testing models quickly (e.g., `sklearn`, XGBoost) without production-ready code.
-- **Visual Documentation**: Show reasoning behind hypotheses and initial decisions.
+### 2️⃣ Contribution Guidelines
+#### 🖥️ **Code Contributions**
+- All code should follow **PEP8** and be properly documented.
+- Submit **pull requests (PRs)** to the `develop` branch.
+- Ensure your changes pass unit tests:
+  ```sh
+  pytest
+  ```
+- Major contributions require an **issue discussion** before implementation.
 
-**Notebook Best Practices:**
-- Start each notebook with a clear title, dataset description, and version.
-- Clear outputs before committing to the repo.
-- Save notebooks under: `/notebooks`
+#### 📊 **Data Contributions**
+- New datasets should be submitted through **EBRAINS** or **GitHub Datasets Directory**.
+- Ensure data privacy compliance (GDPR, HIPAA).
+- Convert datasets to **CSV, JSON, or HDF5** formats.
+- Submit dataset metadata for documentation.
 
----
+#### 📝 **Documentation Contributions**
+- Improve guides in `docs/` directory.
+- Submit edits via pull requests.
 
-## 🧱 When to Use Scripts and Modular Code
+### 3️⃣ Issue Tracking
+- View open issues: GitHub Issues
+- Report new issues with detailed descriptions.
+- Label issues appropriately (`bug`, `enhancement`, `documentation`).
 
-Use structured Python scripts when:
+### 4️⃣ Join the Discussion
+- GitHub Discussions: Neurodiagnoses Forum
+- Slack/Discord: Community link in repository README.
+- eBrains Collaboration: Neurodiagnoses on eBrains
 
-- Code is **reusable**, **scheduled**, or part of a **pipeline**.
-- You're training, saving, or evaluating models for **production**.
-- You need version control, reproducibility, or integration (e.g., via API).
-- You're automating repeated tasks (e.g., MRI preprocessing, biomarker extraction).
+### 5️⃣ Licensing & CLA
+Neurodiagnoses follows a **dual-license model (MIT + Commercial)**.
+- **MIT License** allows unrestricted usage for research & non-commercial applications.
+- **Commercial Licensing** is required for industry applications (contact info@neurodiagnoses.com).
+- All contributors must sign a **Contributor License Agreement (CLA)** before merging PRs.
 
-**Recommended structure:**
-
-```
-/src
-  ├── data/
-  ├── features/
-  ├── models/
-  ├── pipelines/
-  └── utils/
-```
-
-Use tools like `MLflow`, `DVC`, or `W&B` to track experiments.
-
----
-
-## 🔄 Combining Both Approaches
-
-- Notebooks may **call functions** from `/src/` to visualize outputs interactively.
-- Use **notebooks to explore and communicate**, and **scripts to formalize and maintain**.
-
----
-
-## ✅ Quick Summary
-
-| Task                             | Notebook ✅ | Script ✅ |
-|----------------------------------|-------------|-----------|
-| Exploratory data analysis        | Yes         | No        |
-| Initial modeling experiments     | Yes         | No        |
-| Data preprocessing & pipelines   | No          | Yes       |
-| Final model training & tracking  | No          | Yes       |
-| Scheduled/automated workflows    | No          | Yes       |
-| Clinical dashboards/reporting    | Yes         | Yes (API) |
-
----
-
-Thank you for keeping the project clean, maintainable and collaborative!
+### 🚀 Get Involved Today!
+We appreciate your interest in Neurodiagnoses! Start contributing today and help shape the future of AI-assisted CNS diagnosis.
