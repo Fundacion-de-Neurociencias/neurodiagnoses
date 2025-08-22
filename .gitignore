@@ -194,7 +194,7 @@ api-keys.env
 /unified_orchestrator.py 
 
 # Ignorar el repositorio del motor privado anidado
-neurodiagnoses-engine/
+!neurodiagnoses-engine/scikg/
 !neurodiagnoses-engine/data/simulated/
 *.sh
 !neurodiagnoses-engine/data/simulated/test_patient_proteomics.csv

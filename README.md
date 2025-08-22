@@ -20,6 +20,7 @@ The Neurodiagnoses ecosystem combines a "glass-box" Bayesian engine for deep dia
 > - **[Component Manifest](neurodiagnoses-engine/MANIFEST.md)**
 > - **[Operations Playbook](neurodiagnoses-engine/PLAYBOOK.md)**
 
+
 ```mermaid
 graph TD
     subgraph Inputs

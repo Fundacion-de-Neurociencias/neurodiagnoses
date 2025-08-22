@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TeamMemberCard from '../components/TeamMemberCard.astro';
+
+const teamMembers = [
+  {
+    name: "Dr. Manuel Menéndez-González",
+    role: "Principal Investigator",
+    imageUrl: "/assets/img/placeholder-profile.png",
+    bio: "Lead researcher focusing on the intersection of neurology, data science, and artificial intelligence to redefine neurodegenerative disease diagnosis."
+  },
+  // Añadir más miembros del equipo aquí
+];
+---
+<BaseLayout title="Team - Neurodiagnoses">
+  <Header />
+  <main class="mx-auto max-w-7xl px-4 py-16">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold">Our Team</h1>
+        <p class="mt-4 text-lg text-slate-600">Meet the researchers and engineers behind Neurodiagnoses.</p>
+    </div>
+    <div class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+      {teamMembers.map(member => (
+        <TeamMemberCard {...member} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

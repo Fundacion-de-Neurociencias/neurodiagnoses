@@ -25,4 +25,5 @@ pypdf
 requests
 pymupdf4llm
 gradio
-pymc
+pymcollama==0.5.3
+dolphin==0.42.0
