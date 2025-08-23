@@ -30,5 +30,6 @@ Crear un ecosistema de IA de código abierto para potenciar la investigación de
 * **Misión 1: "Operación Océano" Definitiva:** Ejecutar el `knowledge_orchestrator` robustecido para poblar masivamente la Base de Conocimiento.
 * **Misión 2: Integración Final en la UI:** Modificar la `app.py` para mostrar los resultados de **riesgo** y **pronóstico** en el informe final.
 * **Misión 3: Desarrollo del NKC (`scikg`):** Implementar el pipeline `Dolphin + Ollama` en el repositorio `scikg`.
-* **MisiÃ³n 4: "Laboratorio Visual":** Desarrollar las visualizaciones interactivas para el anÃ¡lisis de cohortes en la UI.
-* **MisiÃ³n 5: Auto-explicabilidad y Trazabilidad CientÃ­fica (En Progreso):** Poblar continuamente la `explicability_kb.yaml` y asegurar que cada informe generado por el motor incluya una secciÃ³n de 'Scientific Rationale' que enlace las conclusiones a la evidencia cientÃ­fica fundamental.
+* **Misión 4: "Laboratorio Visual":** Desarrollar las visualizaciones interactivas para el análisis de cohortes en la UI.
+* **Misión 5: Auto-explicabilidad y Trazabilidad Científica (En Progreso):** Poblar continuamente la `explicability_kb.yaml` y asegurar que cada informe generado por el motor incluya una sección de 'Scientific Rationale' que enlace las conclusiones a la evidencia científica fundamental.
+* **Misión 6: Motor Probabilístico Avanzado:** Evolucionar el `BayesianEngine` para aceptar no solo evidencia binari
