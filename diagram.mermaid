@@ -1,0 +1,11 @@
+graph TD
+    subgraph "Proyecto 1: LURIA (Proveedor de Fenotipo)"
+        A[Datos Crudos de Tests Neuropsicológicos] --> B{LURIA Engine (FastAPI + PostgreSQL)}
+        B --> C[API Endpoint: /phenotype/{patient_id}]
+    end
+
+    subgraph "Proyecto 2: Neurodiagnoses (Consumidor de Evidencia)"
+        D(BayesianEngine) --> E[Firma Neurodegenerativa]
+    end
+    
+    C -- "evidence_tags": ["severe_visual_memory_deficit", ...] --> D
