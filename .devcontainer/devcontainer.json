@@ -1,0 +1,15 @@
+{
+  "name": "Neurodiagnoses Development Environment",
+  // Usamos una imagen oficial de Microsoft que ya incluye Miniconda y Mamba
+  "image": "mcr.microsoft.com/devcontainers/miniconda:0-3",
+
+  // Extensiones de VS Code recomendadas para este entorno
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}
