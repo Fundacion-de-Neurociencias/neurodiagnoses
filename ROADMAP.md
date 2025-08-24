@@ -22,6 +22,8 @@ Crear un ecosistema de IA de código abierto para potenciar la investigación de
 * **Auditoría Profunda:** Análisis completo del código base para redescubrir funcionalidades "huérfanas".
 * **Rescate del Pipeline de Riesgo:** Reparación, refactorización a un módulo (`RiskPredictionEngine`) y validación del pipeline de riesgo genético (PHS).
 * **Rescate del Pipeline de Prognosis:** Reparación y validación del pipeline de pronóstico temporal (actualmente "mothballed" a la espera de datos a gran escala).
+
+    - Se ha enriquecido el motor Bayesiano para utilizar evidencia cuantitativa (Odds Ratios) del estudio DIPPA-FTD para diferenciar NDDs de imitadores psiquiátricos.
 * **Integración Funcional:** Integración del `RiskPredictionEngine` en el motor principal, enriqueciendo la "Firma Neurodegenerativa" con una evaluación de riesgo.
 * **Expansión del Diagnóstico Diferencial:** Evolución del motor y la KB para diferenciar NDDs de sus "grandes imitadores" (ej. autoinmunes) y generar alertas accionables.
 
