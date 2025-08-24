@@ -1,9 +1,12 @@
 {
   "name": "Neurodiagnoses Development Environment",
-  // Usamos una imagen oficial de Microsoft que ya incluye Miniconda y Mamba
-  "image": "mcr.microsoft.com/devcontainers/miniconda:0-3",
+  // Usamos la imagen oficial de Google que ya incluye gcloud y gemini
+  "image": "gcr.io/google.com/cloudsdktool/google-cloud-cli:latest",
 
-  // Extensiones de VS Code recomendadas para este entorno
+  // Comando que se ejecuta una sola vez después de crear el contenedor.
+  // Lo usamos para instalar Miniconda de forma silenciosa.
+  "postCreateCommand": "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && bash ~/miniconda.sh -b -p $HOME/miniconda && rm ~/miniconda.sh && echo 'source ~/miniconda/bin/activate' >> ~/.bashrc",
+
   "customizations": {
     "vscode": {
       "extensions": [
